@@ -2,6 +2,7 @@ import { Logo } from "@/shared/icons/Logo";
 import { Container } from "./ui/container";
 import Link from "next/link";
 import { Navbar } from "./Navbar";
+import { Button } from "./ui/button";
 
 const Header = () => {
   return (
@@ -13,7 +14,10 @@ const Header = () => {
           </Link>
 
           <Navbar />
-          <div>2</div>
+
+          <Button className="h-[40px] w-full max-w-[182px]">
+            Записаться онлайн
+          </Button>
         </div>
       </Container>
     </header>
