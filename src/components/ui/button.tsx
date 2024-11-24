@@ -14,17 +14,25 @@ const buttonVariants = cva(
           bg-primary text-primary-foreground
           transition-[font-size,background-color]
           duration-500 ease-out
-          hover:bg-[#E2F1FF] hover:text-primary hove:border hover:border-[#0084FF] hover:border-[1px]
-          active:border active:border-[#0084FF] active:text-[12px] active:delay-[10ms]
+          hover:bg-[#E2F1FF] hover:text-primary hove:border hover:border-primary hover:border-[1px]
+          active:border active:border-primary active:text-[12px] 
           disabled:bg-[#E1E3E5] disabled:border-transparent
+        `,
+        secondary: `
+          h-[48px] w-[260px] 
+          bg-transparent
+          text-primary text-[15px] font-bold
+          border border-primary border-[1px] rounded-[8px] 
+          transition-all duration-300 ease-out
+          hover:opacity-100 hover:bg-primary hover:text-secondary
+          active:bg-primary active:opacity-100 active:text-[13px] active:delay-[10ms] active:delay-[0ms] 
+          disabled:border-[#C6C6C6] disabled:bg-transparent disabled:text-[#C6C6C6]
         `,
         // остальные варианты остаются неизменными
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
           "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
