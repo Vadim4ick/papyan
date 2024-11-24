@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ru">
       <body className={`${manrope.variable}`}>
         <div className="flex flex-col min-h-screen">
           <Header />

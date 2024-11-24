@@ -72,4 +72,16 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+
+  h1, h2, h3, h3, p {
+    @apply tracking-tight
+  }
+
+  h2 {
+    @apply font-semibold leading-[45px] text-[36px] text-[#353535]
+  }
+
+  h3 {
+    @apply font-semibold leading-[30px] text-[24px] text-[#353535] 
+  }
 }
