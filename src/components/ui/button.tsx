@@ -25,19 +25,25 @@ const buttonVariants = cva(
           border border-primary border-[1px] rounded-[8px] 
           transition-all duration-300 ease-out
           hover:opacity-100 hover:bg-primary hover:text-secondary
-          active:bg-primary active:opacity-100 active:text-[13px] active:delay-[10ms] active:delay-[0ms] 
+          active:bg-primary active:opacity-100 active:text-[13px]
           disabled:border-[#C6C6C6] disabled:bg-transparent disabled:text-[#C6C6C6]
         `,
-        // остальные варианты остаются неизменными
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        stroke: `
+          h-[36px] w-[105px]
+          text-[#353535] text-[12px]
+          bg-transparent border border-[#353535] rounded-full
+          transition-all duration-300 ease-out
+          hover:bg-primary hover:text-secondary
+          active:delay-[100ms] active:duration-[300ms] active:text-[11px]
+          disabled:border-[#C6C6C6] disabled:bg-transparent disabled:text-[#C6C6C6]
+        `,
         outline:
           "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-10 px-4 py-2",
+        default: "",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
         icon: "h-10 w-10",
