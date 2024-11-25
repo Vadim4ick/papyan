@@ -56,6 +56,16 @@ const buttonVariants = cva(
           active:transition-[spring]  active:[transition-duration:300ms] active:[transition-timing-function:cubic-bezier(0.17, 0.67, 0.83, 0.67)]
           disabled:text-[#C6C6C6]
         `,
+        arrow: `
+          flex items-center justify-center
+          h-[48px] w-[48px] 
+          bg-[#EBEFF3] rounded-full
+          transition-all duration-300 ease-out
+          text-[#353535] text-[15px]
+          hover:text-[#1467E1] hover:border-[1px] hover:border-[#0084FF]
+          active:text-[#0084FF]
+          disabled:text-[#C6C6C6] disabled:cursor-not-allowed
+        `,
       },
       size: {
         default: "",
