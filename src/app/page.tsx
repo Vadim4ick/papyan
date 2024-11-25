@@ -4,6 +4,7 @@ import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
+import Card from "@/components/ui/card";
 
 export default function Home() {
   return (
@@ -21,28 +22,36 @@ export default function Home() {
           </AspectRatio>
         </div>
       </section>
-      <section className="pt-[64px]">
+      <section className="pt-[64px] pb-[100px]">
         <div className="container mx-auto max-w-[1365px] px-[20px]">
           <div className="flex justify-between mb-[48px] ">
             <h2>Услуги клиники</h2>
             <p className="text-[#595959] text-[16px] leading-[22px] md:max-w-[540px]">
               Наши специалисты используют передовые методы и индивидуальный
-              подход, чтобы вы вновь почувствовали уверенность в своих движениях.
+              подход, чтобы вы вновь почувствовали уверенность в своих
+              движениях.
             </p>
           </div>
-          <Separator className="mb-[40px]"/>
+          <Separator className="mb-[40px]" />
 
           <div className="flex justify-between">
             <div className="flex gap-1">
-              <h3>Физиотерапия</h3><Badge variant="default">10</Badge>
+              <h3>Физиотерапия</h3>
+              <Badge variant="default">10</Badge>
             </div>
-            <Button variant='tretiary'>
-              Смотреть все
-            </Button>
+            <Button variant="tretiary">Смотреть все</Button>
           </div>
 
+          <Card
+            imageUrl="https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80"
+            width={300}
+            height={400}
+            badges={[
+              { label: "New", variant: "default" },
+              { label: "Sale", variant: "destructive" },
+            ]}
+          />
         </div>
-
       </section>
 
       <section>
@@ -91,10 +100,24 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col bg-[#1E1E1E] items-center p-8 gap-5 w-[350px] shadow-lg">
-          <h1 className="text-white py-5">Stroke button</h1>
+          <h1 className="text-white py-5">tretiary button</h1>
           <Button variant="tretiary">Смотреть все</Button>
           <Button variant="tretiary" disabled>
             Смотреть все
+          </Button>
+        </div>
+
+        <div className="flex flex-col bg-[#1E1E1E] items-center p-8 gap-5 w-[350px] shadow-lg">
+          <h1 className="text-white py-5">arrow button</h1>
+          <Button variant="arrow">
+            <span className="ms-[1px] mt-[0px] chevron transition-transform duration-300 ease-out active:scale-[0.9]">
+              <ChevronRight width={20} />
+            </span>
+          </Button>
+          <Button variant="arrow" disabled>
+            <span className="ms-[1px] mt-[0px]">
+              <ChevronRight width={20} />
+            </span>
           </Button>
         </div>
       </div>
