@@ -21,6 +21,7 @@ const buttonVariants = cva(
           disabled:bg-[#E1E3E5] disabled:border-transparent
         `,
         secondary: `
+          z-10
           h-[48px] w-[260px] 
           bg-transparent
           text-primary text-[15px]
@@ -31,13 +32,22 @@ const buttonVariants = cva(
           disabled:border-[#C6C6C6] disabled:bg-transparent disabled:text-[#C6C6C6]
         `,
         stroke: `
-          h-[36px] w-[105px]
+          relative h-[36px] w-[105px]
           text-[#353535] text-[12px] font-semibold
           bg-transparent border border-[#353535] rounded-full
+          overflow-hidden
           transition-all duration-300 ease-out
-          hover:bg-primary hover:text-secondary
+          hover:text-secondary
           active:delay-[100ms] active:duration-[300ms] active:text-[11px]
           disabled:border-[#C6C6C6] disabled:bg-transparent disabled:text-[#C6C6C6]
+          
+          before:absolute before:top-[-150px] before:left-1/2 before:h-[150px] before:w-[150px] before:-z-10
+          before:-translate-x-1/2 before:rounded-full before:bg-primary
+          before:transition-transform before:duration-500 before:ease-out hover:before:translate-y-[50%]
+          
+          after:absolute after:bottom-[-150px] after:left-1/2 after:h-[150px] after:w-[150px] after:-z-10
+          after:-translate-x-1/2 after:rounded-full after:bg-primary
+          after:transition-transform after:duration-500 after:ease-out hover:after:-translate-y-[50%]
         `,
         white: `
           h-[40px] w-[182px] 
@@ -55,6 +65,16 @@ const buttonVariants = cva(
           active:text-[#0084FF]
           active:transition-[spring]  active:[transition-duration:300ms] active:[transition-timing-function:cubic-bezier(0.17, 0.67, 0.83, 0.67)]
           disabled:text-[#C6C6C6]
+        `,
+        arrow: `
+          flex items-center justify-center
+          h-[48px] w-[48px] 
+          bg-[#EBEFF3] rounded-full
+          transition-all duration-300 ease-out
+          text-[#353535] text-[15px]
+          hover:text-[#1467E1] hover:border-[1px] hover:border-[#0084FF]
+          active:text-[#0084FF]
+          disabled:text-[#C6C6C6] disabled:cursor-not-allowed
         `,
       },
       size: {
