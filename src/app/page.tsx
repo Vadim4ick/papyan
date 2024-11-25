@@ -4,24 +4,74 @@ import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
-import Card from "@/components/ui/card";
+import ImageCard from "@/components/ui/image-card";
+import { CardsWrapper } from "@/components/cards-wrapper";
+
+const CardsMocData = [
+  {
+    id: "1",
+    title: "PRP-терапия 1",
+    description:
+      "1 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
+    price: "1000",
+  },
+  {
+    id: "2",
+    title: "PRP-терапия 2",
+    description:
+      "2 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
+    price: "2000",
+  },
+  {
+    id: "3",
+    title: "PRP-терапия 3",
+    description:
+      "3 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
+    price: "3000",
+  },
+  {
+    id: "4",
+    title: "PRP-терапия 4",
+    description:
+      "4 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
+    price: "4000",
+  },
+];
+
+const ImageCardMocData = {
+  id: 1,
+  imageUrl:
+    "https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80",
+  altText: "string",
+  tagData: [
+    { id: 1, label: "PRP-терапия" },
+    { id: 2, label: "PRP-терапия" },
+    { id: 3, label: "PRP-терапия" },
+    { id: 3, label: "PRP-терапия" },
+    { id: 3, label: "PRP-терапия" },
+  ],
+};
+
+const BlueImageUrl =
+  "https://images.unsplash.com/photo-1593012370132-c4390ff79e92?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
 export default function Home() {
   return (
     <div className="">
       <section className="bg-[#EBEFF3] pt-[36px] pb-[100px]">
-        <div className="container mx-auto max-w-[1365px] px-[20px]">
+        <div className="container mx-auto max-w-[1364px] px-[20px]">
           <AspectRatio ratio={1324 / 727}>
             <Image
               width={1324}
               height={727}
-              src="https://images.unsplash.com/photo-1593012370132-c4390ff79e92?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Image"
-              className="rounded-[8px] object-cover"
+              src={BlueImageUrl}
+              alt={"altText"}
+              className="h-full w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
             />
           </AspectRatio>
         </div>
       </section>
+
       <section className="pt-[64px] pb-[100px]">
         <div className="container mx-auto max-w-[1365px] px-[20px]">
           <div className="flex justify-between mb-[48px] ">
@@ -32,30 +82,61 @@ export default function Home() {
               движениях.
             </p>
           </div>
+
           <Separator className="mb-[40px]" />
 
-          <div className="flex justify-between">
-            <div className="flex gap-1">
-              <h3>Физиотерапия</h3>
-              <Badge variant="default">10</Badge>
+          <div className="mb-[78px]">
+            <div className="flex justify-between mb-[16px]">
+              <div className="flex gap-1">
+                <h3>Физиотерапия</h3>
+                <Badge variant="default">10</Badge>
+              </div>
+              <Button variant="tretiary">Смотреть все</Button>
             </div>
-            <Button variant="tretiary">Смотреть все</Button>
+
+            <div className="flex flex-wrap justify-between gap-[130px]">
+              <ImageCard
+                imageData={ImageCardMocData}
+                width={380}
+                height={418}
+              />
+              <CardsWrapper cardsList={CardsMocData} />
+            </div>
           </div>
 
-          <Card
-            imageUrl="https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80"
-            width={300}
-            height={400}
-            badges={[
-              { label: "New", variant: "default" },
-              { label: "Sale", variant: "destructive" },
-            ]}
-          />
+          <div className="mb-[78px]">
+            <div className="flex justify-between mb-[16px]">
+              <div className="flex gap-1">
+                <h3>Физиотерапия</h3>
+                <Badge variant="default">10</Badge>
+              </div>
+              <Button variant="tretiary">Смотреть все</Button>
+            </div>
+
+            <div className="flex flex-wrap justify-between gap-[130px]">
+              <ImageCard
+                imageData={ImageCardMocData}
+                width={380}
+                height={418}
+              />
+              <CardsWrapper cardsList={CardsMocData} />
+            </div>
+          </div>
         </div>
       </section>
 
-      <section>
-        <div></div>
+      <section className="bg-[#EBEFF3] pt-[36px] pb-[100px]">
+        <div className="container mx-auto max-w-[1364px] px-[20px]">
+          <AspectRatio ratio={1324 / 470}>
+            <Image
+              width={1324}
+              height={470}
+              src={BlueImageUrl}
+              alt={"altText"}
+              className="h-full w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
+            />
+          </AspectRatio>
+        </div>
       </section>
 
       <div className="h-full flex flex-wrap gap-5 p-20 bg-[#EBEFF3]">
