@@ -84,8 +84,11 @@ body {
   h3 {
     @apply font-semibold leading-[30px] text-[24px] text-[#353535] 
   }
-
+ 
   .chevron {
     @apply transition-transform duration-300 ease-out active:scale-[0.9]
   }
 }
+
+
+
