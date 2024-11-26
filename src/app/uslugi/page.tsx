@@ -2,7 +2,7 @@ import { SectionHeader } from "@/components/section-header";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { CardsWrapper } from "@/components/card/cards-wrapper";
+import { ServiceCardsWrapper } from "@/components/cards/serice-cards-wrapper";
 import { Container } from "@/components/ui/container";
 import {
   BlueImageUrl,
@@ -40,7 +40,7 @@ export default function Uslugi() {
                 width={380}
                 height={418}
               />
-              <CardsWrapper cardsList={CardsMocData} />
+              <ServiceCardsWrapper cardsList={CardsMocData} />
             </div>
           </div>
 
@@ -59,7 +59,7 @@ export default function Uslugi() {
                 width={380}
                 height={418}
               />
-              <CardsWrapper cardsList={CardsMocData} />
+              <ServiceCardsWrapper cardsList={CardsMocData} />
             </div>
           </div>
 
@@ -78,7 +78,7 @@ export default function Uslugi() {
                 width={380}
                 height={418}
               />
-              <CardsWrapper cardsList={CardsMocData} />
+              <ServiceCardsWrapper cardsList={CardsMocData} />
             </div>
           </div>
 
@@ -97,7 +97,7 @@ export default function Uslugi() {
                 width={380}
                 height={418}
               />
-              <CardsWrapper cardsList={CardsMocData} />
+              <ServiceCardsWrapper cardsList={CardsMocData} />
             </div>
           </div>
         </div>
