@@ -7,7 +7,7 @@ export const navbar = [
   {
     id: 2,
     title: "Услуги",
-    path: "/about",
+    path: "/uslugi",
   },
   {
     id: 3,
@@ -17,6 +17,6 @@ export const navbar = [
   {
     id: 4,
     title: "О клинике",
-    path: "/contact",
+    path: "/oklinike",
   },
 ];
