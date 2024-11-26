@@ -68,7 +68,7 @@ const buttonVariants = cva(
         `,
         arrow: `
           flex items-center justify-center
-          h-[48px] w-[48px] 
+          h-[48px] w-[48px] border-[#EBEFF3] border-[1px]
           bg-[#EBEFF3] rounded-full
           transition-all duration-300 ease-out
           text-[#353535] text-[15px]
@@ -112,6 +112,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
               <ChevronRight width={17} />
             </span>
           </div>
+        ) : variant === "arrow" ? (
+            <span className="ms-[2px] mt-[0px] chevron transition-transform duration-300 ease-out active:scale-[0.9]">
+              {children}
+            </span>
         ) : (
           children
         )}
