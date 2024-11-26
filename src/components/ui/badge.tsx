@@ -4,12 +4,12 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/shared/lib/utils"
  
 const badgeVariants = cva(
-  "inline-flex items-center rounded-[100px] border px-[10px] py-[2px] text-xs font-semibold min-w-[29px]",
+  "inline-flex items-center rounded-[100px] border px-[10px] py-[2px] text-[12px] font-semibold min-w-[29px] ",
   {
     variants: {
       variant: {
         default:
-          "bg-[#F0F3F8] text-primary text-[14px] leading-[18.2px]",
+          "bg-[#FFFFFF]/70 backdrop-blur-[20px] text-[#353535] text-[12px] leading-[15.6px] tracking-tight",
         secondary:
           "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
         destructive:
@@ -22,7 +22,7 @@ const badgeVariants = cva(
     },
   }
 )
- 
+
 export interface BadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {}

@@ -6,7 +6,7 @@ const Container = ({
   className?: string;
 }) => {
   return (
-    <div className={`max-w-[1365px] mx-auto px-[20px] ${className}`}>
+    <div className={`max-w-[1364px] mx-auto px-[20px] ${className}`}>
       {children}
     </div>
   );

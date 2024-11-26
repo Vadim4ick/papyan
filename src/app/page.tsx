@@ -5,7 +5,8 @@ import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import ImageCard from "@/components/ui/image-card";
-import { CardsWrapper } from "@/components/cards-wrapper";
+import { CardsWrapper } from "@/components/card/cards-wrapper";
+import { Container } from "@/components/ui/container";
 
 const CardsMocData = [
   {
@@ -73,7 +74,7 @@ export default function Home() {
       </section>
 
       <section className="pt-[64px] pb-[100px]">
-        <div className="container mx-auto max-w-[1365px] px-[20px]">
+        <div className="container mx-auto max-w-[1364px] px-[20px]">
           <div className="flex justify-between mb-[48px] ">
             <h2>Услуги клиники</h2>
             <p className="text-[#595959] text-[16px] leading-[22px] md:max-w-[540px]">
@@ -126,17 +127,17 @@ export default function Home() {
       </section>
 
       <section className="bg-[#EBEFF3] pt-[36px] pb-[100px]">
-        <div className="container mx-auto max-w-[1364px] px-[20px]">
-          <AspectRatio ratio={1324 / 470}>
-            <Image
-              width={1324}
-              height={470}
-              src={BlueImageUrl}
-              alt={"altText"}
-              className="h-full w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
-            />
-          </AspectRatio>
-        </div>
+          <Container>
+            <AspectRatio ratio={1324 / 470}>
+              <Image
+                width={1324}
+                height={470}
+                src={BlueImageUrl}
+                alt={"altText"}
+                className="h-full w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
+              />
+            </AspectRatio>
+          </Container>
       </section>
 
       <div className="h-full flex flex-wrap gap-5 p-20 bg-[#EBEFF3]">
@@ -191,14 +192,10 @@ export default function Home() {
         <div className="flex flex-col bg-[#1E1E1E] items-center p-8 gap-5 w-[350px] shadow-lg">
           <h1 className="text-white py-5">arrow button</h1>
           <Button variant="arrow">
-            <span className="ms-[1px] mt-[0px] chevron transition-transform duration-300 ease-out active:scale-[0.9]">
-              <ChevronRight width={20} />
-            </span>
+            <ChevronRight width={20} />
           </Button>
           <Button variant="arrow" disabled>
-            <span className="ms-[1px] mt-[0px]">
-              <ChevronRight width={20} />
-            </span>
+            <ChevronRight width={20} />
           </Button>
         </div>
       </div>
