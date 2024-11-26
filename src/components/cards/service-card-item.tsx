@@ -9,14 +9,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ICards } from "./cards-wrapper";
+import { IServiceCards } from "./serice-cards-wrapper";
 import { RussianRuble } from "lucide-react";
 
-interface CardItemProps {
-  card: ICards;
+interface ServiceCardItemProps {
+  card: IServiceCards;
 }
 
-function CardItem({ card }: CardItemProps) {
+function ServiceCardItem({ card }: ServiceCardItemProps) {
   return (
     <Card className="w-[396px] h-[199px] bg-[#F0F3F8] rounded-lg p-[18px] flex flex-col">
       <CardHeader className="pb-[14px]">
@@ -32,13 +32,15 @@ function CardItem({ card }: CardItemProps) {
         <p className="relative text-[#353535] text-[18px] leading-[22px] tracking-tight font-semibold ">
           {card.price}{" "}
           <span className="absolute top-[4px]">
-            <RussianRuble size={16}strokeWidth={2.25} />
+            <RussianRuble size={16} strokeWidth={2.25} />
           </span>{" "}
         </p>
-        <Button className="z-10" variant="stroke">Подробнее</Button>
+        <Button className="z-10" variant="stroke">
+          Подробнее
+        </Button>
       </CardFooter>
     </Card>
   );
 }
 
-export { CardItem };
+export { ServiceCardItem };

@@ -2,7 +2,7 @@ export const navbar = [
   {
     id: 1,
     title: "Акции",
-    path: "/",
+    path: "/akcii",
   },
   {
     id: 2,
@@ -12,7 +12,7 @@ export const navbar = [
   {
     id: 3,
     title: "Цены",
-    path: "/contact",
+    path: "/ceny",
   },
   {
     id: 4,

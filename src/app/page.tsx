@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Badge } from "@/components/ui/badge";
-import { CardsWrapper } from "@/components/card/cards-wrapper";
+import { ServiceCardsWrapper } from "@/components/cards/serice-cards-wrapper";
 import { Container } from "@/components/ui/container";
 import { AllButtons } from "@/components/all-buttons";
 import { SectionHeader } from "@/components/section-header";
@@ -55,7 +55,7 @@ export default function Home() {
                 width={380}
                 height={418}
               />
-              <CardsWrapper cardsList={CardsMocData} />
+              <ServiceCardsWrapper cardsList={CardsMocData} />
             </div>
           </div>
 
@@ -74,7 +74,7 @@ export default function Home() {
                 width={380}
                 height={418}
               />
-              <CardsWrapper cardsList={CardsMocData} />
+              <ServiceCardsWrapper cardsList={CardsMocData} />
             </div>
           </div>
         </div>
