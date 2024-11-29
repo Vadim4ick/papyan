@@ -1,7 +1,6 @@
 import { Logo } from "@/shared/icons/Logo";
 import { Container } from "../ui/container";
 import Link from "next/link";
-import { Navbar } from "../Navbar";
 import { Button } from "../ui/button";
 import {
   Sheet,
@@ -11,6 +10,7 @@ import {
   SheetTrigger,
 } from "../ui/sheet";
 import { Menu } from "lucide-react";
+import { Navbar } from "./Navbar";
 
 const Header = () => {
   return (

@@ -1,7 +1,7 @@
 import { navbar } from "@/shared/const/const";
 import Link from "next/link";
-import { Separator } from "./ui/separator";
 import { ChevronRight } from "lucide-react";
+import { Separator } from "@radix-ui/react-separator";
 
 const Navbar = () => {
   
