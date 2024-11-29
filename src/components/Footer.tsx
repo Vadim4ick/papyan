@@ -8,9 +8,10 @@ import { Phone } from "@/shared/icons/Phone";
 
 const Footer = () => {
   return (
-    <footer className="h-[360px] bg-[#353535]">
+    <footer className="min-h-[360px] bg-[#353535]">
       <Container className="h-full">
-        <div className="flex justify-between gap-2 pt-[72px]">
+        <section className="flex flex-col items-center justify-between gap-y-3 lg:flex-row ">
+        {/* <div className="flex justify-between gap-2 pt-[72px]"> */}
           <div className="flex flex-col gap-4 justify-between">
             <LogoFooter />
 
@@ -19,7 +20,7 @@ const Footer = () => {
             </Button>
           </div>
 
-          <div className="flex gap-[128px]">
+          <div className="flex gap-[128px] flex-wrap">
             <div className="flex flex-col gap-[32px]">
               <h4 className="font-[600] text-white text-[20px] leading-[25px]">
                 Навигация
@@ -97,7 +98,8 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </div>
+        {/* </div> */}
+        </section>
       </Container>
 
       <div className="h-[52px] border-t border-[#5E5E5E] bg-[#353535]">

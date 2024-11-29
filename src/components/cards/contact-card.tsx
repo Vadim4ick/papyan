@@ -1,52 +1,30 @@
 import * as React from "react";
 
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Calendar, Home, Inbox } from "lucide-react";
-
-const items = [
-  {
-    title: "Home",
-    url: "#",
-    icon: Home,
-  },
-  {
-    title: "Inbox",
-    url: "#",
-    icon: Inbox,
-  },
-  {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
-  }
-]
+import { Card, CardContent } from "@/components/ui/card";
+import { Clock7, MapPin, Phone } from "lucide-react";
 
 interface ContactCardProps {
-  address: string
-  schedule:string
-  phone:string
-
+  address: string;
+  schedule: string;
+  phone: string;
 }
 
-function ContactCard({ address, schedule, phone  }: ContactCardProps) {
+function ContactCard({ address, schedule, phone }: ContactCardProps) {
   return (
-    <Card className=" w-[316px] border-none ">
-      <CardContent className="h-[174px] flex flex-col rounded-lg p-[20px]">
-      {items.map((item) => (
-                  
-                    <a key={item.title} href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </a>
-                 
-              ))}
+    <Card className=" w-full border-none ">
+      <CardContent className="h-[174px] flex flex-col gap-[16px] rounded-lg p-[20px] font-semibold  text-[18px] leading-[28px] tracking-tight">
+        <a href="#" className="flex items-center space-x-2">
+          <MapPin className="text-primary"/>
+          <span>{address}</span>
+        </a>
+        <a href="#" className="flex items-center space-x-2">
+          <Clock7 className="text-primary"/>
+          <span>{schedule}</span>
+        </a>
+        <a href="#" className="flex items-center space-x-2">
+          <Phone className="text-primary"/>
+          <span>{phone}</span>
+        </a>
       </CardContent>
     </Card>
   );

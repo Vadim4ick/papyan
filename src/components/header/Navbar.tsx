@@ -7,7 +7,6 @@ const Navbar = () => {
   
   return (
     <nav className="flex flex-col items-start text-sm font-medium lg:flex-row lg:space-x-4">
-      {/* <div className="flex items-center gap-4 bg-[#EBEFF3] rounded-[8px]"> */}
       {navbar.map((item, index) => (
         <div key={item.id} className="h-full w-full lg:flex ">
           <Link
@@ -24,7 +23,6 @@ const Navbar = () => {
           {index < navbar.length - 1 && <Separator orientation="horizontal" className="lg:hidden"/>}
         </div>
       ))}
-      {/* </div> */}
     </nav>
   );
 };
