@@ -1,0 +1,24 @@
+.menu-transition {
+  transition: transform 0.6s ease-in-out;
+}
+
+.button-transition {
+  animation-delay: 2s;
+  transition: transform 0.5s ease-in;
+}
+
+/* .transition-opacity {
+  transition: opacity 0.5s ease-in-out;
+} */
+
+.translate-y-0 {
+  transform: translateY(0);
+}
+
+.-translate-y-full {
+  transform: translateY(-100%);
+}
+
+.translate-y-full {
+  transform: translateY(100%);
+}

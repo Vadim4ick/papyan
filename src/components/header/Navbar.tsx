@@ -1,7 +1,7 @@
 import { navbar } from "@/shared/const/const";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { Separator } from "@radix-ui/react-separator";
+import { Separator } from "../ui/separator";
 
 const Navbar = () => {
   
@@ -20,7 +20,7 @@ const Navbar = () => {
             <ChevronRight className="h-[22px] md:h-[24px] lg:hidden"/>
           </Link>
           {index < navbar.length - 1 && <Separator orientation="vertical" className="hidden lg:block" />}
-          {index < navbar.length - 1 && <Separator orientation="horizontal" className="lg:hidden"/>}
+          {index < navbar.length - 1 && <Separator orientation="horizontal" className="z-50 lg:hidden bg-[#DEE2E5]"/>}
         </div>
       ))}
     </nav>
