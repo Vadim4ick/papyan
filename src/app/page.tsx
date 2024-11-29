@@ -17,24 +17,22 @@ import { SliderWrapper } from "@/components/slider/slider-wrapper";
 export default function Home() {
   return (
     <div className="">
-      <section className="bg-[#EBEFF3] pt-[36px] pb-[100px]">
-        <div className="container mx-auto max-w-[1364px] px-[20px]">
-          <AspectRatio ratio={1324 / 727}>
+      <section className="h-dvh bg-[#EBEFF3] lg:px-[20px] lg:pt-[36px] lg:pb-[100px]">
+        <div className="container h-full mx-auto max-w-[1364px] ">
             <Image
               width={1324}
               height={727}
               src={BlueImageUrl}
               alt={"altText"}
-              className="h-full w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
+              className="h-full object-cover lg:rounded-lg transition-transform duration-300 group-hover:scale-105"
             />
-          </AspectRatio>
         </div>
       </section>
 
-      <section className="pt-[64px] pb-[100px]">
+      <section className="pt-[32px] lg:pt-[64px] lg:pb-[100px]">
         <div className="container mx-auto max-w-[1364px] px-[20px]">
           <SectionHeader
-            className="mb-[40px]"
+            className="mb-[20px]"
             title="Услуги клиники"
             description="Наши специалисты используют передовые методы и индивидуальный
               подход, чтобы вы вновь почувствовали уверенность в своих
@@ -47,7 +45,7 @@ export default function Home() {
                 <h3>Физиотерапия</h3>
                 <Badge variant="default">10</Badge>
               </div>
-              <Button variant="tretiary">Смотреть все</Button>
+              <Button variant="tretiary" className="hidden md:block">Смотреть все</Button>
             </div>
 
             <div className="flex flex-wrap justify-between gap-[130px]">
