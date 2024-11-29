@@ -106,7 +106,7 @@ export default function Home() {
       
 
 
-      <AllButtons />
+      {/* <AllButtons /> */}
     </div>
   );
 }
