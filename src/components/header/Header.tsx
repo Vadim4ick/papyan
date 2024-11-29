@@ -11,6 +11,7 @@ import {
 } from "../ui/sheet";
 import { Menu } from "lucide-react";
 import { Navbar } from "./Navbar";
+import { ContactCard } from "../cards/contact-card";
 
 const Header = () => {
   return (
@@ -32,7 +33,8 @@ const Header = () => {
               <div className="flex-1 lg:hidden">
               <Navbar />
               </div>
-              <SheetFooter>
+              <SheetFooter className="">
+                <ContactCard address={""} schedule={""} phone={""}/>
                 <Button variant="secondary" className="w-full" >Записаться онлайн</Button>
               </SheetFooter>
             </SheetContent>
