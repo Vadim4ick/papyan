@@ -3,15 +3,16 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Badge } from "@/components/ui/badge";
 import { ServiceCardsWrapper } from "@/components/cards/serice-cards-wrapper";
 import { Container } from "@/components/ui/container";
-import { AllButtons } from "@/components/all-buttons";
 import { SectionHeader } from "@/components/section-header";
 import {
   BlueImageUrl,
   CardsMocData,
   ImageCardMocData,
+  ImageMocData,
 } from "@/shared/const/moc-data";
 import ImageCard from "@/components/ui/image-card";
 import Image from "next/image";
+import { SliderWrapper } from "@/components/slider/slider-wrapper";
 
 export default function Home() {
   return (
@@ -94,7 +95,17 @@ export default function Home() {
         </Container>
       </section>
 
-      <AllButtons />
+      <section className="pt-[100px] pb-[100px]">
+      <Container>
+        <SliderWrapper ImageData={ImageMocData}/>
+      </Container>
+
+      </section>
+        
+      
+
+
+      {/* <AllButtons /> */}
     </div>
   );
 }
