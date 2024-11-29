@@ -13,6 +13,7 @@ import {
 import ImageCard from "@/components/ui/image-card";
 import Image from "next/image";
 import { SliderWrapper } from "@/components/slider/slider-wrapper";
+import { AllButtons } from "@/components/all-buttons";
 
 export default function Home() {
   return (
@@ -105,7 +106,7 @@ export default function Home() {
       
 
 
-      {/* <AllButtons /> */}
+      <AllButtons />
     </div>
   );
 }

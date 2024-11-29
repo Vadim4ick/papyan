@@ -26,7 +26,7 @@
 }
 
 .swiper-slide {
-  width: 23.87%;
+  width: 316px;
 }
 
 .swiper-navigation {
@@ -44,17 +44,18 @@
   cursor: pointer;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1024px) {
+  .swiper {
+    overflow: hidden;
+  }
   .swiper-slide {
-    /* width: 23.87%; */
-    width: 400px;
+    width: 311px;
   }
 }
 
 @media (max-width: 768px) {
   .swiper-slide {
-    /* width: 33.87%; */
-    width: 150px;
+    width: 289px;
   }
 }
 
