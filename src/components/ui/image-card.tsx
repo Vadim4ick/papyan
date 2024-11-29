@@ -15,7 +15,7 @@ interface ImageData {
   id: number;
   imageUrl: string;
   altText: string;
-  tagData: { id: number; label: string }[];
+  tagData?: { id: number; label: string }[];
 }
 
 const ImageCard: React.FC<ImageCardProps> = ({ imageData, width, height }) => {

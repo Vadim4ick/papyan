@@ -43,5 +43,62 @@ export const ImageCardMocData = {
   ],
 };
 
+export const ImageMocData = [
+  {
+    id: 1,
+    imageUrl:
+      "https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80",
+    altText: "string",
+  },
+  {
+    id: 2,
+    imageUrl:
+      "https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80",
+    altText: "string",
+  },
+  {
+    id: 3,
+    imageUrl:
+      "https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80",
+    altText: "string",
+  },
+  {
+    id: 4,
+    imageUrl:
+      "https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80",
+    altText: "string",
+  },
+  {
+    id: 5,
+    imageUrl:
+      "https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80",
+    altText: "string",
+  },
+  {
+    id: 6,
+    imageUrl:
+      "https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80",
+    altText: "string",
+  },
+  {
+    id: 7,
+    imageUrl:
+      "https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80",
+    altText: "string",
+  },
+  {
+    id: 8,
+    imageUrl:
+      "https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80",
+    altText: "string",
+  },
+  {
+    id: 9,
+    imageUrl:
+      "https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80",
+    altText: "string",
+  },
+];
+
 export const BlueImageUrl =
   "https://images.unsplash.com/photo-1593012370132-c4390ff79e92?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
