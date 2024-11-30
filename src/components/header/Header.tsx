@@ -9,12 +9,10 @@ import { Logo } from "@/shared/icons/Logo";
 import { Navbar } from "./Navbar";
 import "./header.css";
 import { ContactCard } from "../cards/contact-card";
+import { ContactData } from "@/shared/const/moc-data";
 
-const items = {
-  address: "Краснодар, Постовая улица, 23",
-  schedule: "Пн-Сб: 08:00—20:00",
-  phone: "+7 (918) 232-13-13",
-};
+const contacts = ContactData
+
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -71,9 +69,9 @@ const Header = () => {
         >
           <div className="flex flex-col items-center gap-[32px] lg:hidden">
             <ContactCard
-              address={items.address}
-              schedule={items.schedule}
-              phone={items.phone}
+              address={contacts.address}
+              schedule={contacts.schedule}
+              phone={contacts.phone}
             />
             <Button variant="default" className="w-full">
               Записаться онлайн
