@@ -14,6 +14,7 @@ interface ServiceCardsWrapperProps {
   cardsList: IServiceCards[];
 }
 
+
 const ServiceCardsWrapper: React.FC<ServiceCardsWrapperProps> = ({ cardsList }) => {
   const isMobile = useClientMediaQuery('(max-width: 1280px)')
   const numberOfCardsToRender = isMobile ? 2 : 4;
