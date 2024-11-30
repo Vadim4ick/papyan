@@ -1,16 +1,11 @@
 import { SectionHeader } from "@/components/section-header";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { ServiceCardsWrapper } from "@/components/cards/serice-cards-wrapper";
 import { Container } from "@/components/ui/container";
 import {
   BlueImageUrl,
-  CardsMocData,
-  ImageCardMocData,
 } from "@/shared/const/moc-data";
-import ImageCard from "@/components/ui/image-card";
 import Image from "next/image";
+import { CatigoryWrapper } from "@/components/catigory/catigory-wrapper";
 
 export default function Uslugi() {
   return (
@@ -25,81 +20,11 @@ export default function Uslugi() {
               движениях."
           />
 
-          <div className="mb-[78px]">
-            <div className="flex justify-between mb-[16px]">
-              <div className="flex gap-1">
-                <h3>Физиотерапия</h3>
-                <Badge variant="default">10</Badge>
-              </div>
-              <Button variant="tretiary">Смотреть все</Button>
-            </div>
+          <CatigoryWrapper className="mb-[78px]" />
+          <CatigoryWrapper className="mb-[78px]" />
+          <CatigoryWrapper className="mb-[78px]" />
+          <CatigoryWrapper className="mb-[78px]" />
 
-            <div className="flex flex-wrap justify-between gap-[130px]">
-              <ImageCard
-                imageData={ImageCardMocData}
-                width={380}
-                height={418}
-              />
-              <ServiceCardsWrapper cardsList={CardsMocData} />
-            </div>
-          </div>
-
-          <div className="mb-[78px]">
-            <div className="flex justify-between mb-[16px]">
-              <div className="flex gap-1">
-                <h3>Физиотерапия</h3>
-                <Badge variant="default">10</Badge>
-              </div>
-              <Button variant="tretiary">Смотреть все</Button>
-            </div>
-
-            <div className="flex flex-wrap justify-between gap-[130px]">
-              <ImageCard
-                imageData={ImageCardMocData}
-                width={380}
-                height={418}
-              />
-              <ServiceCardsWrapper cardsList={CardsMocData} />
-            </div>
-          </div>
-
-          <div className="mb-[78px]">
-            <div className="flex justify-between mb-[16px]">
-              <div className="flex gap-1">
-                <h3>Физиотерапия</h3>
-                <Badge variant="default">10</Badge>
-              </div>
-              <Button variant="tretiary">Смотреть все</Button>
-            </div>
-
-            <div className="flex flex-wrap justify-between gap-[130px]">
-              <ImageCard
-                imageData={ImageCardMocData}
-                width={380}
-                height={418}
-              />
-              <ServiceCardsWrapper cardsList={CardsMocData} />
-            </div>
-          </div>
-
-          <div className="mb-[78px]">
-            <div className="flex justify-between mb-[16px]">
-              <div className="flex gap-1">
-                <h3>Физиотерапия</h3>
-                <Badge variant="default">10</Badge>
-              </div>
-              <Button variant="tretiary">Смотреть все</Button>
-            </div>
-
-            <div className="flex flex-wrap justify-between gap-[130px]">
-              <ImageCard
-                imageData={ImageCardMocData}
-                width={380}
-                height={418}
-              />
-              <ServiceCardsWrapper cardsList={CardsMocData} />
-            </div>
-          </div>
         </div>
       </section>
 
