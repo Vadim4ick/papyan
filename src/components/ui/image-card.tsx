@@ -1,14 +1,13 @@
 import React from "react";
-import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
 import { Button } from "@/components/ui/button"; // Замените на путь к вашей кнопке
 import { Badge } from "@/components/ui/badge"; // Замените на путь к вашему Badge
 import { ChevronRight } from "lucide-react";
+import { cn } from "@/shared/lib/utils";
 
 interface ImageCardProps {
   imageData: ImageData;
-  width: number;
-  height: number;
+  className?: string;
 }
 
 interface ImageData {
@@ -18,21 +17,16 @@ interface ImageData {
   tagData?: { id: number; label: string }[];
 }
 
-const ImageCard: React.FC<ImageCardProps> = ({ imageData, width, height }) => {
+const ImageCard: React.FC<ImageCardProps> = ({ imageData, className }) => {
   return (
-    <div
-      className="relative space-y-3 overflow-hidden rounded-md group"
-      style={{ width, height }}
-    >
-      <AspectRatio ratio={width / height}>
+    <div className={cn("w-[350px] h-[301px] md:w-[357px] md:h-[394px] xl:w-[380px] xl:h-[418px]  relative space-y-3 overflow-hidden rounded-md group", className)}>
         <Image
-          width={width}
-          height={height}
+          width={380}
+          height={418}
           src={imageData.imageUrl}
           alt={imageData.altText}
           className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
-      </AspectRatio>
 
       <div className="absolute top-0 right-[14px]">
         <Button
