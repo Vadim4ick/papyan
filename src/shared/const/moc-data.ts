@@ -102,3 +102,10 @@ export const ImageMocData = [
 
 export const BlueImageUrl =
   "https://images.unsplash.com/photo-1593012370132-c4390ff79e92?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+
+
+export const ContactData = {
+    address: "Краснодар, Постовая улица, 23",
+    schedule: "Пн-Сб: 08:00—20:00",
+    phone: "+7 (918) 232-13-13",
+  };  
