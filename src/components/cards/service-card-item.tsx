@@ -18,7 +18,7 @@ interface ServiceCardItemProps {
 
 function ServiceCardItem({ card }: ServiceCardItemProps) {
   return (
-    <Card className="w-full md:w-[396px] h-[199px] bg-[#F0F3F8] rounded-lg p-[18px] flex flex-col">
+    <Card className=" w-[350px] xl:w-[357px] h-[199px] md:h-[187px] xl:h-[199px] bg-[#F0F3F8] rounded-lg p-[18px] flex flex-col">
       <CardHeader className="pb-[14px]">
         <CardTitle className="text-[#353535] text-[18px] leading-[22px] tracking-tight font-semibold">
           {card.title}
