@@ -1,9 +1,9 @@
 import { cn } from "@/shared/lib/utils";
-import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import ImageCard from "../ui/image-card";
 import { ServiceCardsWrapper } from "../cards/serice-cards-wrapper";
 import { ImageCardMocData, CardsMocData } from "@/shared/const/moc-data";
+import { TitleWithBadge } from "../title-with-badge";
 
 interface CategotyWrapperProps {
   className?: string;
@@ -13,10 +13,7 @@ const CatigoryWrapper: React.FC<CategotyWrapperProps> = ({ className }) => {
   return (
     <div className={cn("", className)}>
       <div className="flex justify-between mb-[16px]">
-        <div className="flex gap-1">
-          <h3>Физиотерапия</h3>
-          <Badge variant="default">10</Badge>
-        </div>
+        <TitleWithBadge tittle={"Физиотерапия"} quantity={"10"}/>
         <Button variant="tretiary" className="hidden md:block">
           Смотреть все
         </Button>
