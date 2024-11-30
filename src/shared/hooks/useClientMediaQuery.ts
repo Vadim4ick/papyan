@@ -22,3 +22,11 @@ export function useClientMediaQuery(query: string): boolean | null {
 
   return matches;
 }
+
+/** Использование.
+/*
+/* "use client"
+/*
+/* import { useClientMediaQuery } from '@/hooks/useClientMediaQuery';
+/*
+/* const isMobile = useClientMediaQuery('(max-width: 600px)') */
