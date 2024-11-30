@@ -12,7 +12,7 @@ import { CatigoryWrapper } from "@/components/catigory/catigory-wrapper";
 export default function Home() {
   return (
     <div className="">
-      <section className="h-dvh bg-[#EBEFF3] lg:px-[20px] lg:pt-[36px] lg:pb-[100px]">
+      <section className="h-screen bg-[#EBEFF3] lg:px-[20px] lg:pt-[36px] lg:pb-[100px]">
         <div className="container h-full mx-auto max-w-[1364px] ">
           <Image
             width={1324}
