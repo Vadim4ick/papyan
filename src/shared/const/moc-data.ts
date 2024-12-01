@@ -14,6 +14,7 @@ export const servicesList:TService[] = [
     description:
       "1 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
     price: "1000",
+    categoryId:"fizioterapiya"
   },
   {
     id: "2",
@@ -21,6 +22,7 @@ export const servicesList:TService[] = [
     description:
       "2 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
     price: "2000",
+    categoryId:"fizioterapiya"
   },
   {
     id: "3",
@@ -28,6 +30,7 @@ export const servicesList:TService[] = [
     description:
       "3 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
     price: "3000",
+    categoryId:"fizioterapiya"
   },
   {
     id: "4",
@@ -35,6 +38,7 @@ export const servicesList:TService[] = [
     description:
       "4 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
     price: "4000",
+    categoryId:"fizioterapiya"
   },
 ];
 

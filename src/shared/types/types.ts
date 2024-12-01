@@ -3,6 +3,7 @@ export type TService = {
   title: string;
   description: string;
   price: string;
+  categoryId: string;
 };
 
 export interface IServicesTitles  {
