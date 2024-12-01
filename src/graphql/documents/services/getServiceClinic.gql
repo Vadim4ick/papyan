@@ -1,0 +1,15 @@
+query GetServiceClinic {
+  servicesClinic {
+    servicesClinic {
+      servicesBlock_id {
+        title
+        img {
+          ...MediaFragment
+        }
+        allServices {
+          ...ServiceFragment
+        }
+      }
+    }
+  }
+}

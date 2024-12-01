@@ -1,0 +1,12 @@
+query GetServiceBlock {
+  servicesBlock {
+    id
+    title
+    img {
+      ...MediaFragment
+    }
+    allServices {
+      ...ServiceFragment
+    }
+  }
+}
