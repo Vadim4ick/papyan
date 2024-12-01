@@ -9,6 +9,10 @@ export interface IServicesTitles  {
   title: string
 }
 
+export type TCategory = {
+  id: string
+  name: string
+}
 
 
 export interface IImage {

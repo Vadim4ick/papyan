@@ -1,6 +1,13 @@
-import { TService } from "../types/types";
+import { TCategory, TService } from "../types/types";
 
-export const ServicesList:TService[] = [
+export const categories:TCategory[] = [
+  { id: "fizioterapiya", name: "Физиотерапия" },
+  { id: "massazhi", name: "Массажи" },
+  { id: "procedury", name: "Процедуры" },
+  { id: "lfk", name: "ЛФК" }
+];
+
+export const servicesList:TService[] = [
   {
     id: "1",
     title: "PRP-терапия 1",
@@ -31,7 +38,7 @@ export const ServicesList:TService[] = [
   },
 ];
 
-export const ServicesTitlesList = ServicesList.map((item: TService) => ({
+export const ServicesTitlesList = servicesList.map((item: TService) => ({
   title: item.title
 }) )
 

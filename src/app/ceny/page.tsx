@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { CatigoryWrapper } from "@/components/catigory/catigory-wrapper";
+import { CatigoryWrapper } from "@/components/category/category-wrapper";
 import { SectionHeader } from "@/components/section-header";
 import { ServicesCostsWrapper } from "@/components/services-cost/services-costs-wrapper";
-import { SecondBunnerImageUrl, ServicesList } from "@/shared/const/moc-data";
+import { categories, SecondBunnerImageUrl } from "@/shared/const/moc-data";
 
 
 export default function Ceny() {
@@ -17,10 +17,9 @@ export default function Ceny() {
               подход, чтобы вы вновь почувствовали уверенность в своих
               движениях."
           />
-          <ServicesCostsWrapper priceList={ServicesList} />
-          <ServicesCostsWrapper priceList={ServicesList} />
-          <ServicesCostsWrapper priceList={ServicesList} />
-          <ServicesCostsWrapper priceList={ServicesList} />
+          {categories.map((category) => (
+            <ServicesCostsWrapper key={category.id} category={category}  />
+          ))}
         </div>
       </section>
 
@@ -45,9 +44,9 @@ export default function Ceny() {
               подход, чтобы вы вновь почувствовали уверенность в своих
               движениях."
           />
-
-          <CatigoryWrapper className="mb-[78px]" />
-          <CatigoryWrapper className="mb-[78px]" />
+          {categories.map((category) => (
+            <CatigoryWrapper key={category.id} className="mb-[78px]" category={category} />
+          ))}
         </div>
       </section>
     </div>
