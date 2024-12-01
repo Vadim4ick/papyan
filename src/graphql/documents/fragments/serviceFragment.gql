@@ -1,0 +1,7 @@
+fragment ServiceFragment on services {
+  id
+  title
+  price
+  description
+  sale
+}

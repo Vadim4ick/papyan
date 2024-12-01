@@ -1,6 +1,10 @@
 import { Container } from "@/components/ui/container";
 import { SectionHeader } from "@/components/section-header";
-import { ImageMocData, MainBunnerImageUrl, SecondBunnerImageUrl } from "@/shared/const/moc-data";
+import {
+  ImageMocData,
+  MainBunnerImageUrl,
+  SecondBunnerImageUrl,
+} from "@/shared/const/moc-data";
 import Image from "next/image";
 import { SliderWrapper } from "@/components/slider/slider-wrapper";
 import { CatigoryWrapper } from "@/components/catigory/catigory-wrapper";

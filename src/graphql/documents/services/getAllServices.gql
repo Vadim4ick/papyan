@@ -1,0 +1,9 @@
+query GetAllServices {
+  services {
+    id
+    title
+    price
+    description
+    sale
+  }
+}
