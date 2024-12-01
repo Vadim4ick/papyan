@@ -1,5 +1,5 @@
 import { GetConsultCard } from "@/components/cards/get-consult-card";
-import { Container } from "@/components/ui/container";
+import Image from "next/image";
 
 export default async function Page({
   params,
@@ -8,9 +8,81 @@ export default async function Page({
 }) {
   const slug = (await params).slug;
   return (
-    <Container>
-      Описание терапии: {slug}
-      <GetConsultCard title={"Хивамат-терапия"} regularPrice={"2200"} newPrice={"1700"}  />
-    </Container>
+    <>
+      <section className="pt-[64px] pb-[100px] ">
+        <div className="container flex mx-auto max-w-[1364px] px-[20px]">
+          <div>
+            <div className="mb-[36px] md:mb-[48px] lg:mb-[71px] lg:max-w-[718px]">
+              <h1 className="mb-[12px] md:mb-[16px] lg:mb-[24px]">
+                Хивамат-терапия {slug}
+              </h1>
+              <p>
+                Физиотерапевтическая процедура, выполняемая аппаратом «Хивамат»
+                (Hivamat). Принцип действия основан на массаже кожи и мышечных
+                тканей посредством переменного электростатического поля,
+                генерирующего осцилляции – вибрации с задаваемой определенной
+                глубиной и частотой проникновения.
+              </p>
+            </div>
+            <div className="w-full flex items-center justify-center lg:justify-start lg: flex-col gap-y-[16px] md:flex-row gap-x-[20px] my-[36px] md:my-[48px] lg:my-[64px] ">
+              <div className=" h-[467px] ] w-[350px] md:h-[416px] md:w-[377px xl:h-[418px] xl:w-[396px] overflow-hidden rounded-md group">
+                <Image
+                  width={380}
+                  height={418}
+                  src={
+                    "https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80"
+                  }
+                  alt={"altText"}
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <div className=" h-[467px] ] w-[350px] md:h-[416px] md:w-[377px xl:h-[418px] xl:w-[396px] overflow-hidden rounded-md group">
+                <Image
+                  width={380}
+                  height={418}
+                  src={
+                    "https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80"
+                  }
+                  alt={"altText"}
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+            </div>
+            <div className="lg:max-w-[812px]">
+              <p>
+                Равным образом новая модель организационной деятельности
+                позволяет выполнять важные задания по разработке дальнейших
+                направлений развития. Значимость этих проблем настолько
+                очевидна, что постоянное информационно-пропагандистское
+                обеспечение нашей деятельности позволяет оценить значение
+                системы обучения кадров, соответствует насущным потребностям.
+                Разнообразный и богатый опыт сложившаяся структура организации
+                влечет за собой процесс внедрения и модернизации модели
+                развития.
+              </p>
+              <p>
+                С другой стороны рамки и место обучения кадров способствует
+                подготовки и реализации новых предложений. С другой стороны
+                постоянное информационно-пропагандистское обеспечение нашей
+                деятельности требуют определения и уточнения позиций, занимаемых
+                участниками в отношении поставленных задач. Товарищи! постоянное
+                информационно-пропагандистское обеспечение нашей деятельности
+                играет важную роль в формировании системы обучения кадров,
+                соответствует насущным потребностям.
+              </p>
+            </div>
+          </div>
+          <div className="relative w-full ">
+            <div className="sticky top-[64px] max-w-fit ml-auto">
+              <GetConsultCard
+                title={"Хивамат-терапия"}
+                regularPrice={"2200"}
+                newPrice={"1700"}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

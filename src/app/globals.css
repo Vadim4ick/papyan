@@ -78,6 +78,10 @@ body {
     @apply tracking-tight
   }
 
+  h1 {
+    @apply font-semibold leading-[45px] text-[36px] text-[#353535]
+  }
+
   h2 {
     @apply font-semibold leading-[45px] text-[36px] text-[#353535]
   }
@@ -85,6 +89,12 @@ body {
   h3 {
     @apply font-semibold leading-[30px] text-[24px] text-[#353535] 
   }
+
+  p {
+    @apply font-medium leading-[22px] md:leading-[25px] text-[16px] md:text-[18px] text-[#353535] 
+  }
+
+
  
   .chevron {
     @apply transition-transform duration-300 ease-out active:scale-[0.9]
