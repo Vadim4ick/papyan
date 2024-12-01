@@ -1,11 +1,10 @@
 import { SectionHeader } from "@/components/section-header";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Container } from "@/components/ui/container";
-import {
-  BlueImageUrl,
-} from "@/shared/const/moc-data";
+
 import Image from "next/image";
 import { CatigoryWrapper } from "@/components/catigory/catigory-wrapper";
+import { SecondBunnerImageUrl } from "@/shared/const/moc-data";
 
 export default function Uslugi() {
   return (
@@ -34,7 +33,7 @@ export default function Uslugi() {
             <Image
               width={1324}
               height={470}
-              src={BlueImageUrl}
+              src={SecondBunnerImageUrl}
               alt={"altText"}
               className="h-full w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
             />
