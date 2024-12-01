@@ -4,17 +4,11 @@ import { Button } from "@/components/ui/button"; // Замените на пут
 import { Badge } from "@/components/ui/badge"; // Замените на путь к вашему Badge
 import { ChevronRight } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
+import { IImage } from "@/shared/types/types";
 
 interface ImageCardProps {
-  imageData: ImageData;
+  imageData: IImage;
   className?: string;
-}
-
-interface ImageData {
-  id: number;
-  imageUrl: string;
-  altText: string;
-  tagData?: { id: number; label: string }[];
 }
 
 const ImageCard: React.FC<ImageCardProps> = ({ imageData, className }) => {
@@ -39,10 +33,10 @@ const ImageCard: React.FC<ImageCardProps> = ({ imageData, className }) => {
 
       <div className="absolute bottom-0 left-[14px] right-[14px]">
         <div className="flex flex-wrap justify-start gap-[4px] opacity-0 group-hover:opacity-100 group-hover:translate-y-[-14px] transition-all duration-300">
-          {imageData.tagData &&
-            imageData.tagData.map((tag) => (
-              <Badge key={tag.id} variant="default">
-                {tag.label}
+          {imageData.services &&
+            imageData.services.map((service) => (
+              <Badge key={service.title} variant="default">
+                {service.title}
               </Badge>
             ))}
         </div>

@@ -1,6 +1,6 @@
 import { Container } from "@/components/ui/container";
 import { SectionHeader } from "@/components/section-header";
-import { BlueImageUrl, ImageMocData } from "@/shared/const/moc-data";
+import { ImageMocData, MainBunnerImageUrl, SecondBunnerImageUrl } from "@/shared/const/moc-data";
 import Image from "next/image";
 import { SliderWrapper } from "@/components/slider/slider-wrapper";
 import { CatigoryWrapper } from "@/components/catigory/catigory-wrapper";
@@ -13,7 +13,7 @@ export default function Home() {
           <Image
             width={1324}
             height={727}
-            src={BlueImageUrl}
+            src={MainBunnerImageUrl}
             alt={"altText"}
             className="h-full w-full object-cover lg:rounded-lg transition-transform duration-300 group-hover:scale-105"
           />
@@ -39,7 +39,7 @@ export default function Home() {
           <Image
             width={1324}
             height={470}
-            src={BlueImageUrl}
+            src={SecondBunnerImageUrl}
             alt={"altText"}
             className="h-full w-full object-cover lg:rounded-lg transition-transform duration-300 group-hover:scale-105"
           />

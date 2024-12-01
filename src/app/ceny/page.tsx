@@ -2,9 +2,8 @@ import Image from "next/image";
 import { CatigoryWrapper } from "@/components/catigory/catigory-wrapper";
 import { SectionHeader } from "@/components/section-header";
 import { ServicesCostsWrapper } from "@/components/services-cost/services-costs-wrapper";
-import { BlueImageUrl, CardsMocData } from "@/shared/const/moc-data";
+import { SecondBunnerImageUrl, ServicesList } from "@/shared/const/moc-data";
 
-const priceList = CardsMocData;
 
 export default function Ceny() {
   return (
@@ -18,10 +17,10 @@ export default function Ceny() {
               подход, чтобы вы вновь почувствовали уверенность в своих
               движениях."
           />
-          <ServicesCostsWrapper priceList={priceList} />
-          <ServicesCostsWrapper priceList={priceList} />
-          <ServicesCostsWrapper priceList={priceList} />
-          <ServicesCostsWrapper priceList={priceList} />
+          <ServicesCostsWrapper priceList={ServicesList} />
+          <ServicesCostsWrapper priceList={ServicesList} />
+          <ServicesCostsWrapper priceList={ServicesList} />
+          <ServicesCostsWrapper priceList={ServicesList} />
         </div>
       </section>
 
@@ -30,7 +29,7 @@ export default function Ceny() {
           <Image
             width={1324}
             height={470}
-            src={BlueImageUrl}
+            src={SecondBunnerImageUrl}
             alt={"altText"}
             className="h-full w-full object-cover lg:rounded-lg transition-transform duration-300 group-hover:scale-105"
           />

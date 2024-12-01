@@ -2,7 +2,7 @@ import { cn } from "@/shared/lib/utils";
 import { Button } from "../ui/button";
 import ImageCard from "../ui/image-card";
 import { ServiceCardsWrapper } from "../cards/serice-cards-wrapper";
-import { ImageCardMocData, CardsMocData } from "@/shared/const/moc-data";
+import { ImageCardMocData, ServicesList } from "@/shared/const/moc-data";
 import { TitleWithBadge } from "../title-with-badge";
 
 interface CategotyWrapperProps {
@@ -21,7 +21,7 @@ const CatigoryWrapper: React.FC<CategotyWrapperProps> = ({ className }) => {
 
       <div className="flex flex-col items-center md:flex-row justify-between md:gap-[40px] xl:gap-[130px]">
         <ImageCard imageData={ImageCardMocData} className="mb-[36px] md:mb-0" />
-        <ServiceCardsWrapper cardsList={CardsMocData} />
+        <ServiceCardsWrapper cardsList={ServicesList} />
       </div>
     </div>
   );
