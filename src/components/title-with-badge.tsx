@@ -5,7 +5,7 @@ import { cn } from "@/shared/lib/utils";
 
 interface TitleWithBadgeProps {
     tittle: string;
-    quantity: string;
+    quantity: number;
     className?: string;
 }
 

@@ -38,7 +38,7 @@ function ServiceCardItem({ card }: ServiceCardItemProps) {
             <RussianRuble size={16} strokeWidth={2.25} />
           </span>{" "}
         </p>
-        <Button className="z-10" variant="stroke" onClick={() => router.push(`/uslugi/${card.id}`)}>
+        <Button className="z-10" variant="stroke" onClick={() => router.push(`/therapy/${card.id}`)}>
           Подробнее
         </Button>
       </CardFooter>
