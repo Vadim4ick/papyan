@@ -1,4 +1,3 @@
-import { GetConsultCard } from "@/components/cards/get-consult-card";
 import { Container } from "@/components/ui/container";
 
 export default async function Page({
@@ -9,8 +8,7 @@ export default async function Page({
   const slug = (await params).slug;
   return (
     <Container>
-      Услуга: {slug}
-      <GetConsultCard title={"Хивамат-терапия"} regularPrice={"2200"} newPrice={"1700"}  />
+      Список видов терапии слуги: {slug}
     </Container>
   );
 }

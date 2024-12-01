@@ -3,8 +3,8 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Container } from "@/components/ui/container";
 
 import Image from "next/image";
-import { CatigoryWrapper } from "@/components/catigory/catigory-wrapper";
-import { SecondBunnerImageUrl } from "@/shared/const/moc-data";
+import { CatigoryWrapper } from "@/components/category/category-wrapper";
+import { categories, SecondBunnerImageUrl } from "@/shared/const/moc-data";
 
 export default function Uslugi() {
   return (
@@ -19,10 +19,9 @@ export default function Uslugi() {
               движениях."
           />
 
-          <CatigoryWrapper className="mb-[78px]" />
-          <CatigoryWrapper className="mb-[78px]" />
-          <CatigoryWrapper className="mb-[78px]" />
-          <CatigoryWrapper className="mb-[78px]" />
+          {categories.map((category) => (
+            <CatigoryWrapper key={category.id} className="mb-[78px]" category={category} />
+          ))}
 
         </div>
       </section>
