@@ -1,4 +1,6 @@
-export const CardsMocData = [
+import { TService } from "../types/types";
+
+export const ServicesList:TService[] = [
   {
     id: "1",
     title: "PRP-терапия 1",
@@ -29,18 +31,16 @@ export const CardsMocData = [
   },
 ];
 
+export const ServicesTitlesList = ServicesList.map((item: TService) => ({
+  title: item.title
+}) )
+
 export const ImageCardMocData = {
   id: 1,
   imageUrl:
     "https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80",
   altText: "string",
-  tagData: [
-    { id: 1, label: "PRP-терапия" },
-    { id: 2, label: "PRP-терапия" },
-    { id: 3, label: "PRP-терапия" },
-    { id: 3, label: "PRP-терапия" },
-    { id: 3, label: "PRP-терапия" },
-  ],
+  services: ServicesTitlesList
 };
 
 export const ImageMocData = [
@@ -100,8 +100,12 @@ export const ImageMocData = [
   },
 ];
 
-export const BlueImageUrl =
+export const MainBunnerImageUrl =
   "https://images.unsplash.com/photo-1593012370132-c4390ff79e92?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+
+  export const SecondBunnerImageUrl =
+  "https://images.unsplash.com/photo-1593012370132-c4390ff79e92?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+
 
 
 export const ContactData = {
