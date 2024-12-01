@@ -1,12 +1,20 @@
-import { TService } from "../types/types";
+import { TCategory, TService } from "../types/types";
 
-export const ServicesList:TService[] = [
+export const categories:TCategory[] = [
+  { id: "fizioterapiya", name: "Физиотерапия" },
+  { id: "massazhi", name: "Массажи" },
+  { id: "procedury", name: "Процедуры" },
+  { id: "lfk", name: "ЛФК" }
+];
+
+export const servicesList:TService[] = [
   {
     id: "1",
     title: "PRP-терапия 1",
     description:
       "1 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
     price: "1000",
+    categoryId:"fizioterapiya"
   },
   {
     id: "2",
@@ -14,6 +22,7 @@ export const ServicesList:TService[] = [
     description:
       "2 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
     price: "2000",
+    categoryId:"fizioterapiya"
   },
   {
     id: "3",
@@ -21,6 +30,7 @@ export const ServicesList:TService[] = [
     description:
       "3 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
     price: "3000",
+    categoryId:"fizioterapiya"
   },
   {
     id: "4",
@@ -28,10 +38,27 @@ export const ServicesList:TService[] = [
     description:
       "4 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
     price: "4000",
+    categoryId:"fizioterapiya"
+  },
+  {
+    id: "5",
+    title: "PRP-терапия 5",
+    description:
+      "5 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
+    price: "5000",
+    categoryId:"fizioterapiya"
+  },
+  {
+    id: "6",
+    title: "PRP-терапия 6",
+    description:
+      "6 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
+    price: "6000",
+    categoryId:"fizioterapiya"
   },
 ];
 
-export const ServicesTitlesList = ServicesList.map((item: TService) => ({
+export const ServicesTitlesList = servicesList.map((item: TService) => ({
   title: item.title
 }) )
 

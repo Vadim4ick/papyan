@@ -1,13 +1,14 @@
 import { Container } from "@/components/ui/container";
 import { SectionHeader } from "@/components/section-header";
 import {
+  categories,
   ImageMocData,
   MainBunnerImageUrl,
   SecondBunnerImageUrl,
 } from "@/shared/const/moc-data";
 import Image from "next/image";
 import { SliderWrapper } from "@/components/slider/slider-wrapper";
-import { CatigoryWrapper } from "@/components/catigory/catigory-wrapper";
+import { CatigoryWrapper } from "@/components/category/category-wrapper";
 
 export default function Home() {
   return (
@@ -33,8 +34,13 @@ export default function Home() {
               подход, чтобы вы вновь почувствовали уверенность в своих
               движениях."
           />
-          <CatigoryWrapper className="mb-[78px]" />
-          <CatigoryWrapper className="mb-[78px]" />
+          {categories.map((category) => (
+            <CatigoryWrapper
+              key={category.id}
+              className="mb-[78px]"
+              category={category}
+            />
+          ))}
         </div>
       </section>
 

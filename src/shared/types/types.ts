@@ -3,12 +3,17 @@ export type TService = {
   title: string;
   description: string;
   price: string;
+  categoryId: string;
 };
 
 export interface IServicesTitles  {
   title: string
 }
 
+export type TCategory = {
+  id: string
+  name: string
+}
 
 
 export interface IImage {
