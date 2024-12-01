@@ -40,6 +40,22 @@ export const servicesList:TService[] = [
     price: "4000",
     categoryId:"fizioterapiya"
   },
+  {
+    id: "5",
+    title: "PRP-терапия 5",
+    description:
+      "5 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
+    price: "5000",
+    categoryId:"fizioterapiya"
+  },
+  {
+    id: "6",
+    title: "PRP-терапия 6",
+    description:
+      "6 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
+    price: "6000",
+    categoryId:"fizioterapiya"
+  },
 ];
 
 export const ServicesTitlesList = servicesList.map((item: TService) => ({
