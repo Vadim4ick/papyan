@@ -1,7 +1,5 @@
 import * as React from "react";
-
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Clock7, MapPin, Phone } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
 
 interface ContactCardProps {
@@ -27,7 +25,6 @@ function ContactCardV2({
             Телефон для справок
           </p>
           <a href="#" className="flex items-center space-x-2">
-            <Phone className="text-primary" />
             <span>{phone}</span>
           </a>
         </div>
@@ -36,7 +33,6 @@ function ContactCardV2({
             Телефон для справок
           </p>
           <a href="#" className="flex items-center space-x-2">
-            <MapPin className="text-primary" />
             <span>{address}</span>
           </a>
         </div>
@@ -45,7 +41,6 @@ function ContactCardV2({
             Телефон для справок
           </p>
           <a href="#" className="flex items-center space-x-2">
-            <Clock7 className="text-primary" />
             <span>{schedule}</span>
           </a>
         </div>
