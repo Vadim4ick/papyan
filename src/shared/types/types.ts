@@ -13,6 +13,7 @@ export interface IServicesTitles  {
 export type TCategory = {
   id: string
   name: string
+  imageUrl:string
 }
 
 

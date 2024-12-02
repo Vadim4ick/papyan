@@ -1,10 +1,26 @@
 import { TCategory, TService } from "../types/types";
 
 export const categories:TCategory[] = [
-  { id: "fizioterapiya", name: "Физиотерапия" },
-  { id: "massazhi", name: "Массажи" },
-  { id: "procedury", name: "Процедуры" },
-  { id: "lfk", name: "ЛФК" }
+  { 
+    id: "fizioterapiya",
+    name: "Физиотерапия",
+    imageUrl:"https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80",
+  },
+  { 
+    id: "massazhi",
+    name: "Массажи",
+    imageUrl:"https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80",
+  },
+  { 
+    id: "procedury",
+    name: "Процедуры",
+    imageUrl:"https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80",
+  },
+  { 
+    id: "lfk",
+    name: "ЛФК",
+    imageUrl:"https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80",
+  }
 ];
 
 export const servicesList:TService[] = [
