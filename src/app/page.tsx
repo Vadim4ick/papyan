@@ -1,4 +1,3 @@
-import { Container } from "@/components/ui/container";
 import { SectionHeader } from "@/components/section-header";
 import {
   categories,
@@ -57,9 +56,13 @@ export default function Home() {
       </section>
 
       <section className="pt-[100px] pb-[100px]">
-        <Container>
-          <SliderWrapper ImageData={ImageMocData} />
-        </Container>
+        <div className="container h-[494px] md:h-[520px] lg:h-[470px]  mx-auto max-w-[1364px]">
+          <SliderWrapper>
+            {ImageMocData.map((item) => (
+              <img key={item.id} src={item.imageUrl} alt={item.altText} />
+            ))}
+          </SliderWrapper>
+        </div>
       </section>
 
       {/* <AllButtons /> */}

@@ -1,4 +1,7 @@
 import { GetConsultCard } from "@/components/cards/get-consult-card";
+import { ServiceCardItem } from "@/components/cards/service-card-item";
+import { SliderWrapper } from "@/components/slider/slider-wrapper";
+import { SecondBunnerImageUrl, servicesList } from "@/shared/const/moc-data";
 import Image from "next/image";
 
 export default async function Page({
@@ -9,8 +12,8 @@ export default async function Page({
   const slug = (await params).slug;
   return (
     <>
-      <section className="pt-[64px] pb-[100px] ">
-        <div className="container flex mx-auto max-w-[1364px] px-[20px]">
+      <section className="pt-[64px] pb-[72px] xl:pb-[100px] ">
+        <div className="container flex flex-col gap-y-[60px] md:flex-row mx-auto max-w-[1364px] px-[20px]">
           <div>
             <div className="mb-[36px] md:mb-[48px] lg:mb-[71px] lg:max-w-[718px]">
               <h1 className="mb-[12px] md:mb-[16px] lg:mb-[24px]">
@@ -73,7 +76,7 @@ export default async function Page({
             </div>
           </div>
           <div className="relative w-full ">
-            <div className="sticky top-[64px] max-w-fit ml-auto">
+            <div className="xl:sticky top-[64px] max-w-fit mx-auto md:ml-auto">
               <GetConsultCard
                 title={"Хивамат-терапия"}
                 regularPrice={"2200"}
@@ -81,6 +84,28 @@ export default async function Page({
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="pb-[72px] xl:py-[100px] ">
+        <div className="container mx-auto max-w-[1364px] px-[20px]">
+          <SliderWrapper>
+            {servicesList.map((item) => (
+              <ServiceCardItem key={item.id} card={item} />
+            ))}
+          </SliderWrapper>
+        </div>
+      </section>
+
+      <section className="bg-[#EBEFF3] xl:py-[100px] ">
+        <div className="container h-[494px] md:h-[520px] lg:h-[470px] mx-auto max-w-[1364px] lg:px-[20px]">
+          <Image
+            width={1324}
+            height={470}
+            src={SecondBunnerImageUrl}
+            alt={"altText"}
+            className="h-full w-full object-cover lg:rounded-lg transition-transform duration-300 group-hover:scale-105"
+          />
         </div>
       </section>
     </>
