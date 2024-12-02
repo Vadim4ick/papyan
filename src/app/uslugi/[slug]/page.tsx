@@ -1,6 +1,7 @@
+import { CategoriesGalery } from "@/components/cards/categories-galery";
 import { ServiceCardsWrapper } from "@/components/cards/serice-cards-wrapper";
 import { SectionHeader } from "@/components/section-header";
-import { servicesList } from "@/shared/const/moc-data";
+import { categories, servicesList } from "@/shared/const/moc-data";
 import Image from "next/image";
 
 export default async function Page({
@@ -46,9 +47,10 @@ export default async function Page({
         </div>
       </section>
 
-      <section className="pt-[88px] pb-[100px] bg-[#F0F3F8]">
+      <section className="pt-[32px] pb-[72px] md:pt-[48px] md:pb-[78px] xl:pt-[88px] xl:pb-[100px] bg-[#F0F3F8]">
         <div className="container mx-auto max-w-[1364px] px-[20px]">
-          <h2>Другие услуги</h2>
+          <h2 className="md:mb-[48px]">Другие услуги</h2>
+          <CategoriesGalery categoryList={categories}/>
         </div>
 
       </section>
