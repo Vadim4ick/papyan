@@ -22,7 +22,7 @@ const ServiceCardsWrapper: React.FC<ServiceCardsWrapperProps> = ({ cardsList, sh
   const numberOfCardsToRender = isMobile ? 2 : 4;
 
   return (
-    <div className="grid grid-cols-1 xl:grid-cols-2 md:grid-rows-2 gap-[20px] justify-items-center">      
+    <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-[20px] gap-y-5 justify-items-center auto-rows-max">
         { !showFullList ?
         cardsList.slice(0, numberOfCardsToRender).map((item) => (
           <ServiceCardItem key={item.id} card={item} />

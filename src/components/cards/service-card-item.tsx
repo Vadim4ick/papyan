@@ -21,7 +21,7 @@ interface ServiceCardItemProps {
 function ServiceCardItem({ card }: ServiceCardItemProps) {
   const router = useRouter()
   return (
-    <Card className=" w-[350px] xl:w-[357px] h-[199px] md:h-[187px] xl:h-[199px] bg-[#F0F3F8] rounded-lg p-[18px] flex flex-col">
+    <Card className=" w-[350px]  h-[199px] md:w-[377px] md:h-[187px] xl:w-[396px] xl:h-[199px] bg-[#F0F3F8] rounded-lg p-[18px] flex flex-col">
       <CardHeader className="pb-[14px]">
         <CardTitle className="text-[#353535] text-[18px] leading-[22px] tracking-tight font-semibold">
           {card.title}
