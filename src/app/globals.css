@@ -74,7 +74,7 @@ body {
     @apply bg-background text-foreground;
   }
 
-  h1, h2, h3, h3, p {
+  h1, h2, h3, h3, p, ul, li {
     @apply tracking-tight
   }
 
@@ -87,19 +87,22 @@ body {
   }
 
   h3 {
+    @apply font-semibold leading-[35px] text-[28px] text-[#353535] 
+  }
+
+  h4 {
     @apply font-semibold leading-[30px] text-[24px] text-[#353535] 
   }
 
   p {
-    @apply font-medium leading-[22px] md:leading-[25px] text-[16px] md:text-[18px] text-[#353535] 
+    @apply font-medium leading-[22px] md:leading-[25px] text-[16px] md:text-[18px] text-[#353535]
   }
 
-
- 
   .chevron {
     @apply transition-transform duration-300 ease-out active:scale-[0.9]
   }
 }
+
 
 
 
