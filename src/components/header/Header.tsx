@@ -15,6 +15,7 @@ const contacts = ContactData
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <>
@@ -27,7 +28,7 @@ const Header = () => {
 
           {/* Навбар для десктопа */}
           <div className="hidden lg:flex flex-1 justify-center  z-50">
-            <Navbar />
+            <Navbar onLinkClick={closeMenu}/>
           </div>
 
           {/* Кнопка "Записаться онлайн" для десктопа */}
@@ -55,7 +56,7 @@ const Header = () => {
         >
           {/* Навбар в мобильном меню */}
           <div className="pt-[160px] px-[30px] lg:hidden">
-            <Navbar />
+            <Navbar onLinkClick={closeMenu}/>
           </div>
         </div>
 
