@@ -1,3 +1,4 @@
+import { Banner } from "@/components/banner";
 import { GetConsultCard } from "@/components/cards/get-consult-card";
 import { ServiceCardItem } from "@/components/cards/service-card-item";
 import { SliderWrapper } from "@/components/slider/slider-wrapper";
@@ -97,17 +98,7 @@ export default async function Page({
         </div>
       </section>
 
-      <section className="bg-[#EBEFF3] xl:py-[100px] ">
-        <div className="container h-[494px] md:h-[520px] lg:h-[470px] mx-auto max-w-[1364px] lg:px-[20px]">
-          <Image
-            width={1324}
-            height={470}
-            src={SecondBunnerImageUrl}
-            alt={"altText"}
-            className="h-full w-full object-cover lg:rounded-lg transition-transform duration-300 group-hover:scale-105"
-          />
-        </div>
-      </section>
+      <Banner imageUrl={SecondBunnerImageUrl} hight={"h-[494px] md:h-[520px] lg:h-[470px]"}/>
     </>
   );
 }

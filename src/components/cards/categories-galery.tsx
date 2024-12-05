@@ -7,16 +7,16 @@ import { TitleWithBadge } from "../title-with-badge";
 
 interface CategoriesGaleryProps {
   categoryList: TCategory[];
-  cardWidth?: string;
-  cardHeight?: string;
+  cardWidth: string;
+  cardHeight: string;
   numberOfCardsToRender? : number
 }
 
 const CategoriesGalery: React.FC<CategoriesGaleryProps> = ({
   categoryList,
   numberOfCardsToRender = 2,
-  cardWidth = "350px",
-  cardHeight = "262px",
+  cardWidth,
+  cardHeight,
 }) => {
   // const numberOfCardsToRender = 3;
   return (

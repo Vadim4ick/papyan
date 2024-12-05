@@ -1,10 +1,8 @@
 import { SectionHeader } from "@/components/section-header";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Container } from "@/components/ui/container";
 
-import Image from "next/image";
 import { CatigoryWrapper } from "@/components/category/category-wrapper";
 import { categories, SecondBunnerImageUrl } from "@/shared/const/moc-data";
+import { Banner } from "@/components/banner";
 
 export default function Uslugi() {
   return (
@@ -20,25 +18,19 @@ export default function Uslugi() {
           />
 
           {categories.map((category) => (
-            <CatigoryWrapper key={category.id} className="mb-[78px]" category={category} />
+            <CatigoryWrapper
+              key={category.id}
+              className="mb-[78px]"
+              category={category}
+            />
           ))}
-
         </div>
       </section>
 
-      <section className="bg-[#EBEFF3] pt-[36px] pb-[100px]">
-        <Container>
-          <AspectRatio ratio={1324 / 470}>
-            <Image
-              width={1324}
-              height={470}
-              src={SecondBunnerImageUrl}
-              alt={"altText"}
-              className="h-full w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
-            />
-          </AspectRatio>
-        </Container>
-      </section>
+      <Banner
+        imageUrl={SecondBunnerImageUrl}
+        hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
+      />
     </div>
   );
 }

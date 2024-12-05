@@ -1,5 +1,4 @@
-"use client"
-import Image from "next/image";
+"use client";
 import { CatigoryWrapper } from "@/components/category/category-wrapper";
 import { SectionHeader } from "@/components/section-header";
 import { ServicesCostsWrapper } from "@/components/services-cost/services-costs-wrapper";
@@ -8,7 +7,7 @@ import { CategoriesGalery } from "@/components/cards/categories-galery";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-
+import { Banner } from "@/components/banner";
 
 export default function Ceny() {
   const router = useRouter();
@@ -24,22 +23,15 @@ export default function Ceny() {
               движениях."
           />
           {categories.map((category) => (
-            <ServicesCostsWrapper key={category.id} category={category}  />
+            <ServicesCostsWrapper key={category.id} category={category} />
           ))}
         </div>
       </section>
 
-      <section className="bg-[#EBEFF3] py-[100px] lg:px-[20px]">
-        <div className="container h-[494px] md:h-[520px] lg:h-[470px]  mx-auto max-w-[1364px]">
-          <Image
-            width={1324}
-            height={470}
-            src={SecondBunnerImageUrl}
-            alt={"altText"}
-            className="h-full w-full object-cover lg:rounded-lg transition-transform duration-300 group-hover:scale-105"
-          />
-        </div>
-      </section>
+      <Banner
+        imageUrl={SecondBunnerImageUrl}
+        hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
+      />
 
       <section className="pt-[32px] lg:pt-[64px] pb-[72px] md:pb-[78px] lg:pb-[100px]">
         <div className="container mx-auto max-w-[1364px] px-[20px]">
