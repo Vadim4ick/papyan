@@ -259,7 +259,7 @@ export default function About() {
               подход, чтобы вы вновь почувствовали уверенность в своих
               движениях."
           />
-          {categories.map((category) => (
+          {categories.slice(0, 2).map((category) => (
             <CatigoryWrapper
               key={category.id}
               className="mb-[78px]"
