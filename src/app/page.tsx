@@ -44,7 +44,7 @@ export default function Home() {
       </section>
 
       <section className="bg-[#EBEFF3] py-[100px] lg:px-[20px]">
-        <div className="container h-[494px] md:h-[520px] lg:h-[470px]  mx-auto max-w-[1364px]">
+        <div className="container h-[494px] md:h-[520px] lg:h-[470px] mx-auto max-w-[1364px]">
           <Image
             width={1324}
             height={470}

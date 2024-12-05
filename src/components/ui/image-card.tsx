@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button"; // Замените на путь к вашей кнопке
-import { Badge } from "@/components/ui/badge"; // Замените на путь к вашему Badge
-import { ChevronRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
 import { IImage } from "@/shared/types/types";
+import { RoundButton } from "./round-button";
 
 interface ImageCardProps {
   imageData: IImage;
@@ -23,12 +23,12 @@ const ImageCard: React.FC<ImageCardProps> = ({ imageData, className }) => {
         />
 
       <div className="absolute top-0 right-[14px]">
-        <Button
-          variant="arrow"
+        <RoundButton
+          variant="default"
           className="opacity-0  group-hover:opacity-100 group-hover:translate-y-[14px] transition-all duration-300"
         >
-          <ChevronRight width={20} />
-        </Button>
+          <ArrowUpRight />
+        </RoundButton>
       </div>
 
       <div className="absolute bottom-0 left-[14px] right-[14px]">

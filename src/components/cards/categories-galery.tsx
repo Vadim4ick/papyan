@@ -7,12 +7,18 @@ import { TitleWithBadge } from "../title-with-badge";
 
 interface CategoriesGaleryProps {
   categoryList: TCategory[];
+  cardWidth?: string;
+  cardHeight?: string;
+  numberOfCardsToRender? : number
 }
 
 const CategoriesGalery: React.FC<CategoriesGaleryProps> = ({
   categoryList,
+  numberOfCardsToRender = 2,
+  cardWidth = "350px",
+  cardHeight = "262px",
 }) => {
-  const numberOfCardsToRender = 3;
+  // const numberOfCardsToRender = 3;
   return (
     <div className="flex flex-col md:flex-row gap-y-[24px] items-center gap-x-[26px] overflow-x-auto">
       {categoryList.slice(0, numberOfCardsToRender).map((category) => (
@@ -24,7 +30,7 @@ const CategoriesGalery: React.FC<CategoriesGaleryProps> = ({
           />
           <ImageCard
             imageData={ImageCardMocData}
-            className="w-[350px] h-[262px] md:w-[311px] md:h-[343px] xl:w-[396px] xl:h-[464px]"
+            className={`${cardWidth} ${cardHeight}`}
           />
         </div>
       ))}
