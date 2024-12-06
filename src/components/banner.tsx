@@ -1,10 +1,12 @@
+import { MediaFragmentFragment } from "@/graphql/__generated__";
+import { pathImage } from "@/shared/lib/utils";
 import Image from "next/image";
 
 const Banner = ({
   imageUrl,
   hight = "",
 }: {
-  imageUrl: string;
+  imageUrl: MediaFragmentFragment;
   hight: string;
 }) => {
   return (
@@ -16,7 +18,7 @@ const Banner = ({
           <Image
             width={1324}
             height={727}
-            src={imageUrl}
+            src={pathImage(imageUrl.id)}
             alt={"altText"}
             className="h-full 
           w-full object-cover 

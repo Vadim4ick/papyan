@@ -49,6 +49,10 @@ export type Query = {
   readonly servicesClinic: Maybe<ServicesClinic>;
   readonly servicesClinic_by_version: Maybe<Version_ServicesClinic>;
   readonly servicesClinic_servicesBlock: ReadonlyArray<ServicesClinic_ServicesBlock>;
+  readonly servicesClinic_servicesBlock_1: ReadonlyArray<ServicesClinic_ServicesBlock_1>;
+  readonly servicesClinic_servicesBlock_1_aggregated: ReadonlyArray<ServicesClinic_ServicesBlock_1_Aggregated>;
+  readonly servicesClinic_servicesBlock_1_by_id: Maybe<ServicesClinic_ServicesBlock_1>;
+  readonly servicesClinic_servicesBlock_1_by_version: Maybe<Version_ServicesClinic_ServicesBlock_1>;
   readonly servicesClinic_servicesBlock_aggregated: ReadonlyArray<ServicesClinic_ServicesBlock_Aggregated>;
   readonly servicesClinic_servicesBlock_by_id: Maybe<ServicesClinic_ServicesBlock>;
   readonly servicesClinic_servicesBlock_by_version: Maybe<Version_ServicesClinic_ServicesBlock>;
@@ -207,6 +211,39 @@ export type QueryServicesClinic_ServicesBlockArgs = {
 };
 
 
+export type QueryServicesClinic_ServicesBlock_1Args = {
+  filter: InputMaybe<ServicesClinic_ServicesBlock_1_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryServicesClinic_ServicesBlock_1_AggregatedArgs = {
+  filter: InputMaybe<ServicesClinic_ServicesBlock_1_Filter>;
+  groupBy: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryServicesClinic_ServicesBlock_1_By_IdArgs = {
+  id: Scalars['ID']['input'];
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryServicesClinic_ServicesBlock_1_By_VersionArgs = {
+  id: Scalars['ID']['input'];
+  version: Scalars['String']['input'];
+};
+
+
 export type QueryServicesClinic_ServicesBlock_AggregatedArgs = {
   filter: InputMaybe<ServicesClinic_ServicesBlock_Filter>;
   groupBy: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
@@ -261,6 +298,7 @@ export type Subscription = {
   readonly home_page_mutated: Maybe<Home_Page_Mutated>;
   readonly servicesBlock_mutated: Maybe<ServicesBlock_Mutated>;
   readonly servicesClinic_mutated: Maybe<ServicesClinic_Mutated>;
+  readonly servicesClinic_servicesBlock_1_mutated: Maybe<ServicesClinic_ServicesBlock_1_Mutated>;
   readonly servicesClinic_servicesBlock_mutated: Maybe<ServicesClinic_ServicesBlock_Mutated>;
   readonly services_mutated: Maybe<Services_Mutated>;
 };
@@ -301,6 +339,11 @@ export type SubscriptionServicesClinic_MutatedArgs = {
 };
 
 
+export type SubscriptionServicesClinic_ServicesBlock_1_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
+};
+
+
 export type SubscriptionServicesClinic_ServicesBlock_MutatedArgs = {
   event: InputMaybe<EventEnum>;
 };
@@ -327,11 +370,22 @@ export type Big_Int_Filter_Operators = {
 
 export type Ceny_Page = {
   readonly __typename?: 'ceny_page';
+  readonly banner: Maybe<Directus_Files>;
   readonly blocks: Maybe<ReadonlyArray<Maybe<Ceny_Page_ServicesBlock_1>>>;
   readonly blocks_func: Maybe<Count_Functions>;
   readonly description: Maybe<Scalars['String']['output']>;
   readonly id: Scalars['ID']['output'];
   readonly title: Maybe<Scalars['String']['output']>;
+};
+
+
+export type Ceny_PageBannerArgs = {
+  filter: InputMaybe<Directus_Files_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
@@ -347,6 +401,7 @@ export type Ceny_PageBlocksArgs = {
 export type Ceny_Page_Filter = {
   readonly _and: InputMaybe<ReadonlyArray<InputMaybe<Ceny_Page_Filter>>>;
   readonly _or: InputMaybe<ReadonlyArray<InputMaybe<Ceny_Page_Filter>>>;
+  readonly banner: InputMaybe<Directus_Files_Filter>;
   readonly blocks: InputMaybe<Ceny_Page_ServicesBlock_1_Filter>;
   readonly blocks_func: InputMaybe<Count_Function_Filter_Operators>;
   readonly description: InputMaybe<String_Filter_Operators>;
@@ -793,9 +848,23 @@ export type ServicesBlock_Mutated = {
 
 export type ServicesClinic = {
   readonly __typename?: 'servicesClinic';
+  readonly description: Maybe<Scalars['String']['output']>;
+  readonly dopServices: Maybe<ReadonlyArray<Maybe<ServicesClinic_ServicesBlock_1>>>;
+  readonly dopServices_func: Maybe<Count_Functions>;
   readonly id: Scalars['ID']['output'];
   readonly servicesClinic: Maybe<ReadonlyArray<Maybe<ServicesClinic_ServicesBlock>>>;
   readonly servicesClinic_func: Maybe<Count_Functions>;
+  readonly title: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ServicesClinicDopServicesArgs = {
+  filter: InputMaybe<ServicesClinic_ServicesBlock_1_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
@@ -811,9 +880,13 @@ export type ServicesClinicServicesClinicArgs = {
 export type ServicesClinic_Filter = {
   readonly _and: InputMaybe<ReadonlyArray<InputMaybe<ServicesClinic_Filter>>>;
   readonly _or: InputMaybe<ReadonlyArray<InputMaybe<ServicesClinic_Filter>>>;
+  readonly description: InputMaybe<String_Filter_Operators>;
+  readonly dopServices: InputMaybe<ServicesClinic_ServicesBlock_1_Filter>;
+  readonly dopServices_func: InputMaybe<Count_Function_Filter_Operators>;
   readonly id: InputMaybe<Number_Filter_Operators>;
   readonly servicesClinic: InputMaybe<ServicesClinic_ServicesBlock_Filter>;
   readonly servicesClinic_func: InputMaybe<Count_Function_Filter_Operators>;
+  readonly title: InputMaybe<String_Filter_Operators>;
 };
 
 export type ServicesClinic_Mutated = {
@@ -848,6 +921,76 @@ export type ServicesClinic_ServicesBlockServicesClinic_IdArgs = {
   page: InputMaybe<Scalars['Int']['input']>;
   search: InputMaybe<Scalars['String']['input']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ServicesClinic_ServicesBlock_1 = {
+  readonly __typename?: 'servicesClinic_servicesBlock_1';
+  readonly id: Scalars['ID']['output'];
+  readonly servicesBlock_id: Maybe<ServicesBlock>;
+  readonly servicesClinic_id: Maybe<ServicesClinic>;
+};
+
+
+export type ServicesClinic_ServicesBlock_1ServicesBlock_IdArgs = {
+  filter: InputMaybe<ServicesBlock_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type ServicesClinic_ServicesBlock_1ServicesClinic_IdArgs = {
+  filter: InputMaybe<ServicesClinic_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ServicesClinic_ServicesBlock_1_Aggregated = {
+  readonly __typename?: 'servicesClinic_servicesBlock_1_aggregated';
+  readonly avg: Maybe<ServicesClinic_ServicesBlock_1_Aggregated_Fields>;
+  readonly avgDistinct: Maybe<ServicesClinic_ServicesBlock_1_Aggregated_Fields>;
+  readonly count: Maybe<ServicesClinic_ServicesBlock_1_Aggregated_Count>;
+  readonly countAll: Maybe<Scalars['Int']['output']>;
+  readonly countDistinct: Maybe<ServicesClinic_ServicesBlock_1_Aggregated_Count>;
+  readonly group: Maybe<Scalars['JSON']['output']>;
+  readonly max: Maybe<ServicesClinic_ServicesBlock_1_Aggregated_Fields>;
+  readonly min: Maybe<ServicesClinic_ServicesBlock_1_Aggregated_Fields>;
+  readonly sum: Maybe<ServicesClinic_ServicesBlock_1_Aggregated_Fields>;
+  readonly sumDistinct: Maybe<ServicesClinic_ServicesBlock_1_Aggregated_Fields>;
+};
+
+export type ServicesClinic_ServicesBlock_1_Aggregated_Count = {
+  readonly __typename?: 'servicesClinic_servicesBlock_1_aggregated_count';
+  readonly id: Maybe<Scalars['Int']['output']>;
+  readonly servicesBlock_id: Maybe<Scalars['Int']['output']>;
+  readonly servicesClinic_id: Maybe<Scalars['Int']['output']>;
+};
+
+export type ServicesClinic_ServicesBlock_1_Aggregated_Fields = {
+  readonly __typename?: 'servicesClinic_servicesBlock_1_aggregated_fields';
+  readonly id: Maybe<Scalars['Float']['output']>;
+  readonly servicesBlock_id: Maybe<Scalars['Float']['output']>;
+  readonly servicesClinic_id: Maybe<Scalars['Float']['output']>;
+};
+
+export type ServicesClinic_ServicesBlock_1_Filter = {
+  readonly _and: InputMaybe<ReadonlyArray<InputMaybe<ServicesClinic_ServicesBlock_1_Filter>>>;
+  readonly _or: InputMaybe<ReadonlyArray<InputMaybe<ServicesClinic_ServicesBlock_1_Filter>>>;
+  readonly id: InputMaybe<Number_Filter_Operators>;
+  readonly servicesBlock_id: InputMaybe<ServicesBlock_Filter>;
+  readonly servicesClinic_id: InputMaybe<ServicesClinic_Filter>;
+};
+
+export type ServicesClinic_ServicesBlock_1_Mutated = {
+  readonly __typename?: 'servicesClinic_servicesBlock_1_mutated';
+  readonly data: Maybe<ServicesClinic_ServicesBlock_1>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
 };
 
 export type ServicesClinic_ServicesBlock_Aggregated = {
@@ -967,6 +1110,7 @@ export type String_Filter_Operators = {
 
 export type Version_Ceny_Page = {
   readonly __typename?: 'version_ceny_page';
+  readonly banner: Maybe<Scalars['JSON']['output']>;
   readonly blocks: Maybe<Scalars['JSON']['output']>;
   readonly blocks_func: Maybe<Count_Functions>;
   readonly description: Maybe<Scalars['String']['output']>;
@@ -1018,13 +1162,24 @@ export type Version_ServicesBlock = {
 
 export type Version_ServicesClinic = {
   readonly __typename?: 'version_servicesClinic';
+  readonly description: Maybe<Scalars['String']['output']>;
+  readonly dopServices: Maybe<Scalars['JSON']['output']>;
+  readonly dopServices_func: Maybe<Count_Functions>;
   readonly id: Scalars['ID']['output'];
   readonly servicesClinic: Maybe<Scalars['JSON']['output']>;
   readonly servicesClinic_func: Maybe<Count_Functions>;
+  readonly title: Maybe<Scalars['String']['output']>;
 };
 
 export type Version_ServicesClinic_ServicesBlock = {
   readonly __typename?: 'version_servicesClinic_servicesBlock';
+  readonly id: Scalars['ID']['output'];
+  readonly servicesBlock_id: Maybe<Scalars['JSON']['output']>;
+  readonly servicesClinic_id: Maybe<Scalars['JSON']['output']>;
+};
+
+export type Version_ServicesClinic_ServicesBlock_1 = {
+  readonly __typename?: 'version_servicesClinic_servicesBlock_1';
   readonly id: Scalars['ID']['output'];
   readonly servicesBlock_id: Maybe<Scalars['JSON']['output']>;
   readonly servicesClinic_id: Maybe<Scalars['JSON']['output']>;
@@ -1039,7 +1194,12 @@ export type ServiceBlockFragmentFragment = { readonly __typename?: 'servicesBloc
 export type GetCenyPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetCenyPageQuery = { readonly __typename?: 'Query', readonly ceny_page: { readonly __typename?: 'ceny_page', readonly id: string, readonly title: string, readonly description: string, readonly blocks: ReadonlyArray<{ readonly __typename?: 'ceny_page_servicesBlock_1', readonly id: string, readonly servicesBlock_id: { readonly __typename?: 'servicesBlock', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number }> } }> } };
+export type GetCenyPageQuery = { readonly __typename?: 'Query', readonly ceny_page: { readonly __typename?: 'ceny_page', readonly id: string, readonly title: string, readonly description: string, readonly banner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly height: number }, readonly blocks: ReadonlyArray<{ readonly __typename?: 'ceny_page_servicesBlock_1', readonly id: string, readonly servicesBlock_id: { readonly __typename?: 'servicesBlock', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number }> } }> } };
+
+export type GetHomePageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetHomePageQuery = { readonly __typename?: 'Query', readonly home_page: { readonly __typename?: 'home_page', readonly id: string, readonly infoBaner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly height: number }, readonly mainBaner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly height: number } } };
 
 export type GetAllServicesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1049,7 +1209,7 @@ export type GetAllServicesQuery = { readonly __typename?: 'Query', readonly serv
 export type GetServiceClinicQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetServiceClinicQuery = { readonly __typename?: 'Query', readonly servicesClinic: { readonly __typename?: 'servicesClinic', readonly servicesClinic: ReadonlyArray<{ readonly __typename?: 'servicesClinic_servicesBlock', readonly servicesBlock_id: { readonly __typename?: 'servicesBlock', readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number }> } }> } };
+export type GetServiceClinicQuery = { readonly __typename?: 'Query', readonly servicesClinic: { readonly __typename?: 'servicesClinic', readonly title: string, readonly description: string, readonly servicesClinic: ReadonlyArray<{ readonly __typename?: 'servicesClinic_servicesBlock', readonly servicesBlock_id: { readonly __typename?: 'servicesBlock', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number }> } }>, readonly dopServices: ReadonlyArray<{ readonly __typename?: 'servicesClinic_servicesBlock_1', readonly servicesBlock_id: { readonly __typename?: 'servicesBlock', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number }> } }> } };
 
 export type GetServiceBlockQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1092,6 +1252,9 @@ export const GetCenyPageDocument = gql`
     id
     title
     description
+    banner {
+      ...MediaFragment
+    }
     blocks {
       id
       servicesBlock_id {
@@ -1100,7 +1263,21 @@ export const GetCenyPageDocument = gql`
     }
   }
 }
-    ${ServiceBlockFragmentFragmentDoc}`;
+    ${MediaFragmentFragmentDoc}
+${ServiceBlockFragmentFragmentDoc}`;
+export const GetHomePageDocument = gql`
+    query GetHomePage {
+  home_page {
+    id
+    infoBaner {
+      ...MediaFragment
+    }
+    mainBaner {
+      ...MediaFragment
+    }
+  }
+}
+    ${MediaFragmentFragmentDoc}`;
 export const GetAllServicesDocument = gql`
     query GetAllServices {
   services {
@@ -1115,21 +1292,21 @@ export const GetAllServicesDocument = gql`
 export const GetServiceClinicDocument = gql`
     query GetServiceClinic {
   servicesClinic {
+    title
+    description
     servicesClinic {
       servicesBlock_id {
-        title
-        img {
-          ...MediaFragment
-        }
-        allServices {
-          ...ServiceFragment
-        }
+        ...ServiceBlockFragment
+      }
+    }
+    dopServices {
+      servicesBlock_id {
+        ...ServiceBlockFragment
       }
     }
   }
 }
-    ${MediaFragmentFragmentDoc}
-${ServiceFragmentFragmentDoc}`;
+    ${ServiceBlockFragmentFragmentDoc}`;
 export const GetServiceBlockDocument = gql`
     query GetServiceBlock {
   servicesBlock {
@@ -1155,6 +1332,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
   return {
     GetCenyPage(variables?: GetCenyPageQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCenyPageQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetCenyPageQuery>(GetCenyPageDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetCenyPage', 'query', variables);
+    },
+    GetHomePage(variables?: GetHomePageQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetHomePageQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetHomePageQuery>(GetHomePageDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetHomePage', 'query', variables);
     },
     GetAllServices(variables?: GetAllServicesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAllServicesQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetAllServicesQuery>(GetAllServicesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetAllServices', 'query', variables);

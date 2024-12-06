@@ -1,14 +1,15 @@
 query GetServiceClinic {
   servicesClinic {
+    title
+    description
     servicesClinic {
       servicesBlock_id {
-        title
-        img {
-          ...MediaFragment
-        }
-        allServices {
-          ...ServiceFragment
-        }
+        ...ServiceBlockFragment
+      }
+    }
+    dopServices {
+      servicesBlock_id {
+        ...ServiceBlockFragment
       }
     }
   }

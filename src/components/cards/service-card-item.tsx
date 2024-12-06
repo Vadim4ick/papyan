@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import * as React from "react";
 import { Button } from "@/components/ui/button";
@@ -10,16 +10,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { IServiceCards } from "./serice-cards-wrapper";
 import { RussianRuble } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { ServiceFragmentFragment } from "@/graphql/__generated__";
 
 interface ServiceCardItemProps {
-  card: IServiceCards;
+  card: ServiceFragmentFragment;
 }
 
 function ServiceCardItem({ card }: ServiceCardItemProps) {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <Card className="w-[350px]  h-[199px] md:w-[377px] md:h-[187px] xl:w-[396px] xl:h-[199px] bg-[#F0F3F8] rounded-lg p-[18px] flex flex-col">
       <CardHeader className="pb-[14px]">
@@ -38,7 +38,11 @@ function ServiceCardItem({ card }: ServiceCardItemProps) {
             <RussianRuble size={16} strokeWidth={2.25} />
           </span>{" "}
         </p>
-        <Button className="z-10" variant="stroke" onClick={() => router.push(`/therapy/${card.id}`)}>
+        <Button
+          className="z-10"
+          variant="stroke"
+          onClick={() => router.push(`/therapy/${card.id}`)}
+        >
           Подробнее
         </Button>
       </CardFooter>
