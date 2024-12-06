@@ -1,41 +1,33 @@
-import { SectionHeader } from "@/components/section-header";
-import {
-  categories,
-  ImageMocData,
-  MainBunnerImageUrl,
-  SecondBunnerImageUrl,
-} from "@/shared/const/moc-data";
+"use client";
+
+import { ImageMocData } from "@/shared/const/moc-data";
 import { SliderWrapper } from "@/components/slider/slider-wrapper";
-import { CatigoryWrapper } from "@/components/category/category-wrapper";
 import { Banner } from "@/components/banner";
+import { useGetHomePage } from "@/shared/hooks/services/pages/useGetHomePage";
+import { ServicesClinic } from "@/components/services-clinic";
 
 export default function Home() {
+  const { data } = useGetHomePage();
+
   return (
     <div className="">
-
-      <Banner imageUrl={MainBunnerImageUrl} hight={"h-screen lg:max-h-[727px]"}/>
-
+      {data?.home_page.mainBaner && (
+        <Banner
+          imageUrl={data.home_page.mainBaner}
+          hight={"h-screen lg:max-h-[727px]"}
+        />
+      )}
 
       <section className="pt-[32px] lg:pt-[64px] lg:pb-[100px]">
-        <div className="container mx-auto max-w-[1364px] px-[20px]">
-          <SectionHeader
-            className="mb-[20px]"
-            title="Услуги клиники"
-            description="Наши специалисты используют передовые методы и индивидуальный
-              подход, чтобы вы вновь почувствовали уверенность в своих
-              движениях."
-          />
-          {categories.map((category) => (
-            <CatigoryWrapper
-              key={category.id}
-              className="mb-[78px]"
-              category={category}
-            />
-          ))}
-        </div>
+        <ServicesClinic />
       </section>
 
-      <Banner imageUrl={SecondBunnerImageUrl} hight={"h-[494px] md:h-[520px] lg:h-[470px]"}/>
+      {data?.home_page.infoBaner && (
+        <Banner
+          imageUrl={data.home_page.infoBaner}
+          hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
+        />
+      )}
 
       <section className="pt-[100px] pb-[100px]">
         <div className="container h-[494px] md:h-[520px] lg:h-[470px]  mx-auto max-w-[1364px]">

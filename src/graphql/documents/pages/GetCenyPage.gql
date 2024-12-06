@@ -3,6 +3,9 @@ query GetCenyPage {
     id
     title
     description
+    banner {
+      ...MediaFragment
+    }
     blocks {
       id
       servicesBlock_id {
