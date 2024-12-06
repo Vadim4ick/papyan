@@ -8,9 +8,13 @@ import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { Banner } from "@/components/banner";
+import { useGetServicesBlock } from "@/shared/hooks/services/useGetServicesBlock";
 
 export default function Ceny() {
   const router = useRouter();
+
+  const { data } = useGetServicesBlock();
+
   return (
     <div>
       <section className="pt-[64px] pb-[100px]">
@@ -22,9 +26,10 @@ export default function Ceny() {
               подход, чтобы вы вновь почувствовали уверенность в своих
               движениях."
           />
-          {categories.map((category) => (
-            <ServicesCostsWrapper key={category.id} category={category} />
-          ))}
+          {data?.servicesBlock &&
+            data.servicesBlock.map((category) => (
+              <ServicesCostsWrapper key={category.id} category={category} />
+            ))}
         </div>
       </section>
 

@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header/Header";
 import { Footer } from "@/components/Footer";
+import { Providers } from "@/shared/providers/providers";
 
 const manrope = Manrope({
   weight: ["400", "500", "600", "700", "800"],
@@ -24,13 +25,15 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={`${manrope.variable}`}>
-        <div className="flex flex-col min-h-screen">
-          <Header />
+        <Providers>
+          <div className="flex flex-col min-h-screen">
+            <Header />
 
-          <main className="flex-grow">{children}</main>
+            <main className="flex-grow">{children}</main>
 
-          <Footer />
-        </div>
+            <Footer />
+          </div>
+        </Providers>
       </body>
     </html>
   );
