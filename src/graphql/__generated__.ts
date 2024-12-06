@@ -29,6 +29,12 @@ export enum EventEnum {
 
 export type Query = {
   readonly __typename?: 'Query';
+  readonly ceny_page: Maybe<Ceny_Page>;
+  readonly ceny_page_by_version: Maybe<Version_Ceny_Page>;
+  readonly ceny_page_servicesBlock_1: ReadonlyArray<Ceny_Page_ServicesBlock_1>;
+  readonly ceny_page_servicesBlock_1_aggregated: ReadonlyArray<Ceny_Page_ServicesBlock_1_Aggregated>;
+  readonly ceny_page_servicesBlock_1_by_id: Maybe<Ceny_Page_ServicesBlock_1>;
+  readonly ceny_page_servicesBlock_1_by_version: Maybe<Version_Ceny_Page_ServicesBlock_1>;
   readonly home_page: Maybe<Home_Page>;
   readonly home_page_by_version: Maybe<Version_Home_Page>;
   readonly home_page_files: ReadonlyArray<Home_Page_Files>;
@@ -49,6 +55,49 @@ export type Query = {
   readonly services_aggregated: ReadonlyArray<Services_Aggregated>;
   readonly services_by_id: Maybe<Services>;
   readonly services_by_version: Maybe<Version_Services>;
+};
+
+
+export type QueryCeny_PageArgs = {
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryCeny_Page_By_VersionArgs = {
+  version: Scalars['String']['input'];
+};
+
+
+export type QueryCeny_Page_ServicesBlock_1Args = {
+  filter: InputMaybe<Ceny_Page_ServicesBlock_1_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryCeny_Page_ServicesBlock_1_AggregatedArgs = {
+  filter: InputMaybe<Ceny_Page_ServicesBlock_1_Filter>;
+  groupBy: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryCeny_Page_ServicesBlock_1_By_IdArgs = {
+  id: Scalars['ID']['input'];
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryCeny_Page_ServicesBlock_1_By_VersionArgs = {
+  id: Scalars['ID']['input'];
+  version: Scalars['String']['input'];
 };
 
 
@@ -205,6 +254,8 @@ export type QueryServices_By_VersionArgs = {
 
 export type Subscription = {
   readonly __typename?: 'Subscription';
+  readonly ceny_page_mutated: Maybe<Ceny_Page_Mutated>;
+  readonly ceny_page_servicesBlock_1_mutated: Maybe<Ceny_Page_ServicesBlock_1_Mutated>;
   readonly directus_files_mutated: Maybe<Directus_Files_Mutated>;
   readonly home_page_files_mutated: Maybe<Home_Page_Files_Mutated>;
   readonly home_page_mutated: Maybe<Home_Page_Mutated>;
@@ -212,6 +263,16 @@ export type Subscription = {
   readonly servicesClinic_mutated: Maybe<ServicesClinic_Mutated>;
   readonly servicesClinic_servicesBlock_mutated: Maybe<ServicesClinic_ServicesBlock_Mutated>;
   readonly services_mutated: Maybe<Services_Mutated>;
+};
+
+
+export type SubscriptionCeny_Page_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
+};
+
+
+export type SubscriptionCeny_Page_ServicesBlock_1_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
 };
 
 
@@ -262,6 +323,112 @@ export type Big_Int_Filter_Operators = {
   readonly _nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['GraphQLBigInt']['input']>>>;
   readonly _nnull: InputMaybe<Scalars['Boolean']['input']>;
   readonly _null: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type Ceny_Page = {
+  readonly __typename?: 'ceny_page';
+  readonly blocks: Maybe<ReadonlyArray<Maybe<Ceny_Page_ServicesBlock_1>>>;
+  readonly blocks_func: Maybe<Count_Functions>;
+  readonly description: Maybe<Scalars['String']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly title: Maybe<Scalars['String']['output']>;
+};
+
+
+export type Ceny_PageBlocksArgs = {
+  filter: InputMaybe<Ceny_Page_ServicesBlock_1_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Ceny_Page_Filter = {
+  readonly _and: InputMaybe<ReadonlyArray<InputMaybe<Ceny_Page_Filter>>>;
+  readonly _or: InputMaybe<ReadonlyArray<InputMaybe<Ceny_Page_Filter>>>;
+  readonly blocks: InputMaybe<Ceny_Page_ServicesBlock_1_Filter>;
+  readonly blocks_func: InputMaybe<Count_Function_Filter_Operators>;
+  readonly description: InputMaybe<String_Filter_Operators>;
+  readonly id: InputMaybe<Number_Filter_Operators>;
+  readonly title: InputMaybe<String_Filter_Operators>;
+};
+
+export type Ceny_Page_Mutated = {
+  readonly __typename?: 'ceny_page_mutated';
+  readonly data: Maybe<Ceny_Page>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
+};
+
+export type Ceny_Page_ServicesBlock_1 = {
+  readonly __typename?: 'ceny_page_servicesBlock_1';
+  readonly ceny_page_id: Maybe<Ceny_Page>;
+  readonly id: Scalars['ID']['output'];
+  readonly servicesBlock_id: Maybe<ServicesBlock>;
+};
+
+
+export type Ceny_Page_ServicesBlock_1Ceny_Page_IdArgs = {
+  filter: InputMaybe<Ceny_Page_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type Ceny_Page_ServicesBlock_1ServicesBlock_IdArgs = {
+  filter: InputMaybe<ServicesBlock_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Ceny_Page_ServicesBlock_1_Aggregated = {
+  readonly __typename?: 'ceny_page_servicesBlock_1_aggregated';
+  readonly avg: Maybe<Ceny_Page_ServicesBlock_1_Aggregated_Fields>;
+  readonly avgDistinct: Maybe<Ceny_Page_ServicesBlock_1_Aggregated_Fields>;
+  readonly count: Maybe<Ceny_Page_ServicesBlock_1_Aggregated_Count>;
+  readonly countAll: Maybe<Scalars['Int']['output']>;
+  readonly countDistinct: Maybe<Ceny_Page_ServicesBlock_1_Aggregated_Count>;
+  readonly group: Maybe<Scalars['JSON']['output']>;
+  readonly max: Maybe<Ceny_Page_ServicesBlock_1_Aggregated_Fields>;
+  readonly min: Maybe<Ceny_Page_ServicesBlock_1_Aggregated_Fields>;
+  readonly sum: Maybe<Ceny_Page_ServicesBlock_1_Aggregated_Fields>;
+  readonly sumDistinct: Maybe<Ceny_Page_ServicesBlock_1_Aggregated_Fields>;
+};
+
+export type Ceny_Page_ServicesBlock_1_Aggregated_Count = {
+  readonly __typename?: 'ceny_page_servicesBlock_1_aggregated_count';
+  readonly ceny_page_id: Maybe<Scalars['Int']['output']>;
+  readonly id: Maybe<Scalars['Int']['output']>;
+  readonly servicesBlock_id: Maybe<Scalars['Int']['output']>;
+};
+
+export type Ceny_Page_ServicesBlock_1_Aggregated_Fields = {
+  readonly __typename?: 'ceny_page_servicesBlock_1_aggregated_fields';
+  readonly ceny_page_id: Maybe<Scalars['Float']['output']>;
+  readonly id: Maybe<Scalars['Float']['output']>;
+  readonly servicesBlock_id: Maybe<Scalars['Float']['output']>;
+};
+
+export type Ceny_Page_ServicesBlock_1_Filter = {
+  readonly _and: InputMaybe<ReadonlyArray<InputMaybe<Ceny_Page_ServicesBlock_1_Filter>>>;
+  readonly _or: InputMaybe<ReadonlyArray<InputMaybe<Ceny_Page_ServicesBlock_1_Filter>>>;
+  readonly ceny_page_id: InputMaybe<Ceny_Page_Filter>;
+  readonly id: InputMaybe<Number_Filter_Operators>;
+  readonly servicesBlock_id: InputMaybe<ServicesBlock_Filter>;
+};
+
+export type Ceny_Page_ServicesBlock_1_Mutated = {
+  readonly __typename?: 'ceny_page_servicesBlock_1_mutated';
+  readonly data: Maybe<Ceny_Page_ServicesBlock_1>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
 };
 
 export type Count_Function_Filter_Operators = {
@@ -798,6 +965,22 @@ export type String_Filter_Operators = {
   readonly _starts_with: InputMaybe<Scalars['String']['input']>;
 };
 
+export type Version_Ceny_Page = {
+  readonly __typename?: 'version_ceny_page';
+  readonly blocks: Maybe<Scalars['JSON']['output']>;
+  readonly blocks_func: Maybe<Count_Functions>;
+  readonly description: Maybe<Scalars['String']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly title: Maybe<Scalars['String']['output']>;
+};
+
+export type Version_Ceny_Page_ServicesBlock_1 = {
+  readonly __typename?: 'version_ceny_page_servicesBlock_1';
+  readonly ceny_page_id: Maybe<Scalars['JSON']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly servicesBlock_id: Maybe<Scalars['JSON']['output']>;
+};
+
 export type Version_Home_Page = {
   readonly __typename?: 'version_home_page';
   readonly id: Scalars['ID']['output'];
@@ -851,6 +1034,13 @@ export type MediaFragmentFragment = { readonly __typename?: 'directus_files', re
 
 export type ServiceFragmentFragment = { readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number };
 
+export type ServiceBlockFragmentFragment = { readonly __typename?: 'servicesBlock', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number }> };
+
+export type GetCenyPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetCenyPageQuery = { readonly __typename?: 'Query', readonly ceny_page: { readonly __typename?: 'ceny_page', readonly id: string, readonly title: string, readonly description: string, readonly blocks: ReadonlyArray<{ readonly __typename?: 'ceny_page_servicesBlock_1', readonly id: string, readonly servicesBlock_id: { readonly __typename?: 'servicesBlock', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number }> } }> } };
+
 export type GetAllServicesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -883,6 +1073,34 @@ export const ServiceFragmentFragmentDoc = gql`
   sale
 }
     `;
+export const ServiceBlockFragmentFragmentDoc = gql`
+    fragment ServiceBlockFragment on servicesBlock {
+  id
+  img {
+    ...MediaFragment
+  }
+  title
+  allServices {
+    ...ServiceFragment
+  }
+}
+    ${MediaFragmentFragmentDoc}
+${ServiceFragmentFragmentDoc}`;
+export const GetCenyPageDocument = gql`
+    query GetCenyPage {
+  ceny_page {
+    id
+    title
+    description
+    blocks {
+      id
+      servicesBlock_id {
+        ...ServiceBlockFragment
+      }
+    }
+  }
+}
+    ${ServiceBlockFragmentFragmentDoc}`;
 export const GetAllServicesDocument = gql`
     query GetAllServices {
   services {
@@ -935,6 +1153,9 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
+    GetCenyPage(variables?: GetCenyPageQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCenyPageQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCenyPageQuery>(GetCenyPageDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetCenyPage', 'query', variables);
+    },
     GetAllServices(variables?: GetAllServicesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAllServicesQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetAllServicesQuery>(GetAllServicesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetAllServices', 'query', variables);
     },
