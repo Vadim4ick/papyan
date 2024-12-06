@@ -8,12 +8,13 @@ import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { Banner } from "@/components/banner";
-import { useGetServicesBlock } from "@/shared/hooks/services/useGetServicesBlock";
+import { useGetCenyPage } from "@/shared/hooks/services/pages/useGetCenyPage";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Ceny() {
   const router = useRouter();
 
-  const { data } = useGetServicesBlock();
+  const { data, isLoading } = useGetCenyPage();
 
   return (
     <div>
@@ -21,14 +22,26 @@ export default function Ceny() {
         <div className="container mx-auto max-w-[1364px] px-[20px]">
           <SectionHeader
             className="mb-[40px]"
-            title="Услуги клиники"
-            description="Наши специалисты используют передовые методы и индивидуальный
-              подход, чтобы вы вновь почувствовали уверенность в своих
-              движениях."
+            title={data?.ceny_page.title || ""}
+            description={data?.ceny_page.description}
+            isLoading={isLoading}
           />
-          {data?.servicesBlock &&
-            data.servicesBlock.map((category) => (
-              <ServicesCostsWrapper key={category.id} category={category} />
+
+          {isLoading && (
+            <div className="flex flex-col gap-y-[8px] mb-[60px] md:mb-[64px] lg:mb-[48px]">
+              <Skeleton className="h-[45px] w-full max-w-[450px]" />
+              <Skeleton className="h-[45px] w-full max-w-[450px]" />
+              <Skeleton className="h-[45px] w-full max-w-[450px]" />
+              <Skeleton className="h-[45px] w-full max-w-[450px]" />
+            </div>
+          )}
+
+          {data?.ceny_page.blocks &&
+            data.ceny_page.blocks.map((category) => (
+              <ServicesCostsWrapper
+                key={category.id}
+                category={category.servicesBlock_id}
+              />
             ))}
         </div>
       </section>
