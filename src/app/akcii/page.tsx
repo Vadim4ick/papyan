@@ -4,37 +4,49 @@ import { DiscountCard } from "@/components/cards/discount-card";
 import { useClientMediaQuery } from "@/shared/hooks/useClientMediaQuery";
 
 const data = [
-  { title: "Хивамат-терапия", newPrice: 100, regularPrice: 120, discount: 20 },
+  {
+    title: "Хивамат-терапия",
+    regularPrice: 120,
+    discount: 20,
+    image:
+      "https://images.unsplash.com/photo-1492552181161-62217fc3076d?q=80&w=2394&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+
   {
     title: "Комплексное лечение заболеваний опорно-двигательного аппарата",
     regularPrice: 240,
     discount: 40,
+    image: "https://images.unsplash.com/photo-1556760544-74068565f05c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     title: "Лечебно-оздоровительный Массаж",
     regularPrice: 360,
     discount: 60,
+    image: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=2187&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     title: "Мануальная терапия",
     regularPrice: 120,
     discount: 20,
+    image: "https://images.unsplash.com/photo-1556760544-74068565f05c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     title: "Мануальная терапия",
     regularPrice: 240,
     discount: 40,
+    image: "https://images.unsplash.com/photo-1599022509786-23794c1b68c2?q=80&w=2314&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
-  { title: "Хивамат-терапия", regularPrice: 360, discount: 60 },
+  { title: "Хивамат-терапия", 
+    regularPrice: 360, 
+    discount: 60, 
+    image: "https://images.unsplash.com/photo-1556760544-74068565f05c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+  },
   {
     title: "Магнитотерапия высокой интенсивности",
     regularPrice: 120,
     discount: 20,
+    image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
-  { title: "Хивамат-терапия", regularPrice: 360, discount: 60 },
-  { title: "Хивамат-терапия", regularPrice: 360, discount: 60 },
-  { title: "Хивамат-терапия", regularPrice: 360, discount: 60 },
-  { title: "Хивамат-терапия", regularPrice: 360, discount: 60 },
 ];
 
 export default function Akcii() {
@@ -84,7 +96,6 @@ export default function Akcii() {
                   }
                 `}
                 />
-                  
               ))}
             </div>
           ))}
