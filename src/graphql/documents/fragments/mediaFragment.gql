@@ -2,5 +2,6 @@ fragment MediaFragment on directus_files {
   id
   title
   width
+  type
   height
 }
