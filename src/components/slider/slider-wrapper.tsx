@@ -12,10 +12,11 @@ import { useClientMediaQuery } from "@/shared/hooks/useClientMediaQuery";
 
 interface SliderWrapperProps {
   children: ReactNode;
+  className?: string
 }
 
-function SliderWrapper({ children }: SliderWrapperProps) {
-  const isMobile = useClientMediaQuery("(max-width: 768px)");
+function SliderWrapper({ children, className }: SliderWrapperProps) {
+  const isMobile = useClientMediaQuery("(max-width: 1024px)");
   return (
     <div className="slider-wrapper relative w-full">
       {!isMobile && (
@@ -38,7 +39,7 @@ function SliderWrapper({ children }: SliderWrapperProps) {
           prevEl: ".swiper-button-prev",
         }}
         allowTouchMove={true}
-        className="mySwiper"
+        className={`${className} mySwiper`}
       >
         {Array.isArray(children)
           ? children.map((child, index) => (
