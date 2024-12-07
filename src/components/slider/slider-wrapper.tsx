@@ -2,7 +2,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-
 import "./styles.css";
 import { Navigation, Pagination } from "swiper/modules";
 import { Button } from "../ui/button";
@@ -16,10 +15,12 @@ interface SliderWrapperProps {
 }
 
 function SliderWrapper({ children, className }: SliderWrapperProps) {
-  const isMobile = useClientMediaQuery("(max-width: 1024px)");
+  const isTablet = useClientMediaQuery("(max-width: 1024px)");
+  const isMobile = useClientMediaQuery("(max-width: 768px)");
+
   return (
     <div className="slider-wrapper relative w-full">
-      {!isMobile && (
+      {!isTablet && (
         <div className="swiper-navigation">
           <Button variant="arrow" className="swiper-button-prev">
             <ChevronLeft width={17} />
@@ -31,7 +32,7 @@ function SliderWrapper({ children, className }: SliderWrapperProps) {
       )}
       <Swiper
         slidesPerView={"auto"}
-        spaceBetween={30}
+        spaceBetween={isMobile? 16 : 20}
         modules={[Pagination, Navigation]}
         scrollbar={{ draggable: true }}
         navigation={{
