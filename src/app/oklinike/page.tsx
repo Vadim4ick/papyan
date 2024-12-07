@@ -3,8 +3,8 @@ import { BadgeWithIcon } from "@/components/badge-with-icon";
 import { Banner } from "@/components/banner";
 import { CategoriesGalery } from "@/components/cards/categories-galery";
 import { ContactCardV2 } from "@/components/cards/contact-card-v2";
-import { CatigoryWrapper } from "@/components/category/category-wrapper";
 import { SectionHeader } from "@/components/section-header";
+import { ServicesClinic } from "@/components/services-clinic";
 import { SliderWrapper } from "@/components/slider/slider-wrapper";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -252,25 +252,11 @@ export default function About() {
       </section>
 
       <section className="pt-[32px] lg:pt-[64px] pb-[72px] md:pb-[78px] lg:pb-[100px]">
-        <div className="container mx-auto max-w-[1364px] px-[20px]">
-          <SectionHeader
-            className="mb-[20px]"
-            title="Услуги клиники"
-            description="Наши специалисты используют передовые методы и индивидуальный
-              подход, чтобы вы вновь почувствовали уверенность в своих
-              движениях."
-          />
-          {categories.slice(0, 2).map((category) => (
-            <CatigoryWrapper
-              key={category.id}
-              className="mb-[78px]"
-              category={category}
-            />
-          ))}
-        </div>
+        <ServicesClinic/>
+        
         <div className="container mx-auto max-w-[1364px] px-[20px] flex flex-col gap-y-[48px] items-center xl:flex-row justify-between xl:items-end">
           <CategoriesGalery
-            categoryList={categories}
+            category={categories}
             cardWidth="w-[350px] md:w-[377px] xl:w-[380px]"
             cardHeight="h-[238px] md:h-[187px] xl:h-[199px]"
           />
