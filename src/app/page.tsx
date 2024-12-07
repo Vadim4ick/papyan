@@ -4,16 +4,33 @@ import { SliderWrapper } from "@/components/slider/slider-wrapper";
 import { Banner } from "@/components/banner";
 import { useGetHomePage } from "@/shared/hooks/services/pages/useGetHomePage";
 import { ServicesClinic } from "@/components/services-clinic";
-import { pathImage } from "@/shared/lib/utils";
+import { countFileTypes, pathImage } from "@/shared/lib/utils";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { BadgeWithIcon } from "@/components/badge-with-icon";
 
+type ImageType = {
+  directus_files_id: {
+    id: string;
+    title: string;
+    width: number | null;
+    type: string;
+    height: number | null;
+  };
+};
+
 export default function Home() {
   const router = useRouter();
-  const { data } = useGetHomePage();
+  const { data, isLoading } = useGetHomePage();
+
+  if (isLoading) {
+    return <div>Загрузка...</div>;
+  } 
+
+  const typeCounts = countFileTypes(data?.home_page.sliderClinik as ImageType[]);
+  
 
   return (
     <div className="">
@@ -80,13 +97,13 @@ export default function Home() {
                   className="bg-[#EBEFF3]"
                   variant="video"
                   tittle={"Видео"}
-                  quantity={10}
+                  quantity={typeCounts?.videoCount}
                 />
                 <BadgeWithIcon
                   className="bg-[#EBEFF3]"
                   variant="photo"
                   tittle={"Фото"}
-                  quantity={10}
+                  quantity={typeCounts?.imageCount}
                 />
               </div>
               <SliderWrapper  className="h-[434px] md:h-[467px] xl:h-[474px]">
