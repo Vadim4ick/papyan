@@ -1,0 +1,13 @@
+fragment ServiceBlockFragment on servicesBlock {
+  id
+
+  img {
+    ...MediaFragment
+  }
+
+  title
+
+  allServices {
+    ...ServiceFragment
+  }
+}

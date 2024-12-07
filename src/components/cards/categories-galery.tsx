@@ -1,39 +1,33 @@
 "use client";
 
-import { ImageCardMocData, servicesList } from "@/shared/const/moc-data";
-import ImageCard from "../ui/image-card";
-import { TCategory } from "@/shared/types/types";
+import { ServiceBlockFragmentFragment } from "@/graphql/__generated__";
 import { TitleWithBadge } from "../title-with-badge";
+import ImageCard from "../ui/image-card";
 
 interface CategoriesGaleryProps {
-  categoryList: TCategory[];
+  category: ServiceBlockFragmentFragment;
   cardWidth: string;
   cardHeight: string;
-  numberOfCardsToRender? : number
+  numberOfCardsToRender?: number;
 }
 
 const CategoriesGalery: React.FC<CategoriesGaleryProps> = ({
-  categoryList,
-  numberOfCardsToRender = 2,
+  category,
   cardWidth,
   cardHeight,
 }) => {
-  // const numberOfCardsToRender = 3;
   return (
-    <div className="flex flex-col md:flex-row gap-y-[24px] items-center gap-x-[26px] overflow-x-auto">
-      {categoryList.slice(0, numberOfCardsToRender).map((category) => (
-        <div key={category.id} className="">
-          <TitleWithBadge
-            tittle={category.name}
-            quantity={servicesList.length}
-            className="mb-[12px] md:mb-[16px]"
-          />
-          <ImageCard
-            imageData={ImageCardMocData}
-            className={`${cardWidth} ${cardHeight}`}
-          />
-        </div>
-      ))}
+    <div>
+      <TitleWithBadge
+        tittle={category.title}
+        quantity={category.allServices.length}
+        className="mb-[12px] md:mb-[16px]"
+      />
+      <ImageCard
+        imageData={category.img}
+        bages={category.allServices.map((service) => service.title)}
+        className={`${cardWidth} ${cardHeight}`}
+      />
     </div>
   );
 };
