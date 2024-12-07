@@ -1185,21 +1185,21 @@ export type Version_ServicesClinic_ServicesBlock_1 = {
   readonly servicesClinic_id: Maybe<Scalars['JSON']['output']>;
 };
 
-export type MediaFragmentFragment = { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly height: number };
+export type MediaFragmentFragment = { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number };
 
 export type ServiceFragmentFragment = { readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number };
 
-export type ServiceBlockFragmentFragment = { readonly __typename?: 'servicesBlock', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number }> };
+export type ServiceBlockFragmentFragment = { readonly __typename?: 'servicesBlock', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number }> };
 
 export type GetCenyPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetCenyPageQuery = { readonly __typename?: 'Query', readonly ceny_page: { readonly __typename?: 'ceny_page', readonly id: string, readonly title: string, readonly description: string, readonly banner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly height: number }, readonly blocks: ReadonlyArray<{ readonly __typename?: 'ceny_page_servicesBlock_1', readonly id: string, readonly servicesBlock_id: { readonly __typename?: 'servicesBlock', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number }> } }> } };
+export type GetCenyPageQuery = { readonly __typename?: 'Query', readonly ceny_page: { readonly __typename?: 'ceny_page', readonly id: string, readonly title: string, readonly description: string, readonly banner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly blocks: ReadonlyArray<{ readonly __typename?: 'ceny_page_servicesBlock_1', readonly id: string, readonly servicesBlock_id: { readonly __typename?: 'servicesBlock', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number }> } }> } };
 
 export type GetHomePageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetHomePageQuery = { readonly __typename?: 'Query', readonly home_page: { readonly __typename?: 'home_page', readonly id: string, readonly infoBaner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly height: number }, readonly mainBaner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly height: number } } };
+export type GetHomePageQuery = { readonly __typename?: 'Query', readonly home_page: { readonly __typename?: 'home_page', readonly id: string, readonly infoBaner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly mainBaner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly sliderClinik: ReadonlyArray<{ readonly __typename?: 'home_page_files', readonly directus_files_id: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } }> } };
 
 export type GetAllServicesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1209,18 +1209,19 @@ export type GetAllServicesQuery = { readonly __typename?: 'Query', readonly serv
 export type GetServiceClinicQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetServiceClinicQuery = { readonly __typename?: 'Query', readonly servicesClinic: { readonly __typename?: 'servicesClinic', readonly title: string, readonly description: string, readonly servicesClinic: ReadonlyArray<{ readonly __typename?: 'servicesClinic_servicesBlock', readonly servicesBlock_id: { readonly __typename?: 'servicesBlock', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number }> } }>, readonly dopServices: ReadonlyArray<{ readonly __typename?: 'servicesClinic_servicesBlock_1', readonly servicesBlock_id: { readonly __typename?: 'servicesBlock', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number }> } }> } };
+export type GetServiceClinicQuery = { readonly __typename?: 'Query', readonly servicesClinic: { readonly __typename?: 'servicesClinic', readonly title: string, readonly description: string, readonly servicesClinic: ReadonlyArray<{ readonly __typename?: 'servicesClinic_servicesBlock', readonly servicesBlock_id: { readonly __typename?: 'servicesBlock', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number }> } }>, readonly dopServices: ReadonlyArray<{ readonly __typename?: 'servicesClinic_servicesBlock_1', readonly servicesBlock_id: { readonly __typename?: 'servicesBlock', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number }> } }> } };
 
 export type GetServiceBlockQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetServiceBlockQuery = { readonly __typename?: 'Query', readonly servicesBlock: ReadonlyArray<{ readonly __typename?: 'servicesBlock', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number }> }> };
+export type GetServiceBlockQuery = { readonly __typename?: 'Query', readonly servicesBlock: ReadonlyArray<{ readonly __typename?: 'servicesBlock', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number }> }> };
 
 export const MediaFragmentFragmentDoc = gql`
     fragment MediaFragment on directus_files {
   id
   title
   width
+  type
   height
 }
     `;
@@ -1274,6 +1275,11 @@ export const GetHomePageDocument = gql`
     }
     mainBaner {
       ...MediaFragment
+    }
+    sliderClinik {
+      directus_files_id {
+        ...MediaFragment
+      }
     }
   }
 }

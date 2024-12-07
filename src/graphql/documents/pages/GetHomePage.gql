@@ -8,5 +8,11 @@ query GetHomePage {
     mainBaner {
       ...MediaFragment
     }
+
+    sliderClinik {
+      directus_files_id {
+        ...MediaFragment
+      }
+    }
   }
 }
