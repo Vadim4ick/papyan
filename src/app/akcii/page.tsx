@@ -82,16 +82,16 @@ export default function Akcii() {
                   ${
                     isTablet
                       ? rowIndex === 0
-                        ? "w-[100%] bg-red-500"
+                        ? "w-[100%] md:wide"
                         : rowIndex === 1
-                        ? "w-full md:w-[48%] bg-green-500"
+                        ? "w-full md:w-[48%]"
                         : rowIndex === 2
-                        ? "w-[100%] bg-yellow-500"
-                        : "w-full md:w-[48%] bg-purple-500"
+                        ? "w-[100%] md:wide"
+                        : "w-full md:w-[48%]"
                       : rowIndex === 2
                       ? "w-[32%]"
                       : index === 0
-                      ? "w-[66%]"
+                      ? "w-[66%] wide"
                       : "w-[32%]"
                   }
                 `}

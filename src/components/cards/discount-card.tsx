@@ -18,9 +18,11 @@ const DiscountCard = ({ card, className }: discountCardProps) => {
   const newPrice =
     card.regularPrice - (card.regularPrice * card.discount) / 100;
 
+  const isWide = className?.includes("wide")
+
   return (
     <div
-      className={`${className} items-center relative ] h-[466px] md:h-[502px] xl:h-[570px] overflow-hidden rounded-md group`}
+      className={`${className} items-center relative h-[466px] md:h-[502px] xl:h-[570px] overflow-hidden rounded-md group`}
     >
       <Image
         width={380}
@@ -29,8 +31,10 @@ const DiscountCard = ({ card, className }: discountCardProps) => {
         alt={"altText"}
         className="h-full w-full object-cover"
       />
-      <div className="absolute bottom-5 w-full   ">
-        <div className="w-[302px] h-[49px] bg-[#FFFFFF] mx-auto rounded-[41px] flex justify-between items-center pl-[16px] pr-[6px]">
+      <div className="absolute bottom-5  w-full  ">
+        <div className=
+        {`${ isWide ? "ml-auto mr-[36px]" : "mx-auto" } w-[302px] h-[49px] bg-[#FFFFFF]  rounded-[41px] flex justify-between items-center pl-[16px] pr-[6px]`}
+        >
           <div className="flex gap-[6px] items-center">
             <p className=" relative text-[#353535] text-[20px] leading-[25px] tracking-tight font-semibold ">
               {newPrice}
