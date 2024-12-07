@@ -1,0 +1,18 @@
+query GetHomePage {
+  home_page {
+    id
+
+    infoBaner {
+      ...MediaFragment
+    }
+    mainBaner {
+      ...MediaFragment
+    }
+
+    sliderClinik {
+      directus_files_id {
+        ...MediaFragment
+      }
+    }
+  }
+}

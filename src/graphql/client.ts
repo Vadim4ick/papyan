@@ -8,7 +8,7 @@ const client = new GraphQLClient(
     // headers: {
     //   Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
     // },
-  },
+  }
 );
 
 export const gql = getSdk(client);

@@ -1,0 +1,16 @@
+query GetCenyPage {
+  ceny_page {
+    id
+    title
+    description
+    banner {
+      ...MediaFragment
+    }
+    blocks {
+      id
+      servicesBlock_id {
+        ...ServiceBlockFragment
+      }
+    }
+  }
+}
