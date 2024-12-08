@@ -10,6 +10,7 @@ import { Navbar } from "./Navbar";
 import "./header.css";
 import { ContactCard } from "../cards/contact-card";
 import { ContactData } from "@/shared/const/moc-data";
+import { DialogForm } from "../modal/dialog";
 
 const contacts = ContactData
 
@@ -33,7 +34,8 @@ const Header = () => {
 
           {/* Кнопка "Записаться онлайн" для десктопа */}
           <div className="hidden lg:flex z-50">
-            <Button variant="secondary">Записаться онлайн</Button>
+            {/* <Button variant="secondary">Записаться онлайн</Button> */}
+            <DialogForm/>
           </div>
 
           {/* Кнопка бургер для мобильного меню */}
@@ -74,9 +76,10 @@ const Header = () => {
               schedule={contacts.schedule}
               phone={contacts.phone}
             />
-            <Button variant="default" className="w-full">
+            {/* <Button variant="default" className="w-full">
               Записаться онлайн
-            </Button>
+            </Button> */}
+            <DialogForm/>
           </div>
         </div>
     </>
