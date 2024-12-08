@@ -10,41 +10,49 @@ import {
 } from "./ui/form";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import React from "react";
 
 const phoneValidation = /^(?:\+7|8)?\s?\(?[1-9]\d{2}\)?\s?\d{3}-?\d{2}-?\d{2}$/
 
 const formSchema = z
   .object({
-    name: z.string().min(1, {
-      message: "Укажите имя",
-    }),
-    email: z.string()
-    .email({message: "Укажите корректный email",})
-    .optional(),
-    phone: z.string()
-    .regex(phoneValidation, { message: "Введите корректный номер телефона" })
-      .optional(),
-  });
+    name: z.string().min(1, { message: "Укажите имя", }),
+    email: z.string().email({ message: "Укажите корректный email" }).optional(). or (z. literal ( '' )),
+    phone: z.string(). regex(phoneValidation, { message: "Введите корректный номер телефона" }). optional(). or (z. literal ( '' )),
+  })
+  .refine(data => data.email || data.phone, {
+    message: 'Одно из полей [email, phone] обязательно',
+    path: ['email'], 
+  }).
+  superRefine ( ( values, ctx ) => { 
+    if (! values. phone && ! values. email ) { 
+      ctx. addIssue ({ 
+        message : 'Необходимо указать либо телефон, либо адрес электронной почты.' , 
+        code : z. ZodIssueCode . custom , 
+        path : [ 'phone' ], 
+      }); 
+      ctx. addIssue ({ 
+        message : 'Необходимо указать либо телефон, либо адрес электронной почты.' , 
+        code : z. ZodIssueCode . custom , 
+        path : [ 'email' ], 
+      }); 
+    } 
+  }); 
 
-
-
-export function EmailForm() {
+  export function EmailForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    mode: "onChange",
     defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
+      name: '',
+      email: '',
+      phone: '',
     },
   });
 
-  const isPending = false;
-
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     console.log("🚀 ~ onSubmit ~ values:", values);
+    form.reset();
   };
-  console.log("Errors:", form.formState.errors);
 
   return (
     <Form {...form}>
@@ -63,8 +71,6 @@ export function EmailForm() {
                     placeholder={
                       form.formState.errors.name?.message || "Ваше Имя"
                     }
-                    disabled={isPending}
-
                     {...field}
                   />
                 </FormControl>
@@ -87,7 +93,6 @@ export function EmailForm() {
                       }
                       // type="email"
                       autoComplete="email"
-                      disabled={isPending}
                       {...field}
                     />
                   </FormControl>
@@ -111,7 +116,6 @@ export function EmailForm() {
                         form.formState.errors.phone?.message || "Телефон"
                       }
                       type="tel"
-                      disabled={isPending}
                       {...field}
                     />
                   </FormControl>
@@ -122,10 +126,10 @@ export function EmailForm() {
 
           <Button
             type="submit"
-            disabled={isPending}
+            disabled={!form.formState.isValid}
             className="h-[52px] w-full"
           >
-            Продолжить
+            Отправить
           </Button>
         </div>
       </form>
