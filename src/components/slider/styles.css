@@ -44,6 +44,10 @@
   cursor: pointer;
 }
 
+.swiper-button-lock {
+  display: flex !important;
+}
+
 @media (max-width: 1024px) {
   .swiper {
     overflow: hidden;
