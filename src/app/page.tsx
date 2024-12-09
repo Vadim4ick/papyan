@@ -44,8 +44,8 @@ export default function Home() {
         />
       )}
 
-      <Container>
-        <h3>Тестовый слайдер</h3>
+      <Container className="py-10">
+        <h3 >Тестовый слайдер</h3>
         <ImageSlider images={ImageMocData}/>        
       </Container>
       <section className="pt-[32px] lg:pt-[64px] lg:pb-[100px]">
