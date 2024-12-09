@@ -10,6 +10,9 @@ import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { BadgeWithIcon } from "@/components/badge-with-icon";
+import { Container } from "@/components/ui/container";
+import { ImageSlider } from "@/components/slider/image-slider";
+import { ImageMocData } from "@/shared/const/moc-data";
 
 type ImageType = {
   directus_files_id: {
@@ -30,7 +33,7 @@ export default function Home() {
   } 
 
   const typeCounts = countFileTypes(data?.home_page.sliderClinik as ImageType[]);
-  
+ 
 
   return (
     <div className="">
@@ -41,6 +44,10 @@ export default function Home() {
         />
       )}
 
+      <Container>
+        <h3>Тестовый слайдер</h3>
+        <ImageSlider images={ImageMocData}/>        
+      </Container>
       <section className="pt-[32px] lg:pt-[64px] lg:pb-[100px]">
         <ServicesClinic />
       </section>
