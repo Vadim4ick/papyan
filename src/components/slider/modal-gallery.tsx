@@ -69,6 +69,7 @@ export function ModalGallery({
         onSwiper={setThumbsSwiper}
         spaceBetween={10}
         slidesPerView={5}
+        loop={true}
         watchSlidesProgress
         className=" !absolute !bottom-[40px] w-[80%] h-[100px] thumbsrow"
       >
