@@ -22,10 +22,10 @@ function SliderWrapper({ children, className }: SliderWrapperProps) {
     <div className="slider-wrapper relative w-full">
       {!isTablet && (
         <div className="swiper-navigation">
-          <Button variant="arrow" className="swiper-button-prev">
+          <Button variant="arrow" className="button-next">
             <ChevronLeft width={17} />
           </Button>
-          <Button variant="arrow" className="swiper-button-next">
+          <Button variant="arrow" className="button-prev">
             <ChevronRight width={17} />
           </Button>
         </div>
@@ -36,8 +36,8 @@ function SliderWrapper({ children, className }: SliderWrapperProps) {
         modules={[Pagination, Navigation]}
         scrollbar={{ draggable: true }}
         navigation={{
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+          nextEl: ".button-next",
+          prevEl: ".button-prev",
         }}
         allowTouchMove={true}
         className={`${className} mySwiper`}
@@ -50,7 +50,6 @@ function SliderWrapper({ children, className }: SliderWrapperProps) {
       </Swiper>
     </div>
   );
-      console.log("🚀 ~ SliderWrapper ~ isMobile:", isMobile)
 }
 
 export { SliderWrapper };
