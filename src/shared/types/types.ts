@@ -2,8 +2,9 @@ export type TService = {
   id: string;
   title: string;
   description: string;
-  price: string;
+  price: number;
   categoryId: string;
+  sale:number;
 };
 
 export interface IServicesTitles  {

@@ -17,7 +17,6 @@ import {
   expirience,
   graduation,
   ImageMocData,
-  SecondBunnerImageUrl,
 } from "@/shared/const/moc-data";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
 import Image from "next/image";

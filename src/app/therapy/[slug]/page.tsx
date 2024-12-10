@@ -2,7 +2,7 @@ import { Banner } from "@/components/banner";
 import { GetConsultCard } from "@/components/cards/get-consult-card";
 import { ServiceCardItem } from "@/components/cards/service-card-item";
 import { SliderWrapper } from "@/components/slider/slider-wrapper";
-import { SecondBunnerImageUrl, servicesList } from "@/shared/const/moc-data";
+import { MediaFragment, servicesList } from "@/shared/const/moc-data";
 import Image from "next/image";
 
 export default async function Page({
@@ -11,6 +11,7 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const slug = (await params).slug;
+
   return (
     <>
       <section className="pt-[64px] pb-[72px] xl:pb-[100px] ">
@@ -98,7 +99,12 @@ export default async function Page({
         </div>
       </section>
 
-      <Banner imageUrl={SecondBunnerImageUrl} hight={"h-[494px] md:h-[520px] lg:h-[470px]"}/>
+      {MediaFragment && (
+        <Banner
+          imageUrl={MediaFragment}
+          hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
+        />
+      )}
     </>
   );
 }

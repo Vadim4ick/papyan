@@ -6,8 +6,9 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { useState } from "react";
 import { Navigation, Thumbs } from "swiper/modules";
-import { X } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { IImage } from "@/shared/types/types";
+import { Button } from "../ui/button";
 
 interface ModalGalleryProps {
   images: IImage[];
@@ -43,13 +44,23 @@ export function ModalGallery({
           }
         `}
       </style>
+      
+        <Button variant="arrow" className="swiper-button-prev">
+          <ChevronLeft width={17} />
+        </Button>
+        <Button variant="arrow" className="swiper-button-prev">
+          <ChevronRight width={17} />
+        </Button>
       <Swiper
         modules={[Navigation, Thumbs]}
         spaceBetween={10}
         slidesPerView={1}
-        navigation
         thumbs={{ swiper: thumbsSwiper }}
         initialSlide={activeIndex}
+        navigation={{
+          nextEl: ".swiper-button-prev",
+          prevEl: ".swiper-button-prev",
+        }}
         className=" h-[100%] !bg-transparent"
       >
         {images.map((src, index) => (
@@ -74,7 +85,7 @@ export function ModalGallery({
         className=" !absolute !bottom-[40px] w-[80%] h-[100px] thumbsrow"
       >
         {images.map((src, index) => (
-          <SwiperSlide key={index} className="!h-[104px] !w-[70px]">
+          <SwiperSlide key={index} className="!h-[104px] !w-[70px] !rounded-sm">
             <img
               src={src.imageUrl}
               alt={`Thumbnail ${index}`}
