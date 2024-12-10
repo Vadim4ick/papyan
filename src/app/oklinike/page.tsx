@@ -5,6 +5,7 @@ import { CategoriesGalery } from "@/components/cards/categories-galery";
 import { ContactCardV2 } from "@/components/cards/contact-card-v2";
 import { SectionHeader } from "@/components/section-header";
 import { ServicesClinic } from "@/components/services-clinic";
+import { ImageSlider } from "@/components/slider/image-slider";
 import { SliderWrapper } from "@/components/slider/slider-wrapper";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -77,11 +78,9 @@ export default function About() {
               <BadgeWithIcon variant="video" tittle={"Видео"} quantity={10} />
               <BadgeWithIcon variant="photo" tittle={"Фото"} quantity={10} />
             </div>
-            <SliderWrapper>
-              {ImageMocData.map((item) => (
-                <img key={item.id} src={item.imageUrl} alt={item.altText} />
-              ))}
-            </SliderWrapper>
+              
+            <ImageSlider images={ImageMocData}/>
+            
           </div>
         </div>
       </section>

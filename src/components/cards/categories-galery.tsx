@@ -16,6 +16,10 @@ const CategoriesGalery: React.FC<CategoriesGaleryProps> = ({
   cardWidth,
   cardHeight,
 }) => {
+  console.log(category)
+  if (!category) return
+     <h1>Категории не найдены</h1>
+
   return (
     <div>
       <TitleWithBadge
