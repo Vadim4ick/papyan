@@ -19,7 +19,7 @@ const Banner = ({
             width={1324}
             height={727}
             src={pathImage(imageUrl.id)}
-            alt={"altText"}
+            alt={"не удалось загрузить"}
             className="h-full 
           w-full object-cover 
           transition-transform duration-300 group-hover:scale-105

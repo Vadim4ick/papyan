@@ -1,4 +1,6 @@
-import { TCategory, TService } from "../types/types";
+import { TService } from "../types/types";
+
+export const categories = undefined
 
 // export const categories: TCategory[] = [
 //   {

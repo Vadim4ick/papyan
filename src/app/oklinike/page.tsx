@@ -6,7 +6,6 @@ import { ContactCardV2 } from "@/components/cards/contact-card-v2";
 import { SectionHeader } from "@/components/section-header";
 import { ServicesClinic } from "@/components/services-clinic";
 import { ImageSlider } from "@/components/slider/image-slider";
-import { SliderWrapper } from "@/components/slider/slider-wrapper";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { RoundButton } from "@/components/ui/round-button";
@@ -26,6 +25,9 @@ import { useRouter } from "next/navigation";
 
 export default function About() {
   const router = useRouter();
+
+  const MediaFragment = undefined; // ToDo Прокинуть данные о фото
+
   return (
     <>
       <section className="bg-[#F0F3F8] pt-[64px] pb-[100px]">
@@ -78,9 +80,9 @@ export default function About() {
               <BadgeWithIcon variant="video" tittle={"Видео"} quantity={10} />
               <BadgeWithIcon variant="photo" tittle={"Фото"} quantity={10} />
             </div>
-              
-            <ImageSlider images={ImageMocData}/>
-            
+
+            <ImageSlider images={ImageMocData} />
+
           </div>
         </div>
       </section>
@@ -201,9 +203,8 @@ export default function About() {
             {cpecialistsList.map((item, index) => (
               <div
                 key={item.id}
-                className={`md:flex ${
-                  index % 2 === 1 ? "" : "md:flex-row-reverse"
-                } gap-x-[40px] xl:flex-col-reverse xl:gap-y-[12px]`}
+                className={`md:flex ${index % 2 === 1 ? "" : "md:flex-row-reverse"
+                  } gap-x-[40px] xl:flex-col-reverse xl:gap-y-[12px]`}
               >
                 <div className="md:w-1/2 xl:w-full">
                   <Separator className="mb-[32px] md:hidden" />
@@ -212,7 +213,7 @@ export default function About() {
                       .map((speciality, index) =>
                         index === 0
                           ? speciality.charAt(0).toUpperCase() +
-                            speciality.slice(1).toLowerCase()
+                          speciality.slice(1).toLowerCase()
                           : speciality.toLowerCase()
                       )
                       .join(", ")}
@@ -251,8 +252,8 @@ export default function About() {
       </section>
 
       <section className="pt-[32px] lg:pt-[64px] pb-[72px] md:pb-[78px] lg:pb-[100px]">
-        <ServicesClinic/>
-        
+        <ServicesClinic />
+
         <div className="container mx-auto max-w-[1364px] px-[20px] flex flex-col gap-y-[48px] items-center xl:flex-row justify-between xl:items-end">
           <CategoriesGalery
             category={categories}
@@ -268,10 +269,13 @@ export default function About() {
         </div>
       </section>
 
-      <Banner
-        imageUrl={SecondBunnerImageUrl}
-        hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
-      />
+      {
+        MediaFragment &&
+        <Banner
+          imageUrl={MediaFragment}
+          hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
+        />
+      }
     </>
   );
 }

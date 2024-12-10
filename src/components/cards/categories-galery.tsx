@@ -5,7 +5,7 @@ import { TitleWithBadge } from "../title-with-badge";
 import ImageCard from "../ui/image-card";
 
 interface CategoriesGaleryProps {
-  category: ServiceBlockFragmentFragment;
+  category?: ServiceBlockFragmentFragment;
   cardWidth: string;
   cardHeight: string;
   numberOfCardsToRender?: number;

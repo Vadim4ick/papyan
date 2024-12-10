@@ -1,5 +1,7 @@
 "use client"
+import { Banner } from "@/components/banner";
 import { ServicesClinic } from "@/components/services-clinic";
+import { SecondBunnerImageUrl } from "@/shared/const/moc-data";
 
 export default function Uslugi() {
 
@@ -9,12 +11,12 @@ export default function Uslugi() {
         <ServicesClinic />
       </section>
 
-      {data && (
-        <Banner
-          imageUrl={SecondBunnerImageUrl}
-          hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
-        />
-      )}
+
+      <Banner
+        imageUrl={SecondBunnerImageUrl}
+        hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
+      />
+
     </div>
   );
 }
