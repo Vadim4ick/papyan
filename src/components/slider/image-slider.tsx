@@ -28,7 +28,7 @@ function ImageSlider({ images, className }: SliderWrapperProps) {
   return (
     <>
       <div className="slider-wrapper relative w-full">
-        <div className="swiper-navigation">
+        <div className="swiper-nav">
           <Button variant="arrow" className="button-prev">
             <ChevronLeft width={17} />
           </Button>

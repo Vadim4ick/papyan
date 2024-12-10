@@ -7,7 +7,7 @@
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #EBEFF3;
+  background: #ebeff3;
   border-radius: 8px;
 
   overflow: hidden;
@@ -29,13 +29,17 @@
   width: 316px;
 }
 
-.swiper-navigation {
+.swiper-nav {
   position: absolute;
   top: -70px;
   right: 10px;
   display: flex;
   gap: 8px;
   z-index: 10;
+}
+
+.swiper-navigation {
+  display: flex;
 }
 
 .swiper-button-prev,
@@ -47,7 +51,12 @@
   height: 48px !important;
   border-radius: 100%;
   background-color: #FFFFFF1A;
-  
+  ;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after{
+  content: '';
 }
 
 .swiper-button-lock {
@@ -66,8 +75,3 @@
   .swiper-slide {
   }
 }
-
-
-
-
-

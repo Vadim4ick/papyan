@@ -44,13 +44,16 @@ export function ModalGallery({
           }
         `}
       </style>
+
+      <div className="swiper-navigation">
+        <Button variant="arrow" className="swiper-button-prev">
+          <ChevronLeft width={17} color="white" />
+        </Button>
+        <Button variant="arrow" className="swiper-button-next">
+          <ChevronRight width={17} color="white"/>
+        </Button>
+      </div>
       
-        <Button variant="arrow" className="swiper-button-prev">
-          <ChevronLeft width={17} />
-        </Button>
-        <Button variant="arrow" className="swiper-button-prev">
-          <ChevronRight width={17} />
-        </Button>
       <Swiper
         modules={[Navigation, Thumbs]}
         spaceBetween={10}
@@ -58,7 +61,7 @@ export function ModalGallery({
         thumbs={{ swiper: thumbsSwiper }}
         initialSlide={activeIndex}
         navigation={{
-          nextEl: ".swiper-button-prev",
+          nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         }}
         className=" h-[100%] !bg-transparent"
