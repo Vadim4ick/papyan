@@ -57,7 +57,7 @@ export default async function Page({
         <div className="container mx-auto max-w-[1364px] px-[20px]">
           <h2 className="md:mb-[48px]">Другие услуги</h2>
           <CategoriesGalery
-            categoryList={categories}
+            category={categories}
             numberOfCardsToRender={3}
             cardWidth="w-[350px] md:w-[311px] xl:w-[396px]"
             cardHeight="h-[262px] md:h-[311px] xl:h-[464px]"

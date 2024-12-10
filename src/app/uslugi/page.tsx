@@ -1,22 +1,21 @@
-"use client"
+"use client";
 import { Banner } from "@/components/banner";
 import { ServicesClinic } from "@/components/services-clinic";
-import { SecondBunnerImageUrl } from "@/shared/const/moc-data";
+import { MediaFragment } from "@/shared/const/moc-data";
 
 export default function Uslugi() {
-
   return (
     <div>
       <section className="pt-[64px] pb-[100px]">
         <ServicesClinic />
       </section>
 
-
-      <Banner
-        imageUrl={SecondBunnerImageUrl}
-        hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
-      />
-
+      {MediaFragment && (
+        <Banner
+          imageUrl={MediaFragment}
+          hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
+        />
+      )}
     </div>
   );
 }

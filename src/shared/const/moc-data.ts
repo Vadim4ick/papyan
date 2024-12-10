@@ -35,48 +35,54 @@ export const servicesList: TService[] = [
     title: "PRP-терапия 1",
     description:
       "1 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
-    price: "1000",
+    price: 1000,
     categoryId: "fizioterapiya",
+    sale: 15
   },
   {
     id: "2",
     title: "PRP-терапия 2",
     description:
       "2 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
-    price: "2000",
+    price: 2000,
     categoryId: "fizioterapiya",
+    sale: 15
   },
   {
     id: "3",
     title: "PRP-терапия 3",
     description:
       "3 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
-    price: "3000",
+    price: 3000,
     categoryId: "fizioterapiya",
+    sale: 15
   },
   {
     id: "4",
     title: "PRP-терапия 4",
     description:
       "4 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
-    price: "4000",
+    price: 4000,
     categoryId: "fizioterapiya",
+    sale: 15
   },
   {
     id: "5",
     title: "PRP-терапия 5",
     description:
       "5 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
-    price: "5000",
+    price: 5000,
     categoryId: "fizioterapiya",
+    sale: 15
   },
   {
     id: "6",
     title: "PRP-терапия 6",
     description:
       "6 PRP-терапия — это инновационная процедура, основанная на введении плазмы пациента, обогащенной тромбоцитами плазмы",
-    price: "6000",
+    price: 6000,
     categoryId: "fizioterapiya",
+    sale: 15
   },
 ];
 
@@ -215,3 +221,6 @@ export const cpecialistsList = [
     altText: "string",
   },
 ];
+
+ 
+export const MediaFragment = undefined // заглушка фото банера
