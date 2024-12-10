@@ -1,13 +1,14 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 import { Navigation, Pagination } from "swiper/modules";
 import { Button } from "../ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { ModalGallery } from "./modal-gallery";
 import { IImage } from "@/shared/types/types";
+import "swiper/css";
+import "./styles.css"
 
 
 interface SliderWrapperProps {
