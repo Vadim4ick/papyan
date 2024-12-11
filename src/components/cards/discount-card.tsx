@@ -31,9 +31,10 @@ const DiscountCard = ({ card, className }: discountCardProps) => {
         alt={"altText"}
         className="h-full w-full object-cover"
       />
-      <div className="absolute bottom-5  w-full  ">
+      <div className="absolute top-0 left-0 h-full w-full flex flex-col justify-between py-5 md:py-5 lg:py-8 px-0 md:px-[28px] lg:px-[36px]">
+        <h3 className="mx-5 md:mx-0 text-left text-[#FFFFFF]">{card.title}</h3>
         <div className=
-        {`${ isWide ? "ml-auto mr-[36px]" : "mx-auto" } w-[302px] h-[49px] bg-[#FFFFFF]  rounded-[41px] flex justify-between items-center pl-[16px] pr-[6px]`}
+        {`${ isWide ? "mx-auto md:ml-auto md:me-[28px] lg:me-[36px] " : "mx-auto" } w-[302px] h-[49px] bg-[#FFFFFF]  rounded-[41px] flex justify-between items-center pl-[16px] pr-[6px]`}
         >
           <div className="flex gap-[6px] items-center">
             <p className=" relative text-[#353535] text-[20px] leading-[25px] tracking-tight font-semibold ">
