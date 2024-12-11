@@ -1,24 +1,20 @@
 import { Badge } from "@/components/ui/badge";
+import { GetStockPageQuery } from "@/graphql/__generated__";
+import { pathImage } from "@/shared/lib/utils";
 import { RussianRuble } from "lucide-react";
 import Image from "next/image";
 
-interface IDiscountCard {
-  title: string;
-  regularPrice: number;
-  discount: number;
-  image: string;
-}
-
 export interface discountCardProps {
-  card: IDiscountCard;
+  card: GetStockPageQuery["stock_page"]["stockItems"][0];
   className?: string;
 }
 
 const DiscountCard = ({ card, className }: discountCardProps) => {
   const newPrice =
-    card.regularPrice - (card.regularPrice * card.discount) / 100;
+    card.services_id.price -
+    (card.services_id.price * card.services_id.sale) / 100;
 
-  const isWide = className?.includes("wide")
+  const isWide = className?.includes("wide");
 
   return (
     <div
@@ -27,13 +23,15 @@ const DiscountCard = ({ card, className }: discountCardProps) => {
       <Image
         width={380}
         height={418}
-        src={card.image}
+        src={pathImage(card.services_id.img.id)}
         alt={"altText"}
         className="h-full w-full object-cover"
       />
       <div className="absolute bottom-5  w-full  ">
-        <div className=
-        {`${ isWide ? "ml-auto mr-[36px]" : "mx-auto" } w-[302px] h-[49px] bg-[#FFFFFF]  rounded-[41px] flex justify-between items-center pl-[16px] pr-[6px]`}
+        <div
+          className={`${
+            isWide ? "ml-auto mr-[36px]" : "mx-auto"
+          } w-[302px] h-[49px] bg-[#FFFFFF]  rounded-[41px] flex justify-between items-center pl-[16px] pr-[6px]`}
         >
           <div className="flex gap-[6px] items-center">
             <p className=" relative text-[#353535] text-[20px] leading-[25px] tracking-tight font-semibold ">
@@ -44,13 +42,13 @@ const DiscountCard = ({ card, className }: discountCardProps) => {
             </p>
 
             <p className="ms-[18px] relative text-[#7B7B7B] text-[14px] line-through leading-[18px] tracking-tight  ">
-              {card.regularPrice}
+              {card.services_id.price}
               <span className="absolute top-[2px]">
                 <RussianRuble size={13} strokeWidth={2.25} />
               </span>{" "}
             </p>
           </div>
-          <Badge variant="discont">-15%</Badge>
+          <Badge variant="discont">-{card.services_id.sale}%</Badge>
         </div>
       </div>
     </div>
