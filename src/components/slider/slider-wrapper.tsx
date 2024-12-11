@@ -8,6 +8,7 @@ import { Button } from "../ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ReactNode } from "react";
 import { useClientMediaQuery } from "@/shared/hooks/useClientMediaQuery";
+import React from "react";
 
 interface SliderWrapperProps {
   children: ReactNode;
@@ -18,9 +19,12 @@ function SliderWrapper({ children, className }: SliderWrapperProps) {
   const isTablet = useClientMediaQuery("(max-width: 1024px)");
   const isMobile = useClientMediaQuery("(max-width: 768px)");
 
+  const slideCount = React.Children.count(children);
+  const isNavigationDisabled = slideCount <= 4;
+
   return (
     <div className="slider-wrapper relative w-full">
-      {!isTablet && (
+      {isTablet || isNavigationDisabled && (
         <div className="swiper-nav">
           <Button variant="arrow" className="btn-prev">
             <ChevronLeft width={17} />
@@ -35,7 +39,7 @@ function SliderWrapper({ children, className }: SliderWrapperProps) {
         spaceBetween={isMobile? 16 : 20}
         modules={[Pagination, Navigation]}
         scrollbar={{ draggable: true }}
-        loop={true}
+        loop={!isNavigationDisabled}
         navigation={{
           nextEl: ".btn-next",
           prevEl: ".btn-prev",
