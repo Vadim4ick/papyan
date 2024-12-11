@@ -1,69 +1,52 @@
 "use client";
 
+import { CategoriesGalery } from "@/components/cards/categories-galery";
 import { DiscountCard } from "@/components/cards/discount-card";
+import { SectionHeader } from "@/components/section-header";
+import { ServicesClinic } from "@/components/services-clinic";
+import { Button } from "@/components/ui/button";
+import { Loader } from "@/components/ui/loader";
+import { useGetStockPage } from "@/shared/hooks/services/pages/useGetStockPage";
+import { useGetServicesClinic } from "@/shared/hooks/services/useGetServicesClinic";
 import { useClientMediaQuery } from "@/shared/hooks/useClientMediaQuery";
-
-const data = [
-  {
-    title: "Хивамат-терапия",
-    regularPrice: 120,
-    discount: 20,
-    image:
-      "https://images.unsplash.com/photo-1492552181161-62217fc3076d?q=80&w=2394&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-
-  {
-    title: "Комплексное лечение заболеваний опорно-двигательного аппарата",
-    regularPrice: 240,
-    discount: 40,
-    image: "https://images.unsplash.com/photo-1556760544-74068565f05c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    title: "Лечебно-оздоровительный Массаж",
-    regularPrice: 360,
-    discount: 60,
-    image: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=2187&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    title: "Мануальная терапия",
-    regularPrice: 120,
-    discount: 20,
-    image: "https://images.unsplash.com/photo-1556760544-74068565f05c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    title: "Мануальная терапия",
-    regularPrice: 240,
-    discount: 40,
-    image: "https://images.unsplash.com/photo-1599022509786-23794c1b68c2?q=80&w=2314&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  { title: "Хивамат-терапия", 
-    regularPrice: 360, 
-    discount: 60, 
-    image: "https://images.unsplash.com/photo-1556760544-74068565f05c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-  },
-  {
-    title: "Магнитотерапия высокой интенсивности",
-    regularPrice: 120,
-    discount: 20,
-    image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  },
-];
+import { ChevronRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function Akcii() {
   const isTablet = useClientMediaQuery("(max-width: 1024px)");
-  let rows = [data.slice(0, 2), data.slice(2, 4), data.slice(4)];
+  const { data } = useGetStockPage();
+
+  const { data: services, isLoading } = useGetServicesClinic();
+
+  const router = useRouter();
+
+  const items = data?.stock_page.stockItems || [];
+
+  let rows = [items.slice(0, 2), items.slice(2, 4), items.slice(4)];
 
   if (isTablet) {
     rows = [
-      data.slice(0, 1),
-      data.slice(1, 3),
-      data.slice(3, 4),
-      data.slice(4),
+      items.slice(0, 1),
+      items.slice(1, 3),
+      items.slice(3, 4),
+      items.slice(4),
     ];
+  }
+
+  if (isLoading) {
+    return <Loader className="size-[35px]" />;
   }
 
   return (
     <section className="pt-[32px] py-5 lg:pt-[64px] lg:pb-[100px]">
+      <div className="container mx-auto max-w-[1364px] px-[20px]">
+        <SectionHeader
+          className="mb-[20px]"
+          title={data?.stock_page.title || ""}
+          description={data?.stock_page.description || ""}
+        />
+      </div>
+
       <div className="container mx-auto max-w-[1364px] px-[20px]">
         <h1>{isTablet}</h1>
         <div className="flex flex-wrap gap-4 ">
@@ -101,6 +84,37 @@ export default function Akcii() {
           ))}
         </div>
       </div>
+
+      <section className="pt-[32px] lg:pt-[64px] lg:pb-[100px]">
+        <ServicesClinic
+          title={services?.servicesClinic.title}
+          description={services?.servicesClinic.description}
+          services={services}
+        />
+
+        <div className="container mx-auto max-w-[1364px] px-[20px] flex flex-col gap-y-[48px] items-center xl:flex-row justify-between xl:items-end">
+          {services && services?.servicesClinic.dopServices.length > 0 && (
+            <div className="flex flex-col md:flex-row gap-y-[24px] items-center gap-x-[26px] overflow-x-auto">
+              {services?.servicesClinic.dopServices.map(
+                ({ servicesBlock_id }) => (
+                  <CategoriesGalery
+                    key={servicesBlock_id.id}
+                    category={servicesBlock_id}
+                    cardWidth="w-[350px] md:w-[377px] xl:w-[380px]"
+                    cardHeight="h-[238px] md:h-[187px] xl:h-[199px]"
+                  />
+                )
+              )}
+            </div>
+          )}
+          <Button variant="secondary" onClick={() => router.push(`/uslugi/`)}>
+            Все услуги{" "}
+            <span className="ms-[5px] mt-[3px]">
+              <ChevronRight width={17} />
+            </span>
+          </Button>
+        </div>
+      </section>
     </section>
   );
 }

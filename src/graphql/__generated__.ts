@@ -61,6 +61,12 @@ export type Query = {
   readonly services_by_version: Maybe<Version_Services>;
   readonly services_page: Maybe<Services_Page>;
   readonly services_page_by_version: Maybe<Version_Services_Page>;
+  readonly stock_page: Maybe<Stock_Page>;
+  readonly stock_page_by_version: Maybe<Version_Stock_Page>;
+  readonly stock_page_services: ReadonlyArray<Stock_Page_Services>;
+  readonly stock_page_services_aggregated: ReadonlyArray<Stock_Page_Services_Aggregated>;
+  readonly stock_page_services_by_id: Maybe<Stock_Page_Services>;
+  readonly stock_page_services_by_version: Maybe<Version_Stock_Page_Services>;
 };
 
 
@@ -301,6 +307,49 @@ export type QueryServices_Page_By_VersionArgs = {
   version: Scalars['String']['input'];
 };
 
+
+export type QueryStock_PageArgs = {
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryStock_Page_By_VersionArgs = {
+  version: Scalars['String']['input'];
+};
+
+
+export type QueryStock_Page_ServicesArgs = {
+  filter: InputMaybe<Stock_Page_Services_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryStock_Page_Services_AggregatedArgs = {
+  filter: InputMaybe<Stock_Page_Services_Filter>;
+  groupBy: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryStock_Page_Services_By_IdArgs = {
+  id: Scalars['ID']['input'];
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryStock_Page_Services_By_VersionArgs = {
+  id: Scalars['ID']['input'];
+  version: Scalars['String']['input'];
+};
+
 export type Subscription = {
   readonly __typename?: 'Subscription';
   readonly ceny_page_mutated: Maybe<Ceny_Page_Mutated>;
@@ -314,6 +363,8 @@ export type Subscription = {
   readonly servicesClinic_servicesBlock_mutated: Maybe<ServicesClinic_ServicesBlock_Mutated>;
   readonly services_mutated: Maybe<Services_Mutated>;
   readonly services_page_mutated: Maybe<Services_Page_Mutated>;
+  readonly stock_page_mutated: Maybe<Stock_Page_Mutated>;
+  readonly stock_page_services_mutated: Maybe<Stock_Page_Services_Mutated>;
 };
 
 
@@ -368,6 +419,16 @@ export type SubscriptionServices_MutatedArgs = {
 
 
 export type SubscriptionServices_Page_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
+};
+
+
+export type SubscriptionStock_Page_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
+};
+
+
+export type SubscriptionStock_Page_Services_MutatedArgs = {
   event: InputMaybe<EventEnum>;
 };
 
@@ -776,14 +837,26 @@ export type Services = {
   readonly blockId: Maybe<ServicesBlock>;
   readonly description: Maybe<Scalars['String']['output']>;
   readonly id: Scalars['ID']['output'];
+  readonly img: Maybe<Directus_Files>;
   readonly price: Maybe<Scalars['Int']['output']>;
   readonly sale: Maybe<Scalars['Int']['output']>;
+  readonly sortId: Maybe<Scalars['String']['output']>;
   readonly title: Maybe<Scalars['String']['output']>;
 };
 
 
 export type ServicesBlockIdArgs = {
   filter: InputMaybe<ServicesBlock_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type ServicesImgArgs = {
+  filter: InputMaybe<Directus_Files_Filter>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   page: InputMaybe<Scalars['Int']['input']>;
@@ -1073,8 +1146,10 @@ export type Services_Aggregated_Count = {
   readonly blockId: Maybe<Scalars['Int']['output']>;
   readonly description: Maybe<Scalars['Int']['output']>;
   readonly id: Maybe<Scalars['Int']['output']>;
+  readonly img: Maybe<Scalars['Int']['output']>;
   readonly price: Maybe<Scalars['Int']['output']>;
   readonly sale: Maybe<Scalars['Int']['output']>;
+  readonly sortId: Maybe<Scalars['Int']['output']>;
   readonly title: Maybe<Scalars['Int']['output']>;
 };
 
@@ -1092,8 +1167,10 @@ export type Services_Filter = {
   readonly blockId: InputMaybe<ServicesBlock_Filter>;
   readonly description: InputMaybe<String_Filter_Operators>;
   readonly id: InputMaybe<Number_Filter_Operators>;
+  readonly img: InputMaybe<Directus_Files_Filter>;
   readonly price: InputMaybe<Number_Filter_Operators>;
   readonly sale: InputMaybe<Number_Filter_Operators>;
+  readonly sortId: InputMaybe<String_Filter_Operators>;
   readonly title: InputMaybe<String_Filter_Operators>;
 };
 
@@ -1125,6 +1202,116 @@ export type Services_PageBanerArgs = {
 export type Services_Page_Mutated = {
   readonly __typename?: 'services_page_mutated';
   readonly data: Maybe<Services_Page>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
+};
+
+export type Stock_Page = {
+  readonly __typename?: 'stock_page';
+  readonly description: Maybe<Scalars['String']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly stockItems: Maybe<ReadonlyArray<Maybe<Stock_Page_Services>>>;
+  readonly stockItems_func: Maybe<Count_Functions>;
+  readonly title: Maybe<Scalars['String']['output']>;
+};
+
+
+export type Stock_PageStockItemsArgs = {
+  filter: InputMaybe<Stock_Page_Services_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Stock_Page_Filter = {
+  readonly _and: InputMaybe<ReadonlyArray<InputMaybe<Stock_Page_Filter>>>;
+  readonly _or: InputMaybe<ReadonlyArray<InputMaybe<Stock_Page_Filter>>>;
+  readonly description: InputMaybe<String_Filter_Operators>;
+  readonly id: InputMaybe<Number_Filter_Operators>;
+  readonly stockItems: InputMaybe<Stock_Page_Services_Filter>;
+  readonly stockItems_func: InputMaybe<Count_Function_Filter_Operators>;
+  readonly title: InputMaybe<String_Filter_Operators>;
+};
+
+export type Stock_Page_Mutated = {
+  readonly __typename?: 'stock_page_mutated';
+  readonly data: Maybe<Stock_Page>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
+};
+
+export type Stock_Page_Services = {
+  readonly __typename?: 'stock_page_services';
+  readonly id: Scalars['ID']['output'];
+  readonly services_id: Maybe<Services>;
+  readonly sortId: Maybe<Scalars['Int']['output']>;
+  readonly stock_page_id: Maybe<Stock_Page>;
+};
+
+
+export type Stock_Page_ServicesServices_IdArgs = {
+  filter: InputMaybe<Services_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type Stock_Page_ServicesStock_Page_IdArgs = {
+  filter: InputMaybe<Stock_Page_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Stock_Page_Services_Aggregated = {
+  readonly __typename?: 'stock_page_services_aggregated';
+  readonly avg: Maybe<Stock_Page_Services_Aggregated_Fields>;
+  readonly avgDistinct: Maybe<Stock_Page_Services_Aggregated_Fields>;
+  readonly count: Maybe<Stock_Page_Services_Aggregated_Count>;
+  readonly countAll: Maybe<Scalars['Int']['output']>;
+  readonly countDistinct: Maybe<Stock_Page_Services_Aggregated_Count>;
+  readonly group: Maybe<Scalars['JSON']['output']>;
+  readonly max: Maybe<Stock_Page_Services_Aggregated_Fields>;
+  readonly min: Maybe<Stock_Page_Services_Aggregated_Fields>;
+  readonly sum: Maybe<Stock_Page_Services_Aggregated_Fields>;
+  readonly sumDistinct: Maybe<Stock_Page_Services_Aggregated_Fields>;
+};
+
+export type Stock_Page_Services_Aggregated_Count = {
+  readonly __typename?: 'stock_page_services_aggregated_count';
+  readonly id: Maybe<Scalars['Int']['output']>;
+  readonly services_id: Maybe<Scalars['Int']['output']>;
+  readonly sortId: Maybe<Scalars['Int']['output']>;
+  readonly stock_page_id: Maybe<Scalars['Int']['output']>;
+};
+
+export type Stock_Page_Services_Aggregated_Fields = {
+  readonly __typename?: 'stock_page_services_aggregated_fields';
+  readonly id: Maybe<Scalars['Float']['output']>;
+  readonly services_id: Maybe<Scalars['Float']['output']>;
+  readonly sortId: Maybe<Scalars['Float']['output']>;
+  readonly stock_page_id: Maybe<Scalars['Float']['output']>;
+};
+
+export type Stock_Page_Services_Filter = {
+  readonly _and: InputMaybe<ReadonlyArray<InputMaybe<Stock_Page_Services_Filter>>>;
+  readonly _or: InputMaybe<ReadonlyArray<InputMaybe<Stock_Page_Services_Filter>>>;
+  readonly id: InputMaybe<Number_Filter_Operators>;
+  readonly services_id: InputMaybe<Services_Filter>;
+  readonly sortId: InputMaybe<Number_Filter_Operators>;
+  readonly stock_page_id: InputMaybe<Stock_Page_Filter>;
+};
+
+export type Stock_Page_Services_Mutated = {
+  readonly __typename?: 'stock_page_services_mutated';
+  readonly data: Maybe<Stock_Page_Services>;
   readonly event: Maybe<EventEnum>;
   readonly key: Scalars['ID']['output'];
 };
@@ -1189,8 +1376,10 @@ export type Version_Services = {
   readonly blockId: Maybe<Scalars['JSON']['output']>;
   readonly description: Maybe<Scalars['String']['output']>;
   readonly id: Scalars['ID']['output'];
+  readonly img: Maybe<Scalars['JSON']['output']>;
   readonly price: Maybe<Scalars['Int']['output']>;
   readonly sale: Maybe<Scalars['Int']['output']>;
+  readonly sortId: Maybe<Scalars['String']['output']>;
   readonly title: Maybe<Scalars['String']['output']>;
 };
 
@@ -1236,6 +1425,23 @@ export type Version_Services_Page = {
   readonly title: Maybe<Scalars['String']['output']>;
 };
 
+export type Version_Stock_Page = {
+  readonly __typename?: 'version_stock_page';
+  readonly description: Maybe<Scalars['String']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly stockItems: Maybe<Scalars['JSON']['output']>;
+  readonly stockItems_func: Maybe<Count_Functions>;
+  readonly title: Maybe<Scalars['String']['output']>;
+};
+
+export type Version_Stock_Page_Services = {
+  readonly __typename?: 'version_stock_page_services';
+  readonly id: Scalars['ID']['output'];
+  readonly services_id: Maybe<Scalars['JSON']['output']>;
+  readonly sortId: Maybe<Scalars['Int']['output']>;
+  readonly stock_page_id: Maybe<Scalars['JSON']['output']>;
+};
+
 export type MediaFragmentFragment = { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number };
 
 export type ServiceFragmentFragment = { readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number };
@@ -1256,6 +1462,11 @@ export type GetServicesPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetServicesPageQuery = { readonly __typename?: 'Query', readonly services_page: { readonly __typename?: 'services_page', readonly id: string, readonly title: string, readonly description: string, readonly baner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } } };
+
+export type GetStockPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetStockPageQuery = { readonly __typename?: 'Query', readonly stock_page: { readonly __typename?: 'stock_page', readonly id: string, readonly title: string, readonly description: string, readonly stockItems: ReadonlyArray<{ readonly __typename?: 'stock_page_services', readonly id: string, readonly services_id: { readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } } }> } };
 
 export type GetAllServicesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1352,6 +1563,25 @@ export const GetServicesPageDocument = gql`
   }
 }
     ${MediaFragmentFragmentDoc}`;
+export const GetStockPageDocument = gql`
+    query GetStockPage {
+  stock_page {
+    id
+    title
+    description
+    stockItems {
+      id
+      services_id {
+        ...ServiceFragment
+        img {
+          ...MediaFragment
+        }
+      }
+    }
+  }
+}
+    ${ServiceFragmentFragmentDoc}
+${MediaFragmentFragmentDoc}`;
 export const GetAllServicesDocument = gql`
     query GetAllServices {
   services {
@@ -1412,6 +1642,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     GetServicesPage(variables?: GetServicesPageQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetServicesPageQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetServicesPageQuery>(GetServicesPageDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetServicesPage', 'query', variables);
+    },
+    GetStockPage(variables?: GetStockPageQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetStockPageQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetStockPageQuery>(GetStockPageDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetStockPage', 'query', variables);
     },
     GetAllServices(variables?: GetAllServicesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAllServicesQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetAllServicesQuery>(GetAllServicesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetAllServices', 'query', variables);

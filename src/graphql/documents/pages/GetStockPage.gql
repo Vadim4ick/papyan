@@ -1,0 +1,17 @@
+query GetStockPage {
+  stock_page {
+    id
+    title
+    description
+    stockItems {
+      id
+      services_id {
+        ...ServiceFragment
+
+        img {
+          ...MediaFragment
+        }
+      }
+    }
+  }
+}
