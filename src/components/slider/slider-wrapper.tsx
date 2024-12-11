@@ -24,7 +24,7 @@ function SliderWrapper({ children, className }: SliderWrapperProps) {
 
   return (
     <div className="slider-wrapper relative w-full">
-      {!isTablet || isNavigationDisabled && (
+      {isTablet || isNavigationDisabled && (
         <div className="swiper-nav">
           <Button variant="arrow" className="btn-prev">
             <ChevronLeft width={17} />
@@ -35,11 +35,11 @@ function SliderWrapper({ children, className }: SliderWrapperProps) {
         </div>
       )}
       <Swiper
-        slidesPerView={4}
+        slidesPerView={"auto"}
         spaceBetween={isMobile? 16 : 20}
         modules={[Pagination, Navigation]}
         scrollbar={{ draggable: true }}
-        // loop={true}
+        loop={!isNavigationDisabled}
         navigation={{
           nextEl: ".btn-next",
           prevEl: ".btn-prev",
