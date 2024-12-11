@@ -9,6 +9,8 @@ import { ModalGallery } from "./modal-gallery";
 import { IImage } from "@/shared/types/types";
 import "swiper/css";
 import "./styles.css"
+import { useClientMediaQuery } from "@/shared/hooks/useClientMediaQuery";
+import React from "react";
 
 
 interface SliderWrapperProps {
@@ -17,6 +19,8 @@ interface SliderWrapperProps {
 }
 
 function ImageSlider({ images, className }: SliderWrapperProps) {
+  const isTablet = useClientMediaQuery("(max-width: 1024px)");
+  const isMobile = useClientMediaQuery("(max-width: 768px)");
   const [isModalOpen, setModalOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -25,9 +29,13 @@ function ImageSlider({ images, className }: SliderWrapperProps) {
     setModalOpen(true);
   };
 
+  const slideCount = images.length;
+  const isNavigationDisabled = slideCount <= 4;
+
   return (
     <>
       <div className="slider-wrapper relative w-full">
+      {isTablet || !isNavigationDisabled && (
         <div className="swiper-nav">
           <Button variant="arrow" className="button-prev">
             <ChevronLeft width={17} />
@@ -36,10 +44,12 @@ function ImageSlider({ images, className }: SliderWrapperProps) {
             <ChevronRight width={17} />
           </Button>
         </div>
+      )}
         <Swiper
           slidesPerView={"auto"}
           spaceBetween={20}
           modules={[Pagination, Navigation]}
+          loop={!isNavigationDisabled}
           navigation={{
             nextEl: ".button-next",
             prevEl: ".button-prev",
