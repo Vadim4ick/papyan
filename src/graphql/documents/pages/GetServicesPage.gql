@@ -1,0 +1,10 @@
+query GetServicesPage {
+  services_page {
+    id
+    title
+    description
+    baner {
+      ...MediaFragment
+    }
+  }
+}

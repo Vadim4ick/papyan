@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { BadgeWithIcon } from "@/components/badge-with-icon";
+import { useGetServicesClinic } from "@/shared/hooks/services/useGetServicesClinic";
 
 type ImageType = {
   directus_files_id: {
@@ -24,13 +25,15 @@ type ImageType = {
 export default function Home() {
   const router = useRouter();
   const { data, isLoading } = useGetHomePage();
+  const { data: services, isLoading: servicesLoading } = useGetServicesClinic();
 
-  if (isLoading) {
+  if (isLoading || servicesLoading) {
     return <div>Загрузка...</div>;
-  } 
+  }
 
-const typeCounts = countFileTypes(data?.home_page.sliderClinik as ImageType[]);
- 
+  const typeCounts = countFileTypes(
+    data?.home_page.sliderClinik as ImageType[]
+  );
 
   return (
     <div className="">
@@ -41,8 +44,8 @@ const typeCounts = countFileTypes(data?.home_page.sliderClinik as ImageType[]);
         />
       )}
 
-       <section className="pt-[32px] lg:pt-[64px] lg:pb-[100px]">
-        <ServicesClinic />
+      <section className="pt-[32px] lg:pt-[64px] lg:pb-[100px]">
+        <ServicesClinic services={services} />
       </section>
 
       {data?.home_page.infoBaner && (
@@ -106,7 +109,7 @@ const typeCounts = countFileTypes(data?.home_page.sliderClinik as ImageType[]);
                   quantity={typeCounts?.imageCount}
                 />
               </div>
-              <SliderWrapper  className="h-[434px] md:h-[467px] xl:h-[474px]">
+              <SliderWrapper className="h-[434px] md:h-[467px] xl:h-[474px]">
                 {data?.home_page.sliderClinik.map(({ directus_files_id }) => {
                   const isVideo = directus_files_id.type?.startsWith("video/");
 

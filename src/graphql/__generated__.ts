@@ -59,6 +59,8 @@ export type Query = {
   readonly services_aggregated: ReadonlyArray<Services_Aggregated>;
   readonly services_by_id: Maybe<Services>;
   readonly services_by_version: Maybe<Version_Services>;
+  readonly services_page: Maybe<Services_Page>;
+  readonly services_page_by_version: Maybe<Version_Services_Page>;
 };
 
 
@@ -289,6 +291,16 @@ export type QueryServices_By_VersionArgs = {
   version: Scalars['String']['input'];
 };
 
+
+export type QueryServices_PageArgs = {
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryServices_Page_By_VersionArgs = {
+  version: Scalars['String']['input'];
+};
+
 export type Subscription = {
   readonly __typename?: 'Subscription';
   readonly ceny_page_mutated: Maybe<Ceny_Page_Mutated>;
@@ -301,6 +313,7 @@ export type Subscription = {
   readonly servicesClinic_servicesBlock_1_mutated: Maybe<ServicesClinic_ServicesBlock_1_Mutated>;
   readonly servicesClinic_servicesBlock_mutated: Maybe<ServicesClinic_ServicesBlock_Mutated>;
   readonly services_mutated: Maybe<Services_Mutated>;
+  readonly services_page_mutated: Maybe<Services_Page_Mutated>;
 };
 
 
@@ -350,6 +363,11 @@ export type SubscriptionServicesClinic_ServicesBlock_MutatedArgs = {
 
 
 export type SubscriptionServices_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
+};
+
+
+export type SubscriptionServices_Page_MutatedArgs = {
   event: InputMaybe<EventEnum>;
 };
 
@@ -1086,6 +1104,31 @@ export type Services_Mutated = {
   readonly key: Scalars['ID']['output'];
 };
 
+export type Services_Page = {
+  readonly __typename?: 'services_page';
+  readonly baner: Maybe<Directus_Files>;
+  readonly description: Maybe<Scalars['String']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly title: Maybe<Scalars['String']['output']>;
+};
+
+
+export type Services_PageBanerArgs = {
+  filter: InputMaybe<Directus_Files_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Services_Page_Mutated = {
+  readonly __typename?: 'services_page_mutated';
+  readonly data: Maybe<Services_Page>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
+};
+
 export type String_Filter_Operators = {
   readonly _contains: InputMaybe<Scalars['String']['input']>;
   readonly _empty: InputMaybe<Scalars['Boolean']['input']>;
@@ -1185,6 +1228,14 @@ export type Version_ServicesClinic_ServicesBlock_1 = {
   readonly servicesClinic_id: Maybe<Scalars['JSON']['output']>;
 };
 
+export type Version_Services_Page = {
+  readonly __typename?: 'version_services_page';
+  readonly baner: Maybe<Scalars['JSON']['output']>;
+  readonly description: Maybe<Scalars['String']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly title: Maybe<Scalars['String']['output']>;
+};
+
 export type MediaFragmentFragment = { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number };
 
 export type ServiceFragmentFragment = { readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number };
@@ -1200,6 +1251,11 @@ export type GetHomePageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetHomePageQuery = { readonly __typename?: 'Query', readonly home_page: { readonly __typename?: 'home_page', readonly id: string, readonly infoBaner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly mainBaner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly sliderClinik: ReadonlyArray<{ readonly __typename?: 'home_page_files', readonly directus_files_id: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } }> } };
+
+export type GetServicesPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetServicesPageQuery = { readonly __typename?: 'Query', readonly services_page: { readonly __typename?: 'services_page', readonly id: string, readonly title: string, readonly description: string, readonly baner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } } };
 
 export type GetAllServicesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1284,6 +1340,18 @@ export const GetHomePageDocument = gql`
   }
 }
     ${MediaFragmentFragmentDoc}`;
+export const GetServicesPageDocument = gql`
+    query GetServicesPage {
+  services_page {
+    id
+    title
+    description
+    baner {
+      ...MediaFragment
+    }
+  }
+}
+    ${MediaFragmentFragmentDoc}`;
 export const GetAllServicesDocument = gql`
     query GetAllServices {
   services {
@@ -1341,6 +1409,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     GetHomePage(variables?: GetHomePageQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetHomePageQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetHomePageQuery>(GetHomePageDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetHomePage', 'query', variables);
+    },
+    GetServicesPage(variables?: GetServicesPageQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetServicesPageQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetServicesPageQuery>(GetServicesPageDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetServicesPage', 'query', variables);
     },
     GetAllServices(variables?: GetAllServicesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAllServicesQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetAllServicesQuery>(GetAllServicesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetAllServices', 'query', variables);
