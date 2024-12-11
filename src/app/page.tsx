@@ -11,6 +11,8 @@ import { ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { BadgeWithIcon } from "@/components/badge-with-icon";
 import { useGetServicesClinic } from "@/shared/hooks/services/useGetServicesClinic";
+import { CategoriesGalery } from "@/components/cards/categories-galery";
+import { Loader } from "@/components/ui/loader";
 
 type ImageType = {
   directus_files_id: {
@@ -25,10 +27,11 @@ type ImageType = {
 export default function Home() {
   const router = useRouter();
   const { data, isLoading } = useGetHomePage();
-  const { data: services, isLoading: servicesLoading } = useGetServicesClinic();
+  const { data: services, isLoading: isLoadingServices } =
+    useGetServicesClinic();
 
-  if (isLoading || servicesLoading) {
-    return <div>Загрузка...</div>;
+  if (isLoading || isLoadingServices) {
+    return <Loader className="size-[35px]" />;
   }
 
   const typeCounts = countFileTypes(
@@ -45,7 +48,34 @@ export default function Home() {
       )}
 
       <section className="pt-[32px] lg:pt-[64px] lg:pb-[100px]">
-        <ServicesClinic services={services} />
+        <ServicesClinic
+          title={services?.servicesClinic.title}
+          description={services?.servicesClinic.description}
+          services={services}
+        />
+
+        <div className="container mx-auto max-w-[1364px] px-[20px] flex flex-col gap-y-[48px] items-center xl:flex-row justify-between xl:items-end">
+          {services && services?.servicesClinic.dopServices.length > 0 && (
+            <div className="flex flex-col md:flex-row gap-y-[24px] items-center gap-x-[26px] overflow-x-auto">
+              {services?.servicesClinic.dopServices.map(
+                ({ servicesBlock_id }) => (
+                  <CategoriesGalery
+                    key={servicesBlock_id.id}
+                    category={servicesBlock_id}
+                    cardWidth="w-[350px] md:w-[377px] xl:w-[380px]"
+                    cardHeight="h-[238px] md:h-[187px] xl:h-[199px]"
+                  />
+                )
+              )}
+            </div>
+          )}
+          <Button variant="secondary" onClick={() => router.push(`/uslugi/`)}>
+            Все услуги{" "}
+            <span className="ms-[5px] mt-[3px]">
+              <ChevronRight width={17} />
+            </span>
+          </Button>
+        </div>
       </section>
 
       {data?.home_page.infoBaner && (
