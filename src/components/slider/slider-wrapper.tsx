@@ -24,7 +24,7 @@ function SliderWrapper({ children, className }: SliderWrapperProps) {
 
   return (
     <div className="slider-wrapper relative w-full">
-      {isTablet || isNavigationDisabled && (
+      {isTablet || !isNavigationDisabled && (
         <div className="swiper-nav">
           <Button variant="arrow" className="btn-prev">
             <ChevronLeft width={17} />
