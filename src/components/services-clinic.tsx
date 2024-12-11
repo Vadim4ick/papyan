@@ -1,17 +1,22 @@
-import { useGetServicesClinic } from "@/shared/hooks/services/useGetServicesClinic";
 import { CatigoryWrapper } from "./category/category-wrapper";
 import { SectionHeader } from "./section-header";
+import { GetServiceClinicQuery } from "@/graphql/__generated__";
 
-const ServicesClinic = () => {
-  const { data: services, isLoading: servicesLoading } = useGetServicesClinic();
-
+const ServicesClinic = ({
+  title,
+  description,
+  services,
+}: {
+  title?: string;
+  description?: string;
+  services?: GetServiceClinicQuery | undefined;
+}) => {
   return (
     <div className="container mx-auto max-w-[1364px] px-[20px]">
       <SectionHeader
         className="mb-[20px]"
-        title={services?.servicesClinic.title || ""}
-        description={services?.servicesClinic.description}
-        isLoading={servicesLoading}
+        title={title || ""}
+        description={description}
       />
 
       {services?.servicesClinic.servicesClinic.map(({ servicesBlock_id }) => (
