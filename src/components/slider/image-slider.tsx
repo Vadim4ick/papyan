@@ -20,7 +20,6 @@ interface SliderWrapperProps {
 
 function ImageSlider({ images, className }: SliderWrapperProps) {
   const isTablet = useClientMediaQuery("(max-width: 1024px)");
-  const isMobile = useClientMediaQuery("(max-width: 768px)");
   const [isModalOpen, setModalOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
 
