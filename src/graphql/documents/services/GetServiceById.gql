@@ -1,0 +1,5 @@
+query GetServiceById($id: ID!) {
+  services_by_id(id: $id) {
+    ...ServiceByIdFragment
+  }
+}

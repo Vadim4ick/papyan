@@ -1,0 +1,7 @@
+fragment ServiceByIdFragment on services {
+  ...ServiceFragment
+  info
+  baner {
+    ...MediaFragment
+  }
+}
