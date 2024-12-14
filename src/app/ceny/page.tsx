@@ -56,7 +56,11 @@ export default function Ceny() {
       )}
 
       <section className="pt-[32px] lg:pt-[64px] pb-[72px] md:pb-[78px] lg:pb-[100px]">
-        <ServicesClinic services={services} />
+        <ServicesClinic
+          title={services?.servicesClinic.title}
+          description={services?.servicesClinic.description}
+          services={services}
+        />
 
         <div className="container mx-auto max-w-[1364px] px-[20px] flex flex-col gap-y-[48px] items-center xl:flex-row justify-between xl:items-end">
           {services && services?.servicesClinic.dopServices.length > 0 && (

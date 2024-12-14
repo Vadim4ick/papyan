@@ -1,0 +1,9 @@
+query GetServicesBlockFilterByService($id: GraphQLStringOrFloat) {
+  servicesBlock(filter: { allServices: { id: { _eq: $id } } }) {
+    id
+    title
+    allServices {
+      ...ServiceFragment
+    }
+  }
+}
