@@ -3,14 +3,14 @@
 import { gql } from "@/graphql/client";
 import { useQuery } from "@tanstack/react-query";
 
-const useGetServiceById = ({ id }: { id: string }) => {
+const useGetServicesBlockById = ({ id }: { id: string }) => {
   return useQuery({
     queryFn: () =>
-      gql.GetServiceById({
+      gql.GetServiceBlockById({
         id: id,
       }),
-    queryKey: ["services_by_id", id],
+    queryKey: ["services_bloks", id],
   });
 };
 
-export { useGetServiceById };
+export { useGetServicesBlockById };

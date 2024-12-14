@@ -1,0 +1,15 @@
+query GetServiceBlockById($id: ID!) {
+  servicesBlock_by_id(id: $id) {
+    id
+    title
+    description
+    descriptionBlock
+
+    img {
+      ...MediaFragment
+    }
+    allServices {
+      ...ServiceFragment
+    }
+  }
+}

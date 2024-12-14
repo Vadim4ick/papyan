@@ -9,7 +9,7 @@ const useGetServicesBlocksFilterByServices = ({ id }: { id: string }) => {
       gql.GetServicesBlockFilterByService({
         id: id,
       }),
-    queryKey: ["services_bloks_filter_by_services"],
+    queryKey: ["services_bloks_filter_by_services", id],
   });
 };
 

@@ -880,6 +880,8 @@ export type ServicesBlock = {
   readonly __typename?: 'servicesBlock';
   readonly allServices: Maybe<ReadonlyArray<Maybe<Services>>>;
   readonly allServices_func: Maybe<Count_Functions>;
+  readonly description: Maybe<Scalars['String']['output']>;
+  readonly descriptionBlock: Maybe<Scalars['String']['output']>;
   readonly id: Scalars['ID']['output'];
   readonly img: Maybe<Directus_Files>;
   readonly title: Maybe<Scalars['String']['output']>;
@@ -922,6 +924,8 @@ export type ServicesBlock_Aggregated = {
 export type ServicesBlock_Aggregated_Count = {
   readonly __typename?: 'servicesBlock_aggregated_count';
   readonly allServices: Maybe<Scalars['Int']['output']>;
+  readonly description: Maybe<Scalars['Int']['output']>;
+  readonly descriptionBlock: Maybe<Scalars['Int']['output']>;
   readonly id: Maybe<Scalars['Int']['output']>;
   readonly img: Maybe<Scalars['Int']['output']>;
   readonly title: Maybe<Scalars['Int']['output']>;
@@ -937,6 +941,8 @@ export type ServicesBlock_Filter = {
   readonly _or: InputMaybe<ReadonlyArray<InputMaybe<ServicesBlock_Filter>>>;
   readonly allServices: InputMaybe<Services_Filter>;
   readonly allServices_func: InputMaybe<Count_Function_Filter_Operators>;
+  readonly description: InputMaybe<String_Filter_Operators>;
+  readonly descriptionBlock: InputMaybe<String_Filter_Operators>;
   readonly id: InputMaybe<Number_Filter_Operators>;
   readonly img: InputMaybe<Directus_Files_Filter>;
   readonly title: InputMaybe<String_Filter_Operators>;
@@ -1405,6 +1411,8 @@ export type Version_ServicesBlock = {
   readonly __typename?: 'version_servicesBlock';
   readonly allServices: Maybe<Scalars['JSON']['output']>;
   readonly allServices_func: Maybe<Count_Functions>;
+  readonly description: Maybe<Scalars['String']['output']>;
+  readonly descriptionBlock: Maybe<Scalars['String']['output']>;
   readonly id: Scalars['ID']['output'];
   readonly img: Maybe<Scalars['JSON']['output']>;
   readonly title: Maybe<Scalars['String']['output']>;
@@ -1516,6 +1524,13 @@ export type GetServiceBlockQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetServiceBlockQuery = { readonly __typename?: 'Query', readonly servicesBlock: ReadonlyArray<{ readonly __typename?: 'servicesBlock', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number, readonly baner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } }> }> };
+
+export type GetServiceBlockByIdQueryVariables = Exact<{
+  id: Scalars['ID']['input'];
+}>;
+
+
+export type GetServiceBlockByIdQuery = { readonly __typename?: 'Query', readonly servicesBlock_by_id: { readonly __typename?: 'servicesBlock', readonly id: string, readonly title: string, readonly description: string, readonly descriptionBlock: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number, readonly baner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } }> } };
 
 export const MediaFragmentFragmentDoc = gql`
     fragment MediaFragment on directus_files {
@@ -1691,6 +1706,23 @@ export const GetServiceBlockDocument = gql`
 }
     ${MediaFragmentFragmentDoc}
 ${ServiceFragmentFragmentDoc}`;
+export const GetServiceBlockByIdDocument = gql`
+    query GetServiceBlockById($id: ID!) {
+  servicesBlock_by_id(id: $id) {
+    id
+    title
+    description
+    descriptionBlock
+    img {
+      ...MediaFragment
+    }
+    allServices {
+      ...ServiceFragment
+    }
+  }
+}
+    ${MediaFragmentFragmentDoc}
+${ServiceFragmentFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
 
@@ -1725,6 +1757,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     GetServiceBlock(variables?: GetServiceBlockQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetServiceBlockQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetServiceBlockQuery>(GetServiceBlockDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetServiceBlock', 'query', variables);
+    },
+    GetServiceBlockById(variables: GetServiceBlockByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetServiceBlockByIdQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetServiceBlockByIdQuery>(GetServiceBlockByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetServiceBlockById', 'query', variables);
     }
   };
 }

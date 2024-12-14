@@ -1,24 +1,41 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+"use client";
+
 import { CategoriesGalery } from "@/components/cards/categories-galery";
 import { ServiceCardsWrapper } from "@/components/cards/serice-cards-wrapper";
 import { SectionHeader } from "@/components/section-header";
-import { categories, servicesList } from "@/shared/const/moc-data";
+import { Loader } from "@/components/ui/loader";
+import { useGetServicesBlockById } from "@/shared/hooks/services/useGetServicesBlockById";
+import { useGetServicesClinic } from "@/shared/hooks/services/useGetServicesClinic";
+import { pathImage } from "@/shared/lib/utils";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const slug = (await params).slug;
-  console.log(slug);
+export default function Page({ params }: { params: { slug: string } }) {
+  const slug = params.slug;
+
+  const { data: services, isLoading } = useGetServicesClinic();
+
+  const { data, isLoading: isLoadingBlock } = useGetServicesBlockById({
+    id: slug,
+  });
+
+  if (isLoading || isLoadingBlock) {
+    return <Loader />;
+  }
+
+  if (!data?.servicesBlock_by_id) {
+    return notFound();
+  }
+
   return (
     <>
       <section className="pt-[64px] pb-[100px]">
         <div className="container mx-auto max-w-[1364px] px-[20px]">
           <SectionHeader
             className="mb-[36px]"
-            title="Физиотерапия"
-            description="Наши специалисты используют передовые методы и индивидуальный подход, чтобы вы вновь почувствовали уверенность в своих движениях."
+            title={data.servicesBlock_by_id.title || ""}
+            description={data.servicesBlock_by_id.description || ""}
           />
 
           <div className="flex flex-col md:flex-row justify-between md:gap-[40px] xl:gap-[130px]">
@@ -27,43 +44,47 @@ export default async function Page({
                 <Image
                   width={380}
                   height={418}
-                  src={
-                    "https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80"
-                  }
+                  src={pathImage(data.servicesBlock_by_id.img.id)}
                   alt={"altText"}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
 
-              <p>
-                Наши специалисты используют передовые методы и индивидуальный
-                подход, чтобы вы вновь почувствовали уверенность в своих
-                движениях. Наши специалисты используют передовые методы и
-                индивидуальный подход, чтобы вы вновь почувствовали уверенность
-                в своих движениях. Наши специалисты используют передовые методы
-                и индивидуальный подход, чтобы вы вновь почувствовали
-                уверенность в своих движениях. Наши специалисты используют
-                передовые методы и индивидуальный подход, чтобы вы вновь
-                почувствовали уверенность в своих движениях.
-              </p>
+              {data.servicesBlock_by_id.descriptionBlock && (
+                <p>{data.servicesBlock_by_id.descriptionBlock}</p>
+              )}
             </div>
 
-            <ServiceCardsWrapper cardsList={servicesList} showFullList={true} />
+            <ServiceCardsWrapper
+              //@ts-ignore
+              cardsList={
+                services?.servicesClinic.servicesClinic[0].servicesBlock_id
+                  .allServices
+              }
+              showFullList={true}
+            />
           </div>
         </div>
       </section>
 
-      <section className="pt-[32px] pb-[72px] md:pt-[48px] md:pb-[78px] xl:pt-[88px] xl:pb-[100px] bg-[#F0F3F8]">
-        <div className="container mx-auto max-w-[1364px] px-[20px]">
-          <h2 className="md:mb-[48px]">Другие услуги</h2>
-          <CategoriesGalery
-            category={categories}
-            numberOfCardsToRender={3}
-            cardWidth="w-[350px] md:w-[311px] xl:w-[396px]"
-            cardHeight="h-[262px] md:h-[311px] xl:h-[464px]"
-          />
-        </div>
-      </section>
+      {services && services?.servicesClinic.dopServices.length > 0 && (
+        <section className="pt-[32px] pb-[72px] md:pt-[48px] md:pb-[78px] xl:pt-[88px] xl:pb-[100px] bg-[#F0F3F8]">
+          <div className="container mx-auto max-w-[1364px] px-[20px]">
+            <h2 className="md:mb-[48px]">Другие услуги</h2>
+
+            {services?.servicesClinic.dopServices.map(
+              ({ servicesBlock_id }) => (
+                <CategoriesGalery
+                  key={servicesBlock_id.id}
+                  category={servicesBlock_id}
+                  cardWidth="w-[350px] md:w-[311px] xl:w-[396px]"
+                  cardHeight="h-[262px] md:h-[311px] xl:h-[464px]"
+                />
+              )
+            )}
+          </div>
+        </section>
+      )}
     </>
   );
 }
