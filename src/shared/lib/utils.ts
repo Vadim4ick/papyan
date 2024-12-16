@@ -20,10 +20,13 @@ type FileType = {
 };
 
 export function countFileTypes<T extends FileType>(
-  files: T[]
+  files?: T[]
 ): { imageCount: number; videoCount: number } {
   let imageCount = 0;
   let videoCount = 0;
+
+  if (!files) return {imageCount, videoCount}
+
 
   for (const file of files) {
     const type = file.directus_files_id.type;
