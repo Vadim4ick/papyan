@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,7 +8,6 @@ import "swiper/css/thumbs";
 import { useState } from "react";
 import { Navigation, Thumbs } from "swiper/modules";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import { IImage } from "@/shared/types/types";
 import { Button } from "../ui/button";
 import { GetAboutPageQuery } from "@/graphql/__generated__";
 import { pathImage } from "@/shared/lib/utils";
