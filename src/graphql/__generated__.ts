@@ -41,6 +41,14 @@ export type Query = {
   readonly ceny_page_servicesBlock_1_aggregated: ReadonlyArray<Ceny_Page_ServicesBlock_1_Aggregated>;
   readonly ceny_page_servicesBlock_1_by_id: Maybe<Ceny_Page_ServicesBlock_1>;
   readonly ceny_page_servicesBlock_1_by_version: Maybe<Version_Ceny_Page_ServicesBlock_1>;
+  readonly doctors: ReadonlyArray<Doctors>;
+  readonly doctors_aggregated: ReadonlyArray<Doctors_Aggregated>;
+  readonly doctors_by_id: Maybe<Doctors>;
+  readonly doctors_by_version: Maybe<Version_Doctors>;
+  readonly doctors_files: ReadonlyArray<Doctors_Files>;
+  readonly doctors_files_aggregated: ReadonlyArray<Doctors_Files_Aggregated>;
+  readonly doctors_files_by_id: Maybe<Doctors_Files>;
+  readonly doctors_files_by_version: Maybe<Version_Doctors_Files>;
   readonly home_page: Maybe<Home_Page>;
   readonly home_page_by_version: Maybe<Version_Home_Page>;
   readonly home_page_files: ReadonlyArray<Home_Page_Files>;
@@ -157,6 +165,72 @@ export type QueryCeny_Page_ServicesBlock_1_By_IdArgs = {
 
 
 export type QueryCeny_Page_ServicesBlock_1_By_VersionArgs = {
+  id: Scalars['ID']['input'];
+  version: Scalars['String']['input'];
+};
+
+
+export type QueryDoctorsArgs = {
+  filter: InputMaybe<Doctors_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryDoctors_AggregatedArgs = {
+  filter: InputMaybe<Doctors_Filter>;
+  groupBy: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryDoctors_By_IdArgs = {
+  id: Scalars['ID']['input'];
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryDoctors_By_VersionArgs = {
+  id: Scalars['ID']['input'];
+  version: Scalars['String']['input'];
+};
+
+
+export type QueryDoctors_FilesArgs = {
+  filter: InputMaybe<Doctors_Files_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryDoctors_Files_AggregatedArgs = {
+  filter: InputMaybe<Doctors_Files_Filter>;
+  groupBy: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryDoctors_Files_By_IdArgs = {
+  id: Scalars['ID']['input'];
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryDoctors_Files_By_VersionArgs = {
   id: Scalars['ID']['input'];
   version: Scalars['String']['input'];
 };
@@ -406,6 +480,8 @@ export type Subscription = {
   readonly ceny_page_mutated: Maybe<Ceny_Page_Mutated>;
   readonly ceny_page_servicesBlock_1_mutated: Maybe<Ceny_Page_ServicesBlock_1_Mutated>;
   readonly directus_files_mutated: Maybe<Directus_Files_Mutated>;
+  readonly doctors_files_mutated: Maybe<Doctors_Files_Mutated>;
+  readonly doctors_mutated: Maybe<Doctors_Mutated>;
   readonly home_page_files_mutated: Maybe<Home_Page_Files_Mutated>;
   readonly home_page_mutated: Maybe<Home_Page_Mutated>;
   readonly servicesBlock_mutated: Maybe<ServicesBlock_Mutated>;
@@ -440,6 +516,16 @@ export type SubscriptionCeny_Page_ServicesBlock_1_MutatedArgs = {
 
 
 export type SubscriptionDirectus_Files_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
+};
+
+
+export type SubscriptionDoctors_Files_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
+};
+
+
+export type SubscriptionDoctors_MutatedArgs = {
   event: InputMaybe<EventEnum>;
 };
 
@@ -872,6 +958,160 @@ export type Directus_Files_Filter = {
 export type Directus_Files_Mutated = {
   readonly __typename?: 'directus_files_mutated';
   readonly data: Maybe<Directus_Files>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
+};
+
+export type Doctors = {
+  readonly __typename?: 'doctors';
+  readonly description: Maybe<Scalars['String']['output']>;
+  readonly education: Maybe<Scalars['String']['output']>;
+  readonly experience: Maybe<Scalars['String']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly img: Maybe<Directus_Files>;
+  readonly name: Maybe<Scalars['String']['output']>;
+  readonly post: Maybe<Scalars['String']['output']>;
+  readonly slider: Maybe<ReadonlyArray<Maybe<Doctors_Files>>>;
+  readonly slider_func: Maybe<Count_Functions>;
+};
+
+
+export type DoctorsImgArgs = {
+  filter: InputMaybe<Directus_Files_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type DoctorsSliderArgs = {
+  filter: InputMaybe<Doctors_Files_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Doctors_Aggregated = {
+  readonly __typename?: 'doctors_aggregated';
+  readonly avg: Maybe<Doctors_Aggregated_Fields>;
+  readonly avgDistinct: Maybe<Doctors_Aggregated_Fields>;
+  readonly count: Maybe<Doctors_Aggregated_Count>;
+  readonly countAll: Maybe<Scalars['Int']['output']>;
+  readonly countDistinct: Maybe<Doctors_Aggregated_Count>;
+  readonly group: Maybe<Scalars['JSON']['output']>;
+  readonly max: Maybe<Doctors_Aggregated_Fields>;
+  readonly min: Maybe<Doctors_Aggregated_Fields>;
+  readonly sum: Maybe<Doctors_Aggregated_Fields>;
+  readonly sumDistinct: Maybe<Doctors_Aggregated_Fields>;
+};
+
+export type Doctors_Aggregated_Count = {
+  readonly __typename?: 'doctors_aggregated_count';
+  readonly description: Maybe<Scalars['Int']['output']>;
+  readonly education: Maybe<Scalars['Int']['output']>;
+  readonly experience: Maybe<Scalars['Int']['output']>;
+  readonly id: Maybe<Scalars['Int']['output']>;
+  readonly img: Maybe<Scalars['Int']['output']>;
+  readonly name: Maybe<Scalars['Int']['output']>;
+  readonly post: Maybe<Scalars['Int']['output']>;
+  readonly slider: Maybe<Scalars['Int']['output']>;
+};
+
+export type Doctors_Aggregated_Fields = {
+  readonly __typename?: 'doctors_aggregated_fields';
+  readonly id: Maybe<Scalars['Float']['output']>;
+};
+
+export type Doctors_Files = {
+  readonly __typename?: 'doctors_files';
+  readonly directus_files_id: Maybe<Directus_Files>;
+  readonly doctors_id: Maybe<Doctors>;
+  readonly id: Scalars['ID']['output'];
+};
+
+
+export type Doctors_FilesDirectus_Files_IdArgs = {
+  filter: InputMaybe<Directus_Files_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type Doctors_FilesDoctors_IdArgs = {
+  filter: InputMaybe<Doctors_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Doctors_Files_Aggregated = {
+  readonly __typename?: 'doctors_files_aggregated';
+  readonly avg: Maybe<Doctors_Files_Aggregated_Fields>;
+  readonly avgDistinct: Maybe<Doctors_Files_Aggregated_Fields>;
+  readonly count: Maybe<Doctors_Files_Aggregated_Count>;
+  readonly countAll: Maybe<Scalars['Int']['output']>;
+  readonly countDistinct: Maybe<Doctors_Files_Aggregated_Count>;
+  readonly group: Maybe<Scalars['JSON']['output']>;
+  readonly max: Maybe<Doctors_Files_Aggregated_Fields>;
+  readonly min: Maybe<Doctors_Files_Aggregated_Fields>;
+  readonly sum: Maybe<Doctors_Files_Aggregated_Fields>;
+  readonly sumDistinct: Maybe<Doctors_Files_Aggregated_Fields>;
+};
+
+export type Doctors_Files_Aggregated_Count = {
+  readonly __typename?: 'doctors_files_aggregated_count';
+  readonly directus_files_id: Maybe<Scalars['Int']['output']>;
+  readonly doctors_id: Maybe<Scalars['Int']['output']>;
+  readonly id: Maybe<Scalars['Int']['output']>;
+};
+
+export type Doctors_Files_Aggregated_Fields = {
+  readonly __typename?: 'doctors_files_aggregated_fields';
+  readonly doctors_id: Maybe<Scalars['Float']['output']>;
+  readonly id: Maybe<Scalars['Float']['output']>;
+};
+
+export type Doctors_Files_Filter = {
+  readonly _and: InputMaybe<ReadonlyArray<InputMaybe<Doctors_Files_Filter>>>;
+  readonly _or: InputMaybe<ReadonlyArray<InputMaybe<Doctors_Files_Filter>>>;
+  readonly directus_files_id: InputMaybe<Directus_Files_Filter>;
+  readonly doctors_id: InputMaybe<Doctors_Filter>;
+  readonly id: InputMaybe<Number_Filter_Operators>;
+};
+
+export type Doctors_Files_Mutated = {
+  readonly __typename?: 'doctors_files_mutated';
+  readonly data: Maybe<Doctors_Files>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
+};
+
+export type Doctors_Filter = {
+  readonly _and: InputMaybe<ReadonlyArray<InputMaybe<Doctors_Filter>>>;
+  readonly _or: InputMaybe<ReadonlyArray<InputMaybe<Doctors_Filter>>>;
+  readonly description: InputMaybe<String_Filter_Operators>;
+  readonly education: InputMaybe<String_Filter_Operators>;
+  readonly experience: InputMaybe<String_Filter_Operators>;
+  readonly id: InputMaybe<Number_Filter_Operators>;
+  readonly img: InputMaybe<Directus_Files_Filter>;
+  readonly name: InputMaybe<String_Filter_Operators>;
+  readonly post: InputMaybe<String_Filter_Operators>;
+  readonly slider: InputMaybe<Doctors_Files_Filter>;
+  readonly slider_func: InputMaybe<Count_Function_Filter_Operators>;
+};
+
+export type Doctors_Mutated = {
+  readonly __typename?: 'doctors_mutated';
+  readonly data: Maybe<Doctors>;
   readonly event: Maybe<EventEnum>;
   readonly key: Scalars['ID']['output'];
 };
@@ -1581,6 +1821,26 @@ export type Version_Ceny_Page_ServicesBlock_1 = {
   readonly servicesBlock_id: Maybe<Scalars['JSON']['output']>;
 };
 
+export type Version_Doctors = {
+  readonly __typename?: 'version_doctors';
+  readonly description: Maybe<Scalars['String']['output']>;
+  readonly education: Maybe<Scalars['String']['output']>;
+  readonly experience: Maybe<Scalars['String']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly img: Maybe<Scalars['JSON']['output']>;
+  readonly name: Maybe<Scalars['String']['output']>;
+  readonly post: Maybe<Scalars['String']['output']>;
+  readonly slider: Maybe<Scalars['JSON']['output']>;
+  readonly slider_func: Maybe<Count_Functions>;
+};
+
+export type Version_Doctors_Files = {
+  readonly __typename?: 'version_doctors_files';
+  readonly directus_files_id: Maybe<Scalars['JSON']['output']>;
+  readonly doctors_id: Maybe<Scalars['JSON']['output']>;
+  readonly id: Scalars['ID']['output'];
+};
+
 export type Version_Home_Page = {
   readonly __typename?: 'version_home_page';
   readonly id: Scalars['ID']['output'];
@@ -1672,6 +1932,13 @@ export type Version_Stock_Page_Services = {
   readonly stock_page_id: Maybe<Scalars['JSON']['output']>;
 };
 
+export type GetAllDoctorsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllDoctorsQuery = { readonly __typename?: 'Query', readonly doctors: ReadonlyArray<{ readonly __typename?: 'doctors', readonly id: string, readonly post: string, readonly name: string, readonly description: string, readonly education: string, readonly experience: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly slider: ReadonlyArray<{ readonly __typename?: 'doctors_files', readonly directus_files_id: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } }> }> };
+
+export type DoctorFragmentFragment = { readonly __typename?: 'doctors', readonly id: string, readonly post: string, readonly name: string, readonly description: string, readonly education: string, readonly experience: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly slider: ReadonlyArray<{ readonly __typename?: 'doctors_files', readonly directus_files_id: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } }> };
+
 export type MediaFragmentFragment = { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number };
 
 export type ServiceByIdFragmentFragment = { readonly __typename?: 'services', readonly info: string, readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number, readonly baner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } };
@@ -1750,6 +2017,24 @@ export const MediaFragmentFragmentDoc = gql`
   height
 }
     `;
+export const DoctorFragmentFragmentDoc = gql`
+    fragment DoctorFragment on doctors {
+  id
+  img {
+    ...MediaFragment
+  }
+  post
+  name
+  description
+  education
+  experience
+  slider {
+    directus_files_id {
+      ...MediaFragment
+    }
+  }
+}
+    ${MediaFragmentFragmentDoc}`;
 export const ServiceFragmentFragmentDoc = gql`
     fragment ServiceFragment on services {
   id
@@ -1785,6 +2070,13 @@ export const ServiceBlockFragmentFragmentDoc = gql`
 }
     ${MediaFragmentFragmentDoc}
 ${ServiceFragmentFragmentDoc}`;
+export const GetAllDoctorsDocument = gql`
+    query GetAllDoctors {
+  doctors {
+    ...DoctorFragment
+  }
+}
+    ${DoctorFragmentFragmentDoc}`;
 export const GetAboutPageDocument = gql`
     query GetAboutPage {
   about_page {
@@ -1960,6 +2252,9 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
+    GetAllDoctors(variables?: GetAllDoctorsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAllDoctorsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetAllDoctorsQuery>(GetAllDoctorsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetAllDoctors', 'query', variables);
+    },
     GetAboutPage(variables?: GetAboutPageQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAboutPageQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetAboutPageQuery>(GetAboutPageDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetAboutPage', 'query', variables);
     },
