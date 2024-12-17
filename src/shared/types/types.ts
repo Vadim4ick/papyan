@@ -24,3 +24,15 @@ export interface IImage {
   altText: string;
   services?: IServicesTitles[];
 }
+
+
+
+export type ImageType = {
+  directus_files_id: {
+    id: string;
+    title: string;
+    width: number | null;
+    type: string;
+    height: number | null;
+  };
+};
