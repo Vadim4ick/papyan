@@ -1,11 +1,14 @@
-query GetAllDoctors {
-    doctors {
+query GetDoctorById($id: ID!) {
+    doctors_by_id(id: $id) {
     ...DoctorFragment
-
-      sevices {
+    
+     sevices {
       services_id {
         ...ServiceFragment
       }
     }
     }
 }
+
+
+
