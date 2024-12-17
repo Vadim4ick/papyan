@@ -5,7 +5,6 @@ import { DoctorDetailInfo } from "@/components/doctor-detail-info";
 import { SliderWrapper } from "@/components/slider/slider-wrapper";
 import { BadgeWithIcon } from "@/components/badge-with-icon";
 import { pathImage } from "@/shared/lib/utils";
-import { useGetDoctorById } from "@/shared/hooks/services/useGetDoctorById";
 import { Loader } from "@/components/ui/loader";
 import { notFound } from "next/navigation";
 import { ServiceCardItem } from "@/components/cards/service-card-item";

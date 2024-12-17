@@ -1,10 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  GetAllDoctorsQuery,
-  GetDoctorByIdQuery,
-} from "@/graphql/__generated__";
-import { expirience, graduation } from "@/shared/const/moc-data";
+import { GetAllDoctorsQuery } from "@/graphql/__generated__";
 import { pathImage } from "@/shared/lib/utils";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
