@@ -9,9 +9,11 @@ import { Navigation, Thumbs } from "swiper/modules";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { IImage } from "@/shared/types/types";
 import { Button } from "../ui/button";
+import { GetAboutPageQuery } from "@/graphql/__generated__";
+import { pathImage } from "@/shared/lib/utils";
 
 interface ModalGalleryProps {
-  images: IImage[];
+  images: GetAboutPageQuery["about_page"]["slider"];
   activeIndex: number;
   onClose: () => void;
 }
@@ -50,10 +52,10 @@ export function ModalGallery({
           <ChevronLeft width={17} color="white" />
         </Button>
         <Button variant="arrow" className="swiper-button-next">
-          <ChevronRight width={17} color="white"/>
+          <ChevronRight width={17} color="white" />
         </Button>
       </div>
-      
+
       <Swiper
         modules={[Navigation, Thumbs]}
         spaceBetween={10}
@@ -69,7 +71,7 @@ export function ModalGallery({
         {images.map((src, index) => (
           <SwiperSlide key={index}>
             <img
-              src={src.imageUrl}
+              src={pathImage(src.directus_files_id.id)}
               alt={`Slide ${index}`}
               className="object-contain  !w-fit h-full "
             />
@@ -90,7 +92,7 @@ export function ModalGallery({
         {images.map((src, index) => (
           <SwiperSlide key={index} className="!h-[104px] !w-[70px] !rounded-sm">
             <img
-              src={src.imageUrl}
+              src={pathImage(src.directus_files_id.id)}
               alt={`Thumbnail ${index}`}
               className="object-cover w-full h-16 cursor-pointer"
             />

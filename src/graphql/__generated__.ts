@@ -29,6 +29,12 @@ export enum EventEnum {
 
 export type Query = {
   readonly __typename?: 'Query';
+  readonly about_page: Maybe<About_Page>;
+  readonly about_page_by_version: Maybe<Version_About_Page>;
+  readonly about_page_files: ReadonlyArray<About_Page_Files>;
+  readonly about_page_files_aggregated: ReadonlyArray<About_Page_Files_Aggregated>;
+  readonly about_page_files_by_id: Maybe<About_Page_Files>;
+  readonly about_page_files_by_version: Maybe<Version_About_Page_Files>;
   readonly ceny_page: Maybe<Ceny_Page>;
   readonly ceny_page_by_version: Maybe<Version_Ceny_Page>;
   readonly ceny_page_servicesBlock_1: ReadonlyArray<Ceny_Page_ServicesBlock_1>;
@@ -67,6 +73,49 @@ export type Query = {
   readonly stock_page_services_aggregated: ReadonlyArray<Stock_Page_Services_Aggregated>;
   readonly stock_page_services_by_id: Maybe<Stock_Page_Services>;
   readonly stock_page_services_by_version: Maybe<Version_Stock_Page_Services>;
+};
+
+
+export type QueryAbout_PageArgs = {
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryAbout_Page_By_VersionArgs = {
+  version: Scalars['String']['input'];
+};
+
+
+export type QueryAbout_Page_FilesArgs = {
+  filter: InputMaybe<About_Page_Files_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryAbout_Page_Files_AggregatedArgs = {
+  filter: InputMaybe<About_Page_Files_Filter>;
+  groupBy: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryAbout_Page_Files_By_IdArgs = {
+  id: Scalars['ID']['input'];
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryAbout_Page_Files_By_VersionArgs = {
+  id: Scalars['ID']['input'];
+  version: Scalars['String']['input'];
 };
 
 
@@ -352,6 +401,8 @@ export type QueryStock_Page_Services_By_VersionArgs = {
 
 export type Subscription = {
   readonly __typename?: 'Subscription';
+  readonly about_page_files_mutated: Maybe<About_Page_Files_Mutated>;
+  readonly about_page_mutated: Maybe<About_Page_Mutated>;
   readonly ceny_page_mutated: Maybe<Ceny_Page_Mutated>;
   readonly ceny_page_servicesBlock_1_mutated: Maybe<Ceny_Page_ServicesBlock_1_Mutated>;
   readonly directus_files_mutated: Maybe<Directus_Files_Mutated>;
@@ -365,6 +416,16 @@ export type Subscription = {
   readonly services_page_mutated: Maybe<Services_Page_Mutated>;
   readonly stock_page_mutated: Maybe<Stock_Page_Mutated>;
   readonly stock_page_services_mutated: Maybe<Stock_Page_Services_Mutated>;
+};
+
+
+export type SubscriptionAbout_Page_Files_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
+};
+
+
+export type SubscriptionAbout_Page_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
 };
 
 
@@ -430,6 +491,129 @@ export type SubscriptionStock_Page_MutatedArgs = {
 
 export type SubscriptionStock_Page_Services_MutatedArgs = {
   event: InputMaybe<EventEnum>;
+};
+
+export type About_Page = {
+  readonly __typename?: 'about_page';
+  readonly adress: Maybe<Scalars['String']['output']>;
+  readonly baner: Maybe<Directus_Files>;
+  readonly description: Maybe<Scalars['String']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly phone: Maybe<Scalars['GraphQLBigInt']['output']>;
+  readonly slider: Maybe<ReadonlyArray<Maybe<About_Page_Files>>>;
+  readonly slider_func: Maybe<Count_Functions>;
+  readonly time: Maybe<Scalars['String']['output']>;
+  readonly title: Maybe<Scalars['String']['output']>;
+};
+
+
+export type About_PageBanerArgs = {
+  filter: InputMaybe<Directus_Files_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type About_PageSliderArgs = {
+  filter: InputMaybe<About_Page_Files_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type About_Page_Files = {
+  readonly __typename?: 'about_page_files';
+  readonly about_page_id: Maybe<About_Page>;
+  readonly directus_files_id: Maybe<Directus_Files>;
+  readonly id: Scalars['ID']['output'];
+};
+
+
+export type About_Page_FilesAbout_Page_IdArgs = {
+  filter: InputMaybe<About_Page_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type About_Page_FilesDirectus_Files_IdArgs = {
+  filter: InputMaybe<Directus_Files_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type About_Page_Files_Aggregated = {
+  readonly __typename?: 'about_page_files_aggregated';
+  readonly avg: Maybe<About_Page_Files_Aggregated_Fields>;
+  readonly avgDistinct: Maybe<About_Page_Files_Aggregated_Fields>;
+  readonly count: Maybe<About_Page_Files_Aggregated_Count>;
+  readonly countAll: Maybe<Scalars['Int']['output']>;
+  readonly countDistinct: Maybe<About_Page_Files_Aggregated_Count>;
+  readonly group: Maybe<Scalars['JSON']['output']>;
+  readonly max: Maybe<About_Page_Files_Aggregated_Fields>;
+  readonly min: Maybe<About_Page_Files_Aggregated_Fields>;
+  readonly sum: Maybe<About_Page_Files_Aggregated_Fields>;
+  readonly sumDistinct: Maybe<About_Page_Files_Aggregated_Fields>;
+};
+
+export type About_Page_Files_Aggregated_Count = {
+  readonly __typename?: 'about_page_files_aggregated_count';
+  readonly about_page_id: Maybe<Scalars['Int']['output']>;
+  readonly directus_files_id: Maybe<Scalars['Int']['output']>;
+  readonly id: Maybe<Scalars['Int']['output']>;
+};
+
+export type About_Page_Files_Aggregated_Fields = {
+  readonly __typename?: 'about_page_files_aggregated_fields';
+  readonly about_page_id: Maybe<Scalars['Float']['output']>;
+  readonly id: Maybe<Scalars['Float']['output']>;
+};
+
+export type About_Page_Files_Filter = {
+  readonly _and: InputMaybe<ReadonlyArray<InputMaybe<About_Page_Files_Filter>>>;
+  readonly _or: InputMaybe<ReadonlyArray<InputMaybe<About_Page_Files_Filter>>>;
+  readonly about_page_id: InputMaybe<About_Page_Filter>;
+  readonly directus_files_id: InputMaybe<Directus_Files_Filter>;
+  readonly id: InputMaybe<Number_Filter_Operators>;
+};
+
+export type About_Page_Files_Mutated = {
+  readonly __typename?: 'about_page_files_mutated';
+  readonly data: Maybe<About_Page_Files>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
+};
+
+export type About_Page_Filter = {
+  readonly _and: InputMaybe<ReadonlyArray<InputMaybe<About_Page_Filter>>>;
+  readonly _or: InputMaybe<ReadonlyArray<InputMaybe<About_Page_Filter>>>;
+  readonly adress: InputMaybe<String_Filter_Operators>;
+  readonly baner: InputMaybe<Directus_Files_Filter>;
+  readonly description: InputMaybe<String_Filter_Operators>;
+  readonly id: InputMaybe<Number_Filter_Operators>;
+  readonly phone: InputMaybe<Big_Int_Filter_Operators>;
+  readonly slider: InputMaybe<About_Page_Files_Filter>;
+  readonly slider_func: InputMaybe<Count_Function_Filter_Operators>;
+  readonly time: InputMaybe<String_Filter_Operators>;
+  readonly title: InputMaybe<String_Filter_Operators>;
+};
+
+export type About_Page_Mutated = {
+  readonly __typename?: 'about_page_mutated';
+  readonly data: Maybe<About_Page>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
 };
 
 export type Big_Int_Filter_Operators = {
@@ -1360,6 +1544,26 @@ export type String_Filter_Operators = {
   readonly _starts_with: InputMaybe<Scalars['String']['input']>;
 };
 
+export type Version_About_Page = {
+  readonly __typename?: 'version_about_page';
+  readonly adress: Maybe<Scalars['String']['output']>;
+  readonly baner: Maybe<Scalars['JSON']['output']>;
+  readonly description: Maybe<Scalars['String']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly phone: Maybe<Scalars['GraphQLBigInt']['output']>;
+  readonly slider: Maybe<Scalars['JSON']['output']>;
+  readonly slider_func: Maybe<Count_Functions>;
+  readonly time: Maybe<Scalars['String']['output']>;
+  readonly title: Maybe<Scalars['String']['output']>;
+};
+
+export type Version_About_Page_Files = {
+  readonly __typename?: 'version_about_page_files';
+  readonly about_page_id: Maybe<Scalars['JSON']['output']>;
+  readonly directus_files_id: Maybe<Scalars['JSON']['output']>;
+  readonly id: Scalars['ID']['output'];
+};
+
 export type Version_Ceny_Page = {
   readonly __typename?: 'version_ceny_page';
   readonly banner: Maybe<Scalars['JSON']['output']>;
@@ -1476,6 +1680,11 @@ export type ServiceFragmentFragment = { readonly __typename?: 'services', readon
 
 export type ServiceBlockFragmentFragment = { readonly __typename?: 'servicesBlock', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number, readonly baner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } }> };
 
+export type GetAboutPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAboutPageQuery = { readonly __typename?: 'Query', readonly about_page: { readonly __typename?: 'about_page', readonly id: string, readonly title: string, readonly description: string, readonly time: string, readonly phone: any, readonly adress: string, readonly baner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly slider: ReadonlyArray<{ readonly __typename?: 'about_page_files', readonly directus_files_id: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } }> } };
+
 export type GetCenyPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -1576,6 +1785,26 @@ export const ServiceBlockFragmentFragmentDoc = gql`
 }
     ${MediaFragmentFragmentDoc}
 ${ServiceFragmentFragmentDoc}`;
+export const GetAboutPageDocument = gql`
+    query GetAboutPage {
+  about_page {
+    id
+    title
+    description
+    time
+    phone
+    adress
+    baner {
+      ...MediaFragment
+    }
+    slider {
+      directus_files_id {
+        ...MediaFragment
+      }
+    }
+  }
+}
+    ${MediaFragmentFragmentDoc}`;
 export const GetCenyPageDocument = gql`
     query GetCenyPage {
   ceny_page {
@@ -1731,6 +1960,9 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
+    GetAboutPage(variables?: GetAboutPageQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAboutPageQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetAboutPageQuery>(GetAboutPageDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetAboutPage', 'query', variables);
+    },
     GetCenyPage(variables?: GetCenyPageQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCenyPageQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetCenyPageQuery>(GetCenyPageDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetCenyPage', 'query', variables);
     },
