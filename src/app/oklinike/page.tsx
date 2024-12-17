@@ -13,12 +13,9 @@ import { Loader } from "@/components/ui/loader";
 import { RoundButton } from "@/components/ui/round-button";
 import { Separator } from "@/components/ui/separator";
 import {
-  categories,
-  ContactData,
   cpecialistsList,
   expirience,
   graduation,
-  ImageMocData,
 } from "@/shared/const/moc-data";
 import { useGetAboutPage } from "@/shared/hooks/services/pages/useGetAboutPage";
 import { useGetServicesClinic } from "@/shared/hooks/services/useGetServicesClinic";
@@ -33,8 +30,6 @@ export default function About() {
   const { data, isLoading } = useGetAboutPage();
   const { data: services, isLoading: isLoadingServices } =
     useGetServicesClinic();
-
-  const MediaFragment = undefined; // ToDo Прокинуть данные о фото
 
   if (isLoading || isLoadingServices) {
     return <Loader />;
@@ -91,8 +86,8 @@ export default function About() {
             title="Специалисты клиники"
             description="Наши специалисты используют передовые методы и индивидуальный подход, чтобы вы вновь почувствовали уверенность в своих движениях"
           />
-          
-          <DoctorDetailInfo/>
+
+          <DoctorDetailInfo />
           <div className="w-full xl:hidden">
             <div className="mb-[32px]">
               <p className="leading-[21.86px] font-semibold mb-[8px]">

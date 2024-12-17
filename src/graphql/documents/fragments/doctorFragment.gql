@@ -1,0 +1,17 @@
+fragment DoctorFragment on doctors {
+ id
+  img {
+     ...MediaFragment
+  }
+  post
+  name
+  description
+  education
+  experience
+  
+  slider {
+    directus_files_id{
+          ...MediaFragment
+    }
+  }
+}
