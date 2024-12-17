@@ -1,0 +1,19 @@
+query GetAboutPage {
+    about_page {
+    id
+    title
+    description
+    time
+    phone
+    adress
+   
+    baner {
+        ...MediaFragment
+    }
+    slider {
+        directus_files_id{
+            ...MediaFragment
+        }
+    }
+    }
+}

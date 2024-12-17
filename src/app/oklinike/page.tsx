@@ -8,6 +8,7 @@ import { ServicesClinic } from "@/components/services-clinic";
 import { ImageSlider } from "@/components/slider/image-slider";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Loader } from "@/components/ui/loader";
 import { RoundButton } from "@/components/ui/round-button";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -18,14 +19,25 @@ import {
   graduation,
   ImageMocData,
 } from "@/shared/const/moc-data";
+import { useGetAboutPage } from "@/shared/hooks/services/pages/useGetAboutPage";
+import { useGetServicesClinic } from "@/shared/hooks/services/useGetServicesClinic";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import ReactMarkdown from "react-markdown";
 
 export default function About() {
   const router = useRouter();
 
+  const { data, isLoading } = useGetAboutPage();
+  const { data: services, isLoading: isLoadingServices } =
+    useGetServicesClinic();
+
   const MediaFragment = undefined; // ToDo Прокинуть данные о фото
+
+  if (isLoading || isLoadingServices) {
+    return <Loader />;
+  }
 
   return (
     <>
@@ -33,39 +45,23 @@ export default function About() {
         <div className="container mx-auto max-w-[1364px] px-[20px]">
           <div className="flex flex-col items-center md:items-stretch gap-y-[60px] md:flex-row justify-between">
             <div className="md: max-w-[377px] xl:max-w-[651px]">
-              <h1 className="mb-[12px] md:mb-[16px] lg:mb-[24px]">
-                Клиника Доктора Папяна
-              </h1>
-              <p>
-                Клиника «Dr.Papyan» — место, где наша главная миссия заключается
-                в возвращении людям качества жизни. Мы специализируемся на
-                восстановлении физической активности, помогая нашим клиентам
-                вернуться к полноценному образу жизни. В нашей клинике
-                принимаются дети и взрослые всех возрастов.
-              </p>
-              <p>
-                Мы лечим широкий спектр диагнозов, связанных с
-                опорно-двигательным аппаратом: травмы, боли, реабилитация после
-                операций, повреждения суставов, повреждения мышечно-связочного
-                аппарата, воспалительные процессы, грыжи, протрузии, а также
-                купирование острых болей.
-              </p>
-              <p>
-                В нашей клинике вы встретите врачей с богатым опытом и высокой
-                квалификацией. Специалисты обладают глубокими знаниями в области
-                лечения, а также постоянно совершенствуют свои навыки, чтобы
-                обеспечить нашим пациентам лучшее качество медицинской помощи.
-                Мы гордимся нашей командой врачей, которые с большим
-                профессионализмом и заботой относятся к каждому пациенту,
-                стремясь найти наилучшее решение для их здоровья и благополучия.
-              </p>
+              {data?.about_page.title && (
+                <h1 className="mb-[12px] md:mb-[16px] lg:mb-[24px]">
+                  {data?.about_page.title}
+                </h1>
+              )}
+
+              {data?.about_page.description && (
+                <ReactMarkdown>{data.about_page.description}</ReactMarkdown>
+              )}
             </div>
+
             <div className="relative">
               <ContactCardV2
                 className="w-[350px] h-[296px] md:w-[323px] xl:w-[400px] xl:h-[299px] md:sticky top-[112px]"
-                address={ContactData.address}
-                schedule={ContactData.schedule}
-                phone={ContactData.phone}
+                address={data?.about_page.adress}
+                schedule={data?.about_page.time}
+                phone={data?.about_page.phone}
               >
                 <Button className="w-full" variant="secondary">
                   Получить консультацию
@@ -80,8 +76,9 @@ export default function About() {
               <BadgeWithIcon variant="photo" tittle={"Фото"} quantity={10} />
             </div>
 
-            <ImageSlider images={ImageMocData} />
-
+            {data?.about_page.slider && (
+              <ImageSlider images={data?.about_page.slider} />
+            )}
           </div>
         </div>
       </section>
@@ -202,8 +199,9 @@ export default function About() {
             {cpecialistsList.map((item, index) => (
               <div
                 key={item.id}
-                className={`md:flex ${index % 2 === 1 ? "" : "md:flex-row-reverse"
-                  } gap-x-[40px] xl:flex-col-reverse xl:gap-y-[12px]`}
+                className={`md:flex ${
+                  index % 2 === 1 ? "" : "md:flex-row-reverse"
+                } gap-x-[40px] xl:flex-col-reverse xl:gap-y-[12px]`}
               >
                 <div className="md:w-1/2 xl:w-full">
                   <Separator className="mb-[32px] md:hidden" />
@@ -212,7 +210,7 @@ export default function About() {
                       .map((speciality, index) =>
                         index === 0
                           ? speciality.charAt(0).toUpperCase() +
-                          speciality.slice(1).toLowerCase()
+                            speciality.slice(1).toLowerCase()
                           : speciality.toLowerCase()
                       )
                       .join(", ")}
@@ -251,14 +249,29 @@ export default function About() {
       </section>
 
       <section className="pt-[32px] lg:pt-[64px] pb-[72px] md:pb-[78px] lg:pb-[100px]">
-        <ServicesClinic />
+        {services && (
+          <ServicesClinic
+            title={services?.servicesClinic.title}
+            description={services?.servicesClinic.description}
+            services={services}
+          />
+        )}
 
         <div className="container mx-auto max-w-[1364px] px-[20px] flex flex-col gap-y-[48px] items-center xl:flex-row justify-between xl:items-end">
-          <CategoriesGalery
-            category={categories}
-            cardWidth="w-[350px] md:w-[377px] xl:w-[380px]"
-            cardHeight="h-[238px] md:h-[187px] xl:h-[199px]"
-          />
+          {services && services?.servicesClinic.dopServices.length > 0 && (
+            <div className="flex flex-col md:flex-row gap-y-[24px] items-center gap-x-[26px] overflow-x-auto">
+              {services?.servicesClinic.dopServices.map(
+                ({ servicesBlock_id }) => (
+                  <CategoriesGalery
+                    key={servicesBlock_id.id}
+                    category={servicesBlock_id}
+                    cardWidth="w-[350px] md:w-[377px] xl:w-[380px]"
+                    cardHeight="h-[238px] md:h-[187px] xl:h-[199px]"
+                  />
+                )
+              )}
+            </div>
+          )}
           <Button variant="secondary" onClick={() => router.push(`/uslugi/`)}>
             Все услуги{" "}
             <span className="ms-[5px] mt-[3px]">
@@ -268,13 +281,12 @@ export default function About() {
         </div>
       </section>
 
-      {
-        MediaFragment &&
+      {data?.about_page.baner && (
         <Banner
-          imageUrl={MediaFragment}
+          imageUrl={data?.about_page.baner}
           hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
         />
-      }
+      )}
     </>
   );
 }
