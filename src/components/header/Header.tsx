@@ -28,7 +28,7 @@ const Header = () => {
           </Link>
 
           {/* Навбар для десктопа */}
-          <div className="hidden lg:flex flex-1 justify-center  z-50">
+          <div className="hidden lg:flex flex-1 justify-center z-50 ">
             <Navbar onLinkClick={closeMenu}/>
           </div>
 

@@ -9,7 +9,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ onLinkClick }) => {
   return (
-    <nav className="flex flex-col items-start text-sm font-medium lg:flex-row lg:space-x-4">
+    <nav className="flex flex-col items-start text-sm font-medium lg:flex-row lg:space-x-4 lg:h-10 py-2 bg-[#EDF1F5] rounded-lg">
       {navbar.map((item, index) => (
         <div key={item.id} className="h-full w-full lg:flex ">
           <Link
@@ -23,10 +23,7 @@ const Navbar: React.FC<NavbarProps> = ({ onLinkClick }) => {
             <ChevronRight className="h-[22px] md:h-[24px] lg:hidden" />
           </Link>
           {index < navbar.length - 1 && (
-            <Separator
-              orientation="vertical"
-              className="hidden lg:block"
-            />
+            <Separator orientation="vertical" className="hidden lg:block h-6" />
           )}
           {index < navbar.length - 1 && (
             <Separator
@@ -41,4 +38,3 @@ const Navbar: React.FC<NavbarProps> = ({ onLinkClick }) => {
 };
 
 export { Navbar };
-
