@@ -11,6 +11,7 @@ import { SpecialistsList } from "@/components/specialists-list";
 import { Button } from "@/components/ui/button";
 import { Loader } from "@/components/ui/loader";
 import { useGetAboutPage } from "@/shared/hooks/services/pages/useGetAboutPage";
+import { useGetAllDoctors } from "@/shared/hooks/services/useGetAllDoctors";
 import { useGetServicesClinic } from "@/shared/hooks/services/useGetServicesClinic";
 import { pathImage } from "@/shared/lib/utils";
 import { ChevronRight } from "lucide-react";
@@ -25,7 +26,9 @@ export default function About() {
   const { data: services, isLoading: isLoadingServices } =
     useGetServicesClinic();
 
-  if (isLoading || isLoadingServices) {
+  const { data: doctors, isLoading: isLoadingDoctors } = useGetAllDoctors();
+
+  if (isLoading || isLoadingServices || isLoadingDoctors) {
     return <Loader />;
   }
 
@@ -60,54 +63,56 @@ export default function About() {
             </div>
           </div>
 
-          <div className="pt-[72px] md:pt-[78px] xl:pt-[72px] xl:pb-[100px]">
-            <div className="flex gap-[6px] mb-[24px] md:mb-[38px] xl:mb-[24px]">
-              <BadgeWithIcon
-                className="bg-[#EBEFF3]"
-                variant="video"
-                tittle={"Видео"}
-                quantity={2}
-              />
-              <BadgeWithIcon
-                className="bg-[#EBEFF3]"
-                variant="photo"
-                tittle={"Фото"}
-                quantity={5}
-              />
-            </div>
-            <SliderWrapper className="h-[434px] md:h-[467px] xl:h-[474px]">
-              {data?.about_page.slider.map(({ directus_files_id }) => {
-                const isVideo = directus_files_id.type?.startsWith("video/");
+          {data && data?.about_page.slider.length > 0 && (
+            <div className="pt-[72px] md:pt-[78px] xl:pt-[72px] xl:pb-[100px]">
+              <div className="flex gap-[6px] mb-[24px] md:mb-[38px] xl:mb-[24px]">
+                <BadgeWithIcon
+                  className="bg-[#EBEFF3]"
+                  variant="video"
+                  tittle={"Видео"}
+                  quantity={2}
+                />
+                <BadgeWithIcon
+                  className="bg-[#EBEFF3]"
+                  variant="photo"
+                  tittle={"Фото"}
+                  quantity={5}
+                />
+              </div>
+              <SliderWrapper className="h-[434px] md:h-[467px] xl:h-[474px]">
+                {data?.about_page.slider.map(({ directus_files_id }) => {
+                  const isVideo = directus_files_id.type?.startsWith("video/");
 
-                return isVideo ? (
-                  <video
-                    key={directus_files_id.id}
-                    autoPlay
-                    muted
-                    playsInline
-                    loop
-                    width={directus_files_id.width || 289}
-                    height={directus_files_id.height || 434}
-                    className="h-full w-full object-cover"
-                  >
-                    <source
+                  return isVideo ? (
+                    <video
+                      key={directus_files_id.id}
+                      autoPlay
+                      muted
+                      playsInline
+                      loop
+                      width={directus_files_id.width || 289}
+                      height={directus_files_id.height || 434}
+                      className="h-full w-full object-cover"
+                    >
+                      <source
+                        src={pathImage(directus_files_id.id)}
+                        type={directus_files_id.type}
+                      />
+                    </video>
+                  ) : (
+                    <Image
+                      key={directus_files_id.id}
+                      width={directus_files_id.width || 289}
+                      height={directus_files_id.height || 434}
                       src={pathImage(directus_files_id.id)}
-                      type={directus_files_id.type}
+                      alt={directus_files_id.title}
+                      className="h-full w-full object-cover"
                     />
-                  </video>
-                ) : (
-                  <Image
-                    key={directus_files_id.id}
-                    width={directus_files_id.width || 289}
-                    height={directus_files_id.height || 434}
-                    src={pathImage(directus_files_id.id)}
-                    alt={directus_files_id.title}
-                    className="h-full w-full object-cover"
-                  />
-                );
-              })}
-            </SliderWrapper>
-          </div>
+                  );
+                })}
+              </SliderWrapper>
+            </div>
+          )}
         </div>
       </section>
 
@@ -118,11 +123,16 @@ export default function About() {
             title="Специалисты клиники"
             description="Наши специалисты используют передовые методы и индивидуальный подход, чтобы вы вновь почувствовали уверенность в своих движениях"
           />
-          <DoctorDetailInfo />
+
+          {doctors && doctors?.doctors.length > 0 && (
+            <DoctorDetailInfo doctors={doctors?.doctors[0]} />
+          )}
         </div>
       </section>
 
-      <SpecialistsList />
+      {doctors && doctors?.doctors.length > 1 && (
+        <SpecialistsList doctors={doctors?.doctors.slice(1)} />
+      )}
 
       <section className="pt-[32px] lg:pt-[64px] pb-[72px] md:pb-[78px] lg:pb-[100px]">
         {services && (
