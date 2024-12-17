@@ -5,14 +5,15 @@ import { Container } from "./ui/container";
 import { Clock7, MapPin, Phone } from "lucide-react";
 import { ContactData } from "@/shared/const/moc-data";
 import { Separator } from "./ui/separator";
+import { CretinLogo } from "@/shared/icons/Creatin";
 
 const contacts = ContactData;
 
 const Footer = () => {
   return (
-    <footer className="min-h-[360px] bg-[#353535] pt-[70px] ">
-      <Container >
-        <div className="flex flex-col items-center justify-between gap-y-[65px] lg:flex-row mb-[64px] lg:px-0">
+    <footer className="min-h-[360px] bg-[#353535] pt-[72px] ">
+      <Container>
+        <div className="flex flex-col items-center justify-between gap-y-[64px] lg:flex-row mb-[64px] lg:mb-[85px] lg:px-0">
           <div className="w-full lg:max-w-fit flex md:flex-row lg:flex-col gap-4 lg:gap-y-[58px] justify-between">
             <LogoFooter />
             <Button variant="white" className="hidden md:block">
@@ -22,7 +23,9 @@ const Footer = () => {
 
           <div className="w-full flex justify-between gap-[56px] xl:gap-[128px] flex-wrap lg:flex-nowrap lg:max-w-[701px]">
             <div className="flex flex-col gap-[32px]">
-              <h4 className="font-[600] text-white text-[20px] leading-[25px]"></h4>
+              <h4 className="font-[600] text-white text-[20px] leading-[25px]">
+                Навигация
+              </h4>
 
               <div className="flex flex-col gap-2">
                 <Link
@@ -104,26 +107,30 @@ const Footer = () => {
         <Separator className="bg-[#5E5E5E] mb-[8px]" />
         <Container className="flex items-center justify-between w-full">
           {/* <div > */}
-            <div className="flex items-center gap-4 h-full px-[20px] lg:px-0">
-              <Link
-                className="text-[#979797] font-medium text-[14px] leading-[18px] tracking-tight"
-                href="/"
-              >
-                Публичная аферта
-              </Link>
-              <Link
-                className=" text-[#979797] font-medium text-[14px] leading-[18px] tracking-tight"
-                href="/"
-              >
-                Пользовательское соглашение
-              </Link>
+          <div className="flex items-center gap-4 h-full px-[20px] lg:px-0">
+            <Link
+              className="text-[#979797] font-medium text-[14px] leading-[18px] tracking-tight"
+              href="/"
+            >
+              Публичная аферта
+            </Link>
+            <Link
+              className=" text-[#979797] font-medium text-[14px] leading-[18px] tracking-tight"
+              href="/"
+            >
+              Пользовательское соглашение
+            </Link>
+          </div>
+          <div className="flex items-center gap-[9px] rounded-[100px] p-[3px] Jeko-SemiBold bg-[#414141] w-[191px h-[36px]">
+            <div className="flex items-center ps-[16px] text-[#787878] text-[12px] leading-[14.82px]">
+              разработано
             </div>
-            <div className="flex items-center gap-[9px] rounded-[100px] p-[3px] Jeko-SemiBold bg-[#414141] w-[191px h-[36px]">
-              <div className="flex items-center ps-[16px] text-[#787878] text-[12px] leading-[14.82px]">разработано</div>
-              <div className="flex items-center rounded-[100px] w-[82px] h-[30px] py-[10px] px-[18px] text-white font-bold bg-[#353535]">
-                creatin
-                </div>
-            </div>
+            <a href="https://creatin.ru/">
+              <div className="flex items-center rounded-[100px] w-[82px] h-[30px] py-[10px] px-[18px] bg-[#353535]">
+                <CretinLogo />
+              </div>
+            </a>
+          </div>
           {/* </div> */}
         </Container>
       </div>
