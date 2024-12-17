@@ -14,7 +14,7 @@ import { useGetServicesClinic } from "@/shared/hooks/services/useGetServicesClin
 import { CategoriesGalery } from "@/components/cards/categories-galery";
 import { Loader } from "@/components/ui/loader";
 
-type ImageType = {
+export type ImageType = {
   directus_files_id: {
     id: string;
     title: string;
