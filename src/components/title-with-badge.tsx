@@ -11,9 +11,9 @@ interface TitleWithBadgeProps {
 
 function TitleWithBadge({ tittle, quantity, className }: TitleWithBadgeProps) {
     return (
-        <div className={cn("flex gap-1", className)}>
-            <h3>{tittle}</h3>
-            <Badge variant="default">{quantity}</Badge>
+        <div className={cn("flex items-center gap-[5px]", className)}>
+            <h4>{tittle}</h4>
+            <Badge variant="secondary">{quantity}</Badge>
         </div>
     );
 }

@@ -14,7 +14,7 @@ export function DialogForm() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="secondary">Записаться онлайн</Button>
+        <Button variant="default" className="">Записаться онлайн</Button>
       </DialogTrigger>
       <DialogContent className="w-[360px] md:w-[486px] rounded-lg p-7">
         <DialogHeader>

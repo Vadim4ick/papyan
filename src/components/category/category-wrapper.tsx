@@ -20,7 +20,7 @@ const CatigoryWrapper: React.FC<CategotyWrapperProps> = ({
 
   return (
     <div className={cn("", className)}>
-      <div className="flex justify-between mb-[16px]">
+      <div className="flex items-end justify-between mb-[16px]">
         <TitleWithBadge
           tittle={category.title}
           quantity={category.allServices.length}

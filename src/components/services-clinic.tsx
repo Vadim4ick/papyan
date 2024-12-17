@@ -14,7 +14,7 @@ const ServicesClinic = ({
   return (
     <div className="container mx-auto max-w-[1364px] px-[20px]">
       <SectionHeader
-        className="mb-[20px]"
+        className="mb-[20px] md:mb-[32px] lg:mb-[40px]"
         title={title || ""}
         description={description}
       />

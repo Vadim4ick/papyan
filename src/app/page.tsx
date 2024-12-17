@@ -39,15 +39,17 @@ export default function Home() {
   );
 
   return (
-    <div className="">
-      {data?.home_page.mainBaner && (
-        <Banner
-          imageUrl={data.home_page.mainBaner}
-          hight={"h-screen lg:max-h-[727px]"}
-        />
-      )}
+    <>
+      <section className="bg-[#EBEFF3] lg:pt-[36px] lg:pb-[100px]">
+        {data?.home_page.mainBaner && (
+          <Banner
+            imageUrl={data.home_page.mainBaner}
+            hight={"h-screen lg:max-h-[727px]"}
+          />
+        )}
+      </section>
 
-      <section className="pt-[32px] lg:pt-[64px] lg:pb-[100px]">
+      <section className="pt-[32px] lg:pt-[64px] pb-[72px] md:pb-[78p] lg:pb-[100px] ">
         <ServicesClinic
           title={services?.servicesClinic.title}
           description={services?.servicesClinic.description}
@@ -78,15 +80,17 @@ export default function Home() {
         </div>
       </section>
 
-      {data?.home_page.infoBaner && (
-        <Banner
-          imageUrl={data.home_page.infoBaner}
-          hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
-        />
-      )}
+      <section className="bg-[#EBEFF3] lg:py-[100px]">
+        {data?.home_page.infoBaner && (
+          <Banner
+            imageUrl={data.home_page.infoBaner}
+            hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
+          />
+        )}
+      </section>
 
       {data && data?.home_page.sliderClinik.length > 0 && (
-        <section className="pt-[100px] pb-[100px]">
+        <section className="py-[100px]">
           <div className="container mx-auto max-w-[1364px] px-[20px]">
             <div className="flex flex-col md:flex-row gap-[12px] justify-between mb-[28px] md:mb-[84px] lg:mb-[118px] ">
               <div>
@@ -105,7 +109,7 @@ export default function Home() {
                 </Button>
               </div>
 
-              <p className="text-[#595959] text-[16px] leading-[22px] md:max-w-[377px]">
+              <p className="text-[#595959] text-[16px] leading-[22px] md:max-w-[377px] lg:max-w-[540px]">
                 Цель текста на сайте — привлечь пациента из поисковых систем и
                 убедить его в том, что ему нужна именно эта услуга и именно в
                 вашей клинике. Хорошая статья показывает компетентность врачей,
@@ -125,7 +129,7 @@ export default function Home() {
               </span>
             </Button>
             {data?.home_page.sliderClinik.length > 0 && (
-              <div className="md:h-[520px] lg:h-[470px]">
+              <div className="">
                 <div className="flex gap-[6px] mb-[24px] md:mb-[38px] xl:mb-[24px]">
                   <BadgeWithIcon
                     className="bg-[#EBEFF3]"
@@ -178,6 +182,6 @@ export default function Home() {
           </div>
         </section>
       )}
-    </div>
+    </>
   );
 }
