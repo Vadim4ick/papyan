@@ -8,6 +8,7 @@ import { Providers } from "@/shared/providers/providers";
 const manrope = Manrope({
   weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin"],
+
   display: "swap",
   variable: "--font-manrope",
 });

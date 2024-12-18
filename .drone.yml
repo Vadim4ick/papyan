@@ -1,0 +1,38 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  - name: deploy
+    image: appleboy/drone-ssh
+    settings:
+      host:
+        from_secret: host # Укажите ваш сервер (например, 147.45.246.176)
+      port:
+        from_secret: 22 # Порт SSH (обычно 22)
+      private_key:
+        from_secret: ssh_key # Ваш приватный ключ
+      script:
+        - cd /root/papyan
+        - source ~/.nvm/nvm.sh
+        - nvm use 22
+        - git pull origin master
+        - npm ci
+        - npm run build
+        - pm2 restart front
+
+  - name: notify
+    image: appleboy/drone-telegram:1.3.10
+    settings:
+      token:
+        from_secret: telegram_token
+      to: -4551183176
+
+      message: |
+        ✅ Успешно развернуто приложение после коммита на ветке master!
+
+trigger:
+  event:
+    - push
+    - promote
+    - custom
