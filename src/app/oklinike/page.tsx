@@ -92,7 +92,7 @@ export default function About() {
                       loop
                       width={directus_files_id.width || 289}
                       height={directus_files_id.height || 434}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-cover min-w-[316px]"
                     >
                       <source
                         src={pathImage(directus_files_id.id)}
@@ -106,7 +106,7 @@ export default function About() {
                       height={directus_files_id.height || 434}
                       src={pathImage(directus_files_id.id)}
                       alt={directus_files_id.title}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-cover min-w-[316px]"
                     />
                   );
                 })}
