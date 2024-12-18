@@ -12,7 +12,7 @@ const DoctorDetailInfo = ({
 }) => {
   return (
     <>
-      <div className="flex flex-col-reverse items-center gap-y-[32px] md:items-start md:flex-row gap-x-[40px] mb-[32px] xl:mb-[52px] xl:gap-x-[48px]">
+      <div className="relative min-h-[540px] flex flex-col-reverse items-center gap-y-[32px] md:items-start md:flex-row gap-x-[40px] xl:gap-x-[48px]">
         <div className="items-center relative ] w-[350px] h-[467px] md:w-[357px] md:h-[482px] xl:w-[400px] xl:h-[540px] overflow-hidden rounded-md group">
           <Image
             width={380}
@@ -30,10 +30,13 @@ const DoctorDetailInfo = ({
             </Button>
           </div>
         </div>
-        <div className="flex flex-col gap-y-8 justify-between">
-          <div className="max-w-[377px] ">
+        <div className="flex flex-col justify-between min-h-[540px]">
+          <div className="max-w-[377px] lg:w-[512px]">
             {doctors.post && (
-              <Badge variant="secondary" className="mb-[20px]">
+              <Badge
+                variant="secondary"
+                className="mb-[20px]  px-[14px] py-[6px]"
+              >
                 {doctors.post}
               </Badge>
             )}
@@ -45,11 +48,11 @@ const DoctorDetailInfo = ({
             )}
           </div>
 
-          <div className="w-full hidden xl:block">
+          <div className="w-full hidden xl:flex flex-col justify-end">
             {doctors.education && (
               <div className="mb-[32px]">
                 <p className="leading-[21.86px] font-semibold mb-[8px]">
-                  Образование:
+                  Образование1:
                 </p>
 
                 <ReactMarkdown
@@ -64,7 +67,7 @@ const DoctorDetailInfo = ({
 
                     li: ({ children }) => {
                       return (
-                        <li className="mb-[6px] last:mb-0 relative pl-[4px] before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-primary">
+                        <li className="mb-[6px] last:mb-0 relative pl-[4px] before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-primary before:rounded-[100px]">
                           {children}
                         </li>
                       );
@@ -94,7 +97,7 @@ const DoctorDetailInfo = ({
 
                     li: ({ children }) => {
                       return (
-                        <li className="mb-[6px] last:mb-0 relative pl-[4px] before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-[#FF8A00]">
+                        <li className="mb-[6px] last:mb-0 relative pl-[4px] before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-[#FF8A00] before:rounded-[100px]">
                           {children}
                         </li>
                       );
@@ -124,7 +127,7 @@ const DoctorDetailInfo = ({
 
               li: ({ children }) => {
                 return (
-                  <li className="mb-[6px] last:mb-0 relative pl-[4px] before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-primary">
+                  <li className="mb-[6px] last:mb-0 relative pl-[4px] before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-primary before:rounded-[100px]">
                     {children}
                   </li>
                 );
@@ -149,7 +152,7 @@ const DoctorDetailInfo = ({
 
               li: ({ children }) => {
                 return (
-                  <li className="mb-[6px] last:mb-0 relative pl-[4px] before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-[#FF8A00]">
+                  <li className="mb-[6px] last:mb-0 relative pl-[4px] before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-[#FF8A00] before:rounded-[100px]">
                     {children}
                   </li>
                 );
@@ -159,6 +162,15 @@ const DoctorDetailInfo = ({
             {doctors.experience}
           </ReactMarkdown>
         </div>
+
+<div className="flex">
+  <div> image </div>
+  <div className="flex flex-col">
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
       </div>
     </>
   );

@@ -25,7 +25,7 @@
 }
 
 .swiper-slide {
-  width: 316px;
+  width:min-content
 }
 
 .swiper-nav {
