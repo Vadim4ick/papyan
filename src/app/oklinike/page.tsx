@@ -34,7 +34,7 @@ export default function About() {
 
   return (
     <>
-      <section className="bg-[#F0F3F8] pt-[64px] pb-[100px]">
+      <section className="section bg-[#F0F3F8]">
         <div className="container mx-auto max-w-[1364px] px-[20px]">
           <div className="flex flex-col items-center md:items-stretch gap-y-[60px] md:flex-row justify-between">
             <div className="md: max-w-[377px] xl:max-w-[651px]">
@@ -116,7 +116,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="pt-[64px] pb-[30px] md:pb-[48px] xl:pb-[50px]">
+      <section className="section">
         <div className="container mx-auto max-w-[1364px] px-[20px]">
           <SectionHeader
             className="mb-[20px]"
@@ -128,13 +128,13 @@ export default function About() {
             <DoctorDetailInfo doctors={doctors?.doctors[0]} />
           )}
         </div>
+
+        {doctors && doctors?.doctors.length > 1 && (
+          <SpecialistsList doctors={doctors?.doctors.slice(1)} />
+        )}
       </section>
 
-      {doctors && doctors?.doctors.length > 1 && (
-        <SpecialistsList doctors={doctors?.doctors.slice(1)} />
-      )}
-
-      <section className="pt-[32px] lg:pt-[64px] pb-[72px] md:pb-[78px] lg:pb-[100px]">
+      <section className="section">
         {services && (
           <ServicesClinic
             title={services?.servicesClinic.title}
@@ -167,12 +167,14 @@ export default function About() {
         </div>
       </section>
 
-      {data?.about_page.baner && (
-        <Banner
-          imageUrl={data?.about_page.baner}
-          hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
-        />
-      )}
+      <section className="bg-[#EBEFF3] lg:py-[100px]">
+        {data?.about_page.baner && (
+          <Banner
+            imageUrl={data?.about_page.baner}
+            hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
+          />
+        )}
+      </section>
     </>
   );
 }
