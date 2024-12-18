@@ -12,13 +12,28 @@ steps:
         from_secret: 22 # Порт SSH (обычно 22)
       private_key:
         from_secret: ssh_key # Ваш приватный ключ
+      # script:
+      #   - cd /root/papyan
+      #   - source ~/.nvm/nvm.sh
+      #   - nvm use 22
+      #   - git pull origin master
+      #   - npm ci
+      #   - npm run build
+      #   - pm2 restart front
+
       script:
+        - echo "Moving to directory..."
         - cd /root/papyan
+        - echo "Using NVM..."
         - source ~/.nvm/nvm.sh
-        - nvm use 22
+        - nvm use 22 || echo "NVM version failed"
+        - echo "Pulling latest code..."
         - git pull origin master
+        - echo "Installing dependencies..."
         - npm ci
+        - echo "Building project..."
         - npm run build
+        - echo "Restarting PM2..."
         - pm2 restart front
 
   - name: notify
