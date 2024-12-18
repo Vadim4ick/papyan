@@ -30,9 +30,12 @@ steps:
     settings:
       token:
         from_secret: telegram_token
-      to: -4551183176
+      to: 800465831
       message: |
         ✅ Успешно развернуто приложение после коммита на ветке main!
+        📝 Коммит: ${DRONE_COMMIT_MESSAGE}
+        👤 Автор: ${DRONE_COMMIT_AUTHOR}
+        🔗 [Посмотреть изменения](https://github.com/ваш-репозиторий/commit/${DRONE_COMMIT_SHA})
 
 trigger:
   event:
