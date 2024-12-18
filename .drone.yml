@@ -12,19 +12,15 @@ steps:
     image: appleboy/drone-ssh
 
     settings:
-      host:
-        from_secret: 147.45.246.176
-      username:
-        from_secret: root
-      password:
-        from_secret: ch4A#3UJ7y*4A*
-      port:
-        from_secret: 22
+      host: 147.45.246.176
+      username: root
+      password: ch4A#3UJ7y*4A*
+      port: 22
       script:
         - cd /root/papyan
         - source ~/.nvm/nvm.sh
         - nvm use 22
-        - git pull origin master
+        - git pull origin main
         - npm ci
         - npm run build
         - pm2 restart front
@@ -36,7 +32,7 @@ steps:
         from_secret: telegram_token
       to: -4551183176
       message: |
-        ✅ Успешно развернуто приложение после коммита на ветке master!
+        ✅ Успешно развернуто приложение после коммита на ветке main!
 
 trigger:
   event:
