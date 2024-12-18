@@ -27,6 +27,7 @@ steps:
       token:
         from_secret: telegram_token
       to: -4551183176
+
       message: |
         ✅ Успешно развернуто приложение после коммита на ветке master!
 
