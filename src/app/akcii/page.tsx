@@ -38,7 +38,7 @@ export default function Akcii() {
   }
 
   return (
-    <section className="pt-[32px] py-5 lg:pt-[64px] lg:pb-[100px]">
+    <section className="section">
       <div className="container mx-auto max-w-[1364px] px-[20px]">
         <SectionHeader
           className="mb-[20px]"
@@ -85,7 +85,7 @@ export default function Akcii() {
         </div>
       </div>
 
-      <section className="pt-[32px] lg:pt-[64px] lg:pb-[100px]">
+      <section className="section">
         <ServicesClinic
           title={services?.servicesClinic.title}
           description={services?.servicesClinic.description}

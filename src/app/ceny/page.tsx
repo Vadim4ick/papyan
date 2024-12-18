@@ -20,7 +20,7 @@ export default function Ceny() {
 
   return (
     <div>
-      <section className="pt-[64px] pb-[100px]">
+      <section className="section">
         <div className="container mx-auto max-w-[1364px] px-[20px]">
           <SectionHeader
             className="mb-[40px]"
@@ -48,14 +48,16 @@ export default function Ceny() {
         </div>
       </section>
 
-      {cenyPage?.ceny_page.banner && (
-        <Banner
-          imageUrl={cenyPage.ceny_page.banner}
-          hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
-        />
-      )}
+      <section className="bg-[#EBEFF3] lg:py-[100px]">
+        {cenyPage?.ceny_page.banner && (
+          <Banner
+            imageUrl={cenyPage.ceny_page.banner}
+            hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
+          />
+        )}
+      </section>
 
-      <section className="pt-[32px] lg:pt-[64px] pb-[72px] md:pb-[78px] lg:pb-[100px]">
+      <section className="section">
         <ServicesClinic
           title={services?.servicesClinic.title}
           description={services?.servicesClinic.description}

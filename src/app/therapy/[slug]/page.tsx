@@ -27,88 +27,105 @@ export default function Page({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <section className="pt-[64px] pb-[72px] xl:pb-[100px] ">
-        <div className="container flex flex-col gap-y-[60px] md:flex-row mx-auto max-w-[1364px] px-[20px]">
-          <div>
-            <div className="mb-[36px] md:mb-[48px] lg:mb-[71px] lg:max-w-[718px]">
-              <h1 className="mb-[12px] md:mb-[16px] lg:mb-[24px]">
-                {service.services_by_id.title}
-              </h1>
-
-              <p>{service.services_by_id.description}</p>
-            </div>
-            <div className="flex flex-col gap-[64px]">
-              <ReactMarkdown
-                components={{
-                  p: ({ children }) => {
-                    return <p>{children}</p>;
-                  },
-
-                  img: ({ src }) => {
-                    return (
-                      <div className="h-[467px] w-[350px] md:h-[416px] md:w-[377px] xl:h-[418px] xl:w-[396px] overflow-hidden group">
-                        {src && (
-                          <Image
-                            width={380}
-                            height={418}
-                            src={src}
-                            alt={"altText"}
-                            className="h-full w-full object-cover transition-transform duration-300 rounded-[8px]"
-                          />
-                        )}
-                      </div>
-                    );
-                  },
-
-                  ul: ({ children }) => {
-                    return (
-                      <ul className="flex items-center gap-[20px]">
-                        {children}
-                      </ul>
-                    );
-                  },
-                }}
-              >
-                {service.services_by_id.info}
-              </ReactMarkdown>
-            </div>
-          </div>
-          <div className="relative w-full ">
-            <div className="xl:sticky top-[100px] max-w-fit mx-auto md:ml-auto">
-              <GetConsultCard
-                title={service.services_by_id.title}
-                regularPrice={service.services_by_id.price}
-                newPrice={
-                  service.services_by_id.sale
-                    ? service.services_by_id.price +
-                      (service.services_by_id.price / 100) *
+      <section className="section">
+        <div className="container  mx-auto max-w-[1364px] px-[20px]">
+          <div className="flex flex-col gap-y-[60px] md:flex-row mb-[72px] md:mb-[78px] lg:mb-[100px]">
+            <div>
+              <div className=" mb-[36px] md:mb-[48px] lg:mb-[71px] ">
+                <div className="flex justify-between">
+                  <div className="md:max-w-[397px] lg:max-w-[718px]">
+                    <h1 className="mb-[12px] md:mb-[16px] lg:mb-[24px]">
+                      {service.services_by_id.title}
+                    </h1>
+                    <p>{service.services_by_id.description}</p>
+                  </div>
+                  <div className="hidden md:block lg:hidden">
+                    <GetConsultCard
+                      title={service.services_by_id.title}
+                      regularPrice={service.services_by_id.price}
+                      newPrice={
                         service.services_by_id.sale
-                    : undefined
-                }
-              />
+                          ? service.services_by_id.price +
+                            (service.services_by_id.price / 100) *
+                              service.services_by_id.sale
+                          : undefined
+                      }
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col gap-[64px]">
+                <ReactMarkdown
+                  components={{
+                    p: ({ children }) => {
+                      return <p>{children}</p>;
+                    },
+
+                    img: ({ src }) => {
+                      return (
+                        <div className="w-[350px] h-[467px] md:w-[377px] md:h-[416px] xl:w-[396px] xl:h-[418px] overflow-hidden group">
+                          {src && (
+                            <Image
+                              width={380}
+                              height={418}
+                              src={src}
+                              alt={"altText"}
+                              className="h-full w-full object-cover transition-transform duration-300 rounded-[8px]"
+                            />
+                          )}
+                        </div>
+                      );
+                    },
+
+                    ul: ({ children }) => {
+                      return (
+                        <ul className="flex flex-col items-center justify-center md:flex-row lg:justify-start gap-[20px]">
+                          {children}
+                        </ul>
+                      );
+                    },
+                  }}
+                >
+                  {service.services_by_id.info}
+                </ReactMarkdown>
+              </div>
+            </div>
+            <div className="md:hidden lg:block relative w-full ">
+              <div className="xl:sticky top-[100px] max-w-fit mx-auto md:ml-auto">
+                <GetConsultCard
+                  title={service.services_by_id.title}
+                  regularPrice={service.services_by_id.price}
+                  newPrice={
+                    service.services_by_id.sale
+                      ? service.services_by_id.price +
+                        (service.services_by_id.price / 100) *
+                          service.services_by_id.sale
+                      : undefined
+                  }
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section className="pb-[72px] xl:py-[100px] ">
-        <div className="container mx-auto max-w-[1364px] px-[20px]">
+          <h3 className="mb-[20px] md:mb-[24px]  ">Другие услуги</h3>
           <SliderWrapper>
             {serviceBlocks?.servicesBlock[0].allServices
               .filter((item) => item.id !== params.slug)
-              .map((item) => (
-                <ServiceCardItem key={item.id} card={item} />
-              ))}
+              .map((item) => <ServiceCardItem key={item.id} card={item} />)}
           </SliderWrapper>
         </div>
+
+        {/* <div className="container mx-auto max-w-[1364px] px-[20px]"></div> */}
       </section>
 
-      {service.services_by_id.baner && (
-        <Banner
-          imageUrl={service.services_by_id.baner}
-          hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
-        />
-      )}
+      <section className="bg-[#EBEFF3] lg:py-[100px]">
+        {service.services_by_id.baner && (
+          <Banner
+            imageUrl={service.services_by_id.baner}
+            hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
+          />
+        )}
+      </section>
     </>
   );
 }
