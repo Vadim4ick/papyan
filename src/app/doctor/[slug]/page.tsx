@@ -43,14 +43,10 @@ export default function Page({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <section className="container mx-auto max-w-[1364px] px-[20px] lg:pt-[64px] xl:pt-[64px] ">
-        {doctor && <DoctorDetailInfo doctors={doctor} />}
-      </section>
-
-      {/* Слайдер с карточками услуг */}
-
-      <section className="xl:pt-[110px] ">
+      <section className="section ">
         <div className="container mx-auto max-w-[1364px] px-[20px]">
+          {doctor && <DoctorDetailInfo doctors={doctor} />}
+
           <h3 className="mb-[24px]">Услуги врача</h3>
           <div className="slider-wrapper relative w-full">
             {isTablet ||
@@ -90,7 +86,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       </section>
 
       {doctor?.slider?.length > 0 && (
-        <section className="pt-[72px] md:pt-[78px] xl:pt-[72px] xl:pb-[100px]">
+        <section className="section">
           <div className="container mx-auto max-w-[1364px] px-[20px]">
             <div className="flex gap-[6px] mb-[24px] md:mb-[38px] xl:mb-[24px]">
               <BadgeWithIcon
@@ -168,51 +164,6 @@ export default function Page({ params }: { params: { slug: string } }) {
                 })}
               </Swiper>
             </div>
-
-            {/* <SwiperSlide>Slide 1</SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide> */}
-
-            {/* <SliderWrapper
-            mySwiperNumber="1"
-            className="h-[434px] md:h-[467px] xl:h-[474px]"
-          >
-            {doctor.slider.map(({ directus_files_id }) => {
-              const isVideo = directus_files_id.type?.startsWith("video/");
-
-              return isVideo ? (
-                <video
-                  key={directus_files_id.id}
-                  autoPlay
-                  muted
-                  playsInline
-                  loop
-                  width={directus_files_id.width || 289}
-                  height={directus_files_id.height || 434}
-                  className="h-full w-full object-cover"
-                >
-                  <source
-                    src={pathImage(directus_files_id.id)}
-                    type={directus_files_id.type}
-                  />
-                </video>
-              ) : (
-                <Image
-                  key={directus_files_id.id}
-                  width={directus_files_id.width || 289}
-                  height={directus_files_id.height || 434}
-                  src={pathImage(directus_files_id.id)}
-                  alt={directus_files_id.title}
-                  className="h-full w-full object-cover"
-                />
-              );
-            })}
-          </SliderWrapper> */}
           </div>
         </section>
       )}

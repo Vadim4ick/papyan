@@ -26,12 +26,14 @@ export default function Uslugi() {
         </div>
       </section>
 
-      {data?.services_page.baner && (
-        <Banner
-          imageUrl={data?.services_page.baner}
-          hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
-        />
-      )}
+      <section className="bg-[#EBEFF3] lg:py-[100px]">
+        {data?.services_page.baner && (
+          <Banner
+            imageUrl={data?.services_page.baner}
+            hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
+          />
+        )}
+      </section>
     </div>
   );
 }
