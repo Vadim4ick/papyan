@@ -144,7 +144,10 @@ export default function Home() {
                     quantity={typeCounts?.imageCount}
                   />
                 </div>
-                <SliderWrapper myClass="main" slideWidth="!w-[298px] md:!w-[311px] lg:!w-[316px]" className="h-[434px] md:h-[467px] xl:h-[474px]">
+                <SliderWrapper
+                  slideWidth="!w-[298px] md:!w-[311px] lg:!w-[316px]"
+                  className="h-[434px] md:h-[467px] xl:h-[474px]"
+                >
                   {data?.home_page.sliderClinik.map(({ directus_files_id }) => {
                     const isVideo =
                       directus_files_id.type?.startsWith("video/");

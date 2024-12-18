@@ -1,13 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { DoctorDetailInfo } from "@/components/doctor-detail-info";
-import { SliderWrapper } from "@/components/slider/slider-wrapper";
 import { BadgeWithIcon } from "@/components/badge-with-icon";
-import { pathImage } from "@/shared/lib/utils";
 import { Loader } from "@/components/ui/loader";
 import { notFound } from "next/navigation";
-import { ServiceCardItem } from "@/components/cards/service-card-item";
 import { useGetAllDoctors } from "@/shared/hooks/services/useGetAllDoctors";
 import { SpecialistsList } from "@/components/specialists-list";
 import { useClientMediaQuery } from "@/shared/hooks/useClientMediaQuery";
@@ -22,7 +18,6 @@ import "../../../components/slider/styles.css";
 export default function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug;
 
-  const isTablet = useClientMediaQuery("(max-width: 1024px)");
   const isMobile = useClientMediaQuery("(max-width: 768px)");
 
   const { data, isLoading } = useGetAllDoctors();
