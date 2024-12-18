@@ -10,6 +10,7 @@ steps:
   #     - npm run lint
   - name: deploy
     image: appleboy/drone-ssh
+
     settings:
       host:
         from_secret: 147.45.246.176
