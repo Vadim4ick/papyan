@@ -94,7 +94,7 @@ body {
   }
 
   h3 {
-    @apply font-semibold leading-[35px] text-[28px] text-[#353535] 
+    @apply font-semibold text-[24px] leading-[30px] md:text-[28px] md:leading-[35px] text-[#353535] 
   }
 
   h4 {
@@ -107,6 +107,10 @@ body {
 
   .chevron {
     @apply transition-transform duration-300 ease-out active:scale-[0.9]
+  }
+
+  .section {
+    @apply pt-[32px] md:pt-[48px] lg:pt-[64px] pb-[72px] md:pb-[78px] lg:pb-[100px]
   }
 }
 
