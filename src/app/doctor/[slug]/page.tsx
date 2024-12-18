@@ -10,9 +10,20 @@ import { notFound } from "next/navigation";
 import { ServiceCardItem } from "@/components/cards/service-card-item";
 import { useGetAllDoctors } from "@/shared/hooks/services/useGetAllDoctors";
 import { SpecialistsList } from "@/components/specialists-list";
+import { useClientMediaQuery } from "@/shared/hooks/useClientMediaQuery";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "../../../components/slider/styles.css";
 
 export default function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug;
+
+  const isTablet = useClientMediaQuery("(max-width: 1024px)");
+  const isMobile = useClientMediaQuery("(max-width: 768px)");
 
   const { data, isLoading } = useGetAllDoctors();
   if (isLoading) {
@@ -33,8 +44,8 @@ export default function Page({ params }: { params: { slug: string } }) {
 
       <section className="pb-[72px] xl:py-[100px] ">
         <div className="container mx-auto max-w-[1364px] px-[20px]">
-          {doctor.sevices.length > 0 && (
-            <SliderWrapper>
+          {/* {doctor.sevices.length > 0 && (
+            <SliderWrapper mySwiperNumber="">
               {doctor.sevices.length > 0 &&
                 doctor.sevices.map((item) => (
                   <ServiceCardItem
@@ -43,27 +54,100 @@ export default function Page({ params }: { params: { slug: string } }) {
                   />
                 ))}
             </SliderWrapper>
-          )}
+          )} */}
+
+          <div className="slider-wrapper relative w-full">
+            <div className="swiper-nav">
+              <Button variant="arrow" className={`swiper-button-prev`}>
+                <ChevronLeft width={17} />
+              </Button>
+              <Button variant="arrow" className={`swiper-button-next`}>
+                <ChevronRight width={17} />
+              </Button>
+            </div>
+            <Swiper
+              slidesPerView={"auto"}
+              spaceBetween={isMobile ? 16 : 20}
+              modules={[Pagination, Navigation]}
+              scrollbar={{ draggable: true }}
+              // loop={!isNavigationDisabled}
+              navigation={{
+                nextEl: `.swiper-button-next`,
+                prevEl: `.swiper-button-prev`,
+              }}
+              watchOverflow={true}
+              allowTouchMove={true}
+              className="mySwiper h-[434px] md:h-[467px] xl:h-[474px]"
+            >
+              <SwiperSlide>Slide 1</SwiperSlide>
+              <SwiperSlide>Slide 2</SwiperSlide>
+              <SwiperSlide>Slide 3</SwiperSlide>
+              <SwiperSlide>Slide 3</SwiperSlide>
+              <SwiperSlide>Slide 3</SwiperSlide>
+              <SwiperSlide>Slide 3</SwiperSlide>
+              <SwiperSlide>Slide 3</SwiperSlide>
+              <SwiperSlide>Slide 3</SwiperSlide>
+            </Swiper>
+          </div>
         </div>
       </section>
 
       {doctor?.slider?.length > 0 && (
         <section className="pt-[72px] md:pt-[78px] xl:pt-[72px] xl:pb-[100px]">
-          <div className="flex gap-[6px] mb-[24px] md:mb-[38px] xl:mb-[24px]">
-            <BadgeWithIcon
-              className="bg-[#EBEFF3]"
-              variant="video"
-              tittle={"Видео"}
-              quantity={3}
-            />
-            <BadgeWithIcon
-              className="bg-[#EBEFF3]"
-              variant="photo"
-              tittle={"Фото"}
-              quantity={5}
-            />
-          </div>
-          <SliderWrapper className="h-[434px] md:h-[467px] xl:h-[474px]">
+          <div className="container mx-auto max-w-[1364px] px-[20px]">
+            <div className="flex gap-[6px] mb-[24px] md:mb-[38px] xl:mb-[24px]">
+              <BadgeWithIcon
+                className="bg-[#EBEFF3]"
+                variant="video"
+                tittle={"Видео"}
+                quantity={3}
+              />
+              <BadgeWithIcon
+                className="bg-[#EBEFF3]"
+                variant="photo"
+                tittle={"Фото"}
+                quantity={5}
+              />
+            </div>
+
+            <div className="slider-wrapper relative w-full">
+              <div className="swiper-nav">
+                <Button variant="arrow" className={`swiper1-button-prev`}>
+                  <ChevronLeft width={17} />
+                </Button>
+                <Button variant="arrow" className={`swiper1-button-next`}>
+                  <ChevronRight width={17} />
+                </Button>
+              </div>
+              <Swiper
+                slidesPerView={"auto"}
+                spaceBetween={isMobile ? 16 : 20}
+                modules={[Pagination, Navigation]}
+                scrollbar={{ draggable: true }}
+                // loop={!isNavigationDisabled}
+                navigation={{
+                  nextEl: `.swiper1-button-next`,
+                  prevEl: `.swiper1-button-prev`,
+                }}
+                watchOverflow={true}
+                allowTouchMove={true}
+                className="mySwiper1 h-[434px] md:h-[467px] xl:h-[474px]"
+              >
+                <SwiperSlide>Slide 1</SwiperSlide>
+                <SwiperSlide>Slide 2</SwiperSlide>
+                <SwiperSlide>Slide 3</SwiperSlide>
+                <SwiperSlide>Slide 3</SwiperSlide>
+                <SwiperSlide>Slide 3</SwiperSlide>
+                <SwiperSlide>Slide 3</SwiperSlide>
+                <SwiperSlide>Slide 3</SwiperSlide>
+                <SwiperSlide>Slide 3</SwiperSlide>
+              </Swiper>
+            </div>
+
+            {/* <SliderWrapper
+            mySwiperNumber="1"
+            className="h-[434px] md:h-[467px] xl:h-[474px]"
+          >
             {doctor.slider.map(({ directus_files_id }) => {
               const isVideo = directus_files_id.type?.startsWith("video/");
 
@@ -94,7 +178,8 @@ export default function Page({ params }: { params: { slug: string } }) {
                 />
               );
             })}
-          </SliderWrapper>
+          </SliderWrapper> */}
+          </div>
         </section>
       )}
 

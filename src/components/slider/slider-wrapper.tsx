@@ -12,10 +12,17 @@ import React from "react";
 
 interface SliderWrapperProps {
   children: ReactNode;
-  className?: string
+  className?: string;
+  slideWidth?: string;
+  mySwiperNumber?: string;
 }
 
-function SliderWrapper({ children, className }: SliderWrapperProps) {
+function SliderWrapper({
+  children,
+  className,
+  slideWidth,
+  mySwiperNumber,
+}: SliderWrapperProps) {
   const isTablet = useClientMediaQuery("(max-width: 1024px)");
   const isMobile = useClientMediaQuery("(max-width: 768px)");
 
@@ -24,39 +31,41 @@ function SliderWrapper({ children, className }: SliderWrapperProps) {
 
   return (
     <div className="slider-wrapper relative w-full">
-      {isTablet || !isNavigationDisabled && (
-        <div className="swiper-nav">
-          <Button variant="arrow" className="btn-prev">
-            <ChevronLeft width={17} />
-          </Button>
-          <Button variant="arrow" className="btn-next">
-            <ChevronRight width={17} />
-          </Button>
-        </div>
-      )}
+      {isTablet ||
+        (!isNavigationDisabled && (
+          <div className="swiper-nav">
+            <Button variant="arrow" className={`swiper-button-prev`}>
+              <ChevronLeft width={17} />
+            </Button>
+            <Button variant="arrow" className={`swiper-button-next`}>
+              <ChevronRight width={17} />
+            </Button>
+          </div>
+        ))}
       <Swiper
         slidesPerView={"auto"}
-        spaceBetween={isMobile? 16 : 20}
+        spaceBetween={isMobile ? 16 : 20}
         modules={[Pagination, Navigation]}
         scrollbar={{ draggable: true }}
         loop={!isNavigationDisabled}
         navigation={{
-          nextEl: ".btn-next",
-          prevEl: ".btn-prev",
+          nextEl: `.swiper-button-next`,
+          prevEl: `.swiper-button-prev`,
         }}
         watchOverflow={true}
         allowTouchMove={true}
-        className={`${className} mySwiper`}
+        className={`${className} mySwiper${mySwiperNumber} `}
       >
         {Array.isArray(children)
           ? children.map((child, index) => (
-              <SwiperSlide key={index}>{child}</SwiperSlide>
+              <SwiperSlide className={`${slideWidth}`} key={index}>
+                {child}
+              </SwiperSlide>
             ))
           : children && <SwiperSlide>{children}</SwiperSlide>}
       </Swiper>
     </div>
   );
-
 }
 
 export { SliderWrapper };

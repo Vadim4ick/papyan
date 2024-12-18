@@ -20,7 +20,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="sticky top-0 bg-white h-[64px] z-50">
+      <header className="sticky top-0 bg-white h-[52px] lg:h-[64px] z-50">
         <Container className="h-full flex items-center justify-between">
           {/* Логотип */}
           <Link href={"/"} className="flex z-50">

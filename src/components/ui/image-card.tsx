@@ -20,7 +20,7 @@ const ImageCard: React.FC<ImageCardProps> = ({
   return (
     <div
       className={cn(
-        "w-[350px] h-[301px] md:w-[357px] md:h-[394px] xl:w-[380px] xl:h-[418px]  relative space-y-3 overflow-hidden rounded-md group",
+        "w-[350px] h-[262px] md:w-[357px] md:h-[394px] xl:w-[380px] xl:h-[418px]  relative space-y-3 overflow-hidden rounded-md group",
         className
       )}
     >

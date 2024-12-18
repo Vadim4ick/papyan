@@ -65,7 +65,7 @@ export default function Home() {
                     key={servicesBlock_id.id}
                     category={servicesBlock_id}
                     cardWidth="w-[350px] md:w-[377px] xl:w-[380px]"
-                    cardHeight="h-[238px] md:h-[187px] xl:h-[199px]"
+                    cardHeight=" xl:h-[238px] md:h-[187px] h-[199px]"
                   />
                 )
               )}
@@ -90,11 +90,11 @@ export default function Home() {
       </section>
 
       {data && data?.home_page.sliderClinik.length > 0 && (
-        <section className="py-[100px]">
+        <section className="pb-[72px] pt-[32px] md:pb-[78px] md:pt-[48px] lg:py-[100px]">
           <div className="container mx-auto max-w-[1364px] px-[20px]">
-            <div className="flex flex-col md:flex-row gap-[12px] justify-between mb-[28px] md:mb-[84px] lg:mb-[118px] ">
+            <div className="flex flex-col md:flex-row justify-between mb-[28px] md:mb-[84px] lg:mb-[118px] ">
               <div>
-                <h2 className="mb-[28px] md:mb-[32px] md:text-[36px] md:leading-[45px]">
+                <h2 className="mb-[12px] md:mb-[32px] md:text-[36px] md:leading-[45px]">
                   Клиника Доктора Папяна
                 </h2>
                 <Button
@@ -144,7 +144,7 @@ export default function Home() {
                     quantity={typeCounts?.imageCount}
                   />
                 </div>
-                <SliderWrapper className="h-[434px] md:h-[467px] xl:h-[474px]">
+                <SliderWrapper myClass="main" slideWidth="!w-[298px] md:!w-[311px] lg:!w-[316px]" className="h-[434px] md:h-[467px] xl:h-[474px]">
                   {data?.home_page.sliderClinik.map(({ directus_files_id }) => {
                     const isVideo =
                       directus_files_id.type?.startsWith("video/");
