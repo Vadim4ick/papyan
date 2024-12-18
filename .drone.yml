@@ -28,8 +28,7 @@ steps:
   - name: notify
     image: appleboy/drone-telegram:1.3.10
     settings:
-      token:
-        from_secret: telegram_token
+      token: 7667848651:AAFC29EEL9jkm6c6CoXZ-XWN0JZ_dh7hhuE
       to: 800465831
       message: |
         ✅ Успешно развернуто приложение после коммита на ветке main!
