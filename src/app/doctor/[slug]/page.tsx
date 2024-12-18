@@ -44,24 +44,12 @@ export default function Page({ params }: { params: { slug: string } }) {
 
       <section className="pb-[72px] xl:py-[100px] ">
         <div className="container mx-auto max-w-[1364px] px-[20px]">
-          {/* {doctor.sevices.length > 0 && (
-            <SliderWrapper mySwiperNumber="">
-              {doctor.sevices.length > 0 &&
-                doctor.sevices.map((item) => (
-                  <ServiceCardItem
-                    key={item.services_id.id}
-                    card={item.services_id}
-                  />
-                ))}
-            </SliderWrapper>
-          )} */}
-
           <div className="slider-wrapper relative w-full">
             <div className="swiper-nav">
-              <Button variant="arrow" className={`swiper-button-prev`}>
+              <Button variant="arrow" className={`swiper1-button-prev`}>
                 <ChevronLeft width={17} />
               </Button>
-              <Button variant="arrow" className={`swiper-button-next`}>
+              <Button variant="arrow" className={`swiper1-button-next`}>
                 <ChevronRight width={17} />
               </Button>
             </div>
@@ -72,21 +60,21 @@ export default function Page({ params }: { params: { slug: string } }) {
               scrollbar={{ draggable: true }}
               // loop={!isNavigationDisabled}
               navigation={{
-                nextEl: `.swiper-button-next`,
-                prevEl: `.swiper-button-prev`,
+                nextEl: `.swiper1-button-next`,
+                prevEl: `.swiper1-button-prev`,
               }}
               watchOverflow={true}
               allowTouchMove={true}
-              className="mySwiper h-[434px] md:h-[467px] xl:h-[474px]"
+              className="mySwiper1"
             >
-              <SwiperSlide>Slide 1</SwiperSlide>
-              <SwiperSlide>Slide 2</SwiperSlide>
-              <SwiperSlide>Slide 3</SwiperSlide>
-              <SwiperSlide>Slide 3</SwiperSlide>
-              <SwiperSlide>Slide 3</SwiperSlide>
-              <SwiperSlide>Slide 3</SwiperSlide>
-              <SwiperSlide>Slide 3</SwiperSlide>
-              <SwiperSlide>Slide 3</SwiperSlide>
+              {doctor.sevices.length > 0 &&
+                doctor.sevices.map((item) => (
+                  <SwiperSlide key={item.services_id.id}>
+                    <ServiceCardItem
+                      card={item.services_id}
+                    />
+                  </SwiperSlide>
+                ))}
             </Swiper>
           </div>
         </div>
@@ -112,10 +100,10 @@ export default function Page({ params }: { params: { slug: string } }) {
 
             <div className="slider-wrapper relative w-full">
               <div className="swiper-nav">
-                <Button variant="arrow" className={`swiper1-button-prev`}>
+                <Button variant="arrow" className={`swiper2-button-prev`}>
                   <ChevronLeft width={17} />
                 </Button>
-                <Button variant="arrow" className={`swiper1-button-next`}>
+                <Button variant="arrow" className={`swiper2-button-next`}>
                   <ChevronRight width={17} />
                 </Button>
               </div>
@@ -126,23 +114,57 @@ export default function Page({ params }: { params: { slug: string } }) {
                 scrollbar={{ draggable: true }}
                 // loop={!isNavigationDisabled}
                 navigation={{
-                  nextEl: `.swiper1-button-next`,
-                  prevEl: `.swiper1-button-prev`,
+                  nextEl: `.swiper2-button-next`,
+                  prevEl: `.swiper2-button-prev`,
                 }}
                 watchOverflow={true}
                 allowTouchMove={true}
-                className="mySwiper1 h-[434px] md:h-[467px] xl:h-[474px]"
+                className="mySwiper2 h-[434px] md:h-[467px] xl:h-[474px]"
               >
-                <SwiperSlide>Slide 1</SwiperSlide>
+                {doctor.slider.map(({ directus_files_id }) => {
+                  const isVideo = directus_files_id.type?.startsWith("video/");
+                  return isVideo ? (
+                    <SwiperSlide>
+                      <video
+                        key={directus_files_id.id}
+                        autoPlay
+                        muted
+                        playsInline
+                        loop
+                        width={directus_files_id.width || 289}
+                        height={directus_files_id.height || 434}
+                        className="h-full w-full object-cover"
+                      >
+                        <source
+                          src={pathImage(directus_files_id.id)}
+                          type={directus_files_id.type}
+                        />
+                      </video>
+                    </SwiperSlide>
+                  ) : (
+                    <SwiperSlide>
+                      <Image
+                        key={directus_files_id.id}
+                        width={directus_files_id.width || 289}
+                        height={directus_files_id.height || 434}
+                        src={pathImage(directus_files_id.id)}
+                        alt={directus_files_id.title}
+                        className="h-full w-full object-cover"
+                      />
+                    </SwiperSlide>
+                  );
+                })}
+              </Swiper>
+            </div>
+
+            {/* <SwiperSlide>Slide 1</SwiperSlide>
                 <SwiperSlide>Slide 2</SwiperSlide>
                 <SwiperSlide>Slide 3</SwiperSlide>
                 <SwiperSlide>Slide 3</SwiperSlide>
                 <SwiperSlide>Slide 3</SwiperSlide>
                 <SwiperSlide>Slide 3</SwiperSlide>
                 <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-              </Swiper>
-            </div>
+                <SwiperSlide>Slide 3</SwiperSlide> */}
 
             {/* <SliderWrapper
             mySwiperNumber="1"
