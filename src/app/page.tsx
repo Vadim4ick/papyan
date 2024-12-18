@@ -34,6 +34,8 @@ export default function Home() {
     return <Loader className="size-[35px]" />;
   }
 
+  console.log("test");
+
   const typeCounts = countFileTypes(
     data?.home_page.sliderClinik as ImageType[]
   );
