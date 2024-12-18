@@ -1,9 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import { DoctorDetailInfo } from "@/components/doctor-detail-info";
 import { BadgeWithIcon } from "@/components/badge-with-icon";
+import { pathImage } from "@/shared/lib/utils";
 import { Loader } from "@/components/ui/loader";
 import { notFound } from "next/navigation";
+import { ServiceCardItem } from "@/components/cards/service-card-item";
 import { useGetAllDoctors } from "@/shared/hooks/services/useGetAllDoctors";
 import { SpecialistsList } from "@/components/specialists-list";
 import { useClientMediaQuery } from "@/shared/hooks/useClientMediaQuery";
@@ -18,6 +21,7 @@ import "../../../components/slider/styles.css";
 export default function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug;
 
+  const isTablet = useClientMediaQuery("(max-width: 1024px)");
   const isMobile = useClientMediaQuery("(max-width: 768px)");
 
   const { data, isLoading } = useGetAllDoctors();
@@ -31,23 +35,35 @@ export default function Page({ params }: { params: { slug: string } }) {
   const doctor = data.doctors.filter((item) => item.id === slug)?.[0];
   const doctors = data.doctors.filter((item) => item.id !== slug);
 
+  const swiper1SlideCount = doctor.sevices.length;
+  const isNavSwiper1Disabled = swiper1SlideCount <= 4;
+
+  const swiper2SlideCount = doctor.slider.length;
+  const isNavSwiper2Disabled = swiper2SlideCount <= 4;
+
   return (
     <>
-      <section className="container mx-auto max-w-[1364px] px-[20px]">
+      <section className="container mx-auto max-w-[1364px] px-[20px] lg:pt-[64px] xl:pt-[64px] ">
         {doctor && <DoctorDetailInfo doctors={doctor} />}
       </section>
 
-      <section className="pb-[72px] xl:py-[100px] ">
+      {/* Слайдер с карточками услуг */}
+
+      <section className="xl:pt-[110px] ">
         <div className="container mx-auto max-w-[1364px] px-[20px]">
+          <h3 className="mb-[24px]">Услуги врача</h3>
           <div className="slider-wrapper relative w-full">
-            <div className="swiper-nav">
-              <Button variant="arrow" className={`swiper1-button-prev`}>
-                <ChevronLeft width={17} />
-              </Button>
-              <Button variant="arrow" className={`swiper1-button-next`}>
-                <ChevronRight width={17} />
-              </Button>
-            </div>
+            {isTablet ||
+              (!isNavSwiper1Disabled && (
+                <div className="swiper-nav">
+                  <Button variant="arrow" className={`swiper1-button-prev`}>
+                    <ChevronLeft width={17} />
+                  </Button>
+                  <Button variant="arrow" className={`swiper1-button-next`}>
+                    <ChevronRight width={17} />
+                  </Button>
+                </div>
+              ))}
             <Swiper
               slidesPerView={"auto"}
               spaceBetween={isMobile ? 16 : 20}
@@ -65,9 +81,7 @@ export default function Page({ params }: { params: { slug: string } }) {
               {doctor.sevices.length > 0 &&
                 doctor.sevices.map((item) => (
                   <SwiperSlide key={item.services_id.id}>
-                    <ServiceCardItem
-                      card={item.services_id}
-                    />
+                    <ServiceCardItem card={item.services_id} />
                   </SwiperSlide>
                 ))}
             </Swiper>
@@ -94,14 +108,17 @@ export default function Page({ params }: { params: { slug: string } }) {
             </div>
 
             <div className="slider-wrapper relative w-full">
-              <div className="swiper-nav">
-                <Button variant="arrow" className={`swiper2-button-prev`}>
-                  <ChevronLeft width={17} />
-                </Button>
-                <Button variant="arrow" className={`swiper2-button-next`}>
-                  <ChevronRight width={17} />
-                </Button>
-              </div>
+              {isTablet ||
+                (!isNavSwiper2Disabled && (
+                  <div className="swiper-nav">
+                    <Button variant="arrow" className={`swiper2-button-prev`}>
+                      <ChevronLeft width={17} />
+                    </Button>
+                    <Button variant="arrow" className={`swiper2-button-next`}>
+                      <ChevronRight width={17} />
+                    </Button>
+                  </div>
+                ))}
               <Swiper
                 slidesPerView={"auto"}
                 spaceBetween={isMobile ? 16 : 20}
@@ -128,7 +145,7 @@ export default function Page({ params }: { params: { slug: string } }) {
                         loop
                         width={directus_files_id.width || 289}
                         height={directus_files_id.height || 434}
-                        className="h-full w-full object-cover"
+                        className="h-full object-cover min-w-[316px]"
                       >
                         <source
                           src={pathImage(directus_files_id.id)}
@@ -144,7 +161,7 @@ export default function Page({ params }: { params: { slug: string } }) {
                         height={directus_files_id.height || 434}
                         src={pathImage(directus_files_id.id)}
                         alt={directus_files_id.title}
-                        className="h-full w-full object-cover"
+                        className="h-full w-full object-cover min-w-[316px]"
                       />
                     </SwiperSlide>
                   );
