@@ -62,7 +62,6 @@ function ImageSlider({ images, className }: SliderWrapperProps) {
             const isVideo = src.directus_files_id.type?.startsWith("video/");
 
             if (isVideo) {
-              console.log(pathImage(src.directus_files_id.id));
               return (
                 <SwiperSlide
                   key={index}

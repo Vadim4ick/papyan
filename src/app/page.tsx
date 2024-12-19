@@ -240,7 +240,7 @@ export default function Home() {
       </section>
 
       {data && data?.home_page.sliderClinik.length > 0 && (
-        <section className="pb-[72px] pt-[32px] md:pb-[78px] md:pt-[48px] lg:py-[100px]">
+        <section className="pb-[72px] pt-[32px] md:pb-[78px] md:pt-[48px] lg:pt-[100px] lg:pb-[70px] max-lg:pb-[48px]">
           <div className="container mx-auto max-w-[1364px] px-[20px]">
             <div className="flex flex-col md:flex-row justify-between mb-[28px] md:mb-[84px] lg:mb-[118px] ">
               <div>
@@ -336,6 +336,50 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      <section>
+        <div className="container mx-auto max-w-[1364px] px-[20px]">
+          <div className="border-t border-t-[#E8E8E8] pt-[62px] max-lg:pt-[48px]">
+            <div className="flex items-center justify-between gap-2 pb-[36px]">
+              <div className="flex items-center gap-[70px]">
+                <div className="flex flex-col gap-1">
+                  <p className="text-[#929292] font-semibold text-[14px] leading-[18.2px] tracking-[-0.28px]">
+                    Адрес клиники
+                  </p>
+
+                  <div className="font-semibold text-[18px] leading-[23px] tracking-[-0.36px] text-[#353535]">
+                    Краснодар, Постовая улица, 23
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-1">
+                  <p className="text-[#929292] font-semibold text-[14px] leading-[18.2px] tracking-[-0.28px]">
+                    Время работы
+                  </p>
+
+                  <div className="font-semibold text-[18px] leading-[23px] tracking-[-0.36px] text-[#353535]">
+                    Пн-сб: 08:00—20:00
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-1">
+                  <p className="text-[#929292] font-semibold text-[14px] leading-[18.2px] tracking-[-0.28px]">
+                    Телефон для справок
+                  </p>
+
+                  <div className="font-semibold text-[18px] leading-[23px] tracking-[-0.36px] text-[#353535]">
+                    +7 (918) 232-13-13
+                  </div>
+                </div>
+              </div>
+
+              <Button variant={"secondary"} className="h-[48px]">
+                Получить консультацию
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
