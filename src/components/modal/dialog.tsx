@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -11,15 +10,13 @@ import { EmailForm } from "../email-form";
 import { Logo } from "@/shared/icons/Logo";
 
 interface DialogFormProps {
-  children: React.ReactNode
+  children?: React.ReactNode;
 }
 
-export function DialogForm({children}:DialogFormProps) {
+export function DialogForm({ children }: DialogFormProps) {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        {children}
-      </DialogTrigger>
+      <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="w-[360px] md:w-[486px] rounded-lg p-7">
         <DialogHeader>
           <DialogTitle className="flex justify-center mb-6">
