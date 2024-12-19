@@ -4,7 +4,7 @@ import { SliderWrapper } from "@/components/slider/slider-wrapper";
 import { Banner } from "@/components/banner";
 import { useGetHomePage } from "@/shared/hooks/services/pages/useGetHomePage";
 import { ServicesClinic } from "@/components/services-clinic";
-import { countFileTypes, pathImage } from "@/shared/lib/utils";
+import { cn, countFileTypes, pathImage } from "@/shared/lib/utils";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
@@ -13,6 +13,15 @@ import { BadgeWithIcon } from "@/components/badge-with-icon";
 import { useGetServicesClinic } from "@/shared/hooks/services/useGetServicesClinic";
 import { CategoriesGalery } from "@/components/cards/categories-galery";
 import { Loader } from "@/components/ui/loader";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import Link from "next/link";
+import { ArrowRight } from "@/shared/icons/ArrowRight";
+import { useState } from "react";
 
 export type ImageType = {
   directus_files_id: {
@@ -30,11 +39,15 @@ export default function Home() {
   const { data: services, isLoading: isLoadingServices } =
     useGetServicesClinic();
 
+  const [isOpen, setIsOpen] = useState<string>("");
+
+  const handleAccordionChange = (value: string) => {
+    setIsOpen(value);
+  };
+
   if (isLoading || isLoadingServices) {
     return <Loader className="size-[35px]" />;
   }
-
-  console.log("test");
 
   const typeCounts = countFileTypes(
     data?.home_page.sliderClinik as ImageType[]
@@ -49,6 +62,90 @@ export default function Home() {
             hight={"h-screen lg:max-h-[727px]"}
           />
         )}
+      </section>
+
+      <section className="pt-[69px] pb-[94px]">
+        <div className="container mx-auto max-w-[1364px] px-[20px] flex flex-col gap-y-[48px] items-center xl:flex-row justify-between xl:items-end">
+          <div className="flex justify-between w-full gap-[43px] pb-[100px] border-b border-b-[#E8E8E8]">
+            <div className="flex flex-col gap-[43px] w-full">
+              <h3 className="font-[600] text-[36px] leading-[45px] tracking-[-0.72px]">
+                Какая проблема вас беспокоит?
+              </h3>
+
+              <Accordion
+                value={isOpen}
+                onValueChange={handleAccordionChange}
+                className="flex flex-col gap-[10px] w-full max-w-[652px]"
+                type="single"
+                collapsible
+              >
+                <AccordionItem
+                  className="bg-[#F0F3F8] p-[18px] rounded-[8px]"
+                  value="item-1"
+                >
+                  <AccordionTrigger className="p-0 text-[18px] group font-semibold leading-[22px] tracking-[-0.36px]">
+                    <p
+                      className={cn("text-[#353535]", {
+                        "text-[#979797]": isOpen === "item-1",
+                        "group-hover:text-[#1467E1]": !isOpen,
+                      })}
+                    >
+                      Cколиоз
+                    </p>
+                  </AccordionTrigger>
+
+                  <AccordionContent className="p-0 mt-[26px]">
+                    <p className="font-semibold text-[22px] leading-[26px] tracking-[-0.44px] mb-[22px]">
+                      При сколиозе лучше всего поможет:
+                    </p>
+
+                    <div className="flex flex-col gap-[8px] w-full max-w-[548px]">
+                      <Link
+                        href="/"
+                        className="bg-white rounded-[8px] py-4 pl-4 pr-[20px] flex items-center justify-between"
+                      >
+                        <p className="font-semibold">PRP-терапия</p>
+
+                        <ArrowRight />
+                      </Link>
+                      <Link
+                        href="/"
+                        className="bg-white rounded-[8px] py-4 pl-4 pr-[20px] flex items-center justify-between"
+                      >
+                        <p className="font-semibold">PRP-терапия</p>
+
+                        <ArrowRight />
+                      </Link>
+                      <Link
+                        href="/"
+                        className="bg-white rounded-[8px] py-4 pl-4 pr-[20px] flex items-center justify-between"
+                      >
+                        <p className="font-semibold">PRP-терапия</p>
+
+                        <ArrowRight />
+                      </Link>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </div>
+
+            <div className="w-full flex flex-col gap-[45px]">
+              <p className="text-[#595959] font-medium leading-[22px] tracking-[-0.22px] text-right">
+                Подберем и назначим неообходимое лечение
+              </p>
+
+              <div className="flex items-end justify-end">
+                <Image
+                  src={"/accordion.png"}
+                  width={407}
+                  height={410}
+                  alt="accordion"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="pt-[32px] lg:pt-[64px] pb-[72px] md:pb-[78p] lg:pb-[100px] ">
