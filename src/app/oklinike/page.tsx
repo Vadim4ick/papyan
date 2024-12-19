@@ -14,7 +14,8 @@ import { Loader } from "@/components/ui/loader";
 import { useGetAboutPage } from "@/shared/hooks/services/pages/useGetAboutPage";
 import { useGetAllDoctors } from "@/shared/hooks/services/useGetAllDoctors";
 import { useGetServicesClinic } from "@/shared/hooks/services/useGetServicesClinic";
-import { pathImage } from "@/shared/lib/utils";
+import { countFileTypes, pathImage } from "@/shared/lib/utils";
+import { ImageType } from "@/shared/types/types";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -33,6 +34,10 @@ export default function About() {
     return <Loader />;
   }
 
+  const typeCounts = countFileTypes(data?.about_page.slider as ImageType[]);
+
+  console.log(data?.about_page.description);
+
   return (
     <>
       <section className="section bg-[#F0F3F8]">
@@ -45,9 +50,32 @@ export default function About() {
                 </h1>
               )}
 
-              {data?.about_page.description && (
-                <ReactMarkdown>{data.about_page.description}</ReactMarkdown>
-              )}
+              <div>
+                {data?.about_page.description && (
+                  <ReactMarkdown
+                    components={{
+                      p: ({ className, children, ...rest }) => {
+                        return (
+                          <p
+                            {...rest}
+                            className={`${className} markdown-paragraph`}
+                          >
+                            {children}
+                          </p>
+                        );
+                      },
+                    }}
+                  >
+                    {data.about_page.description}
+                  </ReactMarkdown>
+                )}
+              </div>
+
+              <style jsx>{`
+                .markdown-paragraph:not(:last-child) {
+                  margin-bottom: 20px;
+                }
+              `}</style>
             </div>
 
             <div className="relative">
@@ -73,13 +101,13 @@ export default function About() {
                   className="bg-[#EBEFF3]"
                   variant="video"
                   tittle={"Видео"}
-                  quantity={2}
+                  quantity={typeCounts.videoCount}
                 />
                 <BadgeWithIcon
                   className="bg-[#EBEFF3]"
                   variant="photo"
                   tittle={"Фото"}
-                  quantity={5}
+                  quantity={typeCounts.imageCount}
                 />
               </div>
               <SliderWrapper
@@ -126,7 +154,7 @@ export default function About() {
       </section>
 
       <section className="section">
-        <div className="container mx-auto max-w-[1364px] px-[20px]">
+        <div className="container mx-auto max-w-[1364px] px-[20px] mb-[60px] md:mb-[78px] lg:mb-[100px]">
           <SectionHeader
             className="mb-[20px]"
             title="Специалисты клиники"
