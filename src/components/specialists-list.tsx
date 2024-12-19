@@ -14,7 +14,6 @@ const SpecialistsList = ({
 }) => {
   const router = useRouter();
   return (
-    <section className="pt-[30px] xl:pt-[50px] pb-[100px]">
       <div className="container mx-auto max-w-[1364px] px-[20px]">
         <div className="flex flex-col xl:flex-row gap-y-[48px] gap-x-[20px] xl:flex-wrap ">
           {doctors.map((doctor, index) => (
@@ -65,7 +64,6 @@ const SpecialistsList = ({
           ))}
         </div>
       </div>
-    </section>
   );
 };
 
