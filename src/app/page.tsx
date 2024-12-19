@@ -22,6 +22,7 @@ import {
 import Link from "next/link";
 import { ArrowRight } from "@/shared/icons/ArrowRight";
 import { useState } from "react";
+import ImageCardOne from "@/components/cards/image-card-one";
 
 export type ImageType = {
   directus_files_id: {
@@ -64,7 +65,7 @@ export default function Home() {
         )}
       </section>
 
-      <section className="pt-[69px] pb-[94px]">
+      <section className="section">
         <div className="container mx-auto max-w-[1364px] px-[20px] flex flex-col gap-y-[48px] items-center xl:flex-row justify-between xl:items-end">
           <div className="flex justify-between w-full gap-[43px] pb-[100px] border-b border-b-[#E8E8E8]">
             <div className="flex flex-col gap-[43px] w-full">
@@ -146,6 +147,13 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        <SliderWrapper
+          slideWidth="!w-[298px] md:!w-[311px] lg:!w-[316px]"
+          className="h-[434px] md:h-[467px] xl:h-[474px]"
+        >
+          <ImageCardOne imageData={imageData} catigoryId={""} />
+        </SliderWrapper>
       </section>
 
       <section className="pt-[32px] lg:pt-[64px] pb-[72px] md:pb-[78p] lg:pb-[100px] ">
