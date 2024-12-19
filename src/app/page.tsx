@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 "use client";
 
@@ -32,6 +33,8 @@ import {
   //   TypeSelector,
   Placemark,
 } from "@r3flector/react-yandex-maps";
+import { Input } from "@/components/ui/input";
+import InputMask from "react-input-mask";
 
 export type ImageType = {
   directus_files_id: {
@@ -418,6 +421,66 @@ export default function Home() {
                 </Map>
               </YMaps>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#EBEFF3] py-[131px] max-md:pt-[32px] max-md:pb-[60px]">
+        <div className="container mx-auto max-w-[1364px] px-[20px]">
+          <div className="flex items-center gap-4 justify-between max-md:flex-col">
+            <div className="flex flex-col gap-[57px] max-md:gap-[20px]">
+              <div className="flex flex-col gap-[20px]">
+                <h3 className="text-[36px] max-md:text-[30px] max-md:leading-[36px] max-md:tracking-[-0.6px] font-semibold leading-[45px] tracking-[-0.72px] text-[#353535]">
+                  Задайте вопросы администратору
+                </h3>
+
+                <p className="text-[16px] font-medium leading-[22px] tracking-[-0.32px] text-[#353535]">
+                  Наш специалист перезвонит <br className="md:hidden" /> и
+                  проконсультирует по телефону
+                </p>
+              </div>
+
+              <div className="h-[200px] relative md:hidden">
+                <Image
+                  src={"/phone.png"}
+                  className="object-contain"
+                  fill
+                  alt="phone"
+                />
+              </div>
+
+              <div className="flex flex-col gap-[31px] max-md:gap-4">
+                <div className="flex gap-[20px] md:h-[54px] max-md:flex-col max-md:gap-3">
+                  <InputMask mask="+7 (999) 999-99-99">
+                    {(inputProps: any) => (
+                      <Input
+                        {...inputProps}
+                        className="bg-white max-w-[336px] h-[54px] max-md:max-w-full"
+                        placeholder={"+7(000)000-00-00"}
+                      />
+                    )}
+                  </InputMask>
+
+                  <Button className="bg-[#1467E1] w-full max-w-[267px] h-[54px] max-md:max-w-full">
+                    Перезвонить мне
+                  </Button>
+                </div>
+
+                <p className="max-w-[540px] text-[12px] leading-[16.8px] font-medium text-[#353535] tracking-[-0.24px]">
+                  Нажимая на кнопку "Перезвоните мне", я подтверждаю, что
+                  ознакомлен и согласен с условиями политики конфиденциальности
+                  и правилами обработки персональных данных
+                </p>
+              </div>
+            </div>
+
+            <Image
+              src={"/phone.png"}
+              className="max-md:hidden"
+              width={343}
+              height={305}
+              alt="phone"
+            />
           </div>
         </div>
       </section>
