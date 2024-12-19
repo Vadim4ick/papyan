@@ -70,7 +70,7 @@ export default function Home() {
       </section>
 
       <section className="section">
-        <div className="container mx-auto max-w-[1364px] px-[20px] flex flex-col gap-y-[48px] items-center xl:flex-row justify-between xl:items-end">
+        <div className="container mx-auto max-w-[1364px] px-[20px] mb-[48px] md:mb-[60px] lg:mb-[80px]  flex flex-col gap-y-[48px] items-center xl:flex-row justify-between xl:items-end">
           <div className="flex justify-between w-full gap-[43px] pb-[100px] border-b border-b-[#E8E8E8]">
             <div className="flex flex-col gap-[43px] w-full">
               <h3 className="font-[600] text-[36px] leading-[45px] tracking-[-0.72px]">
@@ -152,18 +152,18 @@ export default function Home() {
           </div>
         </div>
 
-        <SliderWrapper
-          slideWidth="!w-[298px] md:!w-[311px] lg:!w-[316px]"
-          className="h-[434px] md:h-[467px] xl:h-[474px]"
-        >
-          {problems?.problems.slider.map((item) => (
-            <ImageCardOne
-            key={item.problems_slide_id.id}
-              imageData={item.problems_slide_id.img}
-              catigoryId={""}
-            />
-          ))}
-        </SliderWrapper>
+        <div className="container mx-auto max-w-[1364px] px-[20px]">
+          <h3 className="mb-[32px] md:mb-[51px]">Методы лечения</h3>
+          <SliderWrapper slideWidth="!w-[316px]" className="h-[484px]">
+            {problems?.problems.slider.map((item) => (
+              <ImageCardOne
+                key={item.problems_slide_id.id}
+                imageData={item.problems_slide_id.img}
+                catigoryId={""}
+              />
+            ))}
+          </SliderWrapper>
+        </div>
       </section>
 
       <section className="pt-[32px] lg:pt-[64px] pb-[72px] md:pb-[78p] lg:pb-[100px] ">
