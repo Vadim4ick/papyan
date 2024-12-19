@@ -67,15 +67,15 @@ export default function Akcii() {
                       ? rowIndex === 0
                         ? "w-[100%] md:wide"
                         : rowIndex === 1
-                        ? "w-full md:w-[48%]"
-                        : rowIndex === 2
-                        ? "w-[100%] md:wide"
-                        : "w-full md:w-[48%]"
+                          ? "w-full md:w-[48%]"
+                          : rowIndex === 2
+                            ? "w-[100%] md:wide"
+                            : "w-full md:w-[48%]"
                       : rowIndex === 2
-                      ? "w-[32%]"
-                      : index === 0
-                      ? "w-[66%] wide"
-                      : "w-[32%]"
+                        ? "w-[32%]"
+                        : index === 0
+                          ? "w-[66%] wide"
+                          : "w-[32%]"
                   }
                 `}
                 />
