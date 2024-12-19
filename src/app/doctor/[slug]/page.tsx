@@ -172,7 +172,6 @@ export default function Page({ params }: { params: { slug: string } }) {
       )}
 
       <section className="section bg-[#EBEFF3]">
-
       {doctors.length > 0 && <SpecialistsList doctors={doctors} />}
       </section>
 
