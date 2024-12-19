@@ -22,6 +22,7 @@ import {
 import Link from "next/link";
 import { ArrowRight } from "@/shared/icons/ArrowRight";
 import { useState } from "react";
+import { useGetProblems } from "@/shared/hooks/services/useGetProblems";
 
 export type ImageType = {
   directus_files_id: {
@@ -38,6 +39,7 @@ export default function Home() {
   const { data, isLoading } = useGetHomePage();
   const { data: services, isLoading: isLoadingServices } =
     useGetServicesClinic();
+  const { data: problems, isLoading: isLoadingProblems } = useGetProblems();
 
   const [isOpen, setIsOpen] = useState<string>("");
 
@@ -45,9 +47,11 @@ export default function Home() {
     setIsOpen(value);
   };
 
-  if (isLoading || isLoadingServices) {
+  if (isLoading || isLoadingServices || isLoadingProblems) {
     return <Loader className="size-[35px]" />;
   }
+
+  console.log(problems);
 
   const typeCounts = countFileTypes(
     data?.home_page.sliderClinik as ImageType[]
