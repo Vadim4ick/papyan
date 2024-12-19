@@ -4,12 +4,16 @@ import { GetAllDoctorsQuery } from "@/graphql/__generated__";
 import { pathImage } from "@/shared/lib/utils";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
+import { DialogForm } from "./modal/dialog";
+import { useRouter } from "next/navigation";
 
 const DoctorDetailInfo = ({
   doctors,
 }: {
   doctors: GetAllDoctorsQuery["doctors"][0];
 }) => {
+  console.log("🚀 ~ doctors:", doctors)
+  const router = useRouter()
   return (
     <>
       <div className="relative min-h-[540px] flex flex-col-reverse items-center gap-y-[32px] md:items-start md:flex-row gap-x-[40px] xl:gap-x-[48px]">
@@ -22,10 +26,12 @@ const DoctorDetailInfo = ({
             className="h-full w-full object-cover"
           />
           <div className="absolute bottom-0 w-full flex flex-col gap-[8px] p-[8px] z-20">
-            <Button className="w-full h-[48px]" variant="default">
-              Записаться на прием
-            </Button>
-            <Button className="w-full h-[48px] bg-[#EBEFF3]" variant="white">
+            <DialogForm>
+              <Button className="w-full h-[48px]" variant="default">
+                Записаться на прием
+              </Button>
+            </DialogForm>
+            <Button  className="w-full h-[48px] bg-[#EBEFF3]" variant="white" onClick={() => {router.push(`/doctor/${doctors.id}`)}}>
               Подробнее
             </Button>
           </div>
@@ -162,15 +168,6 @@ const DoctorDetailInfo = ({
             {doctors.experience}
           </ReactMarkdown>
         </div>
-
-<div className="flex">
-  <div> image </div>
-  <div className="flex flex-col">
-    <div></div>
-    <div></div>
-  </div>
-</div>
-
       </div>
     </>
   );
