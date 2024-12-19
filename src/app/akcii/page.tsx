@@ -54,7 +54,7 @@ export default function Akcii() {
             <div
               key={rowIndex}
               className={`flex flex-wrap gap-4 w-full justify-between ${
-                rowIndex % 2 === 1 ? "flex-row-reverse" : ""
+                rowIndex % 2 === 1 ? "" : "flex-row-reverse"
               } flex gap-4`}
             >
               {row.map((card, index) => (

@@ -5,18 +5,22 @@ import { cn, pathImage } from "@/shared/lib/utils";
 import { RoundButton } from "./round-button";
 import { MediaFragmentFragment } from "@/graphql/__generated__";
 import { Badge } from "./badge";
+import { useRouter } from "next/navigation";
 
 interface ImageCardProps {
   imageData: MediaFragmentFragment;
   className?: string;
   bages?: string[];
+  catigoryId:string
 }
 
 const ImageCard: React.FC<ImageCardProps> = ({
   imageData,
   bages,
   className,
+  catigoryId
 }) => {
+  const router = useRouter()
   return (
     <div
       className={cn(
@@ -35,6 +39,7 @@ const ImageCard: React.FC<ImageCardProps> = ({
       <div className="absolute top-0 right-[14px]">
         <RoundButton
           variant="default"
+          onClick={() => router.push(`/uslugi/${catigoryId}`)}
           className="opacity-0  group-hover:opacity-100 group-hover:translate-y-[14px] transition-all duration-300"
         >
           <ArrowUpRight />

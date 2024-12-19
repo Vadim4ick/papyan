@@ -3,6 +3,7 @@ import { GetStockPageQuery } from "@/graphql/__generated__";
 import { pathImage } from "@/shared/lib/utils";
 import { RussianRuble } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export interface discountCardProps {
   card: GetStockPageQuery["stock_page"]["stockItems"][0];
@@ -10,6 +11,7 @@ export interface discountCardProps {
 }
 
 const DiscountCard = ({ card, className }: discountCardProps) => {
+  console.log("🚀 ~ DiscountCard ~ card:", card)
   const newPrice =
     card.services_id.price -
     (card.services_id.price * card.services_id.sale) / 100;
@@ -20,18 +22,21 @@ const DiscountCard = ({ card, className }: discountCardProps) => {
     <div
       className={`${className} items-center relative h-[466px] md:h-[502px] xl:h-[570px] overflow-hidden rounded-md group`}
     >
-      <Image
-        width={380}
-        height={418}
-        src={pathImage(card.services_id.img.id)}
-        alt={"altText"}
-        className="h-full w-full object-cover"
-      />
+    <Link href={`uslugi/${card.id}`}>
+        <Image
+          width={380}
+          height={418}
+          src={pathImage(card.services_id.img.id)}
+          alt={"altText"}
+          className="h-full w-full object-cover"
+        />
       <div className="absolute top-0 left-0 h-full w-full flex flex-col justify-between py-5 md:py-5 lg:py-8 px-0 md:px-[28px] lg:px-[36px]">
-      <h3 className="mx-5 md:mx-0 text-left text-[#FFFFFF]">{card.services_id.title}</h3>
-        <div className=
-        {`${ isWide ? "mx-auto md:ml-auto md:me-[28px] lg:me-[36px] " : "mx-auto" } w-[302px] h-[49px] bg-[#FFFFFF]  rounded-[41px] flex justify-between items-center pl-[16px] pr-[6px]`}
-        >
+        <h3 className="mx-5 md:mx-0 text-left text-[#FFFFFF]">
+          {card.services_id.title}
+        </h3>
+        <div
+          className={`${isWide ? "mx-auto md:ml-auto md:me-[28px] lg:me-[36px] " : "mx-auto"} w-[302px] h-[49px] bg-[#FFFFFF]  rounded-[41px] flex justify-between items-center pl-[16px] pr-[6px]`}
+          >
           <div className="flex gap-[6px] items-center">
             <p className=" relative text-[#353535] text-[20px] leading-[25px] tracking-tight font-semibold ">
               {newPrice}
@@ -50,6 +55,7 @@ const DiscountCard = ({ card, className }: discountCardProps) => {
           <Badge variant="discont">-{card.services_id.sale}%</Badge>
         </div>
       </div>
+          </Link>
     </div>
   );
 };

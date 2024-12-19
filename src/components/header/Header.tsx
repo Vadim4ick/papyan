@@ -12,7 +12,7 @@ import { ContactCard } from "../cards/contact-card";
 import { ContactData } from "@/shared/const/moc-data";
 import { DialogForm } from "../modal/dialog";
 
-const contacts = ContactData
+const contacts = ContactData;
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -29,13 +29,14 @@ const Header = () => {
 
           {/* Навбар для десктопа */}
           <div className="hidden lg:flex flex-1 justify-center z-50 ">
-            <Navbar onLinkClick={closeMenu}/>
+            <Navbar onLinkClick={closeMenu} />
           </div>
 
           {/* Кнопка "Записаться онлайн" для десктопа */}
           <div className="hidden lg:flex z-50">
-            {/* <Button variant="secondary">Записаться онлайн</Button> */}
-            <DialogForm/>
+            <DialogForm>
+              <Button variant="secondary">Записаться онлайн</Button>
+            </DialogForm>
           </div>
 
           {/* Кнопка бургер для мобильного меню */}
@@ -47,41 +48,39 @@ const Header = () => {
             <Menu className="h-6 w-6" />
           </Button>
         </Container>
-        
-        
       </header>
       {/* Мобильное меню */}
       <div
-          className={`fixed z-30 -top-[54px] left-0 w-full h-[calc(100vh+64px)] bg-[#EBEFF3]  ${
-            menuOpen ? "translate-y-0" : "-translate-y-full"
-          } menu-transition `}
-        >
-          {/* Навбар в мобильном меню */}
-          <div className="pt-[160px] px-[30px] lg:hidden">
-            <Navbar onLinkClick={closeMenu}/>
-          </div>
+        className={`fixed z-30 -top-[54px] left-0 w-full h-[calc(100vh+64px)] bg-[#EBEFF3]  ${
+          menuOpen ? "translate-y-0" : "-translate-y-full"
+        } menu-transition `}
+      >
+        {/* Навбар в мобильном меню */}
+        <div className="pt-[160px] px-[30px] lg:hidden">
+          <Navbar onLinkClick={closeMenu} />
         </div>
+      </div>
 
-        {/* Плавно появляющаяся кнопка внизу */}
-        <div
-          className={`fixed bottom-0 left-0 p-4 w-full flex justify-center  z-40 ${
-            menuOpen
-              ? "translate-y-0 opacity-100"
-              : "translate-y-full opacity-0 block"
-          } button-transition`}
-        >
-          <div className="flex flex-col items-center gap-[32px] lg:hidden">
-            <ContactCard
-              address={contacts.address}
-              schedule={contacts.schedule}
-              phone={contacts.phone}
-            />
-            {/* <Button variant="default" className="w-full">
+      {/* Плавно появляющаяся кнопка внизу */}
+      <div
+        className={`fixed bottom-0 left-0 p-4 w-full flex justify-center  z-40 ${
+          menuOpen
+            ? "translate-y-0 opacity-100"
+            : "translate-y-full opacity-0 block"
+        } button-transition`}
+      >
+        <div className="flex flex-col items-center gap-[32px] lg:hidden">
+          <ContactCard
+            address={contacts.address}
+            schedule={contacts.schedule}
+            phone={contacts.phone}
+          />
+          {/* <Button variant="default" className="w-full">
               Записаться онлайн
             </Button> */}
-            <DialogForm/>
-          </div>
+          <DialogForm />
         </div>
+      </div>
     </>
   );
 };

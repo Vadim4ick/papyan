@@ -6,6 +6,7 @@ import { Clock7, MapPin, Phone } from "lucide-react";
 import { ContactData } from "@/shared/const/moc-data";
 import { Separator } from "./ui/separator";
 import { CretinLogo } from "@/shared/icons/Creatin";
+import { DialogForm } from "./modal/dialog";
 
 const contacts = ContactData;
 
@@ -16,9 +17,11 @@ const Footer = () => {
         <div className="flex flex-col items-center justify-between gap-y-[64px] lg:flex-row mb-[64px] lg:mb-[85px] lg:px-0">
           <div className="w-full lg:max-w-fit flex md:flex-row lg:flex-col gap-4 lg:gap-y-[58px] justify-between">
             <LogoFooter />
-            <Button variant="white" className="hidden md:block">
-              Записаться онлайн
-            </Button>
+            <DialogForm>
+              <Button variant="white" className="hidden md:block">
+                Записаться онлайн
+              </Button>
+            </DialogForm>
           </div>
 
           <div className="w-full flex justify-between gap-[56px] xl:gap-[128px] flex-wrap lg:flex-nowrap lg:max-w-[701px]">
@@ -36,13 +39,13 @@ const Footer = () => {
                 </Link>
                 <Link
                   className="font-[600] text-[#B3B3B3] leading-[22px]"
-                  href="/"
+                  href="/oklinike"
                 >
                   О клинике
                 </Link>
                 <Link
                   className="font-[600] text-[#B3B3B3] leading-[22px]"
-                  href="/"
+                  href="/doctor"
                 >
                   Специалисты
                 </Link>
@@ -57,19 +60,19 @@ const Footer = () => {
               <div className="flex flex-col gap-2">
                 <Link
                   className="font-[600] text-[#B3B3B3] leading-[22px]"
-                  href="/"
+                  href="/akcii"
                 >
                   Акции
                 </Link>
                 <Link
                   className="font-[600] text-[#B3B3B3] leading-[22px]"
-                  href="/"
+                  href="/uslugi"
                 >
                   Услуги
                 </Link>
                 <Link
                   className="font-[600] text-[#B3B3B3] leading-[22px]"
-                  href="/"
+                  href="/ceny"
                 >
                   Цены
                 </Link>

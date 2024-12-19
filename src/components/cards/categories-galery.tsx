@@ -29,6 +29,7 @@ const CategoriesGalery: React.FC<CategoriesGaleryProps> = ({
         imageData={category.img}
         bages={category.allServices.map((service) => service.title)}
         className={`${cardWidth} ${cardHeight}`}
+        catigoryId={category.id}
       />
     </div>
   );
