@@ -69,11 +69,26 @@ export default function Home() {
 
       <section className="section">
         <div className="container mx-auto max-w-[1364px] px-[20px] mb-[48px] md:mb-[60px] lg:mb-[80px]  flex flex-col gap-y-[48px] items-center xl:flex-row justify-between xl:items-end">
-          <div className="flex justify-between w-full gap-[43px] pb-[100px] border-b border-b-[#E8E8E8]">
-            <div className="flex flex-col gap-[43px] w-full">
+          <div className="flex justify-between w-full gap-[43px] pb-[100px] max-lg:pb-[66px] border-b border-b-[#E8E8E8] max-lg:flex-col">
+            <div className="flex flex-col gap-[43px] max-lg:gap-[12px] w-full">
               <h3 className="font-[600] text-[36px] leading-[45px] tracking-[-0.72px]">
                 Какая проблема вас беспокоит?
               </h3>
+
+              <div className="w-full flex flex-col gap-[36px] lg:hidden pb-[16px]">
+                <p className="text-[#595959] font-medium leading-[22px] tracking-[-0.22px] text-start">
+                  Подберем и назначим неообходимое лечение
+                </p>
+
+                <div className="flex items-center justify-center lg:hidden w-full">
+                  <Image
+                    src={"/accordion.png"}
+                    width={407}
+                    height={410}
+                    alt="accordion"
+                  />
+                </div>
+              </div>
 
               <Accordion
                 value={isOpen}
@@ -102,38 +117,53 @@ export default function Home() {
                       При сколиозе лучше всего поможет:
                     </p>
 
-                    <div className="flex flex-col gap-[8px] w-full max-w-[548px]">
-                      <Link
-                        href="/"
-                        className="bg-white rounded-[8px] py-4 pl-4 pr-[20px] flex items-center justify-between"
-                      >
-                        <p className="font-semibold">PRP-терапия</p>
+                    <div className="w-full max-w-[548px] flex flex-col gap-[28px]">
+                      <div className="flex flex-col gap-[8px] w-full">
+                        <Link
+                          href="/"
+                          className="bg-white rounded-[8px] py-4 pl-4 pr-[20px] flex items-center justify-between"
+                        >
+                          <p className="font-semibold">PRP-терапия</p>
 
-                        <ArrowRight />
-                      </Link>
-                      <Link
-                        href="/"
-                        className="bg-white rounded-[8px] py-4 pl-4 pr-[20px] flex items-center justify-between"
-                      >
-                        <p className="font-semibold">PRP-терапия</p>
+                          <ArrowRight />
+                        </Link>
 
-                        <ArrowRight />
-                      </Link>
-                      <Link
-                        href="/"
-                        className="bg-white rounded-[8px] py-4 pl-4 pr-[20px] flex items-center justify-between"
-                      >
-                        <p className="font-semibold">PRP-терапия</p>
+                        <Link
+                          href="/"
+                          className="bg-white rounded-[8px] py-4 pl-4 pr-[20px] flex items-center justify-between"
+                        >
+                          <p className="font-semibold">PRP-терапия</p>
 
-                        <ArrowRight />
-                      </Link>
+                          <ArrowRight />
+                        </Link>
+                        <Link
+                          href="/"
+                          className="bg-white rounded-[8px] py-4 pl-4 pr-[20px] flex items-center justify-between"
+                        >
+                          <p className="font-semibold">PRP-терапия</p>
+
+                          <ArrowRight />
+                        </Link>
+                      </div>
+
+                      <div className="flex items-center w-full justify-between gap-4 max-lg:flex-col">
+                        <Button className="w-full h-[54px] max-lg:h-[48px]">
+                          Получить консультацию
+                        </Button>
+                        <Button
+                          className="w-full h-[54px] max-lg:h-[48px]"
+                          variant={"secondary"}
+                        >
+                          Все услуги
+                        </Button>
+                      </div>
                     </div>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
             </div>
 
-            <div className="w-full flex flex-col gap-[45px]">
+            <div className="w-full flex flex-col gap-[45px] max-lg:hidden">
               <p className="text-[#595959] font-medium leading-[22px] tracking-[-0.22px] text-right">
                 Подберем и назначим неообходимое лечение
               </p>
@@ -166,6 +196,10 @@ export default function Home() {
               />
             ))}
           </SliderWrapper>
+
+          <p className="text-[#595959] font-[16px] leading-[22px] tracking-[-0.32px] pt-[48px] max-lg:pt-[24px]">
+            *Набор методов индивидуален, их подбирает врач на основе диагностики
+          </p>
         </div>
       </section>
 
