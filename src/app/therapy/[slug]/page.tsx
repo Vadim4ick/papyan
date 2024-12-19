@@ -106,31 +106,35 @@ export default function Page({ params }: { params: { slug: string } }) {
               </div>
             </div>
           </div>
+          {serviceBlocks?.servicesBlock[0] && (
+            <>
+              <h3 className="mb-[20px] md:mb-[24px]  ">Другие услуги</h3>
 
-          <h3 className="mb-[20px] md:mb-[24px]  ">Другие услуги</h3>
-          <SliderWrapper
-            btns={{
-              next: "services-next",
-              prev: "services-prev",
-            }}
-          >
-            {serviceBlocks?.servicesBlock[0].allServices
-              .filter((item) => item.id !== params.slug)
-              .map((item) => <ServiceCardItem key={item.id} card={item} />)}
-          </SliderWrapper>
+              <SliderWrapper
+                btns={{
+                  next: "services-next",
+                  prev: "services-prev",
+                }}
+              >
+                {serviceBlocks?.servicesBlock[0].allServices
+                  .filter((item) => item.id !== params.slug)
+                  .map((item) => <ServiceCardItem key={item.id} card={item} />)}
+              </SliderWrapper>
+            </>
+          )}
         </div>
 
         {/* <div className="container mx-auto max-w-[1364px] px-[20px]"></div> */}
       </section>
 
-      <section className="bg-[#EBEFF3] lg:py-[100px]">
-        {service.services_by_id.baner && (
+      {service.services_by_id.baner && (
+        <section className="bg-[#EBEFF3] lg:py-[100px]">
           <Banner
             imageUrl={service.services_by_id.baner}
             hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
           />
-        )}
-      </section>
+        </section>
+      )}
     </>
   );
 }
