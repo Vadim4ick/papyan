@@ -60,7 +60,19 @@ export type Query = {
   readonly home_page_files_by_id: Maybe<Home_Page_Files>;
   readonly home_page_files_by_version: Maybe<Version_Home_Page_Files>;
   readonly problems: Maybe<Problems>;
+  readonly problems_block: ReadonlyArray<Problems_Block>;
+  readonly problems_block_aggregated: ReadonlyArray<Problems_Block_Aggregated>;
+  readonly problems_block_by_id: Maybe<Problems_Block>;
+  readonly problems_block_by_version: Maybe<Version_Problems_Block>;
+  readonly problems_block_services: ReadonlyArray<Problems_Block_Services>;
+  readonly problems_block_services_aggregated: ReadonlyArray<Problems_Block_Services_Aggregated>;
+  readonly problems_block_services_by_id: Maybe<Problems_Block_Services>;
+  readonly problems_block_services_by_version: Maybe<Version_Problems_Block_Services>;
   readonly problems_by_version: Maybe<Version_Problems>;
+  readonly problems_problems_block: ReadonlyArray<Problems_Problems_Block>;
+  readonly problems_problems_block_aggregated: ReadonlyArray<Problems_Problems_Block_Aggregated>;
+  readonly problems_problems_block_by_id: Maybe<Problems_Problems_Block>;
+  readonly problems_problems_block_by_version: Maybe<Version_Problems_Problems_Block>;
   readonly problems_problems_slide: ReadonlyArray<Problems_Problems_Slide>;
   readonly problems_problems_slide_aggregated: ReadonlyArray<Problems_Problems_Slide_Aggregated>;
   readonly problems_problems_slide_by_id: Maybe<Problems_Problems_Slide>;
@@ -331,7 +343,106 @@ export type QueryProblemsArgs = {
 };
 
 
+export type QueryProblems_BlockArgs = {
+  filter: InputMaybe<Problems_Block_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryProblems_Block_AggregatedArgs = {
+  filter: InputMaybe<Problems_Block_Filter>;
+  groupBy: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryProblems_Block_By_IdArgs = {
+  id: Scalars['ID']['input'];
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryProblems_Block_By_VersionArgs = {
+  id: Scalars['ID']['input'];
+  version: Scalars['String']['input'];
+};
+
+
+export type QueryProblems_Block_ServicesArgs = {
+  filter: InputMaybe<Problems_Block_Services_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryProblems_Block_Services_AggregatedArgs = {
+  filter: InputMaybe<Problems_Block_Services_Filter>;
+  groupBy: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryProblems_Block_Services_By_IdArgs = {
+  id: Scalars['ID']['input'];
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryProblems_Block_Services_By_VersionArgs = {
+  id: Scalars['ID']['input'];
+  version: Scalars['String']['input'];
+};
+
+
 export type QueryProblems_By_VersionArgs = {
+  version: Scalars['String']['input'];
+};
+
+
+export type QueryProblems_Problems_BlockArgs = {
+  filter: InputMaybe<Problems_Problems_Block_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryProblems_Problems_Block_AggregatedArgs = {
+  filter: InputMaybe<Problems_Problems_Block_Filter>;
+  groupBy: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryProblems_Problems_Block_By_IdArgs = {
+  id: Scalars['ID']['input'];
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryProblems_Problems_Block_By_VersionArgs = {
+  id: Scalars['ID']['input'];
   version: Scalars['String']['input'];
 };
 
@@ -608,7 +719,10 @@ export type Subscription = {
   readonly doctors_services_mutated: Maybe<Doctors_Services_Mutated>;
   readonly home_page_files_mutated: Maybe<Home_Page_Files_Mutated>;
   readonly home_page_mutated: Maybe<Home_Page_Mutated>;
+  readonly problems_block_mutated: Maybe<Problems_Block_Mutated>;
+  readonly problems_block_services_mutated: Maybe<Problems_Block_Services_Mutated>;
   readonly problems_mutated: Maybe<Problems_Mutated>;
+  readonly problems_problems_block_mutated: Maybe<Problems_Problems_Block_Mutated>;
   readonly problems_problems_slide_mutated: Maybe<Problems_Problems_Slide_Mutated>;
   readonly problems_slide_mutated: Maybe<Problems_Slide_Mutated>;
   readonly servicesBlock_mutated: Maybe<ServicesBlock_Mutated>;
@@ -672,7 +786,22 @@ export type SubscriptionHome_Page_MutatedArgs = {
 };
 
 
+export type SubscriptionProblems_Block_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
+};
+
+
+export type SubscriptionProblems_Block_Services_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
+};
+
+
 export type SubscriptionProblems_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
+};
+
+
+export type SubscriptionProblems_Problems_Block_MutatedArgs = {
   event: InputMaybe<EventEnum>;
 };
 
@@ -1506,9 +1635,21 @@ export type Number_Filter_Operators = {
 
 export type Problems = {
   readonly __typename?: 'problems';
+  readonly blocks: Maybe<ReadonlyArray<Maybe<Problems_Problems_Block>>>;
+  readonly blocks_func: Maybe<Count_Functions>;
   readonly id: Scalars['ID']['output'];
   readonly slider: Maybe<ReadonlyArray<Maybe<Problems_Problems_Slide>>>;
   readonly slider_func: Maybe<Count_Functions>;
+};
+
+
+export type ProblemsBlocksArgs = {
+  filter: InputMaybe<Problems_Problems_Block_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
@@ -1521,9 +1662,141 @@ export type ProblemsSliderArgs = {
   sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
 };
 
+export type Problems_Block = {
+  readonly __typename?: 'problems_block';
+  readonly id: Scalars['ID']['output'];
+  readonly services: Maybe<ReadonlyArray<Maybe<Problems_Block_Services>>>;
+  readonly services_func: Maybe<Count_Functions>;
+  readonly title: Maybe<Scalars['String']['output']>;
+};
+
+
+export type Problems_BlockServicesArgs = {
+  filter: InputMaybe<Problems_Block_Services_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Problems_Block_Aggregated = {
+  readonly __typename?: 'problems_block_aggregated';
+  readonly avg: Maybe<Problems_Block_Aggregated_Fields>;
+  readonly avgDistinct: Maybe<Problems_Block_Aggregated_Fields>;
+  readonly count: Maybe<Problems_Block_Aggregated_Count>;
+  readonly countAll: Maybe<Scalars['Int']['output']>;
+  readonly countDistinct: Maybe<Problems_Block_Aggregated_Count>;
+  readonly group: Maybe<Scalars['JSON']['output']>;
+  readonly max: Maybe<Problems_Block_Aggregated_Fields>;
+  readonly min: Maybe<Problems_Block_Aggregated_Fields>;
+  readonly sum: Maybe<Problems_Block_Aggregated_Fields>;
+  readonly sumDistinct: Maybe<Problems_Block_Aggregated_Fields>;
+};
+
+export type Problems_Block_Aggregated_Count = {
+  readonly __typename?: 'problems_block_aggregated_count';
+  readonly id: Maybe<Scalars['Int']['output']>;
+  readonly services: Maybe<Scalars['Int']['output']>;
+  readonly title: Maybe<Scalars['Int']['output']>;
+};
+
+export type Problems_Block_Aggregated_Fields = {
+  readonly __typename?: 'problems_block_aggregated_fields';
+  readonly id: Maybe<Scalars['Float']['output']>;
+};
+
+export type Problems_Block_Filter = {
+  readonly _and: InputMaybe<ReadonlyArray<InputMaybe<Problems_Block_Filter>>>;
+  readonly _or: InputMaybe<ReadonlyArray<InputMaybe<Problems_Block_Filter>>>;
+  readonly id: InputMaybe<Number_Filter_Operators>;
+  readonly services: InputMaybe<Problems_Block_Services_Filter>;
+  readonly services_func: InputMaybe<Count_Function_Filter_Operators>;
+  readonly title: InputMaybe<String_Filter_Operators>;
+};
+
+export type Problems_Block_Mutated = {
+  readonly __typename?: 'problems_block_mutated';
+  readonly data: Maybe<Problems_Block>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
+};
+
+export type Problems_Block_Services = {
+  readonly __typename?: 'problems_block_services';
+  readonly id: Scalars['ID']['output'];
+  readonly problems_block_id: Maybe<Problems_Block>;
+  readonly services_id: Maybe<Services>;
+};
+
+
+export type Problems_Block_ServicesProblems_Block_IdArgs = {
+  filter: InputMaybe<Problems_Block_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type Problems_Block_ServicesServices_IdArgs = {
+  filter: InputMaybe<Services_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Problems_Block_Services_Aggregated = {
+  readonly __typename?: 'problems_block_services_aggregated';
+  readonly avg: Maybe<Problems_Block_Services_Aggregated_Fields>;
+  readonly avgDistinct: Maybe<Problems_Block_Services_Aggregated_Fields>;
+  readonly count: Maybe<Problems_Block_Services_Aggregated_Count>;
+  readonly countAll: Maybe<Scalars['Int']['output']>;
+  readonly countDistinct: Maybe<Problems_Block_Services_Aggregated_Count>;
+  readonly group: Maybe<Scalars['JSON']['output']>;
+  readonly max: Maybe<Problems_Block_Services_Aggregated_Fields>;
+  readonly min: Maybe<Problems_Block_Services_Aggregated_Fields>;
+  readonly sum: Maybe<Problems_Block_Services_Aggregated_Fields>;
+  readonly sumDistinct: Maybe<Problems_Block_Services_Aggregated_Fields>;
+};
+
+export type Problems_Block_Services_Aggregated_Count = {
+  readonly __typename?: 'problems_block_services_aggregated_count';
+  readonly id: Maybe<Scalars['Int']['output']>;
+  readonly problems_block_id: Maybe<Scalars['Int']['output']>;
+  readonly services_id: Maybe<Scalars['Int']['output']>;
+};
+
+export type Problems_Block_Services_Aggregated_Fields = {
+  readonly __typename?: 'problems_block_services_aggregated_fields';
+  readonly id: Maybe<Scalars['Float']['output']>;
+  readonly problems_block_id: Maybe<Scalars['Float']['output']>;
+  readonly services_id: Maybe<Scalars['Float']['output']>;
+};
+
+export type Problems_Block_Services_Filter = {
+  readonly _and: InputMaybe<ReadonlyArray<InputMaybe<Problems_Block_Services_Filter>>>;
+  readonly _or: InputMaybe<ReadonlyArray<InputMaybe<Problems_Block_Services_Filter>>>;
+  readonly id: InputMaybe<Number_Filter_Operators>;
+  readonly problems_block_id: InputMaybe<Problems_Block_Filter>;
+  readonly services_id: InputMaybe<Services_Filter>;
+};
+
+export type Problems_Block_Services_Mutated = {
+  readonly __typename?: 'problems_block_services_mutated';
+  readonly data: Maybe<Problems_Block_Services>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
+};
+
 export type Problems_Filter = {
   readonly _and: InputMaybe<ReadonlyArray<InputMaybe<Problems_Filter>>>;
   readonly _or: InputMaybe<ReadonlyArray<InputMaybe<Problems_Filter>>>;
+  readonly blocks: InputMaybe<Problems_Problems_Block_Filter>;
+  readonly blocks_func: InputMaybe<Count_Function_Filter_Operators>;
   readonly id: InputMaybe<Number_Filter_Operators>;
   readonly slider: InputMaybe<Problems_Problems_Slide_Filter>;
   readonly slider_func: InputMaybe<Count_Function_Filter_Operators>;
@@ -1532,6 +1805,76 @@ export type Problems_Filter = {
 export type Problems_Mutated = {
   readonly __typename?: 'problems_mutated';
   readonly data: Maybe<Problems>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
+};
+
+export type Problems_Problems_Block = {
+  readonly __typename?: 'problems_problems_block';
+  readonly id: Scalars['ID']['output'];
+  readonly problems_block_id: Maybe<Problems_Block>;
+  readonly problems_id: Maybe<Problems>;
+};
+
+
+export type Problems_Problems_BlockProblems_Block_IdArgs = {
+  filter: InputMaybe<Problems_Block_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type Problems_Problems_BlockProblems_IdArgs = {
+  filter: InputMaybe<Problems_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Problems_Problems_Block_Aggregated = {
+  readonly __typename?: 'problems_problems_block_aggregated';
+  readonly avg: Maybe<Problems_Problems_Block_Aggregated_Fields>;
+  readonly avgDistinct: Maybe<Problems_Problems_Block_Aggregated_Fields>;
+  readonly count: Maybe<Problems_Problems_Block_Aggregated_Count>;
+  readonly countAll: Maybe<Scalars['Int']['output']>;
+  readonly countDistinct: Maybe<Problems_Problems_Block_Aggregated_Count>;
+  readonly group: Maybe<Scalars['JSON']['output']>;
+  readonly max: Maybe<Problems_Problems_Block_Aggregated_Fields>;
+  readonly min: Maybe<Problems_Problems_Block_Aggregated_Fields>;
+  readonly sum: Maybe<Problems_Problems_Block_Aggregated_Fields>;
+  readonly sumDistinct: Maybe<Problems_Problems_Block_Aggregated_Fields>;
+};
+
+export type Problems_Problems_Block_Aggregated_Count = {
+  readonly __typename?: 'problems_problems_block_aggregated_count';
+  readonly id: Maybe<Scalars['Int']['output']>;
+  readonly problems_block_id: Maybe<Scalars['Int']['output']>;
+  readonly problems_id: Maybe<Scalars['Int']['output']>;
+};
+
+export type Problems_Problems_Block_Aggregated_Fields = {
+  readonly __typename?: 'problems_problems_block_aggregated_fields';
+  readonly id: Maybe<Scalars['Float']['output']>;
+  readonly problems_block_id: Maybe<Scalars['Float']['output']>;
+  readonly problems_id: Maybe<Scalars['Float']['output']>;
+};
+
+export type Problems_Problems_Block_Filter = {
+  readonly _and: InputMaybe<ReadonlyArray<InputMaybe<Problems_Problems_Block_Filter>>>;
+  readonly _or: InputMaybe<ReadonlyArray<InputMaybe<Problems_Problems_Block_Filter>>>;
+  readonly id: InputMaybe<Number_Filter_Operators>;
+  readonly problems_block_id: InputMaybe<Problems_Block_Filter>;
+  readonly problems_id: InputMaybe<Problems_Filter>;
+};
+
+export type Problems_Problems_Block_Mutated = {
+  readonly __typename?: 'problems_problems_block_mutated';
+  readonly data: Maybe<Problems_Problems_Block>;
   readonly event: Maybe<EventEnum>;
   readonly key: Scalars['ID']['output'];
 };
@@ -2280,9 +2623,33 @@ export type Version_Home_Page_Files = {
 
 export type Version_Problems = {
   readonly __typename?: 'version_problems';
+  readonly blocks: Maybe<Scalars['JSON']['output']>;
+  readonly blocks_func: Maybe<Count_Functions>;
   readonly id: Scalars['ID']['output'];
   readonly slider: Maybe<Scalars['JSON']['output']>;
   readonly slider_func: Maybe<Count_Functions>;
+};
+
+export type Version_Problems_Block = {
+  readonly __typename?: 'version_problems_block';
+  readonly id: Scalars['ID']['output'];
+  readonly services: Maybe<Scalars['JSON']['output']>;
+  readonly services_func: Maybe<Count_Functions>;
+  readonly title: Maybe<Scalars['String']['output']>;
+};
+
+export type Version_Problems_Block_Services = {
+  readonly __typename?: 'version_problems_block_services';
+  readonly id: Scalars['ID']['output'];
+  readonly problems_block_id: Maybe<Scalars['JSON']['output']>;
+  readonly services_id: Maybe<Scalars['JSON']['output']>;
+};
+
+export type Version_Problems_Problems_Block = {
+  readonly __typename?: 'version_problems_problems_block';
+  readonly id: Scalars['ID']['output'];
+  readonly problems_block_id: Maybe<Scalars['JSON']['output']>;
+  readonly problems_id: Maybe<Scalars['JSON']['output']>;
 };
 
 export type Version_Problems_Problems_Slide = {
@@ -2424,7 +2791,7 @@ export type GetStockPageQuery = { readonly __typename?: 'Query', readonly stock_
 export type GetProblemsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetProblemsQuery = { readonly __typename?: 'Query', readonly problems: { readonly __typename?: 'problems', readonly slider: ReadonlyArray<{ readonly __typename?: 'problems_problems_slide', readonly problems_slide_id: { readonly __typename?: 'problems_slide', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } } }> } };
+export type GetProblemsQuery = { readonly __typename?: 'Query', readonly problems: { readonly __typename?: 'problems', readonly slider: ReadonlyArray<{ readonly __typename?: 'problems_problems_slide', readonly problems_slide_id: { readonly __typename?: 'problems_slide', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } } }>, readonly blocks: ReadonlyArray<{ readonly __typename?: 'problems_problems_block', readonly id: string, readonly problems_block_id: { readonly __typename?: 'problems_block', readonly id: string, readonly title: string, readonly services: ReadonlyArray<{ readonly __typename?: 'problems_block_services', readonly id: string, readonly services_id: { readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number, readonly baner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } } }> } }> } };
 
 export type GetServiceByIdQueryVariables = Exact<{
   id: Scalars['ID']['input'];
@@ -2650,9 +3017,23 @@ export const GetProblemsDocument = gql`
         }
       }
     }
+    blocks {
+      id
+      problems_block_id {
+        id
+        title
+        services {
+          id
+          services_id {
+            ...ServiceFragment
+          }
+        }
+      }
+    }
   }
 }
-    ${MediaFragmentFragmentDoc}`;
+    ${MediaFragmentFragmentDoc}
+${ServiceFragmentFragmentDoc}`;
 export const GetServiceByIdDocument = gql`
     query GetServiceById($id: ID!) {
   services_by_id(id: $id) {
