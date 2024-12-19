@@ -89,7 +89,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       </section>
 
       {doctor?.slider?.length > 0 && (
-        <section className="section">
+        <section className="section ">
           <div className="container mx-auto max-w-[1364px] px-[20px]">
             <div className="flex gap-[6px] mb-[24px] md:mb-[38px] xl:mb-[24px]">
               <BadgeWithIcon
@@ -171,7 +171,11 @@ export default function Page({ params }: { params: { slug: string } }) {
         </section>
       )}
 
+      <section className="section bg-[#EBEFF3]">
+
       {doctors.length > 0 && <SpecialistsList doctors={doctors} />}
+      </section>
+
     </>
   );
 }
