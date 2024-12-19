@@ -45,9 +45,12 @@ export default function Page({ params }: { params: { slug: string } }) {
     <>
       <section className="section ">
         <div className="container mx-auto max-w-[1364px] px-[20px]">
-          {doctor && <DoctorDetailInfo doctors={doctor} />}
+          <div className="mb-[60px] md:mb-[78px] lg:mb-[110px]">
+            {doctor && <DoctorDetailInfo doctors={doctor} />}
+          </div>
 
           <h3 className="mb-[24px]">Услуги врача</h3>
+
           <div className="slider-wrapper relative w-full">
             {isTablet ||
               (!isNavSwiper1Disabled && (

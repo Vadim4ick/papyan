@@ -23,10 +23,10 @@ function ServiceCardItem({ card }: ServiceCardItemProps) {
   return (
     <Card className="w-[350px]  h-[199px] md:w-[377px] md:h-[187px] lg:w-[396px] lg:h-[199px] bg-[#F0F3F8] rounded-lg p-[18px] flex flex-col">
       <CardHeader className="pb-[14px]">
-        <CardTitle className="text-[#353535] text-[18px] leading-[22px] tracking-tight font-semibold">
+        <CardTitle className="text-[#353535] text-[18px] text-left mb-[14px] leading-[22px] tracking-tight font-semibold">
           {card.title}
         </CardTitle>
-        <CardDescription className="text-[#696969] text-[14px] leading-[18px] tracking-tight font-medium line-clamp-2">
+        <CardDescription className="text-[#696969] text-[14px] text-left leading-[18px] tracking-tight font-medium line-clamp-2">
           {card.description}
         </CardDescription>
       </CardHeader>
