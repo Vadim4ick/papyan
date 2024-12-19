@@ -72,16 +72,18 @@ export default function Page({ params }: { params: { slug: string } }) {
           <div className="container mx-auto max-w-[1364px] px-[20px]">
             <h2 className="md:mb-[48px]">Другие услуги</h2>
 
-            {services?.servicesClinic.dopServices.map(
-              ({ servicesBlock_id }) => (
-                <CategoriesGalery
-                  key={servicesBlock_id.id}
-                  category={servicesBlock_id}
-                  cardWidth="w-[350px] md:w-[311px] xl:w-[396px]"
-                  cardHeight="h-[262px] md:h-[311px] xl:h-[464px]"
-                />
-              )
-            )}
+            <div className="flex items-center flex-wrap gap-[26px]">
+              {services?.servicesClinic.dopServices.map(
+                ({ servicesBlock_id }) => (
+                  <CategoriesGalery
+                    key={servicesBlock_id.id}
+                    category={servicesBlock_id}
+                    cardWidth="w-[350px] md:w-[311px] xl:w-[396px]"
+                    cardHeight="h-[262px] md:h-[311px] xl:h-[464px]"
+                  />
+                )
+              )}
+            </div>
           </div>
         </section>
       )}
