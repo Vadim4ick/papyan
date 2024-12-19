@@ -108,7 +108,12 @@ export default function Page({ params }: { params: { slug: string } }) {
           </div>
 
           <h3 className="mb-[20px] md:mb-[24px]  ">Другие услуги</h3>
-          <SliderWrapper>
+          <SliderWrapper
+            btns={{
+              next: "services-next",
+              prev: "services-prev",
+            }}
+          >
             {serviceBlocks?.servicesBlock[0].allServices
               .filter((item) => item.id !== params.slug)
               .map((item) => <ServiceCardItem key={item.id} card={item} />)}

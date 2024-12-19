@@ -2,20 +2,19 @@ import React from "react";
 import Image from "next/image";
 import { cn, pathImage } from "@/shared/lib/utils";
 import { MediaFragmentFragment } from "@/graphql/__generated__";
-import { useRouter } from "next/navigation";
 
 interface ImageCardOneProps {
   imageData: MediaFragmentFragment;
   className?: string;
   catigoryId?: string;
+  title?: string;
 }
 
 const ImageCardOne: React.FC<ImageCardOneProps> = ({
   imageData,
   className,
-  catigoryId,
+  title,
 }) => {
-  const router = useRouter();
   return (
     <div
       className={cn(
@@ -32,7 +31,7 @@ const ImageCardOne: React.FC<ImageCardOneProps> = ({
       />
 
       <div className="absolute top-[14px] w-full">
-        <div className="mx-[14px] rounded-lg h-[42px] bg-white">{imageData.title}</div>
+        <div className="mx-[14px] rounded-lg h-[42px] bg-white">{title}</div>
       </div>
     </div>
   );
