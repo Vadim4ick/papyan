@@ -52,8 +52,6 @@ export default function Home() {
     return <Loader className="size-[35px]" />;
   }
 
-  console.log(problems);
-
   const typeCounts = countFileTypes(
     data?.home_page.sliderClinik as ImageType[]
   );
@@ -154,11 +152,16 @@ export default function Home() {
 
         <div className="container mx-auto max-w-[1364px] px-[20px]">
           <h3 className="mb-[32px] md:mb-[51px]">Методы лечения</h3>
-          <SliderWrapper slideWidth="!w-[316px]" className="h-[484px]">
+          <SliderWrapper
+            btns={{ next: "methods-next", prev: "methods-prev" }}
+            slideWidth="!w-[316px]"
+            className="h-[484px]"
+          >
             {problems?.problems.slider.map((item) => (
               <ImageCardOne
                 key={item.problems_slide_id.id}
                 imageData={item.problems_slide_id.img}
+                title={item.problems_slide_id.title}
                 catigoryId={""}
               />
             ))}
@@ -262,6 +265,7 @@ export default function Home() {
                   />
                 </div>
                 <SliderWrapper
+                  btns={{ next: "about-next", prev: "about-prev" }}
                   slideWidth="!w-[298px] md:!w-[311px] lg:!w-[316px]"
                   className="h-[434px] md:h-[467px] xl:h-[474px]"
                 >
