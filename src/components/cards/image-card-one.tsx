@@ -31,7 +31,7 @@ const ImageCardOne: React.FC<ImageCardOneProps> = ({
       />
 
       <div className="absolute top-[14px] w-full">
-        <div className="mx-[14px] rounded-lg h-[42px] bg-white">{title}</div>
+        <div className="flex px-[14px] items-center text-[#1467E1] text-[18px] leading-[18px] tracking-tight font-semibold mx-[14px] rounded-lg h-[42px] bg-white">{title}</div>
       </div>
     </div>
   );
