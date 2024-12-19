@@ -15,7 +15,7 @@ const DoctorDetailInfo = ({
   const router = useRouter()
   return (
     <>
-      <div className="relative min-h-[540px] flex flex-col-reverse items-center gap-y-[32px] md:items-start md:flex-row gap-x-[40px] xl:gap-x-[48px]">
+      <div className="relative min-h-[540px] mb-[32px] md:mb-0 flex flex-col-reverse items-center gap-y-[32px] md:items-start md:flex-row gap-x-[40px] xl:gap-x-[48px]">
         <div className="items-center relative ] w-[350px] h-[467px] md:w-[357px] md:h-[482px] xl:w-[400px] xl:h-[540px] overflow-hidden rounded-md group">
           <Image
             width={380}
@@ -35,7 +35,7 @@ const DoctorDetailInfo = ({
             </Button>
           </div>
         </div>
-        <div className="flex flex-col justify-between min-h-[540px]">
+        <div className="flex flex-col justify-between  md:min-h-[540px]">
           <div className="max-w-[377px] lg:w-[512px]">
             {doctors.post && (
               <Badge
