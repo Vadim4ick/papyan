@@ -42,3 +42,51 @@ trigger:
     - push
     - promote
     - custom
+# kind: pipeline
+# type: docker
+# name: default
+
+# steps:
+#   # - name: lint
+#   #   image: node:20
+#   #   commands:
+#   #     - npm ci
+#   #     - npm run lint
+#   - name: deploy
+#     image: appleboy/drone-ssh
+
+#     settings:
+#       host: 147.45.246.176
+#       username: root
+#       password: ch4A#3UJ7y*4A*
+#       port: 22
+#       script:
+#         - cd /root/papyan
+#         - source ~/.nvm/nvm.sh
+#         - nvm use 22
+#         - git pull origin main
+#         - npm ci
+#         - npm run build
+#         - pm2 restart front
+
+#   - name: notify
+#     image: appleboy/drone-telegram:1.3.10
+#     settings:
+#       token: 7667848651:AAFC29EEL9jkm6c6CoXZ-XWN0JZ_dh7hhuE
+#       to: -4653734000
+#       message: |
+#         ✅ Успешно развернуто приложение после коммита на ветке main!
+#         📝 Коммит: ${DRONE_COMMIT_MESSAGE}
+#         👤 Автор: ${DRONE_COMMIT_AUTHOR}
+#         🔗 [Посмотреть изменения](https://github.com/ваш-репозиторий/commit/${DRONE_COMMIT_SHA})
+
+# trigger:
+#   event:
+#     - push
+#     - promote
+#     - custom
+# # trigger:
+# #   branch:
+# #     - master
+# #   event:
+# #     - push
