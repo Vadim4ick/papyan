@@ -4,6 +4,7 @@ import { Banner } from "@/components/banner";
 import { CategoriesGalery } from "@/components/cards/categories-galery";
 import { ContactCardV2 } from "@/components/cards/contact-card-v2";
 import { DoctorDetailInfo } from "@/components/doctor-detail-info";
+import { DialogForm } from "@/components/modal/dialog";
 import { SectionHeader } from "@/components/section-header";
 import { ServicesClinic } from "@/components/services-clinic";
 import { SliderWrapper } from "@/components/slider/slider-wrapper";
@@ -56,9 +57,11 @@ export default function About() {
                 schedule={data?.about_page.time}
                 phone={data?.about_page.phone}
               >
-                <Button className="w-full" variant="secondary">
-                  Получить консультацию
-                </Button>
+                <DialogForm>
+                  <Button className="w-full" variant="secondary">
+                    Получить консультацию
+                  </Button>
+                </DialogForm>
               </ContactCardV2>
             </div>
           </div>

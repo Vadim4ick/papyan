@@ -10,11 +10,15 @@ import {
 import { EmailForm } from "../email-form";
 import { Logo } from "@/shared/icons/Logo";
 
-export function DialogForm() {
+interface DialogFormProps {
+  children: React.ReactNode
+}
+
+export function DialogForm({children}:DialogFormProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="default" className="">Записаться онлайн</Button>
+        {children}
       </DialogTrigger>
       <DialogContent className="w-[360px] md:w-[486px] rounded-lg p-7">
         <DialogHeader>
