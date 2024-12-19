@@ -110,7 +110,13 @@ export default function About() {
                   quantity={typeCounts.imageCount}
                 />
               </div>
-              <SliderWrapper className="h-[434px] md:h-[467px] xl:h-[474px]">
+              <SliderWrapper
+                btns={{
+                  next: "consultashion-next",
+                  prev: "consultashion-prev",
+                }}
+                className="h-[434px] md:h-[467px] xl:h-[474px]"
+              >
                 {data?.about_page.slider.map(({ directus_files_id }) => {
                   const isVideo = directus_files_id.type?.startsWith("video/");
 
