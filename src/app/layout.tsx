@@ -15,6 +15,7 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: "Клиника Papyan",
+
   description: "Клиника Papyan, г. Краснодар",
 };
 
