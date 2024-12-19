@@ -15,12 +15,21 @@ interface SliderWrapperProps {
   className?: string;
   slideWidth?: string;
   mySwiperNumber?: string;
+
+  btns: {
+    next: string;
+    prev: string;
+  };
 }
 
 function SliderWrapper({
   children,
   className,
   slideWidth,
+  btns = {
+    next: "swiper-button-next",
+    prev: "swiper-button-prev",
+  },
   mySwiperNumber,
 }: SliderWrapperProps) {
   const isTablet = useClientMediaQuery("(max-width: 1024px)");
@@ -34,10 +43,10 @@ function SliderWrapper({
       {isTablet ||
         (!isNavigationDisabled && (
           <div className="swiper-nav">
-            <Button variant="arrow" className={`swiper-button-prev`}>
+            <Button variant="arrow" className={btns.prev}>
               <ChevronLeft width={17} />
             </Button>
-            <Button variant="arrow" className={`swiper-button-next`}>
+            <Button variant="arrow" className={btns.next}>
               <ChevronRight width={17} />
             </Button>
           </div>
@@ -47,10 +56,9 @@ function SliderWrapper({
         spaceBetween={isMobile ? 16 : 20}
         modules={[Pagination, Navigation]}
         scrollbar={{ draggable: true }}
-        loop={!isNavigationDisabled}
         navigation={{
-          nextEl: `.swiper-button-next`,
-          prevEl: `.swiper-button-prev`,
+          nextEl: `.${btns.next}`,
+          prevEl: `.${btns.prev}`,
         }}
         watchOverflow={true}
         allowTouchMove={true}
