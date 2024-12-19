@@ -10,6 +10,7 @@ import {
 } from "./ui/form";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import InputMask from "react-input-mask";
 import React from "react";
 
 const phoneValidation = /^(?:\+7|8)?\s?\(?[1-9]\d{2}\)?\s?\d{3}-?\d{2}-?\d{2}$/
@@ -108,16 +109,23 @@ const formSchema = z
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input
-                      className={`xl:w-[194px] h-[52px] bg-[#F0F3F8] border-[#E3E6EB] text-center text-[15px] leading-[20px] tracking-tight ${
-                        form.formState.errors.phone ? "text-[#F52222] placeholder:text-[#F52222] border-[#F52222]" : ""
-                      }`}
-                      placeholder={
-                        form.formState.errors.phone?.message || "Телефон"
-                      }
-                      type="tel"
-                      {...field}
-                    />
+                  <InputMask
+                      mask="+7 (999) 999-99-99"
+                      value={field.value}
+                      onChange={field.onChange}
+                    >
+                      {(inputProps: any) => (
+                        <Input
+                          {...inputProps}
+                          className={`xl:w-[194px] h-[52px] bg-[#F0F3F8] border-[#E3E6EB] text-center text-[15px] leading-[20px] tracking-tight ${
+                            form.formState.errors.phone ? "text-[#F52222] placeholder:text-[#F52222] border-[#F52222]" : ""
+                          }`}
+                          placeholder={
+                            form.formState.errors.phone?.message || "+7(000)000-00-00"
+                          }
+                        />
+                      )}
+                    </InputMask>
                   </FormControl>
                 </FormItem>
               )}
