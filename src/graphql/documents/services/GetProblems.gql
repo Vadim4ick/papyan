@@ -1,13 +1,29 @@
 query GetProblems {
-problems {
-  slider {
-    problems_slide_id {
-      id
-      title
-      img {
-        ...MediaFragment
+  problems {
+    slider {
+      problems_slide_id {
+        id
+        title
+        img {
+          ...MediaFragment
+        }
       }
+    }
+
+      blocks {
+        id
+
+        problems_block_id {
+          id
+          title
+          services {
+            id
+            services_id {
+              ...ServiceFragment
+            }
+          }
+        }
     }
   }
 }
-}
+

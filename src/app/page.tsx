@@ -90,77 +90,73 @@ export default function Home() {
                 </div>
               </div>
 
-              <Accordion
-                value={isOpen}
-                onValueChange={handleAccordionChange}
-                className="flex flex-col gap-[10px] w-full max-w-[652px]"
-                type="single"
-                collapsible
-              >
-                <AccordionItem
-                  className="bg-[#F0F3F8] p-[18px] rounded-[8px]"
-                  value="item-1"
+              {problems && problems?.problems.blocks.length > 0 && (
+                <Accordion
+                  value={isOpen}
+                  onValueChange={handleAccordionChange}
+                  className="flex flex-col gap-[10px] w-full max-w-[652px]"
+                  type="single"
+                  collapsible
                 >
-                  <AccordionTrigger className="p-0 text-[18px] group font-semibold leading-[22px] tracking-[-0.36px]">
-                    <p
-                      className={cn("text-[#353535]", {
-                        "text-[#979797]": isOpen === "item-1",
-                        "group-hover:text-[#1467E1]": !isOpen,
-                      })}
+                  {problems?.problems.blocks?.map(({ problems_block_id }) => (
+                    <AccordionItem
+                      key={problems_block_id.id}
+                      className="bg-[#F0F3F8] p-[18px] rounded-[8px]"
+                      value={`item-${problems_block_id.id}`}
                     >
-                      Cколиоз
-                    </p>
-                  </AccordionTrigger>
-
-                  <AccordionContent className="p-0 mt-[26px]">
-                    <p className="font-semibold text-[22px] leading-[26px] tracking-[-0.44px] mb-[22px]">
-                      При сколиозе лучше всего поможет:
-                    </p>
-
-                    <div className="w-full max-w-[548px] flex flex-col gap-[28px]">
-                      <div className="flex flex-col gap-[8px] w-full">
-                        <Link
-                          href="/"
-                          className="bg-white rounded-[8px] py-4 pl-4 pr-[20px] flex items-center justify-between"
+                      <AccordionTrigger className="p-0 text-[18px] group font-semibold leading-[22px] tracking-[-0.36px]">
+                        <p
+                          className={cn("text-[#353535]", {
+                            "text-[#979797]": isOpen === "item-1",
+                            "group-hover:text-[#1467E1]": !isOpen,
+                          })}
                         >
-                          <p className="font-semibold">PRP-терапия</p>
+                          {problems_block_id.title}
+                        </p>
+                      </AccordionTrigger>
 
-                          <ArrowRight />
-                        </Link>
+                      <AccordionContent className="p-0 mt-[26px]">
+                        <p className="font-semibold text-[22px] leading-[26px] tracking-[-0.44px] mb-[22px]">
+                          При сколиозе лучше всего поможет:
+                        </p>
 
-                        <Link
-                          href="/"
-                          className="bg-white rounded-[8px] py-4 pl-4 pr-[20px] flex items-center justify-between"
-                        >
-                          <p className="font-semibold">PRP-терапия</p>
+                        <div className="w-full max-w-[548px] flex flex-col gap-[28px]">
+                          <div className="flex flex-col gap-[8px] w-full">
+                            {problems_block_id.services.map(
+                              ({ services_id }) => (
+                                <Link
+                                  key={services_id.id}
+                                  href={`/therapy/${services_id.id}`}
+                                  className="bg-white rounded-[8px] py-4 pl-4 pr-[20px] flex items-center justify-between"
+                                >
+                                  <p className="font-semibold">
+                                    {services_id.title}
+                                  </p>
 
-                          <ArrowRight />
-                        </Link>
-                        <Link
-                          href="/"
-                          className="bg-white rounded-[8px] py-4 pl-4 pr-[20px] flex items-center justify-between"
-                        >
-                          <p className="font-semibold">PRP-терапия</p>
+                                  <ArrowRight />
+                                </Link>
+                              )
+                            )}
+                          </div>
 
-                          <ArrowRight />
-                        </Link>
-                      </div>
-
-                      <div className="flex items-center w-full justify-between gap-4 max-lg:flex-col">
-                        <Button className="w-full h-[54px] max-lg:h-[48px]">
-                          Получить консультацию
-                        </Button>
-                        <Button
-                          className="w-full h-[54px] max-lg:h-[48px]"
-                          variant={"secondary"}
-                        >
-                          Все услуги
-                        </Button>
-                      </div>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+                          <div className="flex items-center w-full justify-between gap-4 max-lg:flex-col">
+                            <Button className="w-full h-[54px] max-lg:h-[48px]">
+                              Получить консультацию
+                            </Button>
+                            <Button
+                              onClick={() => router.push("/uslugi")}
+                              className="w-full h-[54px] max-lg:h-[48px]"
+                              variant={"secondary"}
+                            >
+                              Все услуги
+                            </Button>
+                          </div>
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              )}
             </div>
 
             <div className="w-full flex flex-col gap-[45px] max-lg:hidden">
