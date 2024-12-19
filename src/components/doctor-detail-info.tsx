@@ -12,7 +12,6 @@ const DoctorDetailInfo = ({
 }: {
   doctors: GetAllDoctorsQuery["doctors"][0];
 }) => {
-  console.log("🚀 ~ doctors:", doctors)
   const router = useRouter()
   return (
     <>
