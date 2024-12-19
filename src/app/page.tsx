@@ -13,6 +13,7 @@ import { BadgeWithIcon } from "@/components/badge-with-icon";
 import { useGetServicesClinic } from "@/shared/hooks/services/useGetServicesClinic";
 import { CategoriesGalery } from "@/components/cards/categories-galery";
 import { Loader } from "@/components/ui/loader";
+import ImageCardOne from "@/components/cards/image-card-one";
 import {
   Accordion,
   AccordionContent,
@@ -23,7 +24,6 @@ import Link from "next/link";
 import { ArrowRight } from "@/shared/icons/ArrowRight";
 import { useState } from "react";
 import { useGetProblems } from "@/shared/hooks/services/useGetProblems";
-import ImageCardOne from "@/components/cards/image-card-one";
 
 export type ImageType = {
   directus_files_id: {
@@ -156,7 +156,13 @@ export default function Home() {
           slideWidth="!w-[298px] md:!w-[311px] lg:!w-[316px]"
           className="h-[434px] md:h-[467px] xl:h-[474px]"
         >
-          <ImageCardOne imageData={imageData} catigoryId={""} />
+          {problems?.problems.slider.map((item) => (
+            <ImageCardOne
+            key={item.problems_slide_id.id}
+              imageData={item.problems_slide_id.img}
+              catigoryId={""}
+            />
+          ))}
         </SliderWrapper>
       </section>
 
