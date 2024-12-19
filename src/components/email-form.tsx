@@ -2,51 +2,56 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-} from "./ui/form";
+import { Form, FormControl, FormField, FormItem } from "./ui/form";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import InputMask from "react-input-mask";
 import React from "react";
 
-const phoneValidation = /^(?:\+7|8)?\s?\(?[1-9]\d{2}\)?\s?\d{3}-?\d{2}-?\d{2}$/
+const phoneValidation = /^(?:\+7|8)?\s?\(?[1-9]\d{2}\)?\s?\d{3}-?\d{2}-?\d{2}$/;
 
 const formSchema = z
   .object({
-    name: z.string().min(1, { message: "Укажите имя", }),
-    email: z.string().email({ message: "Укажите корректный email" }).optional(). or (z. literal ( '' )),
-    phone: z.string(). regex(phoneValidation, { message: "Введите корректный номер телефона" }). optional(). or (z. literal ( '' )),
+    name: z.string().min(1, { message: "Укажите имя" }),
+    email: z
+      .string()
+      .email({ message: "Укажите корректный email" })
+      .optional()
+      .or(z.literal("")),
+    phone: z
+      .string()
+      .regex(phoneValidation, { message: "Введите корректный номер телефона" })
+      .optional()
+      .or(z.literal("")),
   })
-  .refine(data => data.email || data.phone, {
-    message: 'Одно из полей [email, phone] обязательно',
-    path: ['email'], 
-  }).
-  superRefine ( ( values, ctx ) => { 
-    if (! values. phone && ! values. email ) { 
-      ctx. addIssue ({ 
-        message : 'Необходимо указать либо телефон, либо адрес электронной почты.' , 
-        code : z. ZodIssueCode . custom , 
-        path : [ 'phone' ], 
-      }); 
-      ctx. addIssue ({ 
-        message : 'Необходимо указать либо телефон, либо адрес электронной почты.' , 
-        code : z. ZodIssueCode . custom , 
-        path : [ 'email' ], 
-      }); 
-    } 
-  }); 
+  .refine((data) => data.email || data.phone, {
+    message: "Одно из полей [email, phone] обязательно",
+    path: ["email"],
+  })
+  .superRefine((values, ctx) => {
+    if (!values.phone && !values.email) {
+      ctx.addIssue({
+        message:
+          "Необходимо указать либо телефон, либо адрес электронной почты.",
+        code: z.ZodIssueCode.custom,
+        path: ["phone"],
+      });
+      ctx.addIssue({
+        message:
+          "Необходимо указать либо телефон, либо адрес электронной почты.",
+        code: z.ZodIssueCode.custom,
+        path: ["email"],
+      });
+    }
+  });
 
-  export function EmailForm() {
+export function EmailForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: '',
-      email: '',
-      phone: '',
+      name: "",
+      email: "",
+      phone: "",
     },
   });
 
@@ -67,7 +72,9 @@ const formSchema = z
                 <FormControl>
                   <Input
                     className={`h-[52px] bg-[#F0F3F8] border-[#E3E6EB] text-center text-[15px] leading-[20px] tracking-tight ${
-                      form.formState.errors.name ? "text-[#F52222] placeholder:text-[#F52222] border-[#F52222]" : ""
+                      form.formState.errors.name
+                        ? "text-[#F52222] placeholder:text-[#F52222] border-[#F52222]"
+                        : ""
                     }`}
                     placeholder={
                       form.formState.errors.name?.message || "Ваше Имя"
@@ -87,7 +94,9 @@ const formSchema = z
                   <FormControl>
                     <Input
                       className={`w-full xl:w-[194px] h-[52px] bg-[#F0F3F8] border-[#E3E6EB] text-center text-[15px] leading-[20px] tracking-tight ${
-                        form.formState.errors.email ? "text-[#F52222] placeholder:text-[#F52222] border-[#F52222]" : ""
+                        form.formState.errors.email
+                          ? "text-[#F52222] placeholder:text-[#F52222] border-[#F52222]"
+                          : ""
                       }`}
                       placeholder={
                         form.formState.errors.email?.message || "E-mail"
@@ -109,7 +118,7 @@ const formSchema = z
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                  <InputMask
+                    <InputMask
                       mask="+7 (999) 999-99-99"
                       value={field.value}
                       onChange={field.onChange}
@@ -118,10 +127,13 @@ const formSchema = z
                         <Input
                           {...inputProps}
                           className={`xl:w-[194px] h-[52px] bg-[#F0F3F8] border-[#E3E6EB] text-center text-[15px] leading-[20px] tracking-tight ${
-                            form.formState.errors.phone ? "text-[#F52222] placeholder:text-[#F52222] border-[#F52222]" : ""
+                            form.formState.errors.phone
+                              ? "text-[#F52222] placeholder:text-[#F52222] border-[#F52222]"
+                              : ""
                           }`}
                           placeholder={
-                            form.formState.errors.phone?.message || "+7(000)000-00-00"
+                            form.formState.errors.phone?.message ||
+                            "+7(000)000-00-00"
                           }
                         />
                       )}
