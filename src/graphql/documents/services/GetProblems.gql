@@ -1,0 +1,13 @@
+query GetProblems {
+problems {
+  slider {
+    problems_slide_id {
+      id
+      title
+      img {
+        ...MediaFragment
+      }
+    }
+  }
+}
+}
