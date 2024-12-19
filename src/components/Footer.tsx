@@ -100,9 +100,11 @@ const Footer = () => {
             </div>
           </div>
 
-          <Button variant="white" className="md:hidden w-full ">
-            Записаться онлайн
-          </Button>
+          <DialogForm>
+            <Button variant="white" className="md:hidden w-full ">
+              Записаться онлайн
+            </Button>
+          </DialogForm>
         </div>
       </Container>
 

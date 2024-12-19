@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { DoctorDetailInfo } from "@/components/doctor-detail-info";
 import { BadgeWithIcon } from "@/components/badge-with-icon";
-import { pathImage } from "@/shared/lib/utils";
+import { countFileTypes, pathImage } from "@/shared/lib/utils";
 import { Loader } from "@/components/ui/loader";
 import { notFound } from "next/navigation";
 import { ServiceCardItem } from "@/components/cards/service-card-item";
@@ -17,6 +17,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "../../../components/slider/styles.css";
+import { ImageType } from "@/shared/types/types";
 
 export default function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug;
@@ -40,6 +41,11 @@ export default function Page({ params }: { params: { slug: string } }) {
 
   const swiper2SlideCount = doctor.slider.length;
   const isNavSwiper2Disabled = swiper2SlideCount <= 4;
+
+
+    const typeCounts = countFileTypes(
+      doctor.slider as ImageType[]
+    );
 
   return (
     <>
@@ -96,13 +102,13 @@ export default function Page({ params }: { params: { slug: string } }) {
                 className="bg-[#EBEFF3]"
                 variant="video"
                 tittle={"Видео"}
-                quantity={3}
+                quantity={typeCounts.videoCount}
               />
               <BadgeWithIcon
                 className="bg-[#EBEFF3]"
                 variant="photo"
                 tittle={"Фото"}
-                quantity={5}
+                quantity={typeCounts.imageCount}
               />
             </div>
 

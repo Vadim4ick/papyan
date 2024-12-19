@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 "use client";
 
 import { SliderWrapper } from "@/components/slider/slider-wrapper";
@@ -24,6 +25,13 @@ import Link from "next/link";
 import { ArrowRight } from "@/shared/icons/ArrowRight";
 import { useState } from "react";
 import { useGetProblems } from "@/shared/hooks/services/useGetProblems";
+import {
+  YMaps,
+  Map,
+  ZoomControl,
+  //   TypeSelector,
+  Placemark,
+} from "@r3flector/react-yandex-maps";
 
 export type ImageType = {
   directus_files_id: {
@@ -107,7 +115,8 @@ export default function Home() {
                       <AccordionTrigger className="p-0 text-[18px] group font-semibold leading-[22px] tracking-[-0.36px]">
                         <p
                           className={cn("text-[#353535]", {
-                            "text-[#979797]": isOpen === "item-1",
+                            "text-[#979797]":
+                              isOpen === `item-${problems_block_id.id}`,
                             "group-hover:text-[#1467E1]": !isOpen,
                           })}
                         >
@@ -339,9 +348,9 @@ export default function Home() {
 
       <section>
         <div className="container mx-auto max-w-[1364px] px-[20px]">
-          <div className="border-t border-t-[#E8E8E8] pt-[62px] max-lg:pt-[48px]">
-            <div className="flex items-center justify-between gap-2 pb-[36px]">
-              <div className="flex items-center gap-[70px]">
+          <div className="border-t border-t-[#E8E8E8] pt-[62px] max-lg:pt-[48px] pb-[64px] max-lg:flex max-lg:gap-[20px] max-md:flex-col max-md:gap-[32px]">
+            <div className="flex items-center justify-between gap-2 lg:pb-[36px] w-full">
+              <div className="flex items-center gap-[70px] max-xl:gap-[40px] max-lg:flex-col max-lg:items-start max-lg:gap-4 max-lg:p-[28px] max-lg:bg-[#F0F3F8] w-full max-lg:rounded-[8px]">
                 <div className="flex flex-col gap-1">
                   <p className="text-[#929292] font-semibold text-[14px] leading-[18.2px] tracking-[-0.28px]">
                     Адрес клиники
@@ -371,11 +380,43 @@ export default function Home() {
                     +7 (918) 232-13-13
                   </div>
                 </div>
+
+                <Button
+                  variant={"secondary"}
+                  className="h-[48px] lg:hidden w-full"
+                >
+                  Получить консультацию
+                </Button>
               </div>
 
-              <Button variant={"secondary"} className="h-[48px]">
+              <Button variant={"secondary"} className="h-[48px] max-lg:hidden">
                 Получить консультацию
               </Button>
+            </div>
+
+            <div className="rounded-[8px] overflow-hidden w-full">
+              <YMaps>
+                <Map
+                  instanceRef={(ref) => {
+                    ref && ref.behaviors.disable("scrollZoom");
+                  }}
+                  defaultState={{
+                    center: [45.016485318057406, 38.95953056745904],
+                    zoom: 18,
+                  }}
+                  className="h-[376px] w-full max-lg:h-[296px] max-md:h-[460px]"
+                >
+                  <Placemark
+                    geometry={[45.016485318057406, 38.95953056745904]}
+                    options={{
+                      iconLayout: "default#image",
+
+                      iconImageHref: "/placemark.svg",
+                    }}
+                  />
+                  <ZoomControl />
+                </Map>
+              </YMaps>
             </div>
           </div>
         </div>
