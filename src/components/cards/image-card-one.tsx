@@ -1,8 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
 import { cn, pathImage } from "@/shared/lib/utils";
-import { RoundButton } from "../ui/round-button";
 import { MediaFragmentFragment } from "@/graphql/__generated__";
 import { useRouter } from "next/navigation";
 
@@ -21,19 +19,19 @@ const ImageCardOne: React.FC<ImageCardOneProps> = ({
   return (
     <div
       className={cn(
-        "relative space-y-3 overflow-hidden rounded-md group",
+        "relative overflow-hidden rounded-md group w-full h-full",
         className
       )}
     >
       <Image
-        width={380}
-        height={418}
+        width={350}
+        height={484}
         src={pathImage(imageData.id)}
         alt={imageData.title}
         className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
       />
 
-      <div className="absolute top-0 w-full">
+      <div className="absolute top-[14px] w-full">
         <div className="mx-[14px] rounded-lg h-[42px] bg-white">{imageData.title}</div>
       </div>
     </div>
