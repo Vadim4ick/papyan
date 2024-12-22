@@ -36,8 +36,6 @@ export default function About() {
 
   const typeCounts = countFileTypes(data?.about_page.slider as ImageType[]);
 
-  console.log(data?.about_page.description);
-
   return (
     <>
       <section className="section bg-[#F0F3F8]">

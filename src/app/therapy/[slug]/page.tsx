@@ -30,7 +30,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       <section className="section">
         <div className="container  mx-auto max-w-[1364px] px-[20px]">
           <div className="flex flex-col gap-y-[60px] md:flex-row mb-[72px] md:mb-[78px] lg:mb-[100px]">
-            <div>
+            <div className="w-full">
               <div className=" mb-[36px] md:mb-[48px] lg:mb-[71px] ">
                 <div className="flex justify-between">
                   <div className="md:max-w-[397px] lg:max-w-[718px]">
@@ -54,6 +54,7 @@ export default function Page({ params }: { params: { slug: string } }) {
                   </div>
                 </div>
               </div>
+
               <div className="flex flex-col gap-[64px]">
                 <ReactMarkdown
                   components={{
@@ -106,22 +107,25 @@ export default function Page({ params }: { params: { slug: string } }) {
               </div>
             </div>
           </div>
-          {serviceBlocks?.servicesBlock[0] && (
-            <>
-              <h3 className="mb-[20px] md:mb-[24px]  ">Другие услуги</h3>
+          {serviceBlocks?.servicesBlock[0] &&
+            serviceBlocks.servicesBlock[0].allServices.length > 1 && (
+              <>
+                <h3 className="mb-[20px] md:mb-[24px]  ">Другие услуги</h3>
 
-              <SliderWrapper
-                btns={{
-                  next: "services-next",
-                  prev: "services-prev",
-                }}
-              >
-                {serviceBlocks?.servicesBlock[0].allServices
-                  .filter((item) => item.id !== params.slug)
-                  .map((item) => <ServiceCardItem key={item.id} card={item} />)}
-              </SliderWrapper>
-            </>
-          )}
+                <SliderWrapper
+                  btns={{
+                    next: "services-next",
+                    prev: "services-prev",
+                  }}
+                >
+                  {serviceBlocks?.servicesBlock[0].allServices
+                    .filter((item) => item.id !== params.slug)
+                    .map((item) => (
+                      <ServiceCardItem key={item.id} card={item} />
+                    ))}
+                </SliderWrapper>
+              </>
+            )}
         </div>
 
         {/* <div className="container mx-auto max-w-[1364px] px-[20px]"></div> */}

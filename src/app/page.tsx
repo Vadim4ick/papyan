@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 "use client";
 
 import { SliderWrapper } from "@/components/slider/slider-wrapper";
@@ -24,6 +26,15 @@ import Link from "next/link";
 import { ArrowRight } from "@/shared/icons/ArrowRight";
 import { useMemo, useState } from "react";
 import { useGetProblems } from "@/shared/hooks/services/useGetProblems";
+import {
+  YMaps,
+  Map,
+  ZoomControl,
+  //   TypeSelector,
+  Placemark,
+} from "@r3flector/react-yandex-maps";
+import { Input } from "@/components/ui/input";
+import InputMask from "react-input-mask";
 
 export type ImageType = {
   directus_files_id: {
@@ -108,7 +119,8 @@ export default function Home() {
                       <AccordionTrigger className="p-0 text-[18px] group font-semibold leading-[22px] tracking-[-0.36px]">
                         <p
                           className={cn("text-[#353535]", {
-                            "text-[#979797]": isOpen === "item-1",
+                            "text-[#979797]":
+                              isOpen === `item-${problems_block_id.id}`,
                             "group-hover:text-[#1467E1]": !isOpen,
                           })}
                         >
@@ -241,7 +253,7 @@ export default function Home() {
       </section>
 
       {data && data?.home_page.sliderClinik.length > 0 && (
-        <section className="pb-[72px] pt-[32px] md:pb-[78px] md:pt-[48px] lg:py-[100px]">
+        <section className="pb-[72px] pt-[32px] md:pb-[78px] md:pt-[48px] lg:pt-[100px] lg:pb-[70px] max-lg:pb-[48px]">
           <div className="container mx-auto max-w-[1364px] px-[20px]">
             <div className="flex flex-col md:flex-row justify-between mb-[28px] md:mb-[84px] lg:mb-[118px] ">
               <div>
@@ -337,6 +349,142 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      <section>
+        <div className="container mx-auto max-w-[1364px] px-[20px]">
+          <div className="border-t border-t-[#E8E8E8] pt-[62px] max-lg:pt-[48px] pb-[64px] max-lg:flex max-lg:gap-[20px] max-md:flex-col max-md:gap-[32px]">
+            <div className="flex items-center justify-between gap-2 lg:pb-[36px] w-full">
+              <div className="flex items-center gap-[70px] max-xl:gap-[40px] max-lg:flex-col max-lg:items-start max-lg:gap-4 max-lg:p-[28px] max-lg:bg-[#F0F3F8] w-full max-lg:rounded-[8px]">
+                <div className="flex flex-col gap-1">
+                  <p className="text-[#929292] font-semibold text-[14px] leading-[18.2px] tracking-[-0.28px]">
+                    Адрес клиники
+                  </p>
+
+                  <div className="font-semibold text-[18px] leading-[23px] tracking-[-0.36px] text-[#353535]">
+                    Краснодар, Постовая улица, 23
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-1">
+                  <p className="text-[#929292] font-semibold text-[14px] leading-[18.2px] tracking-[-0.28px]">
+                    Время работы
+                  </p>
+
+                  <div className="font-semibold text-[18px] leading-[23px] tracking-[-0.36px] text-[#353535]">
+                    Пн-сб: 08:00—20:00
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-1">
+                  <p className="text-[#929292] font-semibold text-[14px] leading-[18.2px] tracking-[-0.28px]">
+                    Телефон для справок
+                  </p>
+
+                  <div className="font-semibold text-[18px] leading-[23px] tracking-[-0.36px] text-[#353535]">
+                    +7 (918) 232-13-13
+                  </div>
+                </div>
+
+                <Button
+                  variant={"secondary"}
+                  className="h-[48px] lg:hidden w-full"
+                >
+                  Получить консультацию
+                </Button>
+              </div>
+
+              <Button variant={"secondary"} className="h-[48px] max-lg:hidden">
+                Получить консультацию
+              </Button>
+            </div>
+
+            <div className="rounded-[8px] overflow-hidden w-full">
+              <YMaps>
+                <Map
+                  instanceRef={(ref) => {
+                    ref && ref.behaviors.disable("scrollZoom");
+                  }}
+                  defaultState={{
+                    center: [45.016485318057406, 38.95953056745904],
+                    zoom: 18,
+                  }}
+                  className="h-[376px] w-full max-lg:h-[296px] max-md:h-[460px]"
+                >
+                  <Placemark
+                    geometry={[45.016485318057406, 38.95953056745904]}
+                    options={{
+                      iconLayout: "default#image",
+
+                      iconImageHref: "/placemark.svg",
+                    }}
+                  />
+                  <ZoomControl />
+                </Map>
+              </YMaps>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#EBEFF3] py-[131px] max-md:pt-[32px] max-md:pb-[60px]">
+        <div className="container mx-auto max-w-[1364px] px-[20px]">
+          <div className="flex items-center gap-4 justify-between max-md:flex-col">
+            <div className="flex flex-col gap-[57px] max-md:gap-[20px]">
+              <div className="flex flex-col gap-[20px]">
+                <h3 className="text-[36px] max-md:text-[30px] max-md:leading-[36px] max-md:tracking-[-0.6px] font-semibold leading-[45px] tracking-[-0.72px] text-[#353535]">
+                  Задайте вопросы администратору
+                </h3>
+
+                <p className="text-[16px] font-medium leading-[22px] tracking-[-0.32px] text-[#353535]">
+                  Наш специалист перезвонит <br className="md:hidden" /> и
+                  проконсультирует по телефону
+                </p>
+              </div>
+
+              <div className="h-[200px] relative md:hidden">
+                <Image
+                  src={"/phone.png"}
+                  className="object-contain"
+                  fill
+                  alt="phone"
+                />
+              </div>
+
+              <div className="flex flex-col gap-[31px] max-md:gap-4">
+                <div className="flex gap-[20px] md:h-[54px] max-md:flex-col max-md:gap-3">
+                  <InputMask mask="+7 (999) 999-99-99">
+                    {(inputProps: any) => (
+                      <Input
+                        {...inputProps}
+                        className="bg-white max-w-[336px] h-[54px] max-md:max-w-full"
+                        placeholder={"+7(000)000-00-00"}
+                      />
+                    )}
+                  </InputMask>
+
+                  <Button className="bg-[#1467E1] w-full max-w-[267px] h-[54px] max-md:max-w-full">
+                    Перезвонить мне
+                  </Button>
+                </div>
+
+                <p className="max-w-[540px] text-[12px] leading-[16.8px] font-medium text-[#353535] tracking-[-0.24px]">
+                  Нажимая на кнопку "Перезвоните мне", я подтверждаю, что
+                  ознакомлен и согласен с условиями политики конфиденциальности
+                  и правилами обработки персональных данных
+                </p>
+              </div>
+            </div>
+
+            <Image
+              src={"/phone.png"}
+              className="max-md:hidden"
+              width={343}
+              height={305}
+              alt="phone"
+            />
+          </div>
+        </div>
+      </section>
     </>
   );
 }
