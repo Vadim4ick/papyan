@@ -31,7 +31,7 @@ const AccordionTrigger = React.forwardRef<
       {children}
 
       <svg
-        className="h-4 w-4 shrink-0 transition-transform duration-200"
+        className="h-4 w-4 shrink-0 transition-transform duration-500"
         width="16"
         height="16"
         viewBox="0 0 16 16"
