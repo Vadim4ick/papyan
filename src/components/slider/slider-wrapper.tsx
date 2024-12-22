@@ -42,12 +42,12 @@ function SliderWrapper({
     <div className="slider-wrapper relative w-full">
       {isTablet ||
         (!isNavigationDisabled && (
-          <div className="swiper-nav">
-            <Button variant="arrow" className={btns.prev}>
-              <ChevronLeft width={17} />
+          <div className="swiper-nav flex gap-4">
+            <Button variant="arrow" className={`${btns.next} pe-[2px]`}>
+              <ChevronLeft strokeWidth={2.5} width={22} />
             </Button>
-            <Button variant="arrow" className={btns.next}>
-              <ChevronRight width={17} />
+            <Button variant="arrow" className={`${btns.next} ps-[1px]`}>
+              <ChevronRight  strokeWidth={2.5} width={22} />
             </Button>
           </div>
         ))}

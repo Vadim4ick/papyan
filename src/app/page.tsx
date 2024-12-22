@@ -190,7 +190,7 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto max-w-[1364px] px-[20px]">
-          <h3 className="mb-[32px] md:mb-[51px]">Методы лечения</h3>
+          <h2 className="mb-[32px] md:mb-[51px]">Методы лечения</h2>
           <SliderWrapper
             btns={{ next: "methods-next", prev: "methods-prev" }}
             slideWidth="!w-[316px]"
