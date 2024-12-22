@@ -27,7 +27,7 @@ const CategoriesGalery: React.FC<CategoriesGaleryProps> = ({
       />
       <ImageCard
         imageData={category.img}
-        bages={category.allServices.map((service) => service.title)}
+        // bages={category.allServices.map((service) => service.title)}
         className={`${cardWidth} ${cardHeight}`}
         catigoryId={category.id}
       />

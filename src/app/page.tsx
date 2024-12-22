@@ -35,6 +35,7 @@ import {
 } from "@r3flector/react-yandex-maps";
 import { Input } from "@/components/ui/input";
 import InputMask from "react-input-mask";
+import { Separator } from "@/components/ui/separator";
 
 export type ImageType = {
   directus_files_id: {
@@ -206,11 +207,13 @@ export default function Home() {
             ))}
           </SliderWrapper>
 
-          <p className="text-[#595959] font-[16px] leading-[22px] tracking-[-0.32px] pt-[48px] max-lg:pt-[24px]">
+          <p className="text-[#595959] text-[16px] leading-[22px] pt-[48px] max-lg:pt-[24px]">
             *Набор методов индивидуален, их подбирает врач на основе диагностики
           </p>
         </div>
       </section>
+
+      <Separator className="h-4 bg-[#F0F3F8]"/>
 
       <section className="pt-[32px] lg:pt-[64px] pb-[72px] md:pb-[78p] lg:pb-[100px] ">
         <ServicesClinic
