@@ -42,10 +42,7 @@ export default function Page({ params }: { params: { slug: string } }) {
   const swiper2SlideCount = doctor.slider.length;
   const isNavSwiper2Disabled = swiper2SlideCount <= 4;
 
-
-    const typeCounts = countFileTypes(
-      doctor.slider as ImageType[]
-    );
+  const typeCounts = countFileTypes(doctor.slider as ImageType[])
 
   return (
     <>
@@ -178,9 +175,8 @@ export default function Page({ params }: { params: { slug: string } }) {
       )}
 
       <section className="section bg-[#EBEFF3]">
-      {doctors.length > 0 && <SpecialistsList doctors={doctors} />}
+        {doctors.length > 0 && <SpecialistsList doctors={doctors} />}
       </section>
-
     </>
   );
 }

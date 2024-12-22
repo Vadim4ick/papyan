@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/accordion";
 import Link from "next/link";
 import { ArrowRight } from "@/shared/icons/ArrowRight";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useGetProblems } from "@/shared/hooks/services/useGetProblems";
 
 export type ImageType = {
@@ -44,6 +44,11 @@ export default function Home() {
 
   const [isOpen, setIsOpen] = useState<string>("");
 
+  const typeCounts = useMemo(
+    () => countFileTypes(data?.home_page.sliderClinik as ImageType[]),
+    [data?.home_page.sliderClinik]
+  );
+
   const handleAccordionChange = (value: string) => {
     setIsOpen(value);
   };
@@ -51,10 +56,6 @@ export default function Home() {
   if (isLoading || isLoadingServices || isLoadingProblems) {
     return <Loader className="size-[35px]" />;
   }
-
-  const typeCounts = countFileTypes(
-    data?.home_page.sliderClinik as ImageType[]
-  );
 
   return (
     <>

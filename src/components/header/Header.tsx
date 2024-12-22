@@ -21,21 +21,22 @@ const Header = () => {
   return (
     <>
       <header className="sticky top-0 bg-white h-[52px] lg:h-[64px] z-50">
-        <Container className="h-full flex items-center justify-between">
+        <Container className="relative h-full flex items-center justify-between">
+          {/* Навбар для десктопа */}
+          <div className="hidden absolute w-full lg:flex flex-1 justify-center z-50 ">
+            <Navbar onLinkClick={closeMenu} />
+          </div>
+          
           {/* Логотип */}
           <Link href={"/"} className="flex z-50">
             <Logo />
           </Link>
 
-          {/* Навбар для десктопа */}
-          <div className="hidden lg:flex flex-1 justify-center z-50 ">
-            <Navbar onLinkClick={closeMenu} />
-          </div>
 
           {/* Кнопка "Записаться онлайн" для десктопа */}
           <div className="hidden lg:flex z-50">
             <DialogForm>
-              <Button variant="secondary">Записаться онлайн</Button>
+              <Button variant="default">Записаться онлайн</Button>
             </DialogForm>
           </div>
 
@@ -75,10 +76,11 @@ const Header = () => {
             schedule={contacts.schedule}
             phone={contacts.phone}
           />
-          {/* <Button variant="default" className="w-full">
+          <DialogForm>
+            <Button variant="default" className="w-full">
               Записаться онлайн
-            </Button> */}
-          <DialogForm />
+            </Button>
+          </DialogForm>
         </div>
       </div>
     </>
