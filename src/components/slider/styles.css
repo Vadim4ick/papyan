@@ -30,10 +30,8 @@
 
 .swiper-nav {
   position: absolute;
-  top: -70px;
-  right: 10px;
-  display: flex;
-  gap: 8px;
+  top: -100px;
+  right: 0px;
   z-index: 10;
 }
 
