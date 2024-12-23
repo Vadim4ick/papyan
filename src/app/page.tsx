@@ -231,7 +231,7 @@ export default function Home() {
                     key={servicesBlock_id.id}
                     category={servicesBlock_id}
                     cardWidth="w-[350px] md:w-[377px] xl:w-[380px]"
-                    cardHeight=" xl:h-[238px] md:h-[187px] h-[199px]"
+                    cardHeight=" h-[238px] md:h-[187px] xl:h-[199px]"
                   />
                 )
               )}

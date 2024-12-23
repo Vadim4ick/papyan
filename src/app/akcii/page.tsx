@@ -6,6 +6,7 @@ import { SectionHeader } from "@/components/section-header";
 import { ServicesClinic } from "@/components/services-clinic";
 import { Button } from "@/components/ui/button";
 import { Loader } from "@/components/ui/loader";
+import { Separator } from "@/components/ui/separator";
 import { useGetStockPage } from "@/shared/hooks/services/pages/useGetStockPage";
 import { useGetServicesClinic } from "@/shared/hooks/services/useGetServicesClinic";
 import { useClientMediaQuery } from "@/shared/hooks/useClientMediaQuery";
@@ -38,30 +39,31 @@ export default function Akcii() {
   }
 
   return (
-    <section className="section">
-      <div className="container mx-auto max-w-[1364px] px-[20px]">
-        <SectionHeader
-          className="mb-[20px]"
-          title={data?.stock_page.title || ""}
-          description={data?.stock_page.description || ""}
-        />
-      </div>
+    <>
+      <section className="section">
+        <div className="container mx-auto max-w-[1364px] px-[20px]">
+          <SectionHeader
+            className="mb-[20px] lg:mb-[48px]"
+            title={data?.stock_page.title || ""}
+            description={data?.stock_page.description || ""}
+          />
+        </div>
 
-      <div className="container mx-auto max-w-[1364px] px-[20px]">
-        <h1>{isTablet}</h1>
-        <div className="flex flex-wrap gap-4 ">
-          {rows.map((row, rowIndex) => (
-            <div
-              key={rowIndex}
-              className={`flex flex-wrap gap-4 w-full justify-between ${
-                rowIndex % 2 === 1 ? "" : "flex-row-reverse"
-              } flex gap-4`}
-            >
-              {row.map((card, index) => (
-                <DiscountCard
-                  key={index}
-                  card={card}
-                  className={`text-center text-xl font-extrabold 
+        <div className="container mx-auto max-w-[1364px] px-[20px]">
+          <h1>{isTablet}</h1>
+          <div className="flex flex-wrap gap-4 ">
+            {rows.map((row, rowIndex) => (
+              <div
+                key={rowIndex}
+                className={`flex flex-wrap gap-4 w-full justify-between ${
+                  rowIndex % 2 === 1 ? "" : "flex-row-reverse"
+                } flex gap-4`}
+              >
+                {row.map((card, index) => (
+                  <DiscountCard
+                    key={index}
+                    card={card}
+                    className={`text-center text-xl font-extrabold 
                   ${
                     isTablet
                       ? rowIndex === 0
@@ -70,20 +72,23 @@ export default function Akcii() {
                           ? "w-full md:w-[48%]"
                           : rowIndex === 2
                             ? "w-[100%] md:wide"
-                            : "w-full md:w-[48%]"
+                            : "w-full md:w-[48.5%]"
                       : rowIndex === 2
-                        ? "w-[32%]"
+                        ? "w-[32.4%] 2xl:w-[32.5%]"
                         : index === 0
                           ? "w-[66%] wide"
-                          : "w-[32%]"
+                          : "w-[32.5%]"
                   }
                 `}
-                />
-              ))}
-            </div>
-          ))}
+                  />
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
+
+      <Separator className="h-4 bg-[#F0F3F8]" />
 
       <section className="section">
         <ServicesClinic
@@ -115,6 +120,6 @@ export default function Akcii() {
           </Button>
         </div>
       </section>
-    </section>
+    </>
   );
 }

@@ -34,7 +34,7 @@ const DiscountCard = ({ card, className }: discountCardProps) => {
             {card.services_id.title}
           </h3>
           <div
-            className={`${isWide ? "mx-auto md:ml-auto md:me-[28px] lg:me-[36px] " : "mx-auto"} w-[302px] h-[49px] bg-[#FFFFFF]  rounded-[41px] flex justify-between items-center pl-[16px] pr-[6px]`}
+            className={`${isWide ? "mx-auto md:ml-auto md:me-[0px] md:!w-[356px] " : "mx-auto"} w-[302px] md:w-full h-[49px] bg-[#FFFFFF]  rounded-[41px] flex justify-between items-center pl-[16px] pr-[6px]`}
           >
             <div className="flex gap-[6px] items-center">
               <p className=" relative text-[#353535] text-[20px] leading-[25px] tracking-tight font-semibold ">
