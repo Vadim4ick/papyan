@@ -12,7 +12,7 @@ const DoctorDetailInfo = ({
 }: {
   doctors: GetAllDoctorsQuery["doctors"][0];
 }) => {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <>
       <div className="relative min-h-[540px] mb-[32px] md:mb-0 flex flex-col-reverse items-center gap-y-[32px] md:items-start md:flex-row gap-x-[40px] xl:gap-x-[48px]">
@@ -30,10 +30,18 @@ const DoctorDetailInfo = ({
                 Записаться на прием
               </Button>
             </DialogForm>
-            <Button  className="w-full h-[48px] bg-[#EBEFF3]" variant="white" onClick={() => {router.push(`/doctor/${doctors.id}`)}}>
+            <Button
+              className="w-full h-[48px] border-none bg-[#EBEFF3] hover:bg-[#EBEFF3]"
+              variant="white"
+              onClick={() => {
+                router.push(`/doctor/${doctors.id}`);
+              }}
+
+            >
               Подробнее
             </Button>
           </div>
+          <div className="absolute bottom-0 w-full h-[112px] z-10 backdrop-blur-md bg-white/5"></div>
         </div>
         <div className="flex flex-col justify-between  md:min-h-[540px]">
           <div className="max-w-[377px] lg:max-w-[512px]">
