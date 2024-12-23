@@ -48,55 +48,57 @@ function ImageSliderWrapper({
     setModalOpen(true);
   };
 
-
   return (
     <>
       <div className="slider-wrapper relative w-full">
         {isTablet ||
-                (!isNavigationDisabled && (
-                  <div className="swiper-nav flex gap-4">
-                    <Button variant="arrow" className={`${btns.prev} pe-[2px]`}>
-                      <ChevronLeft strokeWidth={2.5} width={22} />
-                    </Button>
-                    <Button variant="arrow" className={`${btns.next} ps-[1px]`}>
-                      <ChevronRight  strokeWidth={2.5} width={22} />
-                    </Button>
-                  </div>
-                ))}
+          (!isNavigationDisabled && (
+            <div className="swiper-nav flex gap-4">
+              <Button variant="arrow" className={`${btns.prev} pe-[2px]`}>
+                <ChevronLeft strokeWidth={2.5} width={22} />
+              </Button>
+              <Button variant="arrow" className={`${btns.next} ps-[1px]`}>
+                <ChevronRight strokeWidth={2.5} width={22} />
+              </Button>
+            </div>
+          ))}
 
-                <Swiper
-                        slidesPerView={"auto"}
-                        spaceBetween={isMobile ? 16 : 20}
-                        modules={[Pagination, Navigation]}
-                        scrollbar={{ draggable: true }}
-                        navigation={{
-                          nextEl: `.${btns.next}`,
-                          prevEl: `.${btns.prev}`,
-                        }}
-                        watchOverflow={true}
-                        allowTouchMove={true}
-                        className={`${className} mySwiper${mySwiperNumber} `}
-                      >
-                        {Array.isArray(children)
-                          ? children.map((child, index) => (
-                              <SwiperSlide className={`${slideWidth}`} key={index} onClick={() => handleImageClick(index)}>
-                                {child}
-                              </SwiperSlide>
-                            ))
-                          : children && <SwiperSlide>{children}</SwiperSlide>}
-                      </Swiper>
-
-        
+        <Swiper
+          slidesPerView={"auto"}
+          spaceBetween={isMobile ? 16 : 20}
+          modules={[Pagination, Navigation]}
+          scrollbar={{ draggable: true }}
+          navigation={{
+            nextEl: `.${btns.next}`,
+            prevEl: `.${btns.prev}`,
+          }}
+          watchOverflow={true}
+          allowTouchMove={true}
+          className={`${className} mySwiper${mySwiperNumber} `}
+        >
+          {Array.isArray(children)
+            ? children.map((child, index) => (
+                <SwiperSlide
+                  className={`${slideWidth}`}
+                  key={index}
+                  onClick={() => handleImageClick(index)}
+                >
+                  {child}
+                </SwiperSlide>
+              ))
+            : children && <SwiperSlide>{children}</SwiperSlide>}
+        </Swiper>
       </div>
 
       {isModalOpen && (
         <ModalGallery
-          images={React.Children.toArray(children)}
+          btns={{ next: "about-next", prev: "about-prev" }}
           activeIndex={activeIndex}
           onClose={() => setModalOpen(false)}
-        />
+        >
+          {React.Children.toArray(children)}
+        </ModalGallery>
       )}
-
     </>
   );
 }

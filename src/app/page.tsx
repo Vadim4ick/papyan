@@ -312,7 +312,7 @@ export default function Home() {
                   />
                 </div>
                 <ImageSliderWrapper
-                  btns={{ next: "about-next", prev: "about-prev" }}
+                  btns={{ next: "main-next", prev: "main-prev" }}
                   slideWidth="!w-[298px] md:!w-[311px] lg:!w-[316px]"
                   className="h-[434px] md:h-[467px] xl:h-[474px]"
                 >
@@ -323,6 +323,7 @@ export default function Home() {
                     return isVideo ? (
                       <video
                         key={directus_files_id.id}
+                        src={pathImage(directus_files_id.id)}
                         autoPlay
                         muted
                         playsInline
