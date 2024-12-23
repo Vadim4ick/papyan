@@ -12,7 +12,7 @@ const ServicesCostsWrapper = ({
       <TitleWithBadge
         tittle={category.title}
         quantity={category.allServices.length}
-        className="pb-[24px]"
+        className="mb-[12px] md:mb-[20px] lg:mb-[24px]"
       />
 
       {category.allServices.map((item) => (

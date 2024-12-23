@@ -23,7 +23,7 @@ export default function Ceny() {
       <section className="section">
         <div className="container mx-auto max-w-[1364px] px-[20px]">
           <SectionHeader
-            className="mb-[40px]"
+            className="mb-[32px] md:mb-[40px]"
             title={cenyPage?.ceny_page.title || ""}
             description={cenyPage?.ceny_page.description}
             isLoading={cenyPageLoading}
