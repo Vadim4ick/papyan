@@ -12,7 +12,7 @@ export default function Uslugi() {
 
   return (
     <div>
-      <section className="pt-[64px] pb-[100px]">
+      <section className="section">
         <div className="container mx-auto max-w-[1364px] px-[20px]">
           <SectionHeader
             className="mb-[32px] md:mb-[48px] lg:mb-[40px]"
