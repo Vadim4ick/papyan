@@ -36,18 +36,18 @@ const ImageCard: React.FC<ImageCardProps> = ({
         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
 
-      <div className="absolute top-0 right-[14px]">
+      <div className="absolute -top-[24px] right-[14px]">
         <RoundButton
           variant="default"
           onClick={() => router.push(`/uslugi/${catigoryId}`)}
-          className="opacity-0 group-hover:opacity-100 group-hover:translate-y-[14px] transition-all duration-500 h-9 w-9 ease-in"
+          className="opacity-0 group-hover:opacity-100 group-hover:translate-y-[24px] transition-all duration-700 h-9 w-9 ease-out"
         >
           <ArrowUpRight />
         </RoundButton>
       </div>
 
       {bages && bages?.length > 0 && (
-        <div className="absolute bottom-0 left-[14px] right-[14px] opacity-0 group-hover:opacity-100 group-hover:translate-y-[-14px] transition-all duration-500 ease-in">
+        <div className="absolute -bottom-[10px] left-[14px] right-[14px] opacity-0 group-hover:opacity-100 group-hover:translate-y-[-24px] transition-all duration-700 ease-out">
           <div className="flex flex-wrap justify-start gap-[4px] ">
             {bages.map((service, idx) => (
               <Badge key={idx} variant="default" className="text-[12px] leading-[15.6px] px-2">
