@@ -10,7 +10,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { RussianRuble } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { ServiceFragmentFragment } from "@/graphql/__generated__";
 
@@ -33,10 +32,7 @@ function ServiceCardItem({ card }: ServiceCardItemProps) {
       <CardContent className="flex-1"></CardContent>
       <CardFooter className="flex justify-between items-center mt-auto">
         <p className="relative text-[#353535] text-[18px] leading-[22px]  font-semibold ">
-          {card.price}{" "}
-          <span className="absolute top-[4px]">
-            <RussianRuble size={16} strokeWidth={2.5} />
-          </span>{" "}
+          {card.price} <span className="">₽</span>{" "}
         </p>
         <Button
           className="z-10"
