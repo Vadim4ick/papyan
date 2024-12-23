@@ -8,7 +8,6 @@ import { DialogForm } from "@/components/modal/dialog";
 import { SectionHeader } from "@/components/section-header";
 import { ServicesClinic } from "@/components/services-clinic";
 import { ImageSliderWrapper } from "@/components/slider/image-slider";
-import { SliderWrapper } from "@/components/slider/slider-wrapper";
 import { SpecialistsList } from "@/components/specialists-list";
 import { Button } from "@/components/ui/button";
 import { Loader } from "@/components/ui/loader";

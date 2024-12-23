@@ -9,7 +9,6 @@ import { notFound } from "next/navigation";
 import { ServiceCardItem } from "@/components/cards/service-card-item";
 import { useGetAllDoctors } from "@/shared/hooks/services/useGetAllDoctors";
 import { SpecialistsList } from "@/components/specialists-list";
-import { useClientMediaQuery } from "@/shared/hooks/useClientMediaQuery";
 import "swiper/css";
 import "swiper/css/pagination";
 import "../../../components/slider/styles.css";
@@ -20,8 +19,6 @@ import { SliderWrapper } from "@/components/slider/slider-wrapper";
 export default function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug;
 
-  const isTablet = useClientMediaQuery("(max-width: 1024px)");
-  const isMobile = useClientMediaQuery("(max-width: 768px)");
 
   const { data, isLoading } = useGetAllDoctors();
   if (isLoading) {
