@@ -51,7 +51,7 @@ const DiscountCard = ({ card, className }: discountCardProps) => {
                 </span>{" "}
               </p>
             </div>
-            <Badge variant="discont">-{card.services_id.sale}%</Badge>
+            <Badge variant="discont" className="px-[12px] py-[6px] text-[20px] leading-[25px] tracking-tight text-white font-semibold min-w-[70px] h-[37px] ">-{card.services_id.sale}%</Badge>
           </div>
         </div>
       </Link>
