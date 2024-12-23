@@ -15,7 +15,7 @@ export default function Uslugi() {
       <section className="pt-[64px] pb-[100px]">
         <div className="container mx-auto max-w-[1364px] px-[20px]">
           <SectionHeader
-            className="mb-[20px]"
+            className="mb-[32px] md:mb-[48px] lg:mb-[40px]"
             title={data?.services_page.title || ""}
             description={data?.services_page.description || ""}
           />
