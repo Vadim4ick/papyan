@@ -23,7 +23,7 @@ const Header = () => {
       <header className="sticky top-0 bg-white h-[52px] lg:h-[64px] z-50">
         <Container className="relative h-full flex items-center justify-between">
           {/* Навбар для десктопа */}
-          <div className="hidden absolute w-full lg:flex flex-1 justify-center z-50 ">
+          <div className="hidden absolute right-0 w-full lg:flex flex-1 justify-center z-50 ">
             <Navbar onLinkClick={closeMenu} />
           </div>
           
