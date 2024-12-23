@@ -51,7 +51,7 @@ export default function Page({ params }: { params: { slug: string } }) {
               </div>
 
               {data.servicesBlock_by_id.descriptionBlock && (
-                <p>{data.servicesBlock_by_id.descriptionBlock}</p>
+                <p className="text-[#595959]"> {data.servicesBlock_by_id.descriptionBlock}</p>
               )}
             </div>
 

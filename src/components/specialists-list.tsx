@@ -9,8 +9,10 @@ import { pathImage } from "@/shared/lib/utils";
 
 const SpecialistsList = ({
   doctors,
+  badgecolor
 }: {
   doctors: GetAllDoctorsQuery["doctors"];
+  badgecolor?: string;
 }) => {
   const router = useRouter();
   return (
@@ -27,7 +29,7 @@ const SpecialistsList = ({
               <Separator className="mb-[32px] md:hidden" />
               <Badge
                 variant="secondary"
-                className="mb-[16px] xl:mb-[8px] py-[6px]"
+                className={`mb-[16px] xl:mb-[8px] py-[6px] w-fit ${badgecolor}`}
               >
                 {doctor.post}
               </Badge>

@@ -98,13 +98,13 @@ export default function About() {
             <div>
               <div className="flex gap-[6px] mb-[24px] md:mb-[38px] xl:mb-[24px]">
                 <BadgeWithIcon
-                  className="bg-[#EBEFF3]"
+                  className="bg-[#FFFFFF]"
                   variant="video"
                   tittle={"Видео"}
                   quantity={typeCounts.videoCount}
                 />
                 <BadgeWithIcon
-                  className="bg-[#EBEFF3]"
+                  className="bg-[#FFFFFF]"
                   variant="photo"
                   tittle={"Фото"}
                   quantity={typeCounts.imageCount}
@@ -168,7 +168,7 @@ export default function About() {
         </div>
 
         {doctors && doctors?.doctors.length > 1 && (
-          <SpecialistsList doctors={doctors?.doctors.slice(1)} />
+          <SpecialistsList  doctors={doctors?.doctors.slice(1)} badgecolor="bg-[#F0F3F8]"/>
         )}
       </section>
 

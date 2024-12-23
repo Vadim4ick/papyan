@@ -40,42 +40,7 @@ export default function Page({ params }: { params: { slug: string } }) {
             {doctor && <DoctorDetailInfo doctors={doctor} />}
           </div>
 
-          <h3 className="mb-[24px]">Услуги врача</h3>
-
-          {/* <div className="slider-wrapper relative w-full">
-            {isTablet ||
-              (!isNavSwiper1Disabled && (
-                <div className="swiper-nav">
-                  <Button variant="arrow" className={`swiper1-button-prev`}>
-                    <ChevronLeft width={17} />
-                  </Button>
-                  <Button variant="arrow" className={`swiper1-button-next`}>
-                    <ChevronRight width={17} />
-                  </Button>
-                </div>
-              ))}
-            <Swiper
-              slidesPerView={"auto"}
-              spaceBetween={isMobile ? 16 : 20}
-              modules={[Pagination, Navigation]}
-              scrollbar={{ draggable: true }}
-              // loop={!isNavigationDisabled}
-              navigation={{
-                nextEl: `.swiper1-button-next`,
-                prevEl: `.swiper1-button-prev`,
-              }}
-              watchOverflow={true}
-              allowTouchMove={true}
-              className="mySwiper1"
-            >
-              {doctor.sevices.length > 0 &&
-                doctor.sevices.map((item) => (
-                  <SwiperSlide key={item.services_id.id}>
-                    <ServiceCardItem card={item.services_id} />
-                  </SwiperSlide>
-                ))}
-            </Swiper>
-          </div> */}
+          <h3 className="mb-[24px]">Услуги врача</h3>          
           <SliderWrapper
             btns={{
               next: "services-next",
@@ -153,7 +118,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       )}
 
       <section className="section bg-[#EBEFF3]">
-        {doctors.length > 0 && <SpecialistsList doctors={doctors} />}
+        {doctors.length > 0 && <SpecialistsList doctors={doctors} badgecolor="bg-white" />}
       </section>
     </>
   );
