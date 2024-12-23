@@ -7,6 +7,7 @@ import { DoctorDetailInfo } from "@/components/doctor-detail-info";
 import { DialogForm } from "@/components/modal/dialog";
 import { SectionHeader } from "@/components/section-header";
 import { ServicesClinic } from "@/components/services-clinic";
+import { ImageSliderWrapper } from "@/components/slider/image-slider";
 import { SliderWrapper } from "@/components/slider/slider-wrapper";
 import { SpecialistsList } from "@/components/specialists-list";
 import { Button } from "@/components/ui/button";
@@ -108,44 +109,45 @@ export default function About() {
                   quantity={typeCounts.imageCount}
                 />
               </div>
-              <SliderWrapper
-                btns={{
-                  next: "consultashion-next",
-                  prev: "consultashion-prev",
-                }}
-                className="h-[434px] md:h-[467px] xl:h-[474px]"
-              >
-                {data?.about_page.slider.map(({ directus_files_id }) => {
-                  const isVideo = directus_files_id.type?.startsWith("video/");
+              
+              <ImageSliderWrapper
+                  btns={{ next: "about-next", prev: "about-prev" }}
+                  slideWidth="!w-[298px] md:!w-[311px] lg:!w-[316px]"
+                  className="h-[434px] md:h-[467px] xl:h-[474px]"
+                >
+                  {data?.about_page.slider.map(({ directus_files_id }) => {
+                    const isVideo =
+                      directus_files_id.type?.startsWith("video/");
 
-                  return isVideo ? (
-                    <video
-                      key={directus_files_id.id}
-                      autoPlay
-                      muted
-                      playsInline
-                      loop
-                      width={directus_files_id.width || 289}
-                      height={directus_files_id.height || 434}
-                      className="h-full w-full object-cover min-w-[316px]"
-                    >
-                      <source
+                    return isVideo ? (
+                      <video
+                        key={directus_files_id.id}
                         src={pathImage(directus_files_id.id)}
-                        type={directus_files_id.type}
+                        autoPlay
+                        muted
+                        playsInline
+                        loop
+                        width={directus_files_id.width || 289}
+                        height={directus_files_id.height || 434}
+                        className="h-full w-full object-cover"
+                      >
+                        <source
+                          src={pathImage(directus_files_id.id)}
+                          type={directus_files_id.type}
+                        />
+                      </video>
+                    ) : (
+                      <Image
+                        key={directus_files_id.id}
+                        width={directus_files_id.width || 289}
+                        height={directus_files_id.height || 434}
+                        src={pathImage(directus_files_id.id)}
+                        alt={directus_files_id.title}
+                        className="h-full w-full object-cover"
                       />
-                    </video>
-                  ) : (
-                    <Image
-                      key={directus_files_id.id}
-                      width={directus_files_id.width || 289}
-                      height={directus_files_id.height || 434}
-                      src={pathImage(directus_files_id.id)}
-                      alt={directus_files_id.title}
-                      className="h-full w-full object-cover min-w-[316px]"
-                    />
-                  );
-                })}
-              </SliderWrapper>
+                    );
+                  })}
+                </ImageSliderWrapper>
             </div>
           )}
         </div>

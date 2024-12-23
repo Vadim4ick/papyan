@@ -12,16 +12,25 @@ import { Button } from "../ui/button";
 import React from "react";
 
 interface ModalGalleryProps {
-  images: React.ReactNode[];
+  children: React.ReactNode[];
   activeIndex: number;
   onClose: () => void;
+  btns: {
+    next: string;
+    prev: string;
+  };
 }
 
 export function ModalGallery({
-  images,
+  children,
   activeIndex,
   onClose,
+  btns = {
+    next: "swiper-button-next",
+    prev: "swiper-button-prev",
+  },
 }: ModalGalleryProps) {
+  console.log("🚀 ~ images:", children);
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
 
   return (
@@ -46,11 +55,11 @@ export function ModalGallery({
         `}
       </style>
 
-      <div className="swiper-navigation">
-        <Button variant="arrow" className="swiper-button-prev">
+      <div className="swiper-navigation flex">
+        <Button variant="arrow" className={`${btns.prev} pe-[2px] button-prev`}>
           <ChevronLeft width={17} color="white" />
         </Button>
-        <Button variant="arrow" className="swiper-button-next">
+        <Button variant="arrow" className={`${btns.next} pe-[2px] button-next`}>
           <ChevronRight width={17} color="white" />
         </Button>
       </div>
@@ -62,14 +71,14 @@ export function ModalGallery({
         thumbs={{ swiper: thumbsSwiper }}
         initialSlide={activeIndex}
         navigation={{
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+          nextEl: `.${btns.next}`,
+          prevEl: `.${btns.prev}`,
         }}
-        className=" h-[100%] !bg-transparent"
+        className=" h-[100%] !bg-transparent "
       >
-        {images.map((image, index) => (
-          <SwiperSlide key={index}>
-            {React.isValidElement(image) ? image : null}
+        {children.map((child, index) => (
+          <SwiperSlide key={index} className="modal-galery__image">
+            {React.isValidElement(child) ? child : null}
           </SwiperSlide>
         ))}
       </Swiper>
@@ -84,17 +93,32 @@ export function ModalGallery({
         watchSlidesProgress
         className=" !absolute !bottom-[40px] w-[80%] h-[100px] thumbsrow"
       >
-        {images.map((image, index) => (
-          <SwiperSlide key={index} className="!h-[104px] !w-[70px] !rounded-sm">
-            {React.isValidElement(image) && image.props?.src ? (
-              <img
-                src={image.props.src}
-                alt={`Thumbnail ${index}`}
-                className="object-cover w-full h-16 cursor-pointer"
-              />
+        {children.map((child, index) => {
+          return (
+            <SwiperSlide key={index} className="!h-[104px] !w-[70px] !rounded-sm">
+            {React.isValidElement(child) ? (
+              
+              child.type === "video" ? (
+                <video
+                  width="100%"
+                  height="100%"
+                  muted
+                  loop
+                  className="object-cover w-full h-full cursor-pointer"
+                >
+                  <source src={child.props.src} type={child.props.type} />
+                </video>
+              ) : (
+                <img
+                  src={child.props.src}
+                  alt={`Thumbnail ${index}`}
+                  className="object-cover w-full h-16 cursor-pointer"
+                />
+              )
             ) : null}
           </SwiperSlide>
-        ))}
+          );
+        })}
       </Swiper>
     </div>
   );
