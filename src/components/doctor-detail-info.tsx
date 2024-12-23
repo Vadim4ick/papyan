@@ -48,7 +48,7 @@ const DoctorDetailInfo = ({
             {doctors.post && (
               <Badge
                 variant="secondary"
-                className="mb-[20px] px-[14px] py-[6px] w-fit"
+                className="mb-[20px] px-[14px] py-[6px] w-fit bg-[#F0F3F8]"
               >
                 {doctors.post}
               </Badge>
