@@ -16,6 +16,7 @@ import { useGetAllDoctors } from "@/shared/hooks/services/useGetAllDoctors";
 import { useGetServicesClinic } from "@/shared/hooks/services/useGetServicesClinic";
 import { countFileTypes, pathImage } from "@/shared/lib/utils";
 import { ImageType } from "@/shared/types/types";
+import { Separator } from "@radix-ui/react-separator";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -40,10 +41,10 @@ export default function About() {
     <>
       <section className="section bg-[#F0F3F8]">
         <div className="container mx-auto max-w-[1364px] px-[20px]">
-          <div className="flex flex-col items-center md:items-stretch gap-y-[60px] md:flex-row justify-between">
+          <div className="flex flex-col items-center md:items-stretch gap-y-[60px] md:flex-row justify-between mb-[72px] md:mb-[78px] lg:mb-[60px]">
             <div className="md: max-w-[377px] xl:max-w-[651px]">
               {data?.about_page.title && (
-                <h1 className="mb-[12px] md:mb-[16px] lg:mb-[24px]">
+                <h1 className="mb-[32px] lg:mb-[40px]">
                   {data?.about_page.title}
                 </h1>
               )}
@@ -71,14 +72,15 @@ export default function About() {
 
               <style jsx>{`
                 .markdown-paragraph:not(:last-child) {
-                  margin-bottom: 20px;
+                  margin-bottom: 25px;
+                  letter-spacing: -.03em;
                 }
               `}</style>
             </div>
 
             <div className="relative">
               <ContactCardV2
-                className="w-[350px] h-[296px] md:w-[323px] xl:w-[400px] xl:h-[299px] md:sticky top-[112px]"
+                className="w-[350px] h-[296px] md:w-[323px] xl:w-[400px] xl:h-[299px] md:sticky top-[112px] bg-[#FFFFFF]"
                 address={data?.about_page.adress}
                 schedule={data?.about_page.time}
                 phone={data?.about_page.phone}
@@ -93,7 +95,7 @@ export default function About() {
           </div>
 
           {data && data?.about_page.slider.length > 0 && (
-            <div className="pt-[72px] md:pt-[78px] xl:pt-[72px] xl:pb-[100px]">
+            <div>
               <div className="flex gap-[6px] mb-[24px] md:mb-[38px] xl:mb-[24px]">
                 <BadgeWithIcon
                   className="bg-[#EBEFF3]"
@@ -155,7 +157,7 @@ export default function About() {
       <section className="section">
         <div className="container mx-auto max-w-[1364px] px-[20px] mb-[60px] md:mb-[78px] lg:mb-[100px]">
           <SectionHeader
-            className="mb-[20px]"
+            className="mb-[32px] md:mb-[56px] xl:mb-[48px]"
             title="Специалисты клиники"
             description="Наши специалисты используют передовые методы и индивидуальный подход, чтобы вы вновь почувствовали уверенность в своих движениях"
           />
@@ -169,6 +171,8 @@ export default function About() {
           <SpecialistsList doctors={doctors?.doctors.slice(1)} />
         )}
       </section>
+
+      <Separator className="h-4 bg-[#F0F3F8]"/>
 
       <section className="section">
         {services && (
