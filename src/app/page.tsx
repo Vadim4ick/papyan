@@ -36,6 +36,7 @@ import {
 import { Input } from "@/components/ui/input";
 import InputMask from "react-input-mask";
 import { Separator } from "@/components/ui/separator";
+import { ImageSliderWrapper } from "@/components/slider/image-slider";
 
 export type ImageType = {
   directus_files_id: {
@@ -310,7 +311,7 @@ export default function Home() {
                     quantity={typeCounts?.imageCount}
                   />
                 </div>
-                <SliderWrapper
+                <ImageSliderWrapper
                   btns={{ next: "about-next", prev: "about-prev" }}
                   slideWidth="!w-[298px] md:!w-[311px] lg:!w-[316px]"
                   className="h-[434px] md:h-[467px] xl:h-[474px]"
@@ -346,7 +347,7 @@ export default function Home() {
                       />
                     );
                   })}
-                </SliderWrapper>
+                </ImageSliderWrapper>
               </div>
             )}
           </div>

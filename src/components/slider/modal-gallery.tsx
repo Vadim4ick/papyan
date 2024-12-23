@@ -9,11 +9,10 @@ import { useState } from "react";
 import { Navigation, Thumbs } from "swiper/modules";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Button } from "../ui/button";
-import { GetAboutPageQuery } from "@/graphql/__generated__";
-import { pathImage } from "@/shared/lib/utils";
+import React from "react";
 
 interface ModalGalleryProps {
-  images: GetAboutPageQuery["about_page"]["slider"];
+  images: React.ReactNode[];
   activeIndex: number;
   onClose: () => void;
 }
@@ -68,13 +67,9 @@ export function ModalGallery({
         }}
         className=" h-[100%] !bg-transparent"
       >
-        {images.map((src, index) => (
+        {images.map((image, index) => (
           <SwiperSlide key={index}>
-            <img
-              src={pathImage(src.directus_files_id.id)}
-              alt={`Slide ${index}`}
-              className="object-contain  !w-fit h-full "
-            />
+            {React.isValidElement(image) ? image : null}
           </SwiperSlide>
         ))}
       </Swiper>
@@ -89,13 +84,15 @@ export function ModalGallery({
         watchSlidesProgress
         className=" !absolute !bottom-[40px] w-[80%] h-[100px] thumbsrow"
       >
-        {images.map((src, index) => (
+        {images.map((image, index) => (
           <SwiperSlide key={index} className="!h-[104px] !w-[70px] !rounded-sm">
-            <img
-              src={pathImage(src.directus_files_id.id)}
-              alt={`Thumbnail ${index}`}
-              className="object-cover w-full h-16 cursor-pointer"
-            />
+            {React.isValidElement(image) && image.props?.src ? (
+              <img
+                src={image.props.src}
+                alt={`Thumbnail ${index}`}
+                className="object-cover w-full h-16 cursor-pointer"
+              />
+            ) : null}
           </SwiperSlide>
         ))}
       </Swiper>
