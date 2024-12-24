@@ -17,7 +17,7 @@ interface SliderWrapperProps {
   className?: string;
   slideWidth?: string;
   mySwiperNumber?: string;
-
+  btnBg?: string;
   btns: {
     next: string;
     prev: string;
@@ -28,6 +28,7 @@ function ImageSliderWrapper({
   children,
   className,
   slideWidth,
+  btnBg,
   btns = {
     next: "swiper-button-next",
     prev: "swiper-button-prev",
@@ -54,10 +55,10 @@ function ImageSliderWrapper({
         {isTablet ||
           (!isNavigationDisabled && (
             <div className="swiper-nav flex gap-4">
-              <Button variant="arrow" className={`${btns.prev} pe-[2px] bg-white`}>
+              <Button variant="arrow" className={`${btns.prev} ${btnBg} pe-[2px] `}>
                 <ChevronLeft strokeWidth={2.5} width={22} />
               </Button>
-              <Button variant="arrow" className={`${btns.next} ps-[1px] bg-white`}>
+              <Button variant="arrow" className={`${btns.next} ${btnBg} ps-[1px] `}>
                 <ChevronRight strokeWidth={2.5} width={22} />
               </Button>
             </div>
