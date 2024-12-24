@@ -115,6 +115,7 @@ export default function About() {
                   btns={{ next: "about-next", prev: "about-prev" }}
                   slideWidth="!w-[298px] md:!w-[311px] lg:!w-[316px]"
                   className="h-[434px] md:h-[467px] xl:h-[474px]"
+                  btnBg="bg-white"
                 >
                   {data?.about_page.slider.map(({ directus_files_id }) => {
                     const isVideo =
