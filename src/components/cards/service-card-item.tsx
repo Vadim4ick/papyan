@@ -31,7 +31,7 @@ function ServiceCardItem({ card }: ServiceCardItemProps) {
       </CardHeader>
       <CardContent className="flex-1"></CardContent>
       <CardFooter className="flex justify-between items-center mt-auto">
-        <p className="relative text-[#353535] text-[18px] leading-[22px]  font-semibold ">
+        <p className="relative text-[#353535] text-[18px] leading-[22px] font-semibold mt-1">
           {card.price} <span className="">₽</span>{" "}
         </p>
         <Button
