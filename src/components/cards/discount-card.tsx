@@ -38,17 +38,11 @@ const DiscountCard = ({ card, className }: discountCardProps) => {
           >
             <div className="flex gap-[6px] items-center">
               <p className=" relative text-[#353535] text-[20px] leading-[25px] tracking-tight font-semibold ">
-                {newPrice}
-                <span className="absolute top-[5px]">
-                  <RussianRuble size={17} strokeWidth={2.25} />
-                </span>{" "}
+                {newPrice} <span className="">₽</span>
               </p>
 
               <p className="ms-[18px] relative text-[#7B7B7B] text-[14px] line-through leading-[18px] tracking-tight  ">
-                {card.services_id.price}
-                <span className="absolute top-[2px]">
-                  <RussianRuble size={13} strokeWidth={2.25} />
-                </span>{" "}
+                {card.services_id.price}<span className="">₽</span>
               </p>
             </div>
             <Badge variant="discont" className="px-[12px] py-[6px] text-[20px] leading-[25px] tracking-tight text-white font-semibold min-w-[70px] h-[37px] ">-{card.services_id.sale}%</Badge>
