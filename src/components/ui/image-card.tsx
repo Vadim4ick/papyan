@@ -6,6 +6,7 @@ import { RoundButton } from "./round-button";
 import { MediaFragmentFragment } from "@/graphql/__generated__";
 import { Badge } from "./badge";
 import { useRouter } from "next/navigation";
+import { ArrowUp } from "@/shared/icons/mdi_arrow-down";
 
 interface ImageCardProps {
   imageData: MediaFragmentFragment;
@@ -42,7 +43,7 @@ const ImageCard: React.FC<ImageCardProps> = ({
           onClick={() => router.push(`/uslugi/${catigoryId}`)}
           className="opacity-0 group-hover:opacity-100 group-hover:translate-y-[24px] transition-all duration-700 h-9 w-9 ease-out"
         >
-          <ArrowUpRight />
+          <ArrowUp/>
         </RoundButton>
       </div>
 
