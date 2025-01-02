@@ -1,4 +1,4 @@
-const ArrowRight = () => {
+const ArrowRight = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="8"
@@ -6,6 +6,7 @@ const ArrowRight = () => {
       viewBox="0 0 8 15"
       fill="#1467E1"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <path
         fillRule="evenodd"

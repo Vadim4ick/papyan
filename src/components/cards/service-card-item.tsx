@@ -30,8 +30,8 @@ function ServiceCardItem({ card }: ServiceCardItemProps) {
         </CardDescription>
       </CardHeader>
       <CardContent className="flex-1"></CardContent>
-      <CardFooter className="flex justify-between items-center mt-auto">
-        <p className="relative text-[#353535] text-[18px] leading-[22px]  font-semibold ">
+      <CardFooter className="flex justify-between items-end mt-auto">
+        <p className="relative pb-1 text-[#353535] text-[18px] leading-[22px]  font-semibold ">
           {card.price} <span className="">₽</span>{" "}
         </p>
         <Button

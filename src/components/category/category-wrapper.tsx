@@ -37,7 +37,7 @@ const CatigoryWrapper: React.FC<CategotyWrapperProps> = ({
 
       <div className="flex flex-col  md:flex-row justify-between md:gap-[40px] xl:gap-[130px]">
         <ImageCard
-          catigoryId = {category.id}
+          catigoryId={category.id}
           imageData={category.img}
           className="mb-[36px] md:mb-0"
           bages={category.allServices.map((service) => service.title)}

@@ -1,26 +1,26 @@
 import React from "react";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
 import { cn, pathImage } from "@/shared/lib/utils";
 import { RoundButton } from "./round-button";
 import { MediaFragmentFragment } from "@/graphql/__generated__";
 import { Badge } from "./badge";
 import { useRouter } from "next/navigation";
+import { ArrowUpRight } from "@/shared/icons/ArrowUpRight";
 
 interface ImageCardProps {
   imageData: MediaFragmentFragment;
   className?: string;
   bages?: string[];
-  catigoryId:string
+  catigoryId: string;
 }
 
 const ImageCard: React.FC<ImageCardProps> = ({
   imageData,
   bages,
   className,
-  catigoryId
+  catigoryId,
 }) => {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <div
       className={cn(
@@ -50,7 +50,11 @@ const ImageCard: React.FC<ImageCardProps> = ({
         <div className="absolute -bottom-[10px] left-[14px] right-[14px] opacity-0 group-hover:opacity-100 group-hover:translate-y-[-24px] transition-all duration-700 ease-out">
           <div className="flex flex-wrap justify-start gap-[4px] ">
             {bages.map((service, idx) => (
-              <Badge key={idx} variant="default" className="text-[12px] leading-[15.6px] px-2">
+              <Badge
+                key={idx}
+                variant="default"
+                className="text-[12px] leading-[15.6px] px-2"
+              >
                 {service}
               </Badge>
             ))}
