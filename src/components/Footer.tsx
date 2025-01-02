@@ -126,8 +126,8 @@ const Footer = () => {
               Пользовательское соглашение
             </Link>
           </div>
-          <div className="flex items-center gap-[9px] rounded-[100px] p-[3px] Jeko-SemiBold bg-[#414141] w-[191px h-[36px]">
-            <div className="flex items-center ps-[16px] text-[#787878] text-[12px] leading-[14.82px]">
+          <div className="flex items-center gap-[9px] rounded-[100px] p-[3px] bg-[#414141] w-[191px h-[36px]">
+            <div className="flex items-center font-['Jeko'] font-semibold ps-[16px] text-[#787878] text-[12px] leading-[14.82px]">
               разработано
             </div>
             <a href="https://creatin.ru/">
