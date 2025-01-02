@@ -1,3 +1,4 @@
+"use client";
 import { CategoriesGalery } from "@/components/cards/categories-galery";
 import { DiscountCard } from "@/components/cards/discount-card";
 import { SectionHeader } from "@/components/section-header";
@@ -10,7 +11,6 @@ import { useGetServicesClinic } from "@/shared/hooks/services/useGetServicesClin
 import { useClientMediaQuery } from "@/shared/hooks/useClientMediaQuery";
 import { ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-
 
 export default function Akcii() {
   const isTablet = useClientMediaQuery("(max-width: 1024px)");
