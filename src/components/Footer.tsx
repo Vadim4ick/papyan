@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { LogoFooter } from "@/shared/icons/LogoFooter";
 import { Button } from "./ui/button";
@@ -7,8 +9,26 @@ import { ContactData } from "@/shared/const/moc-data";
 import { Separator } from "./ui/separator";
 import { CretinLogo } from "@/shared/icons/Creatin";
 import { DialogForm } from "./modal/dialog";
+import { motion, Variants } from "framer-motion";
 
 const contacts = ContactData;
+
+const developedVariants: Variants = {
+  rest: { y: 9, opacity: 1 },
+  hover: { y: -20, opacity: 0 },
+};
+
+const goVariants = {
+  rest: { y: 20, opacity: 0 },
+  hover: { y: 9, opacity: 1 },
+};
+
+const parentVariants = {
+  rest: {},
+  hover: {
+    backgroundColor: "#292929",
+  },
+};
 
 const Footer = () => {
   return (
@@ -126,16 +146,54 @@ const Footer = () => {
               Пользовательское соглашение
             </Link>
           </div>
-          <div className="flex items-center gap-[9px] rounded-[100px] p-[3px] bg-[#414141] w-[191px h-[36px]">
-            <div className="flex items-center font-['Jeko'] font-semibold ps-[16px] text-[#787878] text-[12px] leading-[14.82px]">
-              разработано
+
+          <motion.div
+            variants={parentVariants}
+            initial="rest"
+            whileHover="hover"
+            className="relative flex items-center gap-[9px] rounded-[100px] p-[3px] bg-[#414141] w-[191px] h-[36px]"
+            style={{ overflow: "hidden" }}
+          >
+            <div className="relative flex-1 h-full">
+              <motion.div
+                variants={developedVariants}
+                transition={{ duration: 0.3 }}
+                className="absolute left-4 flex items-center font-['Jeko'] font-semibold text-[#787878] text-[12px] leading-[14.82px]"
+              >
+                разработано
+              </motion.div>
+
+              <motion.div
+                variants={goVariants}
+                transition={{ duration: 0.3 }}
+                className="absolute left-4 font-['Jeko'] font-semibold text-[#787878] text-[12px] leading-[14.82px]"
+              >
+                <a
+                  className="ext-[12px] leading-[14.82px] text-white flex items-center gap-[3px]"
+                  target="_blank"
+                  href="https://creatin.ru/"
+                >
+                  Перейти
+                  <svg
+                    width="8"
+                    height="8"
+                    viewBox="0 0 8 8"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1.52057 7.28326L0.717035 6.47973L5.53822 1.65855L1.1188 1.65855L1.1188 0.517535L7.48276 0.517534L7.48276 6.8815L6.34175 6.8815L6.34175 2.46208L1.52057 7.28326Z"
+                      fill="#C0FF00"
+                    />
+                  </svg>
+                </a>
+              </motion.div>
             </div>
-            <a href="https://creatin.ru/">
-              <div className="flex items-center rounded-[100px] w-[82px] h-[30px] py-[10px] px-[18px] bg-[#353535]">
-                <CretinLogo />
-              </div>
-            </a>
-          </div>
+
+            <div className="flex items-center rounded-[100px] w-[82px] h-[30px] py-[10px] px-[18px] bg-[#353535]">
+              <CretinLogo />
+            </div>
+          </motion.div>
           {/* </div> */}
         </Container>
       </div>

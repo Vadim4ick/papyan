@@ -1,7 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { GetStockPageQuery } from "@/graphql/__generated__";
 import { pathImage } from "@/shared/lib/utils";
-import { RussianRuble } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -42,10 +41,16 @@ const DiscountCard = ({ card, className }: discountCardProps) => {
               </p>
 
               <p className="ms-[18px] relative text-[#7B7B7B] text-[14px] line-through leading-[18px] tracking-tight  ">
-                {card.services_id.price}<span className="">₽</span>
+                {card.services_id.price}
+                <span className="">₽</span>
               </p>
             </div>
-            <Badge variant="discont" className="px-[12px] py-[6px] text-[20px] leading-[25px] tracking-tight text-white font-semibold min-w-[70px] h-[37px] ">-{card.services_id.sale}%</Badge>
+            <Badge
+              variant="discont"
+              className="px-[12px] py-[6px] text-[20px] leading-[25px] tracking-tight text-white font-semibold min-w-[70px] h-[37px] "
+            >
+              -{card.services_id.sale}%
+            </Badge>
           </div>
         </div>
       </Link>
