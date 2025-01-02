@@ -25,8 +25,8 @@ const buttonVariants = cva(
           z-10
           h-[48px] w-[260px] 
           bg-transparent
-          text-primary text-[15px]
-          border border-primary border-[1px]
+          text-[#1467E1] text-[15px]
+          border border-[#1467E1] border-[1px]
           transition-all duration-300 ease-out
           hover:opacity-100 hover:bg-primary hover:text-secondary
           active:bg-primary active:opacity-100 active:text-[13px]

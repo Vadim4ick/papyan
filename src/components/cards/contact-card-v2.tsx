@@ -18,11 +18,11 @@ function ContactCardV2({
   children,
 }: ContactCardProps) {
   return (
-    <Card className={cn("w-full border-none ", className)}>
-      <CardContent className=" flex flex-col gap-[16px] rounded-lg p-[20px] font-semibold  text-[18px] leading-[28px] tracking-tight">
+    <Card className={cn("w-full border-none py-7 px-7", className)}>
+      <CardContent className="h-[164px] flex flex-col gap-[14px] rounded-lg p-0 mb-7 font-semibold  text-[18px] leading-[28px] tracking-tight">
         {address && (
           <div>
-            <p className="text-[14px] leading-[18.2px] tracking-tight text-[#929292] mb-[4px]">
+            <p className="text-[14px] leading-[18.2px] tracking-tight text-[#929292]">
               Адрес клиники
             </p>
 
@@ -31,7 +31,7 @@ function ContactCardV2({
         )}
         {phone && (
           <div>
-            <p className="text-[14px] leading-[18.2px] tracking-tight text-[#929292] mb-[4px]">
+            <p className="text-[14px] leading-[18.2px] tracking-tight text-[#929292]">
               Телефон для справок
             </p>
             <a href="#" className="flex items-center space-x-2">
@@ -41,14 +41,14 @@ function ContactCardV2({
         )}
         {schedule && (
           <div>
-            <p className="text-[14px] leading-[18.2px] tracking-tight text-[#929292] mb-[4px]">
+            <p className="text-[14px] leading-[18.2px] tracking-tight text-[#929292]">
               Время работы
             </p>
             <span>{schedule}</span>
           </div>
         )}
       </CardContent>
-      <CardFooter className="w-full px-[20px]">{children}</CardFooter>
+      <CardFooter className="w-full ">{children}</CardFooter>
     </Card>
   );
 }

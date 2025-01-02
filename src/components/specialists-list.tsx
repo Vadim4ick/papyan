@@ -9,8 +9,10 @@ import { ArrowUpRight } from "@/shared/icons/ArrowUpRight";
 
 const SpecialistsList = ({
   doctors,
+  badgecolor,
 }: {
   doctors: GetAllDoctorsQuery["doctors"];
+  badgecolor?: string;
 }) => {
   const router = useRouter();
   return (
@@ -25,7 +27,10 @@ const SpecialistsList = ({
           >
             <div className="md:w-1/2 xl:w-full">
               <Separator className="mb-[32px] md:hidden" />
-              <Badge variant="secondary" className="mb-[16px] xl:mb-[8px]">
+              <Badge
+                variant="secondary"
+                className={`mb-[16px] xl:mb-[8px] py-[6px] w-fit ${badgecolor}`}
+              >
                 {doctor.post}
               </Badge>
               <div className="w-full flex flex-col gap-y-[10px] mb-[10px]">
@@ -42,7 +47,7 @@ const SpecialistsList = ({
                 )}
               </div>
             </div>
-            <div className="items-center relative ] w-[350px] h-[467px] md:w-[357px] md:h-[482px] xl:w-[316px] xl:h-[455px] overflow-hidden rounded-md group">
+            <div className="items-center relative w-[350px] h-[467px] md:w-[357px] md:h-[482px] xl:w-[316px] xl:h-[383px] overflow-hidden rounded-md group">
               <Image
                 width={380}
                 height={418}

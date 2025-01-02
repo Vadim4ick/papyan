@@ -21,6 +21,7 @@ const CategoriesGalery: React.FC<CategoriesGaleryProps> = ({
   return (
     <div>
       <TitleWithBadge
+        bgcolor="bg-[#F0F3F8]"
         tittle={category.title}
         quantity={category.allServices.length}
         className="mb-[12px] md:mb-[16px]"
