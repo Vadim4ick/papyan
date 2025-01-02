@@ -117,13 +117,16 @@ export default function Home() {
                       className="bg-[#F0F3F8] p-[18px] rounded-[8px]"
                       value={`item-${problems_block_id.id}`}
                     >
-                      <AccordionTrigger className="p-0 text-[18px] group font-semibold leading-[22px] tracking-[-0.36px]">
+                      <AccordionTrigger className="p-0 group font-semibold">
                         <p
-                          className={cn("text-[#353535]", {
-                            "text-[#979797]":
-                              isOpen === `item-${problems_block_id.id}`,
-                            "group-hover:text-[#1467E1]": !isOpen,
-                          })}
+                          className={cn(
+                            "text-[#353535] text-[18px] leading-[22px] tracking-[-0.36px]",
+                            {
+                              "text-[#979797]":
+                                isOpen === `item-${problems_block_id.id}`,
+                              "group-hover:text-[#1467E1]": !isOpen,
+                            }
+                          )}
                         >
                           {problems_block_id.title}
                         </p>
@@ -143,7 +146,7 @@ export default function Home() {
                                   href={`/therapy/${services_id.id}`}
                                   className="bg-white rounded-[8px] py-4 pl-4 pr-[20px] flex items-center justify-between"
                                 >
-                                  <p className="font-semibold">
+                                  <p className="font-semibold text-[16px] leading-[22px] tracking-[-0.32px]">
                                     {services_id.title}
                                   </p>
 
@@ -154,15 +157,16 @@ export default function Home() {
                           </div>
 
                           <div className="flex items-center w-full justify-between gap-4 max-lg:flex-col">
-                            <Button className="w-full h-[54px] max-lg:h-[48px]">
+                            <Button className="w-full h-[54px] max-lg:h-[48px] bg-[#1467E1]">
                               Получить консультацию
                             </Button>
                             <Button
                               onClick={() => router.push("/uslugi")}
-                              className="w-full h-[54px] max-lg:h-[48px]"
+                              className="w-full h-[54px] max-lg:h-[48px] flex items-center justify-between pl-[18px] pr-[20px] group"
                               variant={"secondary"}
                             >
                               Все услуги
+                              <ArrowRight className="group-hover:fill-white" />
                             </Button>
                           </div>
                         </div>
@@ -213,7 +217,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Separator className="h-4 bg-[#F0F3F8]"/>
+      <Separator className="h-4 bg-[#F0F3F8]" />
 
       <section className="pt-[32px] lg:pt-[64px] pb-[72px] md:pb-[78p] lg:pb-[100px] ">
         <ServicesClinic
@@ -465,7 +469,7 @@ export default function Home() {
                     )}
                   </InputMask>
 
-                  <Button className="bg-[#1467E1] w-full max-w-[267px] h-[54px] max-md:max-w-full">
+                  <Button className="bg-[#1467E1] w-full max-w-[267px] h-[54px] text-[15px] leading-[20px] tracking-[-0.3px] max-md:max-w-full">
                     Перезвонить мне
                   </Button>
                 </div>
