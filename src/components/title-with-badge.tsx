@@ -7,13 +7,14 @@ interface TitleWithBadgeProps {
     tittle: string;
     quantity: number;
     className?: string;
+    bgcolor?:string
 }
 
-function TitleWithBadge({ tittle, quantity, className }: TitleWithBadgeProps) {
+function TitleWithBadge({ tittle, quantity, className, bgcolor }: TitleWithBadgeProps) {
     return (
         <div className={cn("flex items-center gap-[5px]", className)}>
             <h4>{tittle}</h4>
-            <Badge variant="secondary">{quantity}</Badge>
+            <Badge variant="secondary" className={`${bgcolor}`}>{quantity}</Badge>
         </div>
     );
 }
