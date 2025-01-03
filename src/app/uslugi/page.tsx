@@ -21,7 +21,7 @@ export default function Uslugi() {
           />
 
           {services?.servicesBlock.map((el) => (
-            <CatigoryWrapper key={el.id} className="mb-[78px]" category={el} />
+            <CatigoryWrapper key={el.id} category={el} />
           ))}
         </div>
       </section>

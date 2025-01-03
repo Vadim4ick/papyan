@@ -1,8 +1,9 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
- 
-import { cn } from "@/shared/lib/utils"
- 
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+
+import { cn } from "@/shared/lib/utils";
+import { VariantBageBg } from "../cards/categories-galery";
+
 const badgeVariants = cva(
   " flex items-center justify-center border-none rounded-[100px] px-[10px] py-[2px] text-[12px] font-bold min-w-[29px] tracking-tight",
   {
@@ -21,16 +22,24 @@ const badgeVariants = cva(
       variant: "default",
     },
   }
-)
+);
 
 export interface BadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof badgeVariants> {}
- 
-function Badge({ className, variant, ...props }: BadgeProps) {
-  return (
-    <p className={cn(badgeVariants({ variant }), className)} {...props} />
-  )
+    VariantProps<typeof badgeVariants> {
+  variantBageBg?: VariantBageBg;
 }
- 
-export { Badge, badgeVariants }
+
+function Badge({ className, variant, variantBageBg, ...props }: BadgeProps) {
+  return (
+    <p
+      style={
+        variantBageBg !== "default" ? { backgroundColor: variantBageBg } : {}
+      }
+      className={cn(badgeVariants({ variant }), className)}
+      {...props}
+    />
+  );
+}
+
+export { Badge, badgeVariants };

@@ -19,7 +19,7 @@ function ContactCardV2({
 }: ContactCardProps) {
   return (
     <Card className={cn("w-full border-none py-7 px-7", className)}>
-      <CardContent className="h-[164px] flex flex-col gap-[14px] rounded-lg p-0 mb-7 font-semibold  text-[18px] leading-[28px] tracking-tight">
+      <CardContent className="h-[164px] flex flex-col gap-[16px] rounded-lg p-0 mb-7 font-semibold  text-[18px] leading-[28px] tracking-tight">
         {address && (
           <div>
             <p className="text-[14px] leading-[18.2px] tracking-tight text-[#929292]">

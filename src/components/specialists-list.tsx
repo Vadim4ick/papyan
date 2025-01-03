@@ -29,7 +29,7 @@ const SpecialistsList = ({
               <Separator className="mb-[32px] md:hidden" />
               <Badge
                 variant="secondary"
-                className={`mb-[16px] xl:mb-[8px] py-[6px] w-fit ${badgecolor}`}
+                className={`mb-[16px] xl:mb-[8px] py-[6px] px-[14px] hover:bg-transparent w-fit ${badgecolor}`}
               >
                 {doctor.post}
               </Badge>
