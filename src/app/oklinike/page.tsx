@@ -73,7 +73,7 @@ export default function About() {
               <style jsx>{`
                 .markdown-paragraph:not(:last-child) {
                   margin-bottom: 25px;
-                  letter-spacing: -.03em;
+                  letter-spacing: -0.03em;
                 }
               `}</style>
             </div>
@@ -110,46 +110,45 @@ export default function About() {
                   quantity={typeCounts.imageCount}
                 />
               </div>
-              
-              <ImageSliderWrapper
-                  btns={{ next: "about-next", prev: "about-prev" }}
-                  slideWidth="!w-[298px] md:!w-[311px] lg:!w-[316px]"
-                  className="h-[434px] md:h-[467px] xl:h-[474px]"
-                  btnBg="bg-white"
-                >
-                  {data?.about_page.slider.map(({ directus_files_id }) => {
-                    const isVideo =
-                      directus_files_id.type?.startsWith("video/");
 
-                    return isVideo ? (
-                      <video
-                        key={directus_files_id.id}
+              <ImageSliderWrapper
+                btns={{ next: "about-next", prev: "about-prev" }}
+                slideWidth="!w-[298px] md:!w-[311px] lg:!w-[316px]"
+                className="h-[434px] md:h-[467px] xl:h-[474px]"
+                btnBg="bg-white"
+              >
+                {data?.about_page.slider.map(({ directus_files_id }) => {
+                  const isVideo = directus_files_id.type?.startsWith("video/");
+
+                  return isVideo ? (
+                    <video
+                      key={directus_files_id.id}
+                      src={pathImage(directus_files_id.id)}
+                      autoPlay
+                      muted
+                      playsInline
+                      loop
+                      width={directus_files_id.width || 289}
+                      height={directus_files_id.height || 434}
+                      className="h-full w-full object-cover"
+                    >
+                      <source
                         src={pathImage(directus_files_id.id)}
-                        autoPlay
-                        muted
-                        playsInline
-                        loop
-                        width={directus_files_id.width || 289}
-                        height={directus_files_id.height || 434}
-                        className="h-full w-full object-cover"
-                      >
-                        <source
-                          src={pathImage(directus_files_id.id)}
-                          type={directus_files_id.type}
-                        />
-                      </video>
-                    ) : (
-                      <Image
-                        key={directus_files_id.id}
-                        width={directus_files_id.width || 289}
-                        height={directus_files_id.height || 434}
-                        src={pathImage(directus_files_id.id)}
-                        alt={directus_files_id.title}
-                        className="h-full w-full object-cover"
+                        type={directus_files_id.type}
                       />
-                    );
-                  })}
-                </ImageSliderWrapper>
+                    </video>
+                  ) : (
+                    <Image
+                      key={directus_files_id.id}
+                      width={directus_files_id.width || 289}
+                      height={directus_files_id.height || 434}
+                      src={pathImage(directus_files_id.id)}
+                      alt={directus_files_id.title}
+                      className="h-full w-full object-cover"
+                    />
+                  );
+                })}
+              </ImageSliderWrapper>
             </div>
           )}
         </div>
@@ -169,11 +168,14 @@ export default function About() {
         </div>
 
         {doctors && doctors?.doctors.length > 1 && (
-          <SpecialistsList  doctors={doctors?.doctors.slice(1)} badgecolor="bg-[#F0F3F8]"/>
+          <SpecialistsList
+            doctors={doctors?.doctors.slice(1)}
+            badgecolor="bg-[#F0F3F8]"
+          />
         )}
       </section>
 
-      <Separator className="h-4 bg-[#F0F3F8]"/>
+      <Separator className="h-4 bg-[#F0F3F8]" />
 
       <section className="section">
         {services && (
@@ -191,6 +193,7 @@ export default function About() {
                 ({ servicesBlock_id }) => (
                   <CategoriesGalery
                     key={servicesBlock_id.id}
+                    bages={false}
                     category={servicesBlock_id}
                     cardWidth="w-[350px] md:w-[377px] xl:w-[380px]"
                     cardHeight="h-[238px] md:h-[187px] xl:h-[199px]"
