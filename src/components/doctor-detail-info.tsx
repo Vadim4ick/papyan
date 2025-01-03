@@ -26,17 +26,19 @@ const DoctorDetailInfo = ({
           />
           <div className="absolute bottom-0 w-full flex flex-col gap-[8px] p-[8px] z-20">
             <DialogForm>
-              <Button className="w-full h-[48px]" variant="default">
+              <Button
+                className="w-full h-[48px] text-[15px] font-bold leading-[20px] tracking-[-0.3px]"
+                variant="default"
+              >
                 Записаться на прием
               </Button>
             </DialogForm>
             <Button
-              className="w-full h-[48px] border-none bg-[#EBEFF3] hover:bg-[#EBEFF3]"
+              className="w-full h-[48px] border-none text-[15px] font-semibold tracking-[-0.3px] leading-[20px] bg-[#EBEFF3] hover:bg-[#EBEFF3]"
               variant="white"
               onClick={() => {
                 router.push(`/doctor/${doctors.id}`);
               }}
-
             >
               Подробнее
             </Button>

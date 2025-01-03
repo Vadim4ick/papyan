@@ -40,7 +40,7 @@ const DiscountCard = ({ card, className }: discountCardProps) => {
                 {newPrice} <span className="">₽</span>
               </p>
 
-              <p className="ms-[18px] relative text-[#7B7B7B] text-[14px] line-through leading-[18px] tracking-tight  ">
+              <p className="ms-[8px] relative text-[#7B7B7B] text-[14px] line-through leading-[18px] tracking-tight  ">
                 {card.services_id.price}
                 <span className="">₽</span>
               </p>

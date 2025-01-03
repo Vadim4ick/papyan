@@ -8,7 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { RussianRuble } from "lucide-react";
 
 interface ServiceCardItemProps {
   title: string;
@@ -35,18 +34,12 @@ function GetConsultCard({
           </p>
           <div className="flex items-center">
             <p className=" relative text-[#353535] text-[22px] leading-[30px] tracking-tight font-semibold ">
-              {regularPrice}
-              <span className="absolute top-[4px]">
-                <RussianRuble size={16} strokeWidth={2.25} />
-              </span>{" "}
+              {regularPrice}₽
             </p>
 
             {newPrice && (
-              <p className="ms-[18px] relative text-[#7B7B7B] text-[14px] line-through leading-[20px] tracking-tight font-semibold ">
-                {newPrice}
-                <span className="absolute top-[4px]">
-                  <RussianRuble size={16} strokeWidth={2.25} />
-                </span>{" "}
+              <p className="ms-[8px] relative text-[#7B7B7B] text-[14px] line-through leading-[20px] tracking-tight font-semibold ">
+                {newPrice}₽
               </p>
             )}
           </div>
