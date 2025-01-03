@@ -17,6 +17,10 @@ const SpecialistsList = ({
   const router = useRouter();
   return (
     <div className="container mx-auto max-w-[1364px] px-[20px]">
+      <h3 className="mb-[40px] max-md:mb-[28px] text-[36px] leading-[45px] font-semibold tracking-[-0.72px] max-md:text-[30px] max-md:leading-[36px] max-md:tracking-[-0.6px]">
+        Другие врачи
+      </h3>
+
       <div className="flex flex-col xl:flex-row gap-y-[48px] gap-x-[20px] xl:flex-wrap ">
         {doctors.map((doctor, index) => (
           <div

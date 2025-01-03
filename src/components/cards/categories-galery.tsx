@@ -12,6 +12,7 @@ interface CategoriesGaleryProps {
   cardHeight: string;
   numberOfCardsToRender?: number;
   variantBageBg?: VariantBageBg;
+  bages?: boolean;
 }
 
 const CategoriesGalery: React.FC<CategoriesGaleryProps> = ({
@@ -19,6 +20,7 @@ const CategoriesGalery: React.FC<CategoriesGaleryProps> = ({
   cardWidth,
   cardHeight,
   variantBageBg = "default",
+  bages = true,
 }) => {
   if (!category) return;
 
@@ -33,7 +35,9 @@ const CategoriesGalery: React.FC<CategoriesGaleryProps> = ({
       />
       <ImageCard
         imageData={category.img}
-        // bages={category.allServices.map((service) => service.title)}
+        bages={
+          bages ? category.allServices.map((service) => service.title) : []
+        }
         className={`${cardWidth} ${cardHeight}`}
         catigoryId={category.id}
       />
