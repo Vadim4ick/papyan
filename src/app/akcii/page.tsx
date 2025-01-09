@@ -1,3 +1,4 @@
+"use client"
 import { CategoriesGalery } from "@/components/cards/categories-galery";
 import { DiscountCard } from "@/components/cards/discount-card";
 import { SectionHeader } from "@/components/section-header";

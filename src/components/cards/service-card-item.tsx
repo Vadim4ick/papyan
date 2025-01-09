@@ -12,12 +12,16 @@ import {
 } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
 import { ServiceFragmentFragment } from "@/graphql/__generated__";
+import { formatNumberWithSpaces } from "@/shared/lib/utils";
 
 interface ServiceCardItemProps {
   card: ServiceFragmentFragment;
 }
 
 function ServiceCardItem({ card }: ServiceCardItemProps) {
+  const price = React.useMemo(()=> {
+    return formatNumberWithSpaces(card.price)
+  }, [card.price])
   const router = useRouter();
   return (
     <Card className="w-[350px]  h-[199px] md:w-[377px] md:h-[187px] lg:w-[396px] lg:h-[199px] bg-[#F0F3F8] rounded-lg p-[18px] flex flex-col">
@@ -31,8 +35,8 @@ function ServiceCardItem({ card }: ServiceCardItemProps) {
       </CardHeader>
       <CardContent className="flex-1"></CardContent>
       <CardFooter className="flex justify-between items-center mt-auto">
-        <p className="relative text-[#353535] text-[18px] leading-[22px] font-semibold mt-1">
-          {card.price} <span className="">₽</span>{" "}
+        <p className="relative text-[#353535] text-[18px] leading-[22px] font-semibold mt-[7px]">
+          {price} <span className="">₽</span>{" "}
         </p>
         <Button
           className="z-10"

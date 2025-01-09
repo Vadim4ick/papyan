@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
 import { cn, pathImage } from "@/shared/lib/utils";
 import { RoundButton } from "./round-button";
 import { MediaFragmentFragment } from "@/graphql/__generated__";

@@ -1,7 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { GetStockPageQuery } from "@/graphql/__generated__";
 import { pathImage } from "@/shared/lib/utils";
-import { RussianRuble } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
