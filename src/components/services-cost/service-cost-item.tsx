@@ -1,11 +1,17 @@
+"use client"
 import { GetServiceBlockQuery } from "@/graphql/__generated__";
+import { formatNumberWithSpaces } from "@/shared/lib/utils";
 import Link from "next/link";
+import React from "react";
 
 function ServiceCostItem({
   service,
 }: {
   service: GetServiceBlockQuery["servicesBlock"][0]["allServices"][0];
 }) {
+  const price = React.useMemo(()=> {
+      return formatNumberWithSpaces(service.price)
+    }, [service.price])
   return (
     <Link
       href={`/therapy/${service.id}`}
@@ -13,7 +19,7 @@ function ServiceCostItem({
     >
       <p className="text-[18px] leading-[23.4px] lg:leading-[22px] font-semibold"> {service.title} </p>
       <p className="relative text-[#353535] text-[18px] leading-[22px] font-semibold">
-          {service.price} <span className="">₽</span>{" "}
+          {price} <span className="">₽</span>{" "}
         </p>
     </Link>
   );
