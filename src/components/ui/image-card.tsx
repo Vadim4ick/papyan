@@ -49,12 +49,13 @@ const ImageCard: React.FC<ImageCardProps> = ({
         </div>
         {bages && bages?.length > 0 && (
           <div className="absolute -bottom-[10px] left-[14px] right-[14px] opacity-0 group-hover:opacity-100 group-hover:translate-y-[-24px] transition-all duration-700 ease-out">
+          
             <div className="flex flex-wrap justify-start gap-[5px] ">
               {bages.map((service, idx) => (
                 <Badge
                   key={idx}
                   variant="default"
-                  className="text-[12px] leading-[15.6px] px-2"
+                  className="text-[12px] leading-[15.6px] px-2 py-1"
                 >
                   {service}
                 </Badge>
