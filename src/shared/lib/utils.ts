@@ -25,8 +25,7 @@ export function countFileTypes<T extends FileType>(
   let imageCount = 0;
   let videoCount = 0;
 
-  if (!files) return {imageCount, videoCount}
-
+  if (!files) return { imageCount, videoCount };
 
   for (const file of files) {
     const type = file.directus_files_id.type;
@@ -45,15 +44,39 @@ export function countFileTypes<T extends FileType>(
  * @param {T} input - Число или строка для форматирования
  * @returns {string} Отформатированное значение
  */
-export function formatNumberWithSpaces<T extends number | string>(input: T): string {
-  if (typeof input !== 'number' && typeof input !== 'string') {
-    throw new TypeError('Input must be a number or a string');
+export function formatNumberWithSpaces<T extends number | string>(
+  input: T
+): string {
+  if (typeof input !== "number" && typeof input !== "string") {
+    throw new TypeError("Input must be a number or a string");
   }
 
   // Преобразуем в строку, если это число
   const str = input.toString();
 
   // Регулярное выражение для добавления пробелов каждые 3 знака
-  return str.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  return str.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 
+/**
+ * Преобразует число или строку в строку с пробелами каждые 3 знака
+ * @param {T} input - Число или строка для форматирования
+ * @returns {string} Отформатированное значение
+ */
+export function formattedPhoneNumber<T extends number | string>(
+  input: T
+): string {
+  if (typeof input !== "number" && typeof input !== "string") {
+    throw new TypeError("Input must be a number or a string");
+  }
+
+  // Преобразуем в строку, если это число
+  const str = input.toString().replace(/\D/g, "");
+
+  if (str.length === 11 && str.startsWith("7")) {
+    // Регулярное выражение для добавления пробелов каждые 3 знака
+    return `+7 (${str.slice(1, 4)}) ${str.slice(4, 7)}-${str.slice(7, 9)}-${str.slice(9, 11)}`;
+  }
+
+  return str
+}
