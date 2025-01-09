@@ -8,9 +8,11 @@ body {
 }
 
 @font-face {
-  font-family: 'Jeko-SemiBold';
-  src: url('/fonts/Jeko_Regular') format('ttf');
-  font-weight: 400;
+  font-family: "Jeko";
+  src:
+    url("/fonts/JekoBold.woff2") format("woff2"),
+    url("/fonts/JekoBold.woff") format("woff");
+  font-weight: 600;
   font-style: normal;
 }
 
@@ -81,43 +83,47 @@ body {
     @apply bg-background text-foreground;
   }
 
-  h1, h2, h3, h3, h4, h5, p, ul, li {
-    @apply tracking-tight
+  h1,
+  h2,
+  h3,
+  h3,
+  h4,
+  h5,
+  p,
+  ul,
+  li {
+    @apply tracking-tight;
   }
 
   h1 {
-    @apply font-semibold leading-[45px] text-[36px] text-[#353535] 
+    @apply font-semibold leading-[45px] text-[36px] text-[#353535];
   }
 
   h2 {
-    @apply font-semibold leading-[36.3px] lg:leading-[45px] text-[30px] lg:text-[36px] text-[#353535]
+    @apply font-semibold leading-[36.3px] lg:leading-[45px] text-[30px] lg:text-[36px] text-[#353535];
   }
 
   h3 {
-    @apply font-semibold text-[24px] leading-[30px] md:text-[28px] md:leading-[35px] text-[#353535] 
+    @apply font-semibold text-[24px] leading-[30px] md:text-[28px] md:leading-[35px] text-[#353535];
   }
 
   h4 {
-    @apply font-semibold md:leading-[27px] lg:leading-[30px] text-[22px] lg:text-[24px] text-[#353535] 
+    @apply font-semibold md:leading-[27px] lg:leading-[30px] text-[22px] lg:text-[24px] text-[#353535];
   }
 
   h5 {
-    @apply font-semibold lg:text-[18px] lg:leading-[22px] text-[#353535] 
+    @apply font-semibold lg:text-[18px] lg:leading-[22px] text-[#353535];
   }
 
   p {
-    @apply font-medium leading-[22px] md:leading-[25px] text-[16px] md:text-[18px] text-[#353535] 
+    @apply font-medium leading-[22px] md:leading-[25px] text-[16px] md:text-[18px] text-[#353535];
   }
 
   .chevron {
-    @apply transition-transform duration-300 ease-out active:scale-[0.9]
+    @apply transition-transform duration-300 ease-out active:scale-[0.9];
   }
 
   .section {
-    @apply pt-[32px] md:pt-[48px] lg:pt-[64px] pb-[72px] md:pb-[78px] lg:pb-[100px]
+    @apply pt-[32px] md:pt-[48px] lg:pt-[64px] pb-[72px] md:pb-[78px] lg:pb-[100px];
   }
 }
-
-
-
-

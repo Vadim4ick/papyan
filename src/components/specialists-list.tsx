@@ -1,15 +1,15 @@
 import Image from "next/image";
 import { RoundButton } from "./ui/round-button";
-import { ArrowUpRight } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Separator } from "./ui/separator";
 import { useRouter } from "next/navigation";
 import { GetAllDoctorsQuery } from "@/graphql/__generated__";
 import { pathImage } from "@/shared/lib/utils";
+import { ArrowUpRight } from "@/shared/icons/ArrowUpRight";
 
 const SpecialistsList = ({
   doctors,
-  badgecolor
+  badgecolor,
 }: {
   doctors: GetAllDoctorsQuery["doctors"];
   badgecolor?: string;
@@ -17,6 +17,10 @@ const SpecialistsList = ({
   const router = useRouter();
   return (
     <div className="container mx-auto max-w-[1364px] px-[20px]">
+      <h3 className="mb-[40px] max-md:mb-[28px] text-[36px] leading-[45px] font-semibold tracking-[-0.72px] max-md:text-[30px] max-md:leading-[36px] max-md:tracking-[-0.6px]">
+        Другие врачи
+      </h3>
+
       <div className="flex flex-col xl:flex-row gap-y-[48px] gap-x-[20px] xl:flex-wrap ">
         {doctors.map((doctor, index) => (
           <div
@@ -29,7 +33,7 @@ const SpecialistsList = ({
               <Separator className="mb-[32px] md:hidden" />
               <Badge
                 variant="secondary"
-                className={`mb-[16px] xl:mb-[8px] py-[6px] w-fit ${badgecolor}`}
+                className={`mb-[16px] xl:mb-[8px] py-[6px] px-[14px] hover:bg-transparent w-fit ${badgecolor}`}
               >
                 {doctor.post}
               </Badge>
@@ -47,7 +51,7 @@ const SpecialistsList = ({
                 )}
               </div>
             </div>
-            <div className="items-center relative ] w-[350px] h-[467px] md:w-[357px] md:h-[482px] xl:w-[316px] xl:h-[383px] overflow-hidden rounded-md group">
+            <div className="items-center relative w-[350px] h-[467px] md:w-[357px] md:h-[482px] xl:w-[316px] xl:h-[383px] overflow-hidden rounded-md group">
               <Image
                 width={380}
                 height={418}

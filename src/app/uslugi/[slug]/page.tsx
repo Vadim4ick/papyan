@@ -46,12 +46,15 @@ export default function Page({ params }: { params: { slug: string } }) {
                   height={418}
                   src={pathImage(data.servicesBlock_by_id.img.id)}
                   alt={"altText"}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="h-full w-full object-cover"
                 />
               </div>
 
               {data.servicesBlock_by_id.descriptionBlock && (
-                <p className="text-[#595959]"> {data.servicesBlock_by_id.descriptionBlock}</p>
+                <p className="text-[#595959] text-[16px] leading-[22px] tracking-[-0.32px]">
+                  {" "}
+                  {data.servicesBlock_by_id.descriptionBlock}
+                </p>
               )}
             </div>
 
@@ -76,6 +79,7 @@ export default function Page({ params }: { params: { slug: string } }) {
               {services?.servicesClinic.dopServices.map(
                 ({ servicesBlock_id }) => (
                   <CategoriesGalery
+                    variantBageBg="white"
                     key={servicesBlock_id.id}
                     category={servicesBlock_id}
                     cardWidth="w-[350px] md:w-[311px] xl:w-[396px]"
