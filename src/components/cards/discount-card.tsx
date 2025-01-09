@@ -1,8 +1,9 @@
 import { Badge } from "@/components/ui/badge";
 import { GetStockPageQuery } from "@/graphql/__generated__";
-import { pathImage } from "@/shared/lib/utils";
+import { formatNumberWithSpaces, pathImage } from "@/shared/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 
 export interface discountCardProps {
   card: GetStockPageQuery["stock_page"]["stockItems"][0];
@@ -13,6 +14,10 @@ const DiscountCard = ({ card, className }: discountCardProps) => {
   const newPrice =
     card.services_id.price -
     (card.services_id.price * card.services_id.sale) / 100;
+
+    const formatPrice = React.useCallback((item:any)=> {
+        return formatNumberWithSpaces(item)
+      }, [])
 
   const isWide = className?.includes("wide");
 
@@ -37,11 +42,11 @@ const DiscountCard = ({ card, className }: discountCardProps) => {
           >
             <div className="flex gap-[6px] items-center">
               <p className=" relative text-[#353535] text-[20px] leading-[25px] tracking-tight font-semibold ">
-                {newPrice} <span className="">₽</span>
+                {formatPrice(newPrice)} <span className="">₽</span>
               </p>
 
               <p className="ms-[8px] relative text-[#7B7B7B] text-[14px] line-through leading-[18px] tracking-tight  ">
-                {card.services_id.price}
+                {formatPrice(card.services_id.price)}
                 <span className="">₽</span>
               </p>
             </div>
