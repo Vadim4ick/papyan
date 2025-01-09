@@ -158,7 +158,7 @@ const Footer = () => {
               <motion.div
                 variants={developedVariants}
                 transition={{ duration: 0.3 }}
-                className="absolute left-4 flex items-center font-['Jeko'] font-semibold text-[#787878] text-[12px] leading-[14.82px]"
+                className="absolute left-[14px] -top-[2px] flex items-center font-['Jeko'] font-semibold text-[#787878] text-[12px] leading-[14.82px]"
               >
                 разработано
               </motion.div>
