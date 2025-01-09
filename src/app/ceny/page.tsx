@@ -70,6 +70,7 @@ export default function Ceny() {
               {services?.servicesClinic.dopServices.map(
                 ({ servicesBlock_id }) => (
                   <CategoriesGalery
+                    bages={false}
                     key={servicesBlock_id.id}
                     category={servicesBlock_id}
                     cardWidth="w-[350px] md:w-[377px] xl:w-[380px]"

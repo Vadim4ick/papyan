@@ -19,7 +19,6 @@ import { SliderWrapper } from "@/components/slider/slider-wrapper";
 export default function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug;
 
-
   const { data, isLoading } = useGetAllDoctors();
   if (isLoading) {
     return <Loader />;
@@ -40,7 +39,7 @@ export default function Page({ params }: { params: { slug: string } }) {
             {doctor && <DoctorDetailInfo doctors={doctor} />}
           </div>
 
-          <h3 className="mb-[24px]">Услуги врача</h3>          
+          <h3 className="mb-[24px]">Услуги врача</h3>
           <SliderWrapper
             btns={{
               next: "services-next",
@@ -118,7 +117,9 @@ export default function Page({ params }: { params: { slug: string } }) {
       )}
 
       <section className="section bg-[#EBEFF3]">
-        {doctors.length > 0 && <SpecialistsList doctors={doctors} badgecolor="bg-white" />}
+        {doctors.length > 0 && (
+          <SpecialistsList doctors={doctors} badgecolor="bg-white" />
+        )}
       </section>
     </>
   );
