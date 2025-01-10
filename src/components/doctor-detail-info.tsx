@@ -34,7 +34,7 @@ const DoctorDetailInfo = ({
               </Button>
             </DialogForm>
             <Button
-              className="w-full h-[48px] border-none text-[15px] font-semibold tracking-[-0.3px] leading-[20px] bg-[#EBEFF3] hover:bg-[#EBEFF3]"
+              className="w-full h-[48px] border-[1px] border-[#DEE3EA] text-[15px] font-semibold tracking-[-0.3px] leading-[20px] bg-[#EBEFF3] hover:bg-[#EBEFF3]"
               variant="white"
               onClick={() => {
                 router.push(`/doctor/${doctors.id}`);
