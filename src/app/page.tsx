@@ -115,10 +115,10 @@ export default function Home() {
                   {problems?.problems.blocks?.map(({ problems_block_id }) => (
                     <AccordionItem
                       key={problems_block_id.id}
-                      className="bg-[#F0F3F8] p-[18px] rounded-[8px]"
+                      className="bg-[#F0F3F8] rounded-[8px]"
                       value={`item-${problems_block_id.id}`}
                     >
-                      <AccordionTrigger className="p-0 group font-semibold">
+                      <AccordionTrigger className="p-[18px] group font-semibold">
                         <p
                           className={cn(
                             "text-[#353535] text-[18px] leading-[22px] tracking-[-0.36px]",
@@ -133,7 +133,7 @@ export default function Home() {
                         </p>
                       </AccordionTrigger>
 
-                      <AccordionContent className="p-0 mt-[26px]">
+                      <AccordionContent className="p-0 mt-[26px] p-[18px]">
                         <p className="font-semibold text-[22px] leading-[26px] tracking-[-0.44px] mb-[22px]">
                           При сколиозе лучше всего поможет:
                         </p>
@@ -158,12 +158,12 @@ export default function Home() {
                           </div>
 
                           <div className="flex items-center w-full justify-between gap-4 max-lg:flex-col">
-                            <Button className="w-full h-[54px] max-lg:h-[48px] bg-[#1467E1]">
+                            <Button className="w-full h-[54px] max-lg:h-[48px] bg-[#1467E1] text-[15px] leading-[20px] tracking-[-0.15px]">
                               Получить консультацию
                             </Button>
                             <Button
                               onClick={() => router.push("/uslugi")}
-                              className="w-full h-[54px] max-lg:h-[48px] flex items-center justify-between pl-[18px] pr-[20px] group"
+                              className="w-full h-[54px] max-lg:h-[48px] flex items-center justify-between pl-[18px] pr-[20px] group text-[15px] leading-[20px] tracking-[-0.15px]"
                               variant={"secondary"}
                             >
                               Все услуги
