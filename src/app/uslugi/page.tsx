@@ -20,9 +20,11 @@ export default function Uslugi() {
             description={data?.services_page.description || ""}
           />
 
-          {services?.servicesBlock.map((el) => (
-            <CatigoryWrapper key={el.id} category={el} />
-          ))}
+          <div className="flex flex-col gap-[78px] max-md:gap-[60px]">
+            {services?.servicesBlock.map((el) => (
+              <CatigoryWrapper key={el.id} category={el} />
+            ))}
+          </div>
         </div>
       </section>
 

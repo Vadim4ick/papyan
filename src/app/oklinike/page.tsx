@@ -80,7 +80,7 @@ export default function About() {
 
             <div className="relative">
               <ContactCardV2
-                className="w-[350px] h-[296px] md:w-[323px] xl:w-[400px] xl:h-[299px] md:sticky top-[112px] bg-[#FFFFFF]"
+                className="w-[350px]md:w-[323px] xl:w-[400px] md:sticky top-[112px] bg-[#FFFFFF]"
                 address={data?.about_page.adress}
                 schedule={data?.about_page.time}
                 phone={data?.about_page.phone}

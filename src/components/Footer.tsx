@@ -158,7 +158,7 @@ const Footer = () => {
               <motion.div
                 variants={developedVariants}
                 transition={{ duration: 0.3 }}
-                className="absolute left-[14px] -top-[2px] flex items-center font-['Jeko'] font-semibold text-[#787878] text-[12px] leading-[14.82px]"
+                className="absolute left-[14px] top-[0px] flex items-center font-['Jeko'] font-semibold text-[#787878] text-[12px] leading-[14.82px]"
               >
                 разработано
               </motion.div>
@@ -169,7 +169,7 @@ const Footer = () => {
                 className="absolute left-4 font-['Jeko'] font-semibold text-[#787878] text-[12px] leading-[14.82px]"
               >
                 <a
-                  className="ext-[12px] leading-[14.82px] text-white flex items-center gap-[3px]"
+                  className="text-[12px] leading-[14.82px] text-white flex items-center gap-[3px]"
                   target="_blank"
                   href="https://creatin.ru/"
                 >
