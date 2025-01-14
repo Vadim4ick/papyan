@@ -37,7 +37,7 @@ function GetConsultCard({
           -15%
         </div>
         <CardDescription className="flex-1">
-          <p className="mb-[8px] text-[16px] leading-[20px] tracking-tight font-semibold">
+          <p className="mb-[8px] text-[16px] text-[#7B7B7B] leading-[20px] tracking-tight font-semibold">
             Стоимость:
           </p>
           <div className="flex items-center">

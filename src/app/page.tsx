@@ -133,7 +133,7 @@ export default function Home() {
                         </p>
                       </AccordionTrigger>
 
-                      <AccordionContent className="p-0 mt-[26px] p-[18px]">
+                      <AccordionContent className="pb-[22px] px-[18px] pt-[10px]">
                         <p className="font-semibold text-[22px] leading-[26px] tracking-[-0.44px] mb-[22px]">
                           При сколиозе лучше всего поможет:
                         </p>

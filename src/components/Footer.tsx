@@ -158,7 +158,7 @@ const Footer = () => {
               <motion.div
                 variants={developedVariants}
                 transition={{ duration: 0.3 }}
-                className="absolute left-[14px] top-[0px] flex items-center font-['Jeko'] font-semibold text-[#787878] text-[12px] leading-[14.82px]"
+                className="absolute left-[14px] top-[1px] flex items-center font-['Jeko'] font-semibold text-[#787878] text-[12px] leading-[14.82px]"
               >
                 разработано
               </motion.div>
@@ -173,7 +173,7 @@ const Footer = () => {
                   target="_blank"
                   href="https://creatin.ru/"
                 >
-                  Перейти
+                  перейти
                   <svg
                     width="8"
                     height="8"
