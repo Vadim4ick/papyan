@@ -82,7 +82,7 @@ const DoctorDetailInfo = ({
 
                     li: ({ children }) => {
                       return (
-                        <li className="mb-[6px] last:mb-0 relative pl-[4px] before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-primary before:rounded-[100px]">
+                        <li className="mb-[6px] last:mb-0 relative pl-[6px] before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-primary before:rounded-[100px]">
                           {children}
                         </li>
                       );
@@ -112,7 +112,7 @@ const DoctorDetailInfo = ({
 
                     li: ({ children }) => {
                       return (
-                        <li className="mb-[6px] last:mb-0 relative pl-[4px] before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-[#FF8A00] before:rounded-[100px]">
+                        <li className="mb-[6px] last:mb-0 relative pl-[6px] before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-[#FF8A00] before:rounded-[100px]">
                           {children}
                         </li>
                       );
@@ -142,7 +142,7 @@ const DoctorDetailInfo = ({
 
               li: ({ children }) => {
                 return (
-                  <li className="mb-[6px] last:mb-0 relative pl-[4px] before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-primary before:rounded-[100px]">
+                  <li className="mb-[6px] last:mb-0 relative pl-[6px] before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-primary before:rounded-[100px]">
                     {children}
                   </li>
                 );
@@ -167,7 +167,7 @@ const DoctorDetailInfo = ({
 
               li: ({ children }) => {
                 return (
-                  <li className="mb-[6px] last:mb-0 relative pl-[4px] before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-[#FF8A00] before:rounded-[100px]">
+                  <li className="mb-[6px] last:mb-0 relative pl-[6px] before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-[#FF8A00] before:rounded-[100px]">
                     {children}
                   </li>
                 );

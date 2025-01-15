@@ -43,11 +43,15 @@ function SliderWrapper({
       {isTablet ||
         (!isNavigationDisabled && (
           <div className="swiper-nav flex gap-4">
-            <Button variant="arrow" className={`${btns.prev} pe-[2px]`}>
+            <Button
+              variant="arrow"
+              className={`${btns.prev} pe-[2px]`}
+              classArrow={"!me-[2px] !ms-[0px]"}
+            >
               <ChevronLeft strokeWidth={2.5} width={22} />
             </Button>
             <Button variant="arrow" className={`${btns.next} ps-[1px]`}>
-              <ChevronRight  strokeWidth={2.5} width={22} />
+              <ChevronRight strokeWidth={2.5} width={22} />
             </Button>
           </div>
         ))}

@@ -93,10 +93,14 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
+  classArrow?: string;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, children, asChild = false, ...props }, ref) => {
+  (
+    { className, variant, children, asChild = false, classArrow, ...props },
+    ref
+  ) => {
     const Comp = asChild ? Slot : "button";
     return (
       <Comp
@@ -114,9 +118,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             </span>
           </div>
         ) : variant === "arrow" ? (
-            <span className="ms-[2px] mt-[0px] chevron transition-transform duration-300 ease-out active:scale-[0.9]">
-              {children}
-            </span>
+          <span
+            className={`ms-[2px] mt-[0px] chevron transition-transform duration-300 ease-out active:scale-[0.9] ${classArrow}`}
+          >
+            {children}
+          </span>
         ) : (
           children
         )}
