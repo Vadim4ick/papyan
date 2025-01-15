@@ -56,7 +56,11 @@ export function ModalGallery({
       </style>
 
       <div className="swiper-navigation flex">
-        <Button variant="arrow" className={`${btns.prev} pe-[2px] button-prev`}>
+        <Button
+          variant="arrow"
+          classArrow={"!me-[2px] !ms-[0px]"}
+          className={`${btns.prev} pe-[2px] button-prev`}
+        >
           <ChevronLeft width={17} color="white" />
         </Button>
         <Button variant="arrow" className={`${btns.next} pe-[2px] button-next`}>
@@ -95,28 +99,30 @@ export function ModalGallery({
       >
         {children.map((child, index) => {
           return (
-            <SwiperSlide key={index} className="!h-[104px] !w-[70px] !rounded-sm">
-            {React.isValidElement(child) ? (
-              
-              child.type === "video" ? (
-                <video
-                  width="100%"
-                  height="100%"
-                  muted
-                  loop
-                  className="object-cover w-full h-full cursor-pointer"
-                >
-                  <source src={child.props.src} type={child.props.type} />
-                </video>
-              ) : (
-                <img
-                  src={child.props.src}
-                  alt={`Thumbnail ${index}`}
-                  className="object-cover w-full h-16 cursor-pointer"
-                />
-              )
-            ) : null}
-          </SwiperSlide>
+            <SwiperSlide
+              key={index}
+              className="!h-[104px] !w-[70px] !rounded-sm"
+            >
+              {React.isValidElement(child) ? (
+                child.type === "video" ? (
+                  <video
+                    width="100%"
+                    height="100%"
+                    muted
+                    loop
+                    className="object-cover w-full h-full cursor-pointer"
+                  >
+                    <source src={child.props.src} type={child.props.type} />
+                  </video>
+                ) : (
+                  <img
+                    src={child.props.src}
+                    alt={`Thumbnail ${index}`}
+                    className="object-cover w-full h-16 cursor-pointer"
+                  />
+                )
+              ) : null}
+            </SwiperSlide>
           );
         })}
       </Swiper>

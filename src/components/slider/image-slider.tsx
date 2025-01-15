@@ -55,10 +55,17 @@ function ImageSliderWrapper({
         {isTablet ||
           (!isNavigationDisabled && (
             <div className="swiper-nav flex gap-4">
-              <Button variant="arrow" className={`${btns.prev} ${btnBg} pe-[2px] `}>
+              <Button
+                variant="arrow"
+                classArrow={"!me-[2px] !ms-[0px]"}
+                className={`${btns.prev} ${btnBg} pe-[2px] `}
+              >
                 <ChevronLeft strokeWidth={2.5} width={22} />
               </Button>
-              <Button variant="arrow" className={`${btns.next} ${btnBg} ps-[1px] `}>
+              <Button
+                variant="arrow"
+                className={`${btns.next} ${btnBg} ps-[1px] `}
+              >
                 <ChevronRight strokeWidth={2.5} width={22} />
               </Button>
             </div>
