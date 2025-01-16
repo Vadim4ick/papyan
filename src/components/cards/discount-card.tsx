@@ -15,9 +15,9 @@ const DiscountCard = ({ card, className }: discountCardProps) => {
     card.services_id.price -
     (card.services_id.price * card.services_id.sale) / 100;
 
-    const formatPrice = React.useCallback((item:any)=> {
-        return formatNumberWithSpaces(item)
-      }, [])
+  const formatPrice = React.useCallback((item: any) => {
+    return formatNumberWithSpaces(item);
+  }, []);
 
   const isWide = className?.includes("wide");
 
@@ -46,7 +46,7 @@ const DiscountCard = ({ card, className }: discountCardProps) => {
               </p>
 
               <p className="ms-[8px] relative text-[#7B7B7B] text-[14px] line-through leading-[18px] tracking-tight  ">
-                {formatPrice(card.services_id.price)}
+                {formatPrice(card.services_id.price)}{" "}
                 <span className="">₽</span>
               </p>
             </div>

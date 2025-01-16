@@ -57,7 +57,7 @@ function ImageSliderWrapper({
             <div className="swiper-nav flex gap-4">
               <Button
                 variant="arrow"
-                classArrow={"!me-[2px] !ms-[0px]"}
+                classArrow={"!me-[1px] !ms-[0px]"}
                 className={`${btns.prev} ${btnBg} pe-[2px] `}
               >
                 <ChevronLeft strokeWidth={2.5} width={22} />

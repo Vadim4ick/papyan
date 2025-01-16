@@ -46,7 +46,7 @@ function SliderWrapper({
             <Button
               variant="arrow"
               className={`${btns.prev} pe-[2px]`}
-              classArrow={"!me-[2px] !ms-[0px]"}
+              classArrow={"!me-[1px] !ms-[0px]"}
             >
               <ChevronLeft strokeWidth={2.5} width={22} />
             </Button>
