@@ -58,7 +58,7 @@ export function ModalGallery({
       <div className="swiper-navigation flex">
         <Button
           variant="arrow"
-          classArrow={"!me-[2px] !ms-[0px]"}
+          classArrow={"!me-[1px] !ms-[0px]"}
           className={`${btns.prev} pe-[2px] button-prev`}
         >
           <ChevronLeft width={17} color="white" />

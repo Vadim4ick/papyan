@@ -54,7 +54,7 @@ function AllButtons() {
 
       <div className="flex flex-col bg-[#1E1E1E] items-center p-8 gap-5 w-[350px] shadow-lg">
         <h1 className="text-white py-5">arrow button</h1>
-        <Button classArrow={"!me-[2px] !ms-[0px]"} variant="arrow">
+        <Button classArrow={"!me-[1px] !ms-[0px]"} variant="arrow">
           <ChevronRight width={20} />
         </Button>
         <Button variant="arrow" disabled>

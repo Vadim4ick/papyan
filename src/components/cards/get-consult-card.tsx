@@ -42,12 +42,12 @@ function GetConsultCard({
           </p>
           <div className="flex items-center">
             <p className=" relative text-[#353535] text-[22px] leading-[30px] tracking-tight font-semibold ">
-              {formatPrice(regularPrice)}₽
+              {formatPrice(regularPrice)} ₽
             </p>
 
             {newPrice && (
               <p className="ms-[8px] relative text-[#7B7B7B] text-[14px] line-through leading-[20px] tracking-tight font-semibold ">
-                {formatPrice(newPrice)}₽
+                {formatPrice(newPrice)} ₽
               </p>
             )}
           </div>
