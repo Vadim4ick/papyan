@@ -1,4 +1,6 @@
-const LogoFooter = () => {
+import { SVGProps } from "react";
+
+const LogoFooter = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="200"
@@ -6,6 +8,7 @@ const LogoFooter = () => {
       viewBox="0 0 200 54"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <g clipPath="url(#clip0_322_2757)">
         <path

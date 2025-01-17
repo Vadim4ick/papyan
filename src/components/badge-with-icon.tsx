@@ -17,11 +17,13 @@ function BadgeWithIcon({
   variant,
 }: TBadgeWithIconProps) {
   return (
-      <Badge className={`${className} backdrop:border-transparent gap-[6px] text-[14px] leading-[19.2px] py-[7px] px-[14px]" variant="default`}>
-        {variant === "video" ? <Video /> : <Photo />}
-        {tittle} ({quantity})
-      </Badge>
-  )
+    <Badge
+      className={`${className} text-[#464646] backdrop:border-transparent gap-[6px] text-[14px] leading-[19.2px] py-[7px] px-[14px]" variant="default`}
+    >
+      {variant === "video" ? <Video /> : <Photo />}
+      {tittle} ({quantity})
+    </Badge>
+  );
 }
 
 export { BadgeWithIcon };
