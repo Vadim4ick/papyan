@@ -38,7 +38,10 @@ const Footer = () => {
           <div className="w-full lg:max-w-fit flex md:flex-row lg:flex-col gap-4 lg:gap-y-[58px] justify-between">
             <LogoFooter />
             <DialogForm>
-              <Button variant="white" className="hidden md:block">
+              <Button
+                variant="white"
+                className="hidden ease-out duration-350 md:block"
+              >
                 Записаться онлайн
               </Button>
             </DialogForm>
@@ -121,7 +124,10 @@ const Footer = () => {
           </div>
 
           <DialogForm>
-            <Button variant="white" className="md:hidden w-full ">
+            <Button
+              variant="white"
+              className="md:hidden ease-out duration-350 w-full "
+            >
               Записаться онлайн
             </Button>
           </DialogForm>

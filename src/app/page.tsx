@@ -85,7 +85,7 @@ export default function Home() {
         <div className="container mx-auto max-w-[1364px] px-[20px] mb-[48px] md:mb-[60px] lg:mb-[80px]  flex flex-col gap-y-[48px] items-center xl:flex-row justify-between xl:items-end">
           <div className="flex justify-between w-full gap-[43px] pb-[100px] max-lg:pb-[66px] border-b border-b-[#E8E8E8] max-lg:flex-col">
             <div className="flex flex-col gap-[43px] max-lg:gap-[12px] w-full">
-              <h3 className="font-[600] text-[36px] leading-[45px] tracking-[-0.72px]">
+              <h3 className="font-[600] text-[36px] leading-[45px] max-md:text-[30px] max-md:leading-[36px] max-md:tracking-[-0.6px] tracking-[-0.72px]">
                 Какая проблема вас беспокоит?
               </h3>
 
@@ -157,17 +157,18 @@ export default function Home() {
                             )}
                           </div>
 
-                          <div className="flex items-center w-full justify-between gap-4 max-lg:flex-col">
+                          <div className="flex items-center w-full justify-between gap-4 max-lg:flex-col max-md:flex-col-reverse">
                             <Button className="w-full h-[54px] max-lg:h-[48px] bg-[#1467E1] text-[15px] leading-[20px] tracking-[-0.15px]">
                               Получить консультацию
                             </Button>
+
                             <Button
                               onClick={() => router.push("/uslugi")}
-                              className="w-full h-[54px] max-lg:h-[48px] flex items-center justify-between pl-[18px] pr-[20px] group text-[15px] leading-[20px] tracking-[-0.15px]"
+                              className="w-full h-[54px] max-lg:h-[48px] flex items-center gap-[7.5px] md:justify-between pl-[18px] pr-[20px] group text-[15px] leading-[20px] tracking-[-0.15px]"
                               variant={"secondary"}
                             >
                               Все услуги
-                              <ArrowRight className="group-hover:fill-white" />
+                              <ArrowRight className="group-hover:fill-white max-md:max-h-[11px] max-md:mt-[2px]" />
                             </Button>
                           </div>
                         </div>
@@ -218,7 +219,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Separator className="h-4 bg-[#F0F3F8]" />
+      <Separator className="h-4 max-md:h-2 bg-[#F0F3F8]" />
 
       <section className="pt-[32px] lg:pt-[64px] pb-[72px] md:pb-[78p] lg:pb-[100px] ">
         <ServicesClinic
