@@ -13,6 +13,10 @@ const config: Config = {
       fontFamily: {
         jeko: ["Jeko-SemiBold", "sans-serif"],
       },
+
+      transitionDuration: {
+        "350": "350ms",
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

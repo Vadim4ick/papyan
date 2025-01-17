@@ -6,8 +6,10 @@ function AllButtons() {
     <div className="h-full flex flex-wrap gap-5 p-20 bg-[#EBEFF3]">
       <div className="flex flex-col bg-[#1E1E1E] items-center p-8 gap-5 w-[350px] shadow-lg">
         <h1 className="text-white py-5">Secondary button</h1>
-        <Button variant="default">Записаться онлайн</Button>
-        <Button variant="default" disabled>
+        <Button className="ease-out duration-350" variant="default">
+          Записаться онлайн
+        </Button>
+        <Button className="ease-out duration-350" variant="default" disabled>
           Записаться онлайн
         </Button>
       </div>
@@ -38,8 +40,10 @@ function AllButtons() {
 
       <div className="flex flex-col bg-[#1E1E1E] items-center p-8 gap-5 w-[350px] shadow-lg">
         <h1 className="text-white py-5">Stroke button</h1>
-        <Button variant="white">Записаться онлайн</Button>
-        <Button variant="white" disabled>
+        <Button className="ease-out duration-350" variant="white">
+          Записаться онлайн
+        </Button>
+        <Button className="ease-out duration-350" variant="white" disabled>
           Записаться онлайн
         </Button>
       </div>

@@ -26,17 +26,18 @@ const Header = () => {
           <div className="hidden absolute right-0 w-full lg:flex flex-1 justify-center z-50 ">
             <Navbar onLinkClick={closeMenu} />
           </div>
-          
+
           {/* Логотип */}
           <Link href={"/"} className="flex z-50">
             <Logo />
           </Link>
 
-
           {/* Кнопка "Записаться онлайн" для десктопа */}
           <div className="hidden lg:flex z-50">
             <DialogForm>
-              <Button variant="default">Записаться онлайн</Button>
+              <Button className="ease-out duration-350" variant="default">
+                Записаться онлайн
+              </Button>
             </DialogForm>
           </div>
 
