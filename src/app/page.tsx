@@ -319,7 +319,7 @@ export default function Home() {
                 </div>
                 <ImageSliderWrapper
                   btns={{ next: "main-next", prev: "main-prev" }}
-                  slideWidth="!w-[298px] md:!w-[311px] lg:!w-[316px]"
+                  slideWidth="!w-[289px] md:!w-[311px] lg:!w-[316px]"
                   className="h-[434px] md:h-[467px] xl:h-[474px]"
                 >
                   {data?.home_page.sliderClinik.map(({ directus_files_id }) => {
@@ -398,7 +398,7 @@ export default function Home() {
 
                 <Button
                   variant={"secondary"}
-                  className="h-[48px] lg:hidden w-full"
+                  className="h-[48px] lg:hidden w-full max-md:mt-[12px]"
                 >
                   Получить консультацию
                 </Button>
@@ -467,7 +467,7 @@ export default function Home() {
                     {(inputProps: any) => (
                       <Input
                         {...inputProps}
-                        className="bg-white max-w-[336px] h-[54px] max-md:max-w-full"
+                        className="bg-white max-w-[336px] h-[54px] max-md:max-w-full max-md:text-center"
                         placeholder={"+7(000)000-00-00"}
                       />
                     )}
