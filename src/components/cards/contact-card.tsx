@@ -8,24 +8,29 @@ interface ContactCardProps {
   address: string;
   schedule: string;
   phone: string;
-  className?:string
+  className?: string;
 }
 
-function ContactCard({ address, schedule, phone, className }: ContactCardProps) {
+function ContactCard({
+  address,
+  schedule,
+  phone,
+  className,
+}: ContactCardProps) {
   return (
     <Card className={cn("w-full border-none ", className)}>
-      <CardContent className="h-[174px] flex flex-col gap-[16px] rounded-lg p-[20px] font-semibold  text-[18px] leading-[28px] tracking-tight">
+      <CardContent className="md:h-[174px] flex flex-col gap-[16px] rounded-lg p-[20px] font-semibold text-[18px] leading-[28px] tracking-tight max-md:py-4 max-md:px-3 max-md:bg-white">
         <a href="#" className="flex items-center space-x-2">
-          <MapPin className="text-primary"/>
-          <span>{address}</span>
+          <MapPin className="text-primary max-md:size-[20px]" />
+          <span className="max-md:text-[#353535]">{address}</span>
         </a>
         <a href="#" className="flex items-center space-x-2">
-          <Clock7 className="text-primary"/>
-          <span>{schedule}</span>
+          <Clock7 className="text-primary max-md:size-[20px]" />
+          <span className="max-md:text-[#353535]">{schedule}</span>
         </a>
         <a href="#" className="flex items-center space-x-2">
-          <Phone className="text-primary"/>
-          <span>{phone}</span>
+          <Phone className="text-primary max-md:size-[20px]" />
+          <span className="max-md:text-[#353535]">{phone}</span>
         </a>
       </CardContent>
     </Card>

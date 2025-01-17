@@ -222,6 +222,15 @@ export default function Home() {
       <Separator className="h-4 max-md:h-2 bg-[#F0F3F8]" />
 
       <section className="pt-[32px] lg:pt-[64px] pb-[72px] md:pb-[78p] lg:pb-[100px] ">
+        {/* {[1, 2].map((el) => (
+          <ServicesClinic
+            key={el}
+            title={services?.servicesClinic.title}
+            description={services?.servicesClinic.description}
+            services={services}
+          />
+        ))} */}
+
         <ServicesClinic
           title={services?.servicesClinic.title}
           description={services?.servicesClinic.description}
@@ -230,7 +239,7 @@ export default function Home() {
 
         <div className="container mx-auto max-w-[1364px] px-[20px] flex flex-col gap-y-[48px] items-center xl:flex-row justify-between xl:items-end">
           {services && services?.servicesClinic.dopServices.length > 0 && (
-            <div className="flex flex-col md:flex-row gap-y-[24px] items-center gap-x-[26px] overflow-x-auto">
+            <div className="flex flex-col md:flex-row gap-y-[24px] items-center gap-x-[26px] overflow-x-auto max-md:gap-[36px]">
               {services?.servicesClinic.dopServices.map(
                 ({ servicesBlock_id }) => (
                   <CategoriesGalery
@@ -244,6 +253,7 @@ export default function Home() {
               )}
             </div>
           )}
+
           <Button variant="secondary" onClick={() => router.push(`/uslugi/`)}>
             Все услуги{" "}
             <span className="ms-[5px] mt-[3px]">
