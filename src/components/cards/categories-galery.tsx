@@ -30,7 +30,7 @@ const CategoriesGalery: React.FC<CategoriesGaleryProps> = ({
         bgcolor="bg-[#F0F3F8]"
         tittle={category.title}
         quantity={category.allServices.length}
-        className="mb-[12px] md:mb-[16px]"
+        className="mb-[12px] md:mb-[16px] max-md:leading-[27px]"
         variantBageBg={variantBageBg}
       />
       <ImageCard
@@ -38,7 +38,7 @@ const CategoriesGalery: React.FC<CategoriesGaleryProps> = ({
         bages={
           bages ? category.allServices.map((service) => service.title) : []
         }
-        className={`${cardWidth} ${cardHeight}`}
+        className={`${cardWidth} ${cardHeight}  max-md:h-[199px]`}
         catigoryId={category.id}
       />
     </div>

@@ -58,7 +58,7 @@ const Header = () => {
         } menu-transition `}
       >
         {/* Навбар в мобильном меню */}
-        <div className="pt-[160px] px-[30px] lg:hidden">
+        <div className="pt-[137px] px-[20px] lg:hidden">
           <Navbar onLinkClick={closeMenu} />
         </div>
       </div>
@@ -71,14 +71,14 @@ const Header = () => {
             : "translate-y-full opacity-0 block"
         } button-transition`}
       >
-        <div className="flex flex-col items-center gap-[32px] lg:hidden">
+        <div className="flex flex-col items-center gap-[32px] lg:hidden max-md:gap-[24px] max-md:w-full">
           <ContactCard
             address={contacts.address}
             schedule={contacts.schedule}
             phone={contacts.phone}
           />
           <DialogForm>
-            <Button variant="default" className="w-full">
+            <Button variant="default" className="w-full max-md:h-[48px]">
               Записаться онлайн
             </Button>
           </DialogForm>

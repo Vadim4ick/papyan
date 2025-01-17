@@ -14,7 +14,7 @@ const Navbar: React.FC<NavbarProps> = ({ onLinkClick }) => {
   const pathname = usePathname();
 
   return (
-    <nav className="flex flex-col items-start text-sm font-medium lg:flex-row lg:h-10 py-2 bg-[#EDF1F5] rounded-lg group transition-all">
+    <nav className="flex flex-col items-start text-sm font-medium lg:flex-row lg:h-10 py-2 bg-[#EDF1F5] rounded-lg group transition-all max-md:gap-4">
       {navbar.map((item) => {
         const isActive = pathname === item.path;
 
@@ -28,16 +28,18 @@ const Navbar: React.FC<NavbarProps> = ({ onLinkClick }) => {
               className={clsx(
                 `flex items-center justify-center py-[11px] mx-auto lg:w-full text-center 
                 text-[24px] tracking-tight md:text-[32px] md:leading-[42px] lg:text-[14px] lg:leading-[19px] transition-all
-                group-hover:text-[#929292] hover:!text-[#454545]
+                group-hover:text-[#929292] hover:!text-[#454545] max-md:pb-[16px] max-md:pt-[0]
               `,
                 {
-                  "text-[#0084FF]": isActive,
-                  "text-[#454545]": !isActive,
+                  "md:text-[#0084FF]": isActive,
+                  "md:text-[#454545]": !isActive,
                 }
               )}
               href={item.path}
             >
-              <span className="flex-1">{item.title}</span>
+              <span className="flex-1 max-md:text-start max-md:text-[#353535]">
+                {item.title}
+              </span>
               <ChevronRight className="h-[22px] md:h-[24px] lg:hidden" />
             </Link>
 
