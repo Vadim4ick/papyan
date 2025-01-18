@@ -47,12 +47,22 @@ function SliderWrapper({
               variant="arrow"
               className={`${btns.prev} pe-[2px] duration-450`}
               classArrow={"!me-[1px] !ms-[0px]"}
+              motionProps={{
+                stiffness: 142.2,
+                damping: 26.67,
+                mass: 1,
+              }}
             >
               <ChevronLeft strokeWidth={2.5} width={22} />
             </Button>
             <Button
               variant="arrow"
               className={`${btns.next} ps-[1px] duration-450`}
+              motionProps={{
+                stiffness: 142.2,
+                damping: 26.67,
+                mass: 1,
+              }}
             >
               <ChevronRight strokeWidth={2.5} width={22} />
             </Button>

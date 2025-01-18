@@ -56,6 +56,11 @@ function ImageSliderWrapper({
           (!isNavigationDisabled && (
             <div className="swiper-nav flex gap-4">
               <Button
+                motionProps={{
+                  stiffness: 142.2,
+                  damping: 26.67,
+                  mass: 1,
+                }}
                 variant="arrow"
                 classArrow={"!me-[1px] !ms-[0px]"}
                 className={`${btns.prev} ${btnBg} pe-[2px] duration-450`}
@@ -63,6 +68,11 @@ function ImageSliderWrapper({
                 <ChevronLeft strokeWidth={2.5} width={22} />
               </Button>
               <Button
+                motionProps={{
+                  stiffness: 142.2,
+                  damping: 26.67,
+                  mass: 1,
+                }}
                 variant="arrow"
                 className={`${btns.next} ${btnBg} ps-[1px] duration-450`}
               >

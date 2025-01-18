@@ -163,6 +163,11 @@ export default function Home() {
                             </Button>
 
                             <Button
+                              motionProps={{
+                                stiffness: 142.2,
+                                damping: 26.67,
+                                mass: 1,
+                              }}
                               onClick={() => router.push("/uslugi")}
                               className="w-full h-[54px] max-lg:h-[48px] flex duration-450 items-center gap-[7.5px] md:justify-between pl-[18px] pr-[20px] group text-[15px] leading-[20px] tracking-[-0.15px]"
                               variant={"secondary"}
@@ -255,6 +260,11 @@ export default function Home() {
           )}
 
           <Button
+            motionProps={{
+              stiffness: 142.2,
+              damping: 26.67,
+              mass: 1,
+            }}
             className="duration-450"
             variant="secondary"
             onClick={() => router.push(`/uslugi/`)}
