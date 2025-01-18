@@ -45,12 +45,15 @@ function SliderWrapper({
           <div className="swiper-nav flex gap-4">
             <Button
               variant="arrow"
-              className={`${btns.prev} pe-[2px]`}
+              className={`${btns.prev} pe-[2px] duration-450`}
               classArrow={"!me-[1px] !ms-[0px]"}
             >
               <ChevronLeft strokeWidth={2.5} width={22} />
             </Button>
-            <Button variant="arrow" className={`${btns.next} ps-[1px]`}>
+            <Button
+              variant="arrow"
+              className={`${btns.next} ps-[1px] duration-450`}
+            >
               <ChevronRight strokeWidth={2.5} width={22} />
             </Button>
           </div>
