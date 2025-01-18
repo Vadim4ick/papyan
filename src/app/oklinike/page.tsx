@@ -202,7 +202,11 @@ export default function About() {
               )}
             </div>
           )}
-          <Button variant="secondary" onClick={() => router.push(`/uslugi/`)}>
+          <Button
+            className="duration-450"
+            variant="secondary"
+            onClick={() => router.push(`/uslugi/`)}
+          >
             Все услуги{" "}
             <span className="ms-[5px] mt-[3px]">
               <ChevronRight width={17} />

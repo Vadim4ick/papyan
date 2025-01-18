@@ -16,13 +16,13 @@ function AllButtons() {
 
       <div className="flex flex-col bg-[#1E1E1E] items-center p-8 gap-5 w-[350px] shadow-lg">
         <h1 className="text-white py-5">Secondary button</h1>
-        <Button variant="secondary">
+        <Button className="duration-450" variant="secondary">
           Все услуги{" "}
           <span className="ms-[5px] mt-[3px]">
             <ChevronRight width={17} />
           </span>
         </Button>
-        <Button variant="secondary" disabled>
+        <Button className="duration-450" variant="secondary" disabled>
           Все услуги{" "}
           <span className="ms-[5px] mt-[3px]">
             <ChevronRight width={17} />

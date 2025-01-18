@@ -16,6 +16,7 @@ const config: Config = {
 
       transitionDuration: {
         "350": "350ms",
+        "450": "450ms",
       },
       colors: {
         background: "hsl(var(--background))",

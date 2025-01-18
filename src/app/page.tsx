@@ -164,7 +164,7 @@ export default function Home() {
 
                             <Button
                               onClick={() => router.push("/uslugi")}
-                              className="w-full h-[54px] max-lg:h-[48px] flex items-center gap-[7.5px] md:justify-between pl-[18px] pr-[20px] group text-[15px] leading-[20px] tracking-[-0.15px]"
+                              className="w-full h-[54px] max-lg:h-[48px] flex duration-450 items-center gap-[7.5px] md:justify-between pl-[18px] pr-[20px] group text-[15px] leading-[20px] tracking-[-0.15px]"
                               variant={"secondary"}
                             >
                               Все услуги
@@ -254,7 +254,11 @@ export default function Home() {
             </div>
           )}
 
-          <Button variant="secondary" onClick={() => router.push(`/uslugi/`)}>
+          <Button
+            className="duration-450"
+            variant="secondary"
+            onClick={() => router.push(`/uslugi/`)}
+          >
             Все услуги{" "}
             <span className="ms-[5px] mt-[3px]">
               <ChevronRight width={17} />
