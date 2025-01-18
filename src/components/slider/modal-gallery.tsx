@@ -57,13 +57,26 @@ export function ModalGallery({
 
       <div className="swiper-navigation flex">
         <Button
+          motionProps={{
+            stiffness: 142.2,
+            damping: 26.67,
+            mass: 1,
+          }}
           variant="arrow"
           classArrow={"!me-[1px] !ms-[0px]"}
           className={`${btns.prev} pe-[2px] button-prev`}
         >
           <ChevronLeft width={17} color="white" />
         </Button>
-        <Button variant="arrow" className={`${btns.next} pe-[2px] button-next`}>
+        <Button
+          variant="arrow"
+          motionProps={{
+            stiffness: 142.2,
+            damping: 26.67,
+            mass: 1,
+          }}
+          className={`${btns.next} pe-[2px] button-next`}
+        >
           <ChevronRight width={17} color="white" />
         </Button>
       </div>

@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/shared/lib/utils";
 import { ChevronRight } from "lucide-react";
+
+import { motion } from "framer-motion";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-[8px] text-[14px] tracking-tight font-bold disabled:pointer-events-none ",
@@ -94,18 +97,50 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   classArrow?: string;
+  motionProps?: {
+    stiffness?: number;
+    damping?: number;
+    mass?: number;
+  };
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { className, variant, children, asChild = false, classArrow, ...props },
+    {
+      className,
+      variant,
+      children,
+      asChild = false,
+      classArrow,
+      motionProps,
+      ...props
+    },
     ref
   ) => {
-    const Comp = asChild ? Slot : "button";
+    const Comp = asChild ? Slot : motion.button;
+
+    const springConfig = {
+      type: "spring",
+      stiffness: motionProps?.stiffness,
+      damping: motionProps?.damping,
+      mass: motionProps?.mass,
+    };
+
     return (
+      // @ts-ignore
       <Comp
         className={cn(buttonVariants({ variant, className }))}
         ref={ref}
+        whileHover={
+          motionProps
+            ? {
+                scale: 1,
+                transition: {
+                  ...springConfig,
+                },
+              }
+            : {}
+        }
         {...props}
       >
         {variant === "tretiary" ? (

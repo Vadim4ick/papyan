@@ -203,6 +203,11 @@ export default function About() {
             </div>
           )}
           <Button
+            motionProps={{
+              stiffness: 142.2,
+              damping: 26.67,
+              mass: 1,
+            }}
             className="duration-450"
             variant="secondary"
             onClick={() => router.push(`/uslugi/`)}

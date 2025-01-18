@@ -16,13 +16,30 @@ function AllButtons() {
 
       <div className="flex flex-col bg-[#1E1E1E] items-center p-8 gap-5 w-[350px] shadow-lg">
         <h1 className="text-white py-5">Secondary button</h1>
-        <Button className="duration-450" variant="secondary">
+        <Button
+          motionProps={{
+            stiffness: 142.2,
+            damping: 26.67,
+            mass: 1,
+          }}
+          className="duration-450"
+          variant="secondary"
+        >
           Все услуги{" "}
           <span className="ms-[5px] mt-[3px]">
             <ChevronRight width={17} />
           </span>
         </Button>
-        <Button className="duration-450" variant="secondary" disabled>
+        <Button
+          motionProps={{
+            stiffness: 142.2,
+            damping: 26.67,
+            mass: 1,
+          }}
+          className="duration-450"
+          variant="secondary"
+          disabled
+        >
           Все услуги{" "}
           <span className="ms-[5px] mt-[3px]">
             <ChevronRight width={17} />
@@ -58,10 +75,26 @@ function AllButtons() {
 
       <div className="flex flex-col bg-[#1E1E1E] items-center p-8 gap-5 w-[350px] shadow-lg">
         <h1 className="text-white py-5">arrow button</h1>
-        <Button classArrow={"!me-[1px] !ms-[0px]"} variant="arrow">
+        <Button
+          motionProps={{
+            stiffness: 142.2,
+            damping: 26.67,
+            mass: 1,
+          }}
+          classArrow={"!me-[1px] !ms-[0px]"}
+          variant="arrow"
+        >
           <ChevronRight width={20} />
         </Button>
-        <Button variant="arrow" disabled>
+        <Button
+          motionProps={{
+            stiffness: 142.2,
+            damping: 26.67,
+            mass: 1,
+          }}
+          variant="arrow"
+          disabled
+        >
           <ChevronRight width={20} />
         </Button>
       </div>
