@@ -227,15 +227,6 @@ export default function Home() {
       <Separator className="h-4 max-md:h-2 bg-[#F0F3F8]" />
 
       <section className="pt-[32px] lg:pt-[64px] pb-[72px] md:pb-[78p] lg:pb-[100px] ">
-        {/* {[1, 2].map((el) => (
-          <ServicesClinic
-            key={el}
-            title={services?.servicesClinic.title}
-            description={services?.servicesClinic.description}
-            services={services}
-          />
-        ))} */}
-
         <ServicesClinic
           title={services?.servicesClinic.title}
           description={services?.servicesClinic.description}
