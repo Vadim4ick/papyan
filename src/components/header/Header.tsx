@@ -43,7 +43,15 @@ const Header = () => {
           {/* Кнопка "Записаться онлайн" для десктопа */}
           <div className="hidden lg:flex z-50">
             <DialogForm>
-              <Button className="ease-out duration-350" variant="default">
+              <Button
+                motionProps={{
+                  stiffness: 142.2,
+                  damping: 26.67,
+                  mass: 1,
+                }}
+                className="duration-450"
+                variant="default"
+              >
                 Записаться онлайн
               </Button>
             </DialogForm>
