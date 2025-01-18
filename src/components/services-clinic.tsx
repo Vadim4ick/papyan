@@ -46,8 +46,8 @@ const ServicesClinic = ({
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M6.46281 6.62267L1.74865 11.5725L0.570312 10.3353L4.69531 6.00405L0.570312 1.6728L1.74865 0.435547L6.46281 5.38542C6.61904 5.54951 6.7068 5.77203 6.7068 6.00405C6.7068 6.23607 6.61904 6.45859 6.46281 6.62267Z"
               fill="#1467E1"
             />

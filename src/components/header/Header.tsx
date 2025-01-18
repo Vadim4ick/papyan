@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Menu } from "lucide-react";
@@ -17,6 +17,14 @@ const contacts = ContactData;
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "scroll";
+    }
+  }, [menuOpen]);
 
   return (
     <>
@@ -47,7 +55,27 @@ const Header = () => {
             className="lg:hidden z-50"
             variant="ghost"
           >
-            <Menu className="h-6 w-6" />
+            {!menuOpen && <Menu className="h-6 w-6" />}
+
+            {menuOpen && (
+              <div className="size-6 flex items-center justify-center">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15 1L1 15M1 1L15 15"
+                    stroke="#353535"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            )}
           </Button>
         </Container>
       </header>
