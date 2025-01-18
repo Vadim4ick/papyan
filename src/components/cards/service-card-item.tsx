@@ -19,9 +19,9 @@ interface ServiceCardItemProps {
 }
 
 function ServiceCardItem({ card }: ServiceCardItemProps) {
-  const price = React.useMemo(()=> {
-    return formatNumberWithSpaces(card.price)
-  }, [card.price])
+  const price = React.useMemo(() => {
+    return formatNumberWithSpaces(card.price);
+  }, [card.price]);
   const router = useRouter();
   return (
     <Card className="w-[350px]  h-[199px] md:w-[377px] md:h-[187px] lg:w-[396px] lg:h-[199px] bg-[#F0F3F8] rounded-lg p-[18px] flex flex-col">
@@ -39,7 +39,12 @@ function ServiceCardItem({ card }: ServiceCardItemProps) {
           {price} <span className="">₽</span>{" "}
         </p>
         <Button
-          className="z-10"
+          motionProps={{
+            stiffness: 142.2,
+            damping: 26.67,
+            mass: 1,
+          }}
+          className="z-10 duration-450"
           variant="stroke"
           onClick={() => router.push(`/therapy/${card.id}`)}
         >

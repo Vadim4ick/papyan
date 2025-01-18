@@ -27,14 +27,24 @@ const DoctorDetailInfo = ({
           <div className="absolute bottom-0 w-full flex flex-col gap-[8px] p-[8px] z-20">
             <DialogForm>
               <Button
-                className="w-full h-[48px] text-[15px] font-bold leading-[20px] tracking-[-0.3px]"
+                motionProps={{
+                  stiffness: 142.2,
+                  damping: 26.67,
+                  mass: 1,
+                }}
+                className="w-full duration-450 h-[48px] text-[15px] font-bold leading-[20px] tracking-[-0.3px]"
                 variant="default"
               >
                 Записаться на прием
               </Button>
             </DialogForm>
             <Button
-              className="w-full h-[48px] border-[1px] border-[#DEE3EA] text-[15px] font-semibold tracking-[-0.3px] leading-[20px] bg-[#EBEFF3] hover:bg-[#EBEFF3]"
+              motionProps={{
+                stiffness: 142.2,
+                damping: 26.67,
+                mass: 1,
+              }}
+              className="w-full h-[48px] duration-450 border-[1px] border-[#DEE3EA] text-[15px] font-semibold tracking-[-0.3px] leading-[20px] bg-[#EBEFF3] hover:bg-[#EBEFF3]"
               variant="white"
               onClick={() => {
                 router.push(`/doctor/${doctors.id}`);

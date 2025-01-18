@@ -13,14 +13,43 @@ import { motion, Variants } from "framer-motion";
 
 const contacts = ContactData;
 
+const animate = {
+  transition: {
+    type: "spring",
+    stiffness: 180,
+    damping: 30,
+    mass: 1,
+  },
+};
+
 const developedVariants: Variants = {
-  rest: { y: 9, opacity: 1 },
-  hover: { y: -20, opacity: 0 },
+  rest: {
+    y: 9,
+    opacity: 1,
+
+    ...animate,
+  },
+
+  hover: {
+    y: -20,
+    opacity: 0,
+    ...animate,
+  },
 };
 
 const goVariants = {
-  rest: { y: 20, opacity: 0 },
-  hover: { y: 9, opacity: 1 },
+  rest: {
+    y: 20,
+    opacity: 0,
+
+    ...animate,
+  },
+
+  hover: {
+    y: 9,
+    opacity: 1,
+    ...animate,
+  },
 };
 
 const parentVariants = {
@@ -40,8 +69,13 @@ const Footer = () => {
 
             <DialogForm>
               <Button
+                motionProps={{
+                  stiffness: 142.2,
+                  damping: 26.67,
+                  mass: 1,
+                }}
                 variant="white"
-                className="hidden ease-out duration-350 md:block"
+                className="hidden duration-450 md:block"
               >
                 Записаться онлайн
               </Button>
@@ -219,7 +253,6 @@ const Footer = () => {
             <div className="relative flex-1 h-full">
               <motion.div
                 variants={developedVariants}
-                transition={{ duration: 0.3 }}
                 className="absolute left-[14px] top-[1px] flex items-center font-['Jeko'] font-semibold text-[#787878] text-[12px] leading-[14.82px]"
               >
                 разработано
@@ -227,7 +260,6 @@ const Footer = () => {
 
               <motion.div
                 variants={goVariants}
-                transition={{ duration: 0.3 }}
                 className="absolute left-4 font-['Jeko'] font-semibold text-[#787878] text-[12px] leading-[14.82px]"
               >
                 <a
