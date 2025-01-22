@@ -34,7 +34,7 @@ const DiscountCard = ({ card, className }: discountCardProps) => {
           className="h-full w-full object-cover"
         />
         <div className="absolute top-0 left-0 h-full w-full flex flex-col justify-between py-5 md:py-5 lg:py-8 px-0 md:px-[28px] lg:px-[36px]">
-          <h3 className="mx-5 md:mx-0 text-left text-[#FFFFFF]">
+          <h3 className="mx-6 md:mx-0 text-left text-[#FFFFFF] text-[28px]">
             {card.services_id.title}
           </h3>
           <div
