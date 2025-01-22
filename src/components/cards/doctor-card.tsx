@@ -21,16 +21,15 @@ const DoctorCard: React.FC<DoctorCardProps> = ({
   className,
   badgecolor,
 }) => {
-  console.log("🚀 ~ doctor:", doctor.name);
   const router = useRouter();
 
   if (!doctor) return null;
   return (
     <Link href={`/doctor/${doctor.id}`}>
       <div
-        className={cn(" space-y-3 overflow-hidden rounded-md group", className)}
+        className={cn(" group", className)}
       >
-        <div className="w-[289px] h-[350x] md:w-[311px] md:h-[377px] xl:w-[316px] xl:h-[383px] relative overflow-hidden mb-3 rounded-lg">
+        <div className="w-[289px] h-[350px] md:w-[311px] md:h-[377px] xl:w-[316px] xl:h-[383px] relative overflow-hidden mb-3 rounded-lg">
           <Image
             width={380}
             height={418}
@@ -48,7 +47,7 @@ const DoctorCard: React.FC<DoctorCardProps> = ({
         </Badge>
         <p className="text-left text-[16px] leading-[22px]">{doctor.name}</p>
 
-        <div className="absolute -top-[24px] right-[14px]">
+        <div className="absolute -top-[14px] right-[14px]">
           <RoundButton
             variant="default"
             onClick={() => router.push(`/doctor/${doctor.id}`)}
