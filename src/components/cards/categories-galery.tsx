@@ -3,6 +3,7 @@
 import { ServiceBlockFragmentFragment } from "@/graphql/__generated__";
 import { TitleWithBadge } from "../title-with-badge";
 import ImageCard from "../ui/image-card";
+import { useClientMediaQuery } from "@/shared/hooks/useClientMediaQuery";
 
 export type VariantBageBg = "white" | "default";
 
@@ -21,7 +22,8 @@ const CategoriesGalery: React.FC<CategoriesGaleryProps> = ({
   cardHeight,
   variantBageBg = "default",
   bages = true,
-}) => {
+}) => {  
+  const isMobile = useClientMediaQuery("(max-width: 768px)");
   if (!category) return;
 
   return (
@@ -35,8 +37,8 @@ const CategoriesGalery: React.FC<CategoriesGaleryProps> = ({
       />
       <ImageCard
         imageData={category.img}
-        bages={
-          bages ? category.allServices.map((service) => service.title) : []
+         bages={
+          !isMobile && bages ? category.allServices.map((service) => service.title) : []
         }
         className={`${cardWidth} ${cardHeight}  max-md:h-[199px]`}
         catigoryId={category.id}
