@@ -224,7 +224,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Separator className="h-4 max-md:h-2 bg-[#F0F3F8]" />
+      <Separator className="h-2 md:h-[10px] lg:h-4 bg-[#F0F3F8]" />
 
       <section className="pt-[32px] lg:pt-[64px] pb-[72px] md:pb-[78p] lg:pb-[100px] ">
         <ServicesClinic

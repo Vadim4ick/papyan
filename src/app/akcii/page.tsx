@@ -87,7 +87,7 @@ export default function Akcii() {
         </div>
       </section>
 
-      <Separator className="h-4 bg-[#F0F3F8]" />
+      <Separator className="h-2 md:h-[10px] lg:h-4 bg-[#F0F3F8]" />
 
       <section className="section">
         <ServicesClinic
