@@ -201,7 +201,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="container mx-auto max-w-[1364px] px-[20px]">
+        <div className="container mx-auto max-w-[1364px] pl-5 md:px-[20px]">
           <h2 className="mb-[32px] md:mb-[51px]">Методы лечения</h2>
           <SliderWrapper
             btns={{ next: "methods-next", prev: "methods-prev" }}
@@ -279,7 +279,7 @@ export default function Home() {
 
       {data && data?.home_page.sliderClinik.length > 0 && (
         <section className="pb-[72px] pt-[32px] md:pb-[78px] md:pt-[48px] lg:pt-[100px] lg:pb-[70px] max-lg:pb-[48px]">
-          <div className="container mx-auto max-w-[1364px] px-[20px]">
+          <div className="container mx-auto max-w-[1364px] px-5">
             <div className="flex flex-col md:flex-row justify-between mb-[28px] md:mb-[84px] lg:mb-[118px] ">
               <div>
                 <h2 className="mb-[12px] md:mb-[32px] md:text-[36px] md:leading-[45px]">
@@ -316,6 +316,8 @@ export default function Home() {
                 <ChevronRight width={17} />
               </span>
             </Button>
+          </div>
+          <div className="container mx-auto max-w-[1364px] pl-5 md:px-5">
             {data?.home_page.sliderClinik.length > 0 && (
               <div className="">
                 <div className="flex gap-[6px] mb-[24px] md:mb-[38px] xl:mb-[24px]">
