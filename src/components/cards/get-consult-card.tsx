@@ -26,7 +26,7 @@ function GetConsultCard({
   }, []);
 
   return (
-    <Card className=" w-[316px] border-none ">
+    <Card className="w-full md:w-[316px] border-none ">
       <CardHeader className="h-[44px] w-full p-0 rounded-lg bg-[#EFF3F7] mb-[6px]">
         <CardTitle className="text-[#353535] text-[16px] leading-[20px] tracking-tight font-semibold flex justify-start items-center px-5 py-3">
           {title}

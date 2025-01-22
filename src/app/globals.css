@@ -96,7 +96,7 @@ body {
   }
 
   h1 {
-    @apply font-semibold leading-[45px] text-[36px] text-[#353535];
+    @apply font-semibold leading-[45px] text-[30px] md:text-[36px] text-[#353535];
   }
 
   h2 {

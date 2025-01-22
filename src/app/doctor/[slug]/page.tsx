@@ -8,13 +8,13 @@ import { Loader } from "@/components/ui/loader";
 import { notFound } from "next/navigation";
 import { ServiceCardItem } from "@/components/cards/service-card-item";
 import { useGetAllDoctors } from "@/shared/hooks/services/useGetAllDoctors";
-import { SpecialistsList } from "@/components/specialists-list";
 import "swiper/css";
 import "swiper/css/pagination";
 import "../../../components/slider/styles.css";
 import { ImageType } from "@/shared/types/types";
 import { ImageSliderWrapper } from "@/components/slider/image-slider";
 import { SliderWrapper } from "@/components/slider/slider-wrapper";
+import DoctorCard from "@/components/cards/doctor-card";
 
 export default function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug;
@@ -117,9 +117,30 @@ export default function Page({ params }: { params: { slug: string } }) {
       )}
 
       <section className="section bg-[#EBEFF3]">
-        {doctors.length > 0 && (
-          <SpecialistsList doctors={doctors} badgecolor="bg-white" />
-        )}
+        <div className="container mx-auto max-w-[1364px] px-[20px]">
+          <h3 className="mb-[40px] max-md:mb-[28px] text-[36px] leading-[45px] font-semibold tracking-[-0.72px] max-md:text-[30px] max-md:leading-[36px] max-md:tracking-[-0.6px]">
+            Другие врачи
+          </h3>
+        </div>
+        <div className="container mx-auto max-w-[1364px] pl-5 md:px-[20px]">
+          <SliderWrapper
+            btns={{ next: "methods-next", prev: "methods-prev" }}
+            slideWidth=""
+            className=""
+          >
+            {
+              doctors.length > 0 &&
+                doctors.map((doctor) => (
+                  <DoctorCard
+                    key={doctor.id}
+                    doctor={doctor}
+                    className=""
+                  />
+                  
+                ))
+            }
+          </SliderWrapper>
+        </div>
       </section>
     </>
   );
