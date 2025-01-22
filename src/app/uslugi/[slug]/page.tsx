@@ -30,17 +30,17 @@ export default function Page({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <section className="pt-[64px] pb-[100px]">
+      <section className="section">
         <div className="container mx-auto max-w-[1364px] px-[20px]">
           <SectionHeader
-            className="mb-[36px]"
+            className="mb-[40px] md:mb-[36px]"
             title={data.servicesBlock_by_id.title || ""}
             description={data.servicesBlock_by_id.description || ""}
           />
 
           <div className="flex flex-col md:flex-row justify-between md:gap-[40px] xl:gap-[130px]">
-            <div className="w-[350px] md:w-[357px xl:w-[380px] mb-[36px] md:mb-0">
-              <div className=" h-[301px] ] md:h-[394px]  xl:h-[418px] mb-[48px] overflow-hidden rounded-md group">
+            <div className="w-[350px] md:w-[357px xl:w-[380px] mb-[60px] md:mb-[0px]">
+              <div className=" h-[301px] ] md:h-[394px]  xl:h-[418px] mb-[36px] md:mb-[48px] overflow-hidden rounded-md group">
                 <Image
                   width={380}
                   height={418}
@@ -73,7 +73,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       {services && services?.servicesClinic.dopServices.length > 0 && (
         <section className="pt-[32px] pb-[72px] md:pt-[48px] md:pb-[78px] xl:pt-[88px] xl:pb-[100px] bg-[#F0F3F8]">
           <div className="container mx-auto max-w-[1364px] px-[20px]">
-            <h2 className="md:mb-[48px]">Другие услуги</h2>
+            <h2 className="mb-[32px] md:mb-[48px]">Другие услуги</h2>
 
             <div className="flex items-center flex-wrap gap-[26px]">
               {services?.servicesClinic.dopServices.map(

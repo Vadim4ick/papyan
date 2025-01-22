@@ -55,7 +55,7 @@ export default function Page({ params }: { params: { slug: string } }) {
                 </div>
               </div>
 
-              <div className="flex flex-col gap-[64px]">
+              <div className="flex flex-col gap-[36px] md:gap-[48px] lg:gap-[64px]">
                 <ReactMarkdown
                   components={{
                     p: ({ children }) => {
@@ -80,7 +80,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 
                     ul: ({ children }) => {
                       return (
-                        <ul className="flex flex-col items-center justify-center md:flex-row lg:justify-start gap-[20px]">
+                        <ul className="flex flex-col items-center justify-center md:flex-row lg:justify-start gap-y-4 gap-x-5">
                           {children}
                         </ul>
                       );
@@ -92,7 +92,7 @@ export default function Page({ params }: { params: { slug: string } }) {
               </div>
             </div>
             <div className="md:hidden lg:block relative w-full ">
-              <div className="xl:sticky top-[100px] max-w-fit mx-auto md:ml-auto">
+              <div className="xl:sticky top-[100px] md:max-w-fit mx-auto md:ml-auto">
                 <GetConsultCard
                   title={service.services_by_id.title}
                   regularPrice={service.services_by_id.price}
@@ -110,7 +110,7 @@ export default function Page({ params }: { params: { slug: string } }) {
           {serviceBlocks?.servicesBlock[0] &&
             serviceBlocks.servicesBlock[0].allServices.length > 1 && (
               <>
-                <h3 className="mb-[20px] md:mb-[24px]  ">Другие услуги</h3>
+                <h3 className="mb-[20px] md:mb-[24px] ">Другие услуги</h3>
 
                 <SliderWrapper
                   btns={{

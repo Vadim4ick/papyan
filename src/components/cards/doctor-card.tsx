@@ -1,47 +1,57 @@
 import React from "react";
 import Image from "next/image";
 import { cn, pathImage } from "@/shared/lib/utils";
-import { RoundButton } from "./round-button";
-import { MediaFragmentFragment } from "@/graphql/__generated__";
-import { Badge } from "./badge";
+import { RoundButton } from "../ui/round-button";
+import { GetAllDoctorsQuery } from "@/graphql/__generated__";
+import { Badge } from "../ui/badge";
 import { useRouter } from "next/navigation";
 import { ArrowUpRight } from "@/shared/icons/ArrowUpRight";
 import Link from "next/link";
 
-interface ImageCardProps {
-  imageData: MediaFragmentFragment;
+interface DoctorCardProps {
+  doctor: GetAllDoctorsQuery["doctors"][0];
   className?: string;
   bages?: string[];
-  catigoryId?: string;
+  badgecolor?: string;
 }
 
-const ImageCard: React.FC<ImageCardProps> = ({
-  imageData,
+const DoctorCard: React.FC<DoctorCardProps> = ({
+  doctor,
   bages,
   className,
-  catigoryId,
+  badgecolor,
 }) => {
+  console.log("🚀 ~ doctor:", doctor.name);
   const router = useRouter();
+
+  if (!doctor) return null;
   return (
-    <Link href={`/uslugi/${catigoryId}`}>
+    <Link href={`/doctor/${doctor.id}`}>
       <div
-        className={cn(
-          "w-[350px] h-[262px] md:w-[357px] md:h-[394px] xl:w-[380px] xl:h-[418px]  relative space-y-3 overflow-hidden rounded-md group",
-          className
-        )}
+        className={cn(" space-y-3 overflow-hidden rounded-md group", className)}
       >
-        <Image
-          width={380}
-          height={418}
-          src={pathImage(imageData.id)}
-          alt={imageData.title}
-          className="h-full w-full object-cover transition-transform group-hover:scale-105 duration-450"
-        />
+        <div className="w-[289px] h-[350x] md:w-[311px] md:h-[377px] xl:w-[316px] xl:h-[383px] relative overflow-hidden mb-3 rounded-lg">
+          <Image
+            width={380}
+            height={418}
+            src={pathImage(doctor.img.id)}
+            alt={doctor.name}
+            className="h-full w-full object-cover transition-transform group-hover:scale-105 duration-450"
+          />
+        </div>
+
+        <Badge
+          variant="secondary"
+          className={`mb-2 xl:mb-[8px] py-[6px] px-[14px] hover:bg-transparent w-fit ${badgecolor}`}
+        >
+          {doctor.post}
+        </Badge>
+        <p className="text-left text-[16px] leading-[22px]">{doctor.name}</p>
 
         <div className="absolute -top-[24px] right-[14px]">
           <RoundButton
             variant="default"
-            onClick={() => router.push(`/uslugi/${catigoryId}`)}
+            onClick={() => router.push(`/doctor/${doctor.id}`)}
             className="md:opacity-0 md:group-hover:opacity-100 md:group-hover:translate-y-[24px] max-md:translate-y-[24px] duration-450 transition-all h-9 w-9 ease-out"
           >
             <ArrowUpRight />
@@ -67,4 +77,4 @@ const ImageCard: React.FC<ImageCardProps> = ({
   );
 };
 
-export default ImageCard;
+export default DoctorCard;
