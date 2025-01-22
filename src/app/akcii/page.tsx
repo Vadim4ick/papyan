@@ -98,7 +98,7 @@ export default function Akcii() {
 
         <div className="container mx-auto max-w-[1364px] px-[20px] flex flex-col gap-y-[48px] items-center xl:flex-row justify-between xl:items-end">
           {services && services?.servicesClinic.dopServices.length > 0 && (
-            <div className="flex flex-col md:flex-row gap-y-[24px] items-center gap-x-[26px] overflow-x-auto">
+            <div className="flex flex-col md:flex-row gap-y-[36px] items-center gap-x-[26px] overflow-x-auto">
               {services?.servicesClinic.dopServices.map(
                 ({ servicesBlock_id }) => (
                   <CategoriesGalery
