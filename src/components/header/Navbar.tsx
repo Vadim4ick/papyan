@@ -14,7 +14,7 @@ const Navbar: React.FC<NavbarProps> = ({ onLinkClick }) => {
   const pathname = usePathname();
 
   return (
-    <nav className="flex flex-col items-start text-sm font-medium lg:flex-row lg:h-10 py-2 bg-[#EDF1F5] rounded-lg group transition-all max-md:gap-4">
+    <nav className="flex flex-col items-start text-sm font-medium lg:flex-row lg:h-10 py-2 bg-[#EDF1F5] rounded-lg group transition-all gap-y-[25px] ">
       {navbar.map((item) => {
         const isActive = pathname === item.path;
 
@@ -37,7 +37,7 @@ const Navbar: React.FC<NavbarProps> = ({ onLinkClick }) => {
               )}
               href={item.path}
             >
-              <span className="flex-1 max-md:text-start max-md:text-[#353535]">
+              <span className="flex-1 max-lg:text-start max-md:text-[#353535]">
                 {item.title}
               </span>
               <ChevronRight className="h-[22px] md:h-[24px] lg:hidden" />

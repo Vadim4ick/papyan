@@ -11,6 +11,7 @@ import "./header.css";
 import { ContactCard } from "../cards/contact-card";
 import { ContactData } from "@/shared/const/moc-data";
 import { DialogForm } from "../modal/dialog";
+import LogoMobile from "@/shared/icons/Logo-mobile";
 
 const contacts = ContactData;
 
@@ -37,7 +38,9 @@ const Header = () => {
 
           {/* Логотип */}
           <Link href={"/"} className="flex z-50">
-            <Logo />
+          <span className="hidden md:block"><Logo /></span>
+          <span className="md:hidden"><LogoMobile/></span>
+            
           </Link>
 
           {/* Кнопка "Записаться онлайн" для десктопа */}
@@ -101,20 +104,20 @@ const Header = () => {
 
       {/* Плавно появляющаяся кнопка внизу */}
       <div
-        className={`fixed bottom-0 left-0 p-4 w-full flex justify-center  z-40 ${
+        className={`fixed bottom-0 left-0 pb-8 px-5 md:pb-12 w-full flex justify-center z-40 ${
           menuOpen
             ? "translate-y-0 opacity-100"
             : "translate-y-full opacity-0 block"
         } button-transition`}
       >
-        <div className="flex flex-col items-center gap-[32px] lg:hidden max-md:gap-[24px] max-md:w-full">
+        <div className="flex flex-col items-center gap-[32px] lg:hidden max-md:gap-[24px] w-full md:w-[382px]">
           <ContactCard
             address={contacts.address}
             schedule={contacts.schedule}
             phone={contacts.phone}
           />
           <DialogForm>
-            <Button variant="default" className="w-full max-md:h-[48px]">
+            <Button variant="default" className="w-full h-[48px] md:h-[54px]">
               Записаться онлайн
             </Button>
           </DialogForm>
