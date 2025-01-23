@@ -261,7 +261,7 @@ const Footer = () => {
 
               <motion.div
                 variants={goVariants}
-                className="absolute left-4 font-['Jeko'] font-semibold text-[#787878] text-[12px] leading-[14.82px]"
+                className="absolute left-[20px] font-['Jeko'] font-semibold text-[#787878] text-[12px] leading-[14.82px]"
               >
                 <a
                   className="text-[12px] leading-[14.82px] text-white flex items-center gap-[3px]"
