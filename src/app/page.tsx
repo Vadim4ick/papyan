@@ -158,7 +158,14 @@ export default function Home() {
                           </div>
 
                           <div className="flex items-center w-full justify-between gap-4 max-lg:flex-col max-md:flex-col-reverse">
-                            <Button className="w-full h-[54px] max-lg:h-[48px] bg-[#1467E1] text-[15px] leading-[20px] tracking-[-0.15px]">
+                            <Button
+                              motionProps={{
+                                stiffness: 142.2,
+                                damping: 26.67,
+                                mass: 1,
+                              }}
+                              className="w-full h-[54px] duration-450 max-lg:h-[48px] bg-[#1467E1] text-[15px] leading-[20px] tracking-[-0.15px]"
+                            >
                               Получить консультацию
                             </Button>
 
@@ -287,8 +294,13 @@ export default function Home() {
                 </h2>
                 <Button
                   variant="secondary"
+                  motionProps={{
+                    stiffness: 142.2,
+                    damping: 26.67,
+                    mass: 1,
+                  }}
                   onClick={() => router.push(`/oklinike/`)}
-                  className="hidden md:flex"
+                  className="hidden md:flex duration-450"
                 >
                   О клинике{" "}
                   <span className="ms-[5px] mt-[3px]">
@@ -308,8 +320,13 @@ export default function Home() {
             </div>
             <Button
               variant="secondary"
+              motionProps={{
+                stiffness: 142.2,
+                damping: 26.67,
+                mass: 1,
+              }}
               onClick={() => router.push(`/oklinike/`)}
-              className="mb-[72px] md:hidden"
+              className="mb-[72px] md:hidden duration-450"
             >
               О клинике{" "}
               <span className="ms-[5px] mt-[3px]">
@@ -414,14 +431,27 @@ export default function Home() {
                 </div>
 
                 <Button
+                  motionProps={{
+                    stiffness: 142.2,
+                    damping: 26.67,
+                    mass: 1,
+                  }}
                   variant={"secondary"}
-                  className="h-[48px] lg:hidden w-full max-md:mt-[12px]"
+                  className="h-[48px] lg:hidden w-full max-md:mt-[12px] duration-450"
                 >
                   Получить консультацию
                 </Button>
               </div>
 
-              <Button variant={"secondary"} className="h-[48px] max-lg:hidden">
+              <Button
+                motionProps={{
+                  stiffness: 142.2,
+                  damping: 26.67,
+                  mass: 1,
+                }}
+                variant={"secondary"}
+                className="h-[48px] max-lg:hidden duration-450"
+              >
                 Получить консультацию
               </Button>
             </div>
@@ -490,8 +520,15 @@ export default function Home() {
                     )}
                   </InputMask>
 
-                  <Button className="bg-[#1467E1] w-full max-w-[267px] h-[54px] text-[15px] leading-[20px] tracking-[-0.3px] max-md:max-w-full">
-                    Перезвонить мне
+                  <Button
+                    motionProps={{
+                      stiffness: 142.2,
+                      damping: 26.67,
+                      mass: 1,
+                    }}
+                    className="bg-[#1467E1] duration-450 w-full max-w-[267px] h-[54px] text-[15px] leading-[20px] tracking-[-0.3px] max-md:max-w-full"
+                  >
+                    Как записаться онлайн
                   </Button>
                 </div>
 

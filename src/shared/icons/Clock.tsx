@@ -14,16 +14,16 @@ const Clock = () => {
       <path
         d="M10 5.36362V10.2727"
         stroke="#0084FF"
-        stroke-width="1.8"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M9.99988 10.2727L6.69324 12.1818"
         stroke="#0084FF"
-        stroke-width="1.8"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

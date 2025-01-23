@@ -72,6 +72,7 @@ function SliderWrapper({
         slidesPerView={"auto"}
         spaceBetween={isMobile ? 16 : 20}
         modules={[Pagination, Navigation]}
+        speed={450}
         scrollbar={{ draggable: true }}
         navigation={{
           nextEl: `.${btns.next}`,

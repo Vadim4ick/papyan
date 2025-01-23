@@ -52,7 +52,15 @@ function GetConsultCard({
             )}
           </div>
         </CardDescription>
-        <Button className="w-full" variant="secondary">
+        <Button
+          motionProps={{
+            stiffness: 142.2,
+            damping: 26.67,
+            mass: 1,
+          }}
+          className="w-full duration-450"
+          variant="secondary"
+        >
           Получить консультацию
         </Button>
       </CardContent>
