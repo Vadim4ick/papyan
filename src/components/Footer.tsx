@@ -156,7 +156,7 @@ const Footer = () => {
           <DialogForm>
             <Button
               variant="white"
-              className="md:hidden ease-out duration-350 w-full h-[48px] duration-350 ease-out"
+              className="md:hidden ease-out w-full h-[48px] duration-350"
             >
               Записаться онлайн
             </Button>

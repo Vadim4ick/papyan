@@ -31,11 +31,12 @@ const ImageCard: React.FC<ImageCardProps> = ({
         )}
       >
         <Image
+          style={{ transition: "all 450ms cubic-bezier(0.25, 0.1, 0.25, 1)" }}
           width={380}
           height={418}
           src={pathImage(imageData.id)}
           alt={imageData.title}
-          className="h-full w-full object-cover transition-transform group-hover:scale-105 duration-450"
+          className="h-full w-full object-cover transition-transform group-hover:scale-105"
         />
 
         <div className="absolute -top-[24px] right-[14px]">
