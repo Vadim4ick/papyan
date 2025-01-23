@@ -38,23 +38,18 @@ const Header = () => {
 
           {/* Логотип */}
           <Link href={"/"} className="flex z-50">
-          <span className="hidden md:block"><Logo /></span>
-          <span className="md:hidden"><LogoMobile/></span>
-            
+            <span className="hidden md:block">
+              <Logo />
+            </span>
+            <span className="md:hidden">
+              <LogoMobile />
+            </span>
           </Link>
 
           {/* Кнопка "Записаться онлайн" для десктопа */}
           <div className="hidden lg:flex z-50">
             <DialogForm>
-              <Button
-                motionProps={{
-                  stiffness: 142.2,
-                  damping: 26.67,
-                  mass: 1,
-                }}
-                className="duration-450"
-                variant="default"
-              >
+              <Button className="duration-350 ease-out" variant="default">
                 Записаться онлайн
               </Button>
             </DialogForm>
@@ -117,7 +112,10 @@ const Header = () => {
             phone={contacts.phone}
           />
           <DialogForm>
-            <Button variant="default" className="w-full h-[48px] md:h-[54px]">
+            <Button
+              variant="default"
+              className="w-full duration-350 ease-out h-[48px] md:h-[54px]"
+            >
               Записаться онлайн
             </Button>
           </DialogForm>
