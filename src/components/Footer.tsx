@@ -69,13 +69,8 @@ const Footer = () => {
 
             <DialogForm>
               <Button
-                motionProps={{
-                  stiffness: 142.2,
-                  damping: 26.67,
-                  mass: 1,
-                }}
                 variant="white"
-                className="hidden duration-450 md:block"
+                className="hidden md:block duration-350 ease-out"
               >
                 Записаться онлайн
               </Button>
@@ -161,7 +156,7 @@ const Footer = () => {
           <DialogForm>
             <Button
               variant="white"
-              className="md:hidden ease-out duration-350 w-full h-[48px]"
+              className="md:hidden ease-out duration-350 w-full h-[48px] duration-350 ease-out"
             >
               Записаться онлайн
             </Button>

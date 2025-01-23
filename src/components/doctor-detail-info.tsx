@@ -77,7 +77,7 @@ const DoctorDetailInfo = ({
             {doctors.education && (
               <div className="mb-[32px]">
                 <p className="leading-[21.86px] font-semibold mb-4 md:mb-2">
-                  Образование1:
+                  Образование:
                 </p>
 
                 <ReactMarkdown

@@ -6,27 +6,10 @@ function AllButtons() {
     <div className="h-full flex flex-wrap gap-5 p-20 bg-[#EBEFF3]">
       <div className="flex flex-col bg-[#1E1E1E] items-center p-8 gap-5 w-[350px] shadow-lg">
         <h1 className="text-white py-5">Secondary button</h1>
-        <Button
-          motionProps={{
-            stiffness: 142.2,
-            damping: 26.67,
-            mass: 1,
-          }}
-          className="duration-450"
-          variant="default"
-        >
+        <Button className="duration-350 ease-out" variant="default">
           Записаться онлайн
         </Button>
-        <Button
-          motionProps={{
-            stiffness: 142.2,
-            damping: 26.67,
-            mass: 1,
-          }}
-          className="duration-450"
-          variant="default"
-          disabled
-        >
+        <Button className="duration-350 ease-out" variant="default" disabled>
           Записаться онлайн
         </Button>
       </div>
@@ -93,27 +76,10 @@ function AllButtons() {
 
       <div className="flex flex-col bg-[#1E1E1E] items-center p-8 gap-5 w-[350px] shadow-lg">
         <h1 className="text-white py-5">Stroke button</h1>
-        <Button
-          motionProps={{
-            stiffness: 142.2,
-            damping: 26.67,
-            mass: 1,
-          }}
-          className="duration-450"
-          variant="white"
-        >
+        <Button className="duration-350 ease-out" variant="white">
           Записаться онлайн
         </Button>
-        <Button
-          motionProps={{
-            stiffness: 142.2,
-            damping: 26.67,
-            mass: 1,
-          }}
-          className="duration-450"
-          variant="white"
-          disabled
-        >
+        <Button className="duration-350 ease-out" variant="white" disabled>
           Записаться онлайн
         </Button>
       </div>
