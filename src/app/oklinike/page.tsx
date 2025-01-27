@@ -101,7 +101,9 @@ export default function About() {
               </ContactCardV2>
             </div>
           </div>
+        </div>
 
+        <div className="container mx-auto max-w-[1364px] pl-5 md:px-5">
           {data && data?.about_page.slider.length > 0 && (
             <div>
               <div className="flex gap-[6px] mb-[24px] md:mb-[38px] xl:mb-[24px]">
@@ -196,14 +198,14 @@ export default function About() {
 
         <div className="container mx-auto max-w-[1364px] px-[20px] flex flex-col gap-y-[48px] items-center xl:flex-row justify-between xl:items-end">
           {services && services?.servicesClinic.dopServices.length > 0 && (
-            <div className="flex flex-col md:flex-row gap-y-[36px] items-center gap-x-[26px] overflow-x-auto">
+            <div className="flex flex-col md:flex-row gap-y-[36px] max-md:w-full items-center justify-center gap-x-[26px] overflow-x-auto">
               {services?.servicesClinic.dopServices.map(
                 ({ servicesBlock_id }) => (
                   <CategoriesGalery
                     key={servicesBlock_id.id}
                     bages={false}
                     category={servicesBlock_id}
-                    cardWidth="w-[350px] md:w-[377px] xl:w-[380px]"
+                    cardWidth="min-w-[350px] md:w-[377px] xl:w-[380px]"
                     cardHeight="h-[238px] md:h-[187px] xl:h-[199px]"
                   />
                 )

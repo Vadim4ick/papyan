@@ -242,14 +242,14 @@ export default function Home() {
 
         <div className="container mx-auto max-w-[1364px] px-[20px] flex flex-col gap-y-[48px] items-center xl:flex-row justify-between xl:items-end">
           {services && services?.servicesClinic.dopServices.length > 0 && (
-            <div className="flex flex-col md:flex-row gap-y-[24px] max-md:w-full items-center gap-x-[26px] overflow-x-auto max-md:gap-[36px]">
+            <div className="flex flex-col md:flex-row gap-y-[24px] max-md:w-full justify-center items-center gap-x-[26px] overflow-x-auto max-md:gap-[36px]">
               {services?.servicesClinic.dopServices.map(
                 ({ servicesBlock_id }) => (
                   <CategoriesGalery
                     key={servicesBlock_id.id}
                     bages={false}
                     category={servicesBlock_id}
-                    cardWidth="w-[350px] md:w-[377px] xl:w-[380px]"
+                    cardWidth="min-w-[350px] md:w-[377px] xl:w-[380px]"
                     cardHeight=" h-[238px] md:h-[187px] xl:h-[199px]"
                   />
                 )
