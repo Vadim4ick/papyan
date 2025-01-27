@@ -114,7 +114,7 @@ const Header = () => {
           <DialogForm>
             <Button
               variant="default"
-              className="w-full duration-350 ease-out h-[48px] md:h-[54px]"
+              className="w-full h-[48px] md:h-[54px] max-md:text-[15px] max-md:leading-[18px] max-md:tracking-[-0.3px]"
             >
               Записаться онлайн
             </Button>

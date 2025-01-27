@@ -22,12 +22,12 @@ const CategoriesGalery: React.FC<CategoriesGaleryProps> = ({
   cardHeight,
   variantBageBg = "default",
   bages = true,
-}) => {  
+}) => {
   const isMobile = useClientMediaQuery("(max-width: 768px)");
   if (!category) return;
 
   return (
-    <div>
+    <div className="max-md:w-full">
       <TitleWithBadge
         bgcolor="bg-[#F0F3F8]"
         tittle={category.title}
@@ -37,10 +37,12 @@ const CategoriesGalery: React.FC<CategoriesGaleryProps> = ({
       />
       <ImageCard
         imageData={category.img}
-         bages={
-          !isMobile && bages ? category.allServices.map((service) => service.title) : []
+        bages={
+          !isMobile && bages
+            ? category.allServices.map((service) => service.title)
+            : []
         }
-        className={`${cardWidth} ${cardHeight}  max-md:h-[199px]`}
+        className={`${cardWidth} ${cardHeight}  max-md:h-[199px] max-md:w-full`}
         catigoryId={category.id}
       />
     </div>
