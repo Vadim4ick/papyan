@@ -55,6 +55,7 @@ function AllButtons() {
             damping: 26.67,
             mass: 1,
           }}
+          style={{ transition: "all 450ms cubic-bezier(0.25, 0.1, 0.25, 1)" }}
           className="duration-450"
           variant="stroke"
         >
@@ -66,6 +67,7 @@ function AllButtons() {
             damping: 26.67,
             mass: 1,
           }}
+          style={{ transition: "all 450ms cubic-bezier(0.25, 0.1, 0.25, 1)" }}
           className="duration-450"
           variant="stroke"
           disabled

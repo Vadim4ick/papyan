@@ -44,6 +44,7 @@ function ServiceCardItem({ card }: ServiceCardItemProps) {
             damping: 26.67,
             mass: 1,
           }}
+          style={{ transition: "all 450ms cubic-bezier(0.25, 0.1, 0.25, 1)" }}
           className="z-10 duration-450"
           variant="stroke"
           onClick={() => router.push(`/therapy/${card.id}`)}
