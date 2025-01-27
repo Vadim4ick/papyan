@@ -28,9 +28,19 @@ const ServiceCardsWrapper = ({
       {!showFullList
         ? cardsList
             .slice(0, numberOfCardsToRender)
-            .map((item) => <ServiceCardItem key={item.id} card={item} />)
+            .map((item) => (
+              <ServiceCardItem
+                key={item.id}
+                card={item}
+                className="max-md:w-full"
+              />
+            ))
         : cardsList.map((item) => (
-            <ServiceCardItem key={item.id} card={item} />
+            <ServiceCardItem
+              key={item.id}
+              card={item}
+              className="max-md:w-full"
+            />
           ))}
     </div>
   );
