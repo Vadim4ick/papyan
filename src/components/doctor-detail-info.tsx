@@ -56,7 +56,7 @@ const DoctorDetailInfo = ({
           <div className="absolute bottom-0 w-full h-[112px] z-10 backdrop-blur-md bg-white/5"></div>
         </div>
         <div className="flex flex-col justify-between  md:min-h-[540px]">
-          <div className="max-w-[377px] lg:max-w-[512px]">
+          <div className="md:max-w-[377px] lg:max-w-[512px]">
             {doctors.post && (
               <Badge
                 variant="secondary"
