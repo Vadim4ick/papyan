@@ -62,7 +62,7 @@ function ImageSliderWrapper({
                   mass: 1,
                 }}
                 variant="arrow"
-                classArrow={"!me-[0.5px] !ms-[0px]"}
+                classArrow={"!me-[2px] !ms-[0px]"}
                 className={`${btns.prev} ${btnBg} pe-[2px] duration-450`}
               >
                 <ChevronLeft strokeWidth={2.5} width={22} />
