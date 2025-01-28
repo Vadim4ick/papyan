@@ -126,4 +126,8 @@ body {
   .section {
     @apply pt-[32px] md:pt-[48px] lg:pt-[64px] pb-[72px] md:pb-[78px] lg:pb-[100px];
   }
+
+  .therapy-list li {
+    @apply w-full
+  }
 }

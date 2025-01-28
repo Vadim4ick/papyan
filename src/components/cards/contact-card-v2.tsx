@@ -32,7 +32,7 @@ function ContactCardV2({
           </div>
         )}
         {phone && (
-          <div style={isMobile ? { gridRowStart: 1 } : {}}>
+          <div style={isMobile ? { gridRowStart: 1 } : {gridRowStart: 1}}>
             <p className="text-[14px] leading-[18.2px] tracking-tight text-[#929292]">
               Телефон для справок
             </p>

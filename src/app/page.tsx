@@ -239,7 +239,7 @@ export default function Home() {
           services={services}
         />
 
-        <div className="container mx-auto px-[20px] flex flex-col gap-y-[48px] items-center xl:flex-row justify-between xl:items-end">
+        <div className="container max-w-[1364px] mx-auto px-[20px] flex flex-col gap-y-[48px] items-center xl:flex-row justify-between xl:items-end">
           {services && services?.servicesClinic.dopServices.length > 0 && (
             <div className="flex flex-col md:flex-row gap-y-[24px] max-md:w-full justify-center items-center gap-x-[26px] overflow-x-auto max-md:gap-[36px]">
               {services?.servicesClinic.dopServices.map(

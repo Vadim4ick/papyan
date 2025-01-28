@@ -55,7 +55,7 @@ const SpecialistsList = ({
               className="w-full flex justify-center"
               
             >
-              <div className="items-center relative w-[350px] h-[467px] md:w-[357px] md:h-[482px] xl:w-[316px] xl:h-[383px] rounded-lg overflow-hidden  group">
+              <div className="items-center relative w-full h-[467px] md:w-[357px] md:h-[482px] xl:w-[316px] xl:h-[383px] rounded-lg overflow-hidden  group">
                 <Image
                   width={380}
                   height={418}

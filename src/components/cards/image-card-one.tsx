@@ -18,7 +18,7 @@ const ImageCardOne: React.FC<ImageCardOneProps> = ({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-md group w-full h-full",
+        "relative overflow-hidden rounded-lg group w-full h-full",
         className
       )}
     >
