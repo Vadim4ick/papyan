@@ -16,7 +16,7 @@ const DoctorDetailInfo = ({
   return (
     <>
       <div className="relative min-h-[540px] mb-[32px] md:mb-0 flex flex-col-reverse items-center gap-y-[32px] md:items-start md:flex-row gap-x-[40px] xl:gap-x-[48px]">
-        <div className="items-center relative ] w-[350px] h-[467px] md:w-[357px] md:h-[482px] xl:w-[400px] xl:h-[540px] overflow-hidden rounded-md group">
+        <div className="items-center relative ] w-full h-[467px] md:w-[357px] md:h-[482px] xl:w-[400px] xl:h-[540px] overflow-hidden rounded-md group">
           <Image
             width={380}
             height={418}
