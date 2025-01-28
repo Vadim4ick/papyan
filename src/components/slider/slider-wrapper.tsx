@@ -46,7 +46,7 @@ function SliderWrapper({
             <Button
               variant="arrow"
               className={`${btns.prev} pe-[2px] duration-450`}
-              classArrow={"!me-[0.5px] !ms-[0px]"}
+              classArrow={"!me-[2px] !ms-[0px]"}
               motionProps={{
                 stiffness: 142.2,
                 damping: 26.67,

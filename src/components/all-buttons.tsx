@@ -102,7 +102,7 @@ function AllButtons() {
             damping: 26.67,
             mass: 1,
           }}
-          classArrow={"!me-[0.5px] !ms-[0px]"}
+          classArrow={"!me-[2px] !ms-[0px]"}
           variant="arrow"
         >
           <ChevronRight width={20} />
