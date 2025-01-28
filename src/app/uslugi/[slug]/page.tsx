@@ -38,9 +38,9 @@ export default function Page({ params }: { params: { slug: string } }) {
             description={data.servicesBlock_by_id.description || ""}
           />
 
-          <div className="flex flex-col md:flex-row justify-between md:gap-[40px] xl:gap-[130px]">
-            <div className="w-[350px] md:w-[357px xl:w-[380px] mb-[60px] md:mb-[0px]">
-              <div className=" h-[301px] ] md:h-[394px]  xl:h-[418px] mb-[36px] md:mb-[48px] overflow-hidden rounded-md group">
+          <div className="flex flex-col md:flex-row  justify-between md:gap-[40px] xl:gap-[130px]">
+            <div className="min-w-[350px] md:w-[357px] xl:w-[380px] mb-[60px] md:mb-[0px]">
+              <div className=" h-[262px] ] md:h-[394px]  xl:h-[418px] mb-[36px] md:mb-[48px] overflow-hidden rounded-md group">
                 <Image
                   width={380}
                   height={418}

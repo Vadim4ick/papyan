@@ -59,7 +59,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 
       {doctor?.slider?.length > 0 && (
         <section className="section ">
-          <div className="container mx-auto max-w-[1364px] px-[20px]">
+          <div className="container mx-auto max-w-[1364px] pl-5 md:px-5">
             <div className="flex gap-[6px] mb-[24px] md:mb-[38px] xl:mb-[24px]">
               <BadgeWithIcon
                 className="bg-[#EBEFF3]"

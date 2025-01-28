@@ -42,7 +42,7 @@ export default function Akcii() {
       <section className="section">
         <div className="container mx-auto max-w-[1364px] px-[20px]">
           <SectionHeader
-            className="mb-[20px] lg:mb-[48px]"
+            className="mb-[36px] lg:mb-[48px]"
             title={data?.stock_page.title || ""}
             description={data?.stock_page.description || ""}
           />
@@ -50,11 +50,11 @@ export default function Akcii() {
 
         <div className="container mx-auto max-w-[1364px] px-[20px]">
           <h1>{isTablet}</h1>
-          <div className="flex flex-wrap gap-4 ">
+          <div className="flex flex-wrap gap-y-3 md:gap-y-4">
             {rows.map((row, rowIndex) => (
               <div
                 key={rowIndex}
-                className={`flex flex-wrap gap-4 w-full justify-between ${
+                className={`flex flex-wrap gap- w-full justify-between ${
                   rowIndex % 2 === 1 ? "" : "flex-row-reverse"
                 } flex gap-4`}
               >
@@ -98,15 +98,15 @@ export default function Akcii() {
 
         <div className="container mx-auto max-w-[1364px] px-[20px] flex flex-col gap-y-[48px] items-center xl:flex-row justify-between xl:items-end">
           {services && services?.servicesClinic.dopServices.length > 0 && (
-            <div className="flex flex-col md:flex-row gap-y-[36px] items-center gap-x-[26px] overflow-x-auto">
+            <div className="flex flex-col md:flex-row gap-y-[36px] max-md:w-full items-center gap-x-[26px] overflow-x-auto">
               {services?.servicesClinic.dopServices.map(
                 ({ servicesBlock_id }) => (
                   <CategoriesGalery
                     key={servicesBlock_id.id}
                     bages={false}
                     category={servicesBlock_id}
-                    cardWidth="w-[350px] md:w-[377px] xl:w-[380px]"
-                    cardHeight="h-[238px] md:h-[187px] xl:h-[199px]"
+                    cardWidth="w-full md:w-[377px] xl:w-[380px]"
+                    cardHeight="h-[199px] md:h-[187px] xl:h-[199px]"
                   />
                 )
               )}

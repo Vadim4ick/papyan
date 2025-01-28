@@ -42,7 +42,7 @@ const CategoriesGalery: React.FC<CategoriesGaleryProps> = ({
             ? category.allServices.map((service) => service.title)
             : []
         }
-        className={`${cardWidth} ${cardHeight}  max-md:h-[199px] max-md:w-full`}
+        className={`${cardWidth} ${cardHeight} `}
         catigoryId={category.id}
       />
     </div>
