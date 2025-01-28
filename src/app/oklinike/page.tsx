@@ -205,8 +205,8 @@ export default function About() {
                     key={servicesBlock_id.id}
                     bages={false}
                     category={servicesBlock_id}
-                    cardWidth="min-w-[350px] md:w-[377px] xl:w-[380px]"
-                    cardHeight="h-[238px] md:h-[187px] xl:h-[199px]"
+                    cardWidth="w-full md:w-[377px] xl:w-[380px]"
+                    cardHeight="h-[199px] md:h-[187px] xl:h-[199px]"
                   />
                 )
               )}
