@@ -64,7 +64,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 
                     img: ({ src }) => {
                       return (
-                        <div className="w-[350px] h-[467px] md:w-[377px] md:h-[416px] xl:w-[396px] xl:h-[418px] overflow-hidden group">
+                        <div className="w-full h-[467px] md:w-[377px] md:h-[416px] xl:w-[396px] xl:h-[418px] overflow-hidden group">
                           {src && (
                             <Image
                               width={380}
@@ -80,7 +80,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 
                     ul: ({ children }) => {
                       return (
-                        <ul className="flex flex-col items-center justify-center md:flex-row lg:justify-start gap-y-4 gap-x-5">
+                        <ul className="therapy-list flex flex-col items-center justify-center md:flex-row lg:justify-start gap-y-4 gap-x-5">
                           {children}
                         </ul>
                       );
