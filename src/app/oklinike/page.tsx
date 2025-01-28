@@ -42,7 +42,7 @@ export default function About() {
       <section className="section bg-[#F0F3F8]">
         <div className="container mx-auto max-w-[1364px] px-[20px]">
           <div className="flex flex-col items-center md:items-stretch gap-y-[60px] md:flex-row justify-between mb-[72px] md:mb-[78px] lg:mb-[60px]">
-            <div className="md: max-w-[377px] xl:max-w-[651px]">
+            <div className="md:max-w-[377px] xl:max-w-[651px]">
               {data?.about_page.title && (
                 <h1 className="mb-[32px] lg:mb-[40px]">
                   {data?.about_page.title}
