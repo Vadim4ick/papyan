@@ -47,7 +47,6 @@ export type ImageType = {
     height: number | null;
   };
 };
-
 export default function Home() {
   const router = useRouter();
   const { data, isLoading } = useGetHomePage();
