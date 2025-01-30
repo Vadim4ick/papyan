@@ -26,9 +26,7 @@ const DoctorCard: React.FC<DoctorCardProps> = ({
   if (!doctor) return null;
   return (
     <Link href={`/doctor/${doctor.id}`}>
-      <div
-        className={cn(" group", className)}
-      >
+      <div className={cn(" group", className)}>
         <div className="w-[289px] h-[350px] md:w-[311px] md:h-[377px] xl:w-[316px] xl:h-[383px] relative overflow-hidden mb-3 rounded-lg">
           <Image
             width={380}
@@ -53,7 +51,7 @@ const DoctorCard: React.FC<DoctorCardProps> = ({
             onClick={() => router.push(`/doctor/${doctor.id}`)}
             className="md:opacity-0 md:group-hover:opacity-100 md:group-hover:translate-y-[24px] max-md:translate-y-[24px] duration-450 transition-all h-9 w-9 ease-out"
           >
-            <ArrowUpRight />
+            <ArrowUpRight className="text-[#E7402A]" />
           </RoundButton>
         </div>
         {bages && bages?.length > 0 && (

@@ -65,7 +65,7 @@ const Footer = () => {
       <Container className="max-md:px-[40px]">
         <div className="flex flex-col items-center justify-between gap-y-[64px] lg:flex-row mb-[72px] lg:mb-[85px] lg:px-0">
           <div className="w-full lg:max-w-fit flex md:flex-row lg:flex-col gap-4 lg:gap-y-[58px] justify-between max-md:justify-center">
-            <LogoFooter className="max-md:h-[72px] max-md:w-[263px]" />
+            <LogoFooter className="max-md:h-[62px] max-md:w-[310px]" />
 
             <DialogForm>
               <Button

@@ -15,7 +15,7 @@ const badgeVariants = cva(
           " bg-[#FFFFFF] text-[#1467E1] text-[14px] leading-[18.2px] tracking-tight hover:bg-secondary/80",
         thretiary:
           " bg-[#EBEFF3]/70 backdrop-blur-[20px] text-[#353535] text-[12px] leading-[15.6px]",
-        discont: "bg-[#85D068]",
+        discont: "bg-[#E7402A]",
       },
     },
     defaultVariants: {

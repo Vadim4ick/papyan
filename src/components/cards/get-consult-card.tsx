@@ -29,11 +29,13 @@ function GetConsultCard({
     <Card className="w-full md:w-[316px] border-none ">
       <CardHeader className="h-[44px] w-full p-0 rounded-lg bg-[#EFF3F7] mb-[6px]">
         <CardTitle className=" flex justify-start items-center px-5 py-3 ">
-          <p className="line-clamp-1 text-[#353535] text-[16px] leading-[20px] tracking-tight font-semibold">{title}</p>
+          <p className="line-clamp-1 text-[#353535] text-[16px] leading-[20px] tracking-tight font-semibold">
+            {title}
+          </p>
         </CardTitle>
       </CardHeader>
       <CardContent className="relative h-[174px] flex flex-col rounded-lg bg-[#EFF3F7] p-[20px]">
-        <div className="absolute top-0 right-[20px] w-[70px] h-[24px] flex justify-center items-center bg-[#72D459] rounded-b-md text-white text-[14px] font-semibold leading-[19.12px]">
+        <div className="absolute top-0 right-[20px] w-[70px] h-[24px] flex justify-center items-center bg-[#E7402A] rounded-b-md text-white text-[14px] font-semibold leading-[19.12px]">
           -15%
         </div>
         <CardDescription className="flex-1">

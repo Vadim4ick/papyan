@@ -45,7 +45,7 @@ const ImageCard: React.FC<ImageCardProps> = ({
             onClick={() => router.push(`/uslugi/${catigoryId}`)}
             className="md:opacity-0 md:group-hover:opacity-100 md:group-hover:translate-y-[24px] max-md:translate-y-[24px] duration-450 transition-all h-9 w-9 ease-out"
           >
-            <ArrowUpRight />
+            <ArrowUpRight className="text-[#E7402A]" />
           </RoundButton>
         </div>
         {bages && bages?.length > 0 && (
