@@ -75,8 +75,8 @@ const buttonVariants = cva(
           bg-[#EBEFF3] rounded-full
           transition-all duration-300 ease-out
           text-[#353535] text-[15px]
-          hover:text-[#1467E1] hover:border-[1px] hover:border-[#0084FF]
-          active:text-[#0084FF]
+          hover:text-[#E7402A] hover:border-[1px] hover:border-[#E7402A]
+          active:text-[#E7402A]
           disabled:text-[#C6C6C6] disabled:cursor-not-allowed
         `,
       },
