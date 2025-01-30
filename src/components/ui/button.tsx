@@ -41,8 +41,7 @@ const buttonVariants = cva(
           bg-transparent border border-[#353535] rounded-full
           overflow-hidden
           transition-all duration-450 ease-out
-          hover:text-secondary
-          active:delay-[100ms] active:duration-[450ms] active:text-[11px]
+          hover:text-secondary active:duration-[450ms] active:text-[11px]
           disabled:border-[#C6C6C6] disabled:bg-transparent disabled:text-[#C6C6C6]
           
           before:absolute before:top-[-150px] before:left-1/2 before:h-[150px] before:w-[150px] before:-z-10
