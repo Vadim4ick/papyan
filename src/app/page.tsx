@@ -290,7 +290,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row justify-between mb-[28px] md:mb-[84px] lg:mb-[118px] ">
               <div>
                 <h2 className="mb-[12px] md:mb-[32px] md:text-[36px] md:leading-[45px]">
-                  Клиника Доктора Папяна
+                  Клиника Компас Здоровья
                 </h2>
                 <Button
                   variant="secondary"
