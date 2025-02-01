@@ -63,10 +63,11 @@ function ImageSliderWrapper({
                 }}
                 variant="arrow"
                 classArrow={"!me-[2px] !ms-[0px]"}
-                className={`${btns.prev} ${btnBg} pe-[2px] duration-450`}
+                className={`${btns.prev} ${btnBg} pe-[2px] duration-450 hover:text-[#1467E1] hover:border-[#1467E1] active:text-[#1467E1]`}
               >
                 <ChevronLeft strokeWidth={2.5} width={22} />
               </Button>
+
               <Button
                 motionProps={{
                   stiffness: 142.2,
