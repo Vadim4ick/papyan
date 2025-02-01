@@ -45,7 +45,7 @@ function SliderWrapper({
           <div className="swiper-nav flex gap-4">
             <Button
               variant="arrow"
-              className={`${btns.prev} pe-[2px] duration-450`}
+              className={`${btns.prev} pe-[2px] duration-450 hover:text-[#1467E1] hover:border-[#1467E1] active:text-[#1467E1]`}
               classArrow={"!me-[0px] !ms-[0px]"}
               motionProps={{
                 stiffness: 142.2,

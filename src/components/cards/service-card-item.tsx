@@ -26,7 +26,7 @@ function ServiceCardItem({ card, className }: ServiceCardItemProps) {
   const router = useRouter();
   return (
     <Card
-      className={`w-[350px]  h-[199px] md:w-[377px] md:h-[187px] lg:w-[396px] lg:h-[199px] bg-[#F0F3F8] rounded-lg p-[18px] flex flex-col ${className}`}
+      className={`h-[199px] md:h-[187px] w-full md:max-w-[396px] lg:h-[199px] bg-[#F0F3F8] rounded-lg p-[18px] flex flex-col ${className}`}
     >
       <CardHeader className="pb-[14px]">
         <CardTitle className="text-[#353535] text-[18px] text-left mb-[12px] leading-[22px] tracking-tight font-semibold">

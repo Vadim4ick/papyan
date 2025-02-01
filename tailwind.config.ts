@@ -97,6 +97,10 @@ const config: Config = {
         "accordion-down": "accordion-down 0.45s ease-out",
         "accordion-up": "accordion-up 0.45s ease-out",
       },
+
+      screens: {
+        tablet: "991px",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

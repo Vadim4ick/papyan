@@ -36,7 +36,7 @@ const CatigoryWrapper: React.FC<CategotyWrapperProps> = ({
         </Button>
       </div>
 
-      <div className="flex flex-col  md:flex-row justify-between md:gap-[40px] xl:gap-[130px]">
+      <div className="flex max-md:flex-col justify-between gap-[30px]">
         <ImageCard
           catigoryId={category.id}
           imageData={category.img}
