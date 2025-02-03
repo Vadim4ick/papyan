@@ -39,21 +39,24 @@ export default function Page({ params }: { params: { slug: string } }) {
             {doctor && <DoctorDetailInfo doctors={doctor} />}
           </div>
 
-          <h3 className="mb-[24px]">Услуги врача</h3>
-          <SliderWrapper
-            btns={{
-              next: "services-next",
-              prev: "services-prev",
-            }}
-          >
-            {doctor?.sevices?.length > 0 &&
-              doctor?.sevices.map((item) => (
-                <ServiceCardItem
-                  key={item.services_id.id}
-                  card={item.services_id}
-                />
-              ))}
-          </SliderWrapper>
+          {doctor?.sevices?.length > 0 && (
+            <>
+              <h3 className="mb-[24px]">Услуги врача</h3>
+              <SliderWrapper
+                btns={{
+                  next: "services-next",
+                  prev: "services-prev",
+                }}
+              >
+                {doctor?.sevices.map((item) => (
+                  <ServiceCardItem
+                    key={item.services_id.id}
+                    card={item.services_id}
+                  />
+                ))}
+              </SliderWrapper>
+            </>
+          )}
         </div>
       </section>
 
@@ -128,17 +131,10 @@ export default function Page({ params }: { params: { slug: string } }) {
             slideWidth=""
             className=""
           >
-            {
-              doctors.length > 0 &&
-                doctors.map((doctor) => (
-                  <DoctorCard
-                    key={doctor.id}
-                    doctor={doctor}
-                    className=""
-                  />
-                  
-                ))
-            }
+            {doctors.length > 0 &&
+              doctors.map((doctor) => (
+                <DoctorCard key={doctor.id} doctor={doctor} className="" />
+              ))}
           </SliderWrapper>
         </div>
       </section>
