@@ -24,7 +24,7 @@ const ServiceCardsWrapper = ({
   const numberOfCardsToRender = isMobile ? 2 : 4;
 
   return (
-    <div className="grid grid-cols-2 max-tablet:grid-cols-1 gap-x-[20px] gap-y-[12px] lg:gap-y-5 justify-items-center auto-rows-max">
+    <div className="grid grid-cols-2 w-full max-tablet:grid-cols-1 gap-x-[20px] gap-y-[12px] lg:gap-y-5 justify-items-center auto-rows-max">
       {!showFullList
         ? cardsList
             .slice(0, numberOfCardsToRender)
