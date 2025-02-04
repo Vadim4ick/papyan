@@ -134,9 +134,11 @@ export default function Home() {
                       </AccordionTrigger>
 
                       <AccordionContent className="pb-[22px] px-[18px] pt-[10px]">
-                        <p className="font-semibold text-[22px] leading-[26px] tracking-[-0.44px] mb-[22px]">
-                          При сколиозе лучше всего поможет:
-                        </p>
+                        {problems_block_id.subtitle && (
+                          <p className="font-semibold text-[22px] leading-[26px] tracking-[-0.44px] mb-[22px]">
+                            {problems_block_id.subtitle}
+                          </p>
+                        )}
 
                         <div className="w-full max-w-[548px] flex flex-col gap-[28px]">
                           <div className="flex flex-col gap-[8px] w-full">

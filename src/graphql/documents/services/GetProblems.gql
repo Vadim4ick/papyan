@@ -16,6 +16,7 @@ query GetProblems {
         problems_block_id {
           id
           title
+          subtitle
           services {
             id
             services_id {
