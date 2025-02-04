@@ -121,7 +121,7 @@ export default function Page({ params }: { params: { slug: string } }) {
                   {serviceBlocks?.servicesBlock[0].allServices
                     .filter((item) => item.id !== params.slug)
                     .map((item) => (
-                      <ServiceCardItem key={item.id} card={item} />
+                      <ServiceCardItem key={item.id} card={item} className="w-[350px] md:w-[357px] lg:w-[396px]"/>
                     ))}
                 </SliderWrapper>
               </>
