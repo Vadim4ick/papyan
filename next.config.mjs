@@ -14,6 +14,12 @@ const nextConfig = {
         port: "8055",
         pathname: "/assets/**",
       },
+      {
+        protocol: "https",
+        hostname: "admin.drpapyan.ru",
+        port: "",
+        pathname: "/assets/**",
+      },
     ],
   },
 };

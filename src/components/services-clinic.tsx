@@ -23,12 +23,14 @@ const ServicesClinic = ({
         description={description}
       />
 
-      {services?.servicesClinic.servicesClinic.map(({ servicesBlock_id }) => (
-        <CatigoryWrapper
-          key={servicesBlock_id.id}
-          category={servicesBlock_id}
-        />
-      ))}
+      <div className="flex flex-col gap-8">
+        {services?.servicesClinic.servicesClinic.map(({ servicesBlock_id }) => (
+          <CatigoryWrapper
+            key={servicesBlock_id.id}
+            category={servicesBlock_id}
+          />
+        ))}
+      </div>
 
       <div className="flex items-center justify-center md:hidden">
         <Button
