@@ -2,13 +2,18 @@
 import { Banner } from "@/components/banner";
 import { CatigoryWrapper } from "@/components/category/category-wrapper";
 import { SectionHeader } from "@/components/section-header";
+import { Loader } from "@/components/ui/loader";
 import { useGetServicesPage } from "@/shared/hooks/services/pages/useGetServicesPage";
 import { useGetServicesBloks } from "@/shared/hooks/services/useGetServicesBlocks";
 
 export default function Uslugi() {
-  const { data } = useGetServicesPage();
+  const { data, isLoading: isLoadingPage } = useGetServicesPage();
 
-  const { data: services } = useGetServicesBloks();
+  const { data: services, isLoading } = useGetServicesBloks();
+
+  if (isLoadingPage || isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div>

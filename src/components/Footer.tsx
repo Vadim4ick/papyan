@@ -254,7 +254,7 @@ const Footer = () => {
             <div className="relative flex-1 h-full">
               <motion.div
                 variants={developedVariants}
-                className="absolute left-[14px] top-[-1px] flex items-center font-['Jeko'] font-semibold text-[#787878] text-[12px] leading-[14.82px]"
+                className="absolute left-[14px] top-[-3px] flex items-center font-['Jeko'] font-semibold text-[#787878] text-[12px] leading-[14.82px]"
               >
                 разработано
               </motion.div>

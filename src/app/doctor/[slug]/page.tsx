@@ -52,6 +52,7 @@ export default function Page({ params }: { params: { slug: string } }) {
                   <ServiceCardItem
                     key={item.services_id.id}
                     card={item.services_id}
+                    className="w-[350px] md:w-[357px] lg:w-[396px]"
                   />
                 ))}
               </SliderWrapper>
