@@ -29,7 +29,7 @@ export default function Page({ params }: { params: { slug: string } }) {
     <>
       <section className="section">
         <div className="container  mx-auto max-w-[1364px] px-[20px]">
-          <div className="grid grid-cols-[1fr_500px] gap-y-[60px] mb-[72px] md:mb-[78px] lg:mb-[100px]">
+          <div className="grid lg:grid-cols-[1fr_500px] gap-y-[60px] mb-[72px] md:mb-[78px] lg:mb-[100px]">
             <div className="w-full">
               <div className=" mb-[36px] md:mb-[48px] lg:mb-[71px] ">
                 <div className="flex justify-between">
@@ -80,7 +80,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 
                     ul: ({ children }) => {
                       return (
-                        <ul className="therapy-list grid grid-cols-2 items-center justify-center gap-y-4 gap-x-5">
+                        <ul className="therapy-list grid md:grid-cols-2 items-center justify-center gap-y-4 gap-x-5">
                           {children}
                         </ul>
                       );
