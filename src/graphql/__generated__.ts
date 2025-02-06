@@ -1667,6 +1667,7 @@ export type Problems_Block = {
   readonly id: Scalars['ID']['output'];
   readonly services: Maybe<ReadonlyArray<Maybe<Problems_Block_Services>>>;
   readonly services_func: Maybe<Count_Functions>;
+  readonly subtitle: Maybe<Scalars['String']['output']>;
   readonly title: Maybe<Scalars['String']['output']>;
 };
 
@@ -1698,6 +1699,7 @@ export type Problems_Block_Aggregated_Count = {
   readonly __typename?: 'problems_block_aggregated_count';
   readonly id: Maybe<Scalars['Int']['output']>;
   readonly services: Maybe<Scalars['Int']['output']>;
+  readonly subtitle: Maybe<Scalars['Int']['output']>;
   readonly title: Maybe<Scalars['Int']['output']>;
 };
 
@@ -1712,6 +1714,7 @@ export type Problems_Block_Filter = {
   readonly id: InputMaybe<Number_Filter_Operators>;
   readonly services: InputMaybe<Problems_Block_Services_Filter>;
   readonly services_func: InputMaybe<Count_Function_Filter_Operators>;
+  readonly subtitle: InputMaybe<String_Filter_Operators>;
   readonly title: InputMaybe<String_Filter_Operators>;
 };
 
@@ -2635,6 +2638,7 @@ export type Version_Problems_Block = {
   readonly id: Scalars['ID']['output'];
   readonly services: Maybe<Scalars['JSON']['output']>;
   readonly services_func: Maybe<Count_Functions>;
+  readonly subtitle: Maybe<Scalars['String']['output']>;
   readonly title: Maybe<Scalars['String']['output']>;
 };
 
@@ -2791,7 +2795,7 @@ export type GetStockPageQuery = { readonly __typename?: 'Query', readonly stock_
 export type GetProblemsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetProblemsQuery = { readonly __typename?: 'Query', readonly problems: { readonly __typename?: 'problems', readonly slider: ReadonlyArray<{ readonly __typename?: 'problems_problems_slide', readonly problems_slide_id: { readonly __typename?: 'problems_slide', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } } }>, readonly blocks: ReadonlyArray<{ readonly __typename?: 'problems_problems_block', readonly id: string, readonly problems_block_id: { readonly __typename?: 'problems_block', readonly id: string, readonly title: string, readonly services: ReadonlyArray<{ readonly __typename?: 'problems_block_services', readonly id: string, readonly services_id: { readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number, readonly baner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } } }> } }> } };
+export type GetProblemsQuery = { readonly __typename?: 'Query', readonly problems: { readonly __typename?: 'problems', readonly slider: ReadonlyArray<{ readonly __typename?: 'problems_problems_slide', readonly problems_slide_id: { readonly __typename?: 'problems_slide', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } } }>, readonly blocks: ReadonlyArray<{ readonly __typename?: 'problems_problems_block', readonly id: string, readonly problems_block_id: { readonly __typename?: 'problems_block', readonly id: string, readonly title: string, readonly subtitle: string, readonly services: ReadonlyArray<{ readonly __typename?: 'problems_block_services', readonly id: string, readonly services_id: { readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number, readonly baner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } } }> } }> } };
 
 export type GetServiceByIdQueryVariables = Exact<{
   id: Scalars['ID']['input'];
@@ -3022,6 +3026,7 @@ export const GetProblemsDocument = gql`
       problems_block_id {
         id
         title
+        subtitle
         services {
           id
           services_id {
