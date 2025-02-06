@@ -110,7 +110,7 @@ export default function Page({ params }: { params: { slug: string } }) {
           {serviceBlocks?.servicesBlock[0] &&
             serviceBlocks.servicesBlock[0].allServices.length > 1 && (
               <>
-                <h3 className="mb-[20px] md:mb-[24px] ">Другие услуги</h3>
+                <h3 className="mb-[21px] md:mb-[24px] ">Другие услуги</h3>
                 <SliderWrapper
                   btns={{
                     next: "services-next",
