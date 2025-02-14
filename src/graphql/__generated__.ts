@@ -56,6 +56,10 @@ export type Query = {
   readonly home_page: Maybe<Home_Page>;
   readonly home_page_by_version: Maybe<Version_Home_Page>;
   readonly home_page_files: ReadonlyArray<Home_Page_Files>;
+  readonly home_page_files_1: ReadonlyArray<Home_Page_Files_1>;
+  readonly home_page_files_1_aggregated: ReadonlyArray<Home_Page_Files_1_Aggregated>;
+  readonly home_page_files_1_by_id: Maybe<Home_Page_Files_1>;
+  readonly home_page_files_1_by_version: Maybe<Version_Home_Page_Files_1>;
   readonly home_page_files_aggregated: ReadonlyArray<Home_Page_Files_Aggregated>;
   readonly home_page_files_by_id: Maybe<Home_Page_Files>;
   readonly home_page_files_by_version: Maybe<Version_Home_Page_Files>;
@@ -312,6 +316,39 @@ export type QueryHome_Page_FilesArgs = {
   page: InputMaybe<Scalars['Int']['input']>;
   search: InputMaybe<Scalars['String']['input']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryHome_Page_Files_1Args = {
+  filter: InputMaybe<Home_Page_Files_1_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryHome_Page_Files_1_AggregatedArgs = {
+  filter: InputMaybe<Home_Page_Files_1_Filter>;
+  groupBy: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryHome_Page_Files_1_By_IdArgs = {
+  id: Scalars['ID']['input'];
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryHome_Page_Files_1_By_VersionArgs = {
+  id: Scalars['ID']['input'];
+  version: Scalars['String']['input'];
 };
 
 
@@ -717,6 +754,7 @@ export type Subscription = {
   readonly doctors_files_mutated: Maybe<Doctors_Files_Mutated>;
   readonly doctors_mutated: Maybe<Doctors_Mutated>;
   readonly doctors_services_mutated: Maybe<Doctors_Services_Mutated>;
+  readonly home_page_files_1_mutated: Maybe<Home_Page_Files_1_Mutated>;
   readonly home_page_files_mutated: Maybe<Home_Page_Files_Mutated>;
   readonly home_page_mutated: Maybe<Home_Page_Mutated>;
   readonly problems_block_mutated: Maybe<Problems_Block_Mutated>;
@@ -772,6 +810,11 @@ export type SubscriptionDoctors_MutatedArgs = {
 
 
 export type SubscriptionDoctors_Services_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
+};
+
+
+export type SubscriptionHome_Page_Files_1_MutatedArgs = {
   event: InputMaybe<EventEnum>;
 };
 
@@ -1498,6 +1541,8 @@ export type Home_Page = {
   readonly id: Scalars['ID']['output'];
   readonly infoBaner: Maybe<Directus_Files>;
   readonly mainBaner: Maybe<Directus_Files>;
+  readonly mainSlider: Maybe<ReadonlyArray<Maybe<Home_Page_Files_1>>>;
+  readonly mainSlider_func: Maybe<Count_Functions>;
   readonly sliderClinik: Maybe<ReadonlyArray<Maybe<Home_Page_Files>>>;
   readonly sliderClinik_func: Maybe<Count_Functions>;
 };
@@ -1515,6 +1560,16 @@ export type Home_PageInfoBanerArgs = {
 
 export type Home_PageMainBanerArgs = {
   filter: InputMaybe<Directus_Files_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type Home_PageMainSliderArgs = {
+  filter: InputMaybe<Home_Page_Files_1_Filter>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   page: InputMaybe<Scalars['Int']['input']>;
@@ -1557,6 +1612,75 @@ export type Home_Page_FilesHome_Page_IdArgs = {
   page: InputMaybe<Scalars['Int']['input']>;
   search: InputMaybe<Scalars['String']['input']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Home_Page_Files_1 = {
+  readonly __typename?: 'home_page_files_1';
+  readonly directus_files_id: Maybe<Directus_Files>;
+  readonly home_page_id: Maybe<Home_Page>;
+  readonly id: Scalars['ID']['output'];
+};
+
+
+export type Home_Page_Files_1Directus_Files_IdArgs = {
+  filter: InputMaybe<Directus_Files_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type Home_Page_Files_1Home_Page_IdArgs = {
+  filter: InputMaybe<Home_Page_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Home_Page_Files_1_Aggregated = {
+  readonly __typename?: 'home_page_files_1_aggregated';
+  readonly avg: Maybe<Home_Page_Files_1_Aggregated_Fields>;
+  readonly avgDistinct: Maybe<Home_Page_Files_1_Aggregated_Fields>;
+  readonly count: Maybe<Home_Page_Files_1_Aggregated_Count>;
+  readonly countAll: Maybe<Scalars['Int']['output']>;
+  readonly countDistinct: Maybe<Home_Page_Files_1_Aggregated_Count>;
+  readonly group: Maybe<Scalars['JSON']['output']>;
+  readonly max: Maybe<Home_Page_Files_1_Aggregated_Fields>;
+  readonly min: Maybe<Home_Page_Files_1_Aggregated_Fields>;
+  readonly sum: Maybe<Home_Page_Files_1_Aggregated_Fields>;
+  readonly sumDistinct: Maybe<Home_Page_Files_1_Aggregated_Fields>;
+};
+
+export type Home_Page_Files_1_Aggregated_Count = {
+  readonly __typename?: 'home_page_files_1_aggregated_count';
+  readonly directus_files_id: Maybe<Scalars['Int']['output']>;
+  readonly home_page_id: Maybe<Scalars['Int']['output']>;
+  readonly id: Maybe<Scalars['Int']['output']>;
+};
+
+export type Home_Page_Files_1_Aggregated_Fields = {
+  readonly __typename?: 'home_page_files_1_aggregated_fields';
+  readonly home_page_id: Maybe<Scalars['Float']['output']>;
+  readonly id: Maybe<Scalars['Float']['output']>;
+};
+
+export type Home_Page_Files_1_Filter = {
+  readonly _and: InputMaybe<ReadonlyArray<InputMaybe<Home_Page_Files_1_Filter>>>;
+  readonly _or: InputMaybe<ReadonlyArray<InputMaybe<Home_Page_Files_1_Filter>>>;
+  readonly directus_files_id: InputMaybe<Directus_Files_Filter>;
+  readonly home_page_id: InputMaybe<Home_Page_Filter>;
+  readonly id: InputMaybe<Number_Filter_Operators>;
+};
+
+export type Home_Page_Files_1_Mutated = {
+  readonly __typename?: 'home_page_files_1_mutated';
+  readonly data: Maybe<Home_Page_Files_1>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
 };
 
 export type Home_Page_Files_Aggregated = {
@@ -1607,6 +1731,8 @@ export type Home_Page_Filter = {
   readonly id: InputMaybe<Number_Filter_Operators>;
   readonly infoBaner: InputMaybe<Directus_Files_Filter>;
   readonly mainBaner: InputMaybe<Directus_Files_Filter>;
+  readonly mainSlider: InputMaybe<Home_Page_Files_1_Filter>;
+  readonly mainSlider_func: InputMaybe<Count_Function_Filter_Operators>;
   readonly sliderClinik: InputMaybe<Home_Page_Files_Filter>;
   readonly sliderClinik_func: InputMaybe<Count_Function_Filter_Operators>;
 };
@@ -2613,12 +2739,21 @@ export type Version_Home_Page = {
   readonly id: Scalars['ID']['output'];
   readonly infoBaner: Maybe<Scalars['JSON']['output']>;
   readonly mainBaner: Maybe<Scalars['JSON']['output']>;
+  readonly mainSlider: Maybe<Scalars['JSON']['output']>;
+  readonly mainSlider_func: Maybe<Count_Functions>;
   readonly sliderClinik: Maybe<Scalars['JSON']['output']>;
   readonly sliderClinik_func: Maybe<Count_Functions>;
 };
 
 export type Version_Home_Page_Files = {
   readonly __typename?: 'version_home_page_files';
+  readonly directus_files_id: Maybe<Scalars['JSON']['output']>;
+  readonly home_page_id: Maybe<Scalars['JSON']['output']>;
+  readonly id: Scalars['ID']['output'];
+};
+
+export type Version_Home_Page_Files_1 = {
+  readonly __typename?: 'version_home_page_files_1';
   readonly directus_files_id: Maybe<Scalars['JSON']['output']>;
   readonly home_page_id: Maybe<Scalars['JSON']['output']>;
   readonly id: Scalars['ID']['output'];
@@ -2780,7 +2915,7 @@ export type GetCenyPageQuery = { readonly __typename?: 'Query', readonly ceny_pa
 export type GetHomePageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetHomePageQuery = { readonly __typename?: 'Query', readonly home_page: { readonly __typename?: 'home_page', readonly id: string, readonly infoBaner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly mainBaner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly sliderClinik: ReadonlyArray<{ readonly __typename?: 'home_page_files', readonly directus_files_id: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } }> } };
+export type GetHomePageQuery = { readonly __typename?: 'Query', readonly home_page: { readonly __typename?: 'home_page', readonly id: string, readonly infoBaner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly mainBaner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly sliderClinik: ReadonlyArray<{ readonly __typename?: 'home_page_files', readonly directus_files_id: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } }>, readonly mainSlider: ReadonlyArray<{ readonly __typename?: 'home_page_files_1', readonly directus_files_id: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } }> } };
 
 export type GetServicesPageQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -2971,6 +3106,11 @@ export const GetHomePageDocument = gql`
       ...MediaFragment
     }
     sliderClinik {
+      directus_files_id {
+        ...MediaFragment
+      }
+    }
+    mainSlider {
       directus_files_id {
         ...MediaFragment
       }
