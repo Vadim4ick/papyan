@@ -2,9 +2,10 @@ query GetHomePage {
   home_page {
     id
 
-    mainBaner {
+    infoBaner {
       ...MediaFragment
     }
+  
 
     sliderClinik {
       directus_files_id {

@@ -1540,7 +1540,6 @@ export type Home_Page = {
   readonly __typename?: 'home_page';
   readonly id: Scalars['ID']['output'];
   readonly infoBaner: Maybe<Directus_Files>;
-  readonly mainBaner: Maybe<Directus_Files>;
   readonly mainSlider: Maybe<ReadonlyArray<Maybe<Home_Page_Files_1>>>;
   readonly mainSlider_func: Maybe<Count_Functions>;
   readonly sliderClinik: Maybe<ReadonlyArray<Maybe<Home_Page_Files>>>;
@@ -1549,16 +1548,6 @@ export type Home_Page = {
 
 
 export type Home_PageInfoBanerArgs = {
-  filter: InputMaybe<Directus_Files_Filter>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  page: InputMaybe<Scalars['Int']['input']>;
-  search: InputMaybe<Scalars['String']['input']>;
-  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
-};
-
-
-export type Home_PageMainBanerArgs = {
   filter: InputMaybe<Directus_Files_Filter>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
@@ -1730,7 +1719,6 @@ export type Home_Page_Filter = {
   readonly _or: InputMaybe<ReadonlyArray<InputMaybe<Home_Page_Filter>>>;
   readonly id: InputMaybe<Number_Filter_Operators>;
   readonly infoBaner: InputMaybe<Directus_Files_Filter>;
-  readonly mainBaner: InputMaybe<Directus_Files_Filter>;
   readonly mainSlider: InputMaybe<Home_Page_Files_1_Filter>;
   readonly mainSlider_func: InputMaybe<Count_Function_Filter_Operators>;
   readonly sliderClinik: InputMaybe<Home_Page_Files_Filter>;
@@ -2738,7 +2726,6 @@ export type Version_Home_Page = {
   readonly __typename?: 'version_home_page';
   readonly id: Scalars['ID']['output'];
   readonly infoBaner: Maybe<Scalars['JSON']['output']>;
-  readonly mainBaner: Maybe<Scalars['JSON']['output']>;
   readonly mainSlider: Maybe<Scalars['JSON']['output']>;
   readonly mainSlider_func: Maybe<Count_Functions>;
   readonly sliderClinik: Maybe<Scalars['JSON']['output']>;
@@ -2915,7 +2902,7 @@ export type GetCenyPageQuery = { readonly __typename?: 'Query', readonly ceny_pa
 export type GetHomePageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetHomePageQuery = { readonly __typename?: 'Query', readonly home_page: { readonly __typename?: 'home_page', readonly id: string, readonly infoBaner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly mainBaner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly sliderClinik: ReadonlyArray<{ readonly __typename?: 'home_page_files', readonly directus_files_id: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } }>, readonly mainSlider: ReadonlyArray<{ readonly __typename?: 'home_page_files_1', readonly directus_files_id: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } }> } };
+export type GetHomePageQuery = { readonly __typename?: 'Query', readonly home_page: { readonly __typename?: 'home_page', readonly id: string, readonly infoBaner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly sliderClinik: ReadonlyArray<{ readonly __typename?: 'home_page_files', readonly directus_files_id: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } }>, readonly mainSlider: ReadonlyArray<{ readonly __typename?: 'home_page_files_1', readonly directus_files_id: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } }> } };
 
 export type GetServicesPageQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3100,9 +3087,6 @@ export const GetHomePageDocument = gql`
   home_page {
     id
     infoBaner {
-      ...MediaFragment
-    }
-    mainBaner {
       ...MediaFragment
     }
     sliderClinik {
