@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { DoctorDetailInfo } from "@/components/doctor-detail-info";
 import { BadgeWithIcon } from "@/components/badge-with-icon";
 import { countFileTypes, pathImage } from "@/shared/lib/utils";
@@ -105,7 +104,7 @@ export default function Page({ params }: { params: { slug: string } }) {
                     />
                   </video>
                 ) : (
-                  <Image
+                  <img
                     key={directus_files_id.id}
                     width={directus_files_id.width || 289}
                     height={directus_files_id.height || 434}

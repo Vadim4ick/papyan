@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { formatNumberWithSpaces } from "@/shared/lib/utils";
+import { DialogForm } from "../modal/dialog";
 
 interface ServiceCardItemProps {
   title: string;
@@ -54,17 +55,20 @@ function GetConsultCard({
             )}
           </div>
         </CardDescription>
-        <Button
-          motionProps={{
-            stiffness: 142.2,
-            damping: 26.67,
-            mass: 1,
-          }}
-          className="w-full duration-450"
-          variant="secondary"
-        >
-          Получить консультацию
-        </Button>
+
+        <DialogForm>
+          <Button
+            motionProps={{
+              stiffness: 142.2,
+              damping: 26.67,
+              mass: 1,
+            }}
+            className="w-full duration-450"
+            variant="secondary"
+          >
+            Получить консультацию
+          </Button>
+        </DialogForm>
       </CardContent>
     </Card>
   );

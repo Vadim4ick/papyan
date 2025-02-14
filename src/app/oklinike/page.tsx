@@ -18,7 +18,6 @@ import { countFileTypes, pathImage } from "@/shared/lib/utils";
 import { ImageType } from "@/shared/types/types";
 import { Separator } from "@radix-ui/react-separator";
 import { ChevronRight } from "lucide-react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 
@@ -148,7 +147,7 @@ export default function About() {
                       />
                     </video>
                   ) : (
-                    <Image
+                    <img
                       key={directus_files_id.id}
                       width={directus_files_id.width || 289}
                       height={directus_files_id.height || 434}
