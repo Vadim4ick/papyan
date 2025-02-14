@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { cn, pathImage } from "@/shared/lib/utils";
 import { RoundButton } from "./round-button";
 import { MediaFragmentFragment } from "@/graphql/__generated__";
@@ -30,7 +29,7 @@ const ImageCard: React.FC<ImageCardProps> = ({
           className
         )}
       >
-        <Image
+        <img
           style={{ transition: "all 450ms cubic-bezier(0.25, 0.1, 0.25, 1)" }}
           width={380}
           height={418}

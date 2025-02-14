@@ -1,7 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { GetStockPageQuery } from "@/graphql/__generated__";
 import { formatNumberWithSpaces, pathImage } from "@/shared/lib/utils";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -26,7 +25,7 @@ const DiscountCard = ({ card, className }: discountCardProps) => {
       className={`${className} items-center relative h-[466px] md:h-[502px] xl:h-[570px] overflow-hidden rounded-md group`}
     >
       <Link href={`therapy/${card.services_id.id}`}>
-        <Image
+        <img
           width={380}
           height={418}
           src={pathImage(card.services_id.img.id)}

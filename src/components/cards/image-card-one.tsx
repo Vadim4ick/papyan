@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { cn, pathImage } from "@/shared/lib/utils";
 import { MediaFragmentFragment } from "@/graphql/__generated__";
 
@@ -22,7 +21,7 @@ const ImageCardOne: React.FC<ImageCardOneProps> = ({
         className
       )}
     >
-      <Image
+      <img
         width={350}
         height={484}
         src={pathImage(imageData.id)}
@@ -31,7 +30,9 @@ const ImageCardOne: React.FC<ImageCardOneProps> = ({
       />
 
       <div className="absolute top-[14px] w-full">
-        <div className="flex px-[14px] items-center text-[#1467E1] text-[18px] leading-[18px] tracking-tight font-semibold mx-[14px] rounded-lg h-[42px] bg-white">{title}</div>
+        <div className="flex px-[14px] items-center text-[#1467E1] text-[18px] leading-[18px] tracking-tight font-semibold mx-[14px] rounded-lg h-[42px] bg-white">
+          {title}
+        </div>
       </div>
     </div>
   );

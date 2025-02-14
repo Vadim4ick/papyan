@@ -380,7 +380,7 @@ export default function Home() {
                         />
                       </video>
                     ) : (
-                      <Image
+                      <img
                         key={directus_files_id.id}
                         width={directus_files_id.width || 289}
                         height={directus_files_id.height || 434}
