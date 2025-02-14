@@ -39,6 +39,7 @@ import { Separator } from "@/components/ui/separator";
 import { ImageSliderWrapper } from "@/components/slider/image-slider";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Container } from "@/components/ui/container";
+import { Autoplay } from "swiper/modules";
 
 export type ImageType = {
   directus_files_id: {
@@ -91,6 +92,8 @@ export default function Home() {
                 slidesPerView={1}
                 spaceBetween={20}
                 className="w-full h-full"
+                modules={[Autoplay]}
+                autoplay={{ delay: 4000 }}
               >
                 {data?.home_page.mainSlider.map(
                   ({ directus_files_id }, index) => {
