@@ -37,6 +37,8 @@ import { Input } from "@/components/ui/input";
 import InputMask from "react-input-mask";
 import { Separator } from "@/components/ui/separator";
 import { ImageSliderWrapper } from "@/components/slider/image-slider";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Container } from "@/components/ui/container";
 
 export type ImageType = {
   directus_files_id: {
@@ -72,13 +74,74 @@ export default function Home() {
 
   return (
     <>
-      <section className="bg-[#EBEFF3] lg:pt-[36px] lg:pb-[100px]">
+      {/* <section className="bg-[#EBEFF3] lg:pt-[36px] lg:pb-[100px]">
         {data?.home_page.mainBaner && (
           <Banner
             imageUrl={data.home_page.mainBaner}
             hight={"h-screen lg:max-h-[727px]"}
           />
         )}
+      </section> */}
+
+      <section className="bg-[#EBEFF3] lg:pt-[36px] lg:pb-[100px]">
+        <style>
+          {`
+        .swiper-slide {
+          width: 100% !important;
+        }
+        `}
+        </style>
+
+        <Container className="overflow-hidden max-lg:px-0">
+          {data?.home_page?.mainSlider && (
+            <div className="h-[725px] max-lg:h-screen">
+              <Swiper
+                slidesPerView={1}
+                spaceBetween={20}
+                className="w-full h-full"
+              >
+                {data?.home_page.mainSlider.map(
+                  ({ directus_files_id }, index) => {
+                    const isVideo =
+                      directus_files_id.type?.startsWith("video/");
+
+                    return (
+                      <SwiperSlide key={index} className="w-full">
+                        {isVideo ? (
+                          <video
+                            key={directus_files_id.id}
+                            src={pathImage(directus_files_id.id)}
+                            autoPlay
+                            muted
+                            playsInline
+                            loop
+                            width={directus_files_id.width || 289}
+                            height={directus_files_id.height || 434}
+                            className="h-full w-full object-cover"
+                          >
+                            <source
+                              src={pathImage(directus_files_id.id)}
+                              type={directus_files_id.type}
+                            />
+                          </video>
+                        ) : (
+                          <img
+                            key={directus_files_id.id}
+                            width={directus_files_id.width || 289}
+                            height={directus_files_id.height || 434}
+                            src={pathImage(directus_files_id.id)}
+                            alt={directus_files_id.title}
+                            className="h-full w-full object-cover"
+                          />
+                        )}
+                      </SwiperSlide>
+                    );
+                  }
+                )}
+              </Swiper>
+            </div>
+          )}
+        </Container>
       </section>
 
       <section className="section">
