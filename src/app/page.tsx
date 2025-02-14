@@ -84,14 +84,6 @@ export default function Home() {
       </section> */}
 
       <section className="bg-[#EBEFF3] lg:pt-[36px] lg:pb-[100px]">
-        <style>
-          {`
-        .swiper-slide {
-          width: 100% !important;
-        }
-        `}
-        </style>
-
         <Container className="overflow-hidden max-lg:px-0">
           {data?.home_page?.mainSlider && (
             <div className="h-[725px] max-lg:h-screen">
