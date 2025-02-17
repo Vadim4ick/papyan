@@ -283,6 +283,7 @@ export default function Home() {
                 key={item.problems_slide_id.id}
                 imageData={item.problems_slide_id.img}
                 title={item.problems_slide_id.title}
+                link={item.problems_slide_id.link}
                 catigoryId={""}
               />
             ))}
@@ -500,7 +501,8 @@ export default function Home() {
                       damping: 26.67,
                       mass: 1,
                     }}
-                    className="w-full h-[54px] duration-450 max-lg:h-[48px] bg-[#1467E1] text-[15px] leading-[20px] tracking-[-0.15px]"
+                    variant={"secondary"}
+                    className="h-[48px] lg:hidden w-full max-md:mt-[12px] duration-450"
                   >
                     Получить консультацию
                   </Button>
@@ -514,7 +516,8 @@ export default function Home() {
                     damping: 26.67,
                     mass: 1,
                   }}
-                  className="w-full h-[54px] duration-450 max-lg:h-[48px] bg-[#1467E1] text-[15px] leading-[20px] tracking-[-0.15px]"
+                  variant={"secondary"}
+                  className="h-[48px] max-lg:hidden duration-450"
                 >
                   Получить консультацию
                 </Button>
@@ -585,16 +588,18 @@ export default function Home() {
                     )}
                   </InputMask>
 
-                  <Button
-                    motionProps={{
-                      stiffness: 142.2,
-                      damping: 26.67,
-                      mass: 1,
-                    }}
-                    className="bg-[#1467E1] duration-450 w-full max-w-[267px] h-[54px] text-[15px] leading-[20px] tracking-[-0.3px] max-md:max-w-full"
-                  >
-                    Как записаться онлайн
-                  </Button>
+                  <DialogForm>
+                    <Button
+                      motionProps={{
+                        stiffness: 142.2,
+                        damping: 26.67,
+                        mass: 1,
+                      }}
+                      className="bg-[#1467E1] duration-450 w-full max-w-[267px] h-[54px] text-[15px] leading-[20px] tracking-[-0.3px] max-md:max-w-full"
+                    >
+                      Как записаться онлайн
+                    </Button>
+                  </DialogForm>
                 </div>
 
                 <p className="max-w-[540px] text-[12px] leading-[16.8px] font-medium text-[#353535] tracking-[-0.24px]">

@@ -4,6 +4,7 @@ query GetProblems {
       problems_slide_id {
         id
         title
+        link
         img {
           ...MediaFragment
         }
