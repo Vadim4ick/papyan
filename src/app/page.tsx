@@ -40,6 +40,7 @@ import { ImageSliderWrapper } from "@/components/slider/image-slider";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Container } from "@/components/ui/container";
 import { Autoplay } from "swiper/modules";
+import { DialogForm } from "@/components/modal/dialog";
 
 export type ImageType = {
   directus_files_id: {
@@ -218,16 +219,18 @@ export default function Home() {
                           </div>
 
                           <div className="flex items-center w-full justify-between gap-4 max-lg:flex-col max-md:flex-col-reverse">
-                            <Button
-                              motionProps={{
-                                stiffness: 142.2,
-                                damping: 26.67,
-                                mass: 1,
-                              }}
-                              className="w-full h-[54px] duration-450 max-lg:h-[48px] bg-[#1467E1] text-[15px] leading-[20px] tracking-[-0.15px]"
-                            >
-                              Получить консультацию
-                            </Button>
+                            <DialogForm>
+                              <Button
+                                motionProps={{
+                                  stiffness: 142.2,
+                                  damping: 26.67,
+                                  mass: 1,
+                                }}
+                                className="w-full h-[54px] duration-450 max-lg:h-[48px] bg-[#1467E1] text-[15px] leading-[20px] tracking-[-0.15px]"
+                              >
+                                Получить консультацию
+                              </Button>
+                            </DialogForm>
 
                             <Button
                               motionProps={{
@@ -490,30 +493,32 @@ export default function Home() {
                   </div>
                 </div>
 
+                <DialogForm>
+                  <Button
+                    motionProps={{
+                      stiffness: 142.2,
+                      damping: 26.67,
+                      mass: 1,
+                    }}
+                    className="w-full h-[54px] duration-450 max-lg:h-[48px] bg-[#1467E1] text-[15px] leading-[20px] tracking-[-0.15px]"
+                  >
+                    Получить консультацию
+                  </Button>
+                </DialogForm>
+              </div>
+
+              <DialogForm>
                 <Button
                   motionProps={{
                     stiffness: 142.2,
                     damping: 26.67,
                     mass: 1,
                   }}
-                  variant={"secondary"}
-                  className="h-[48px] lg:hidden w-full max-md:mt-[12px] duration-450"
+                  className="w-full h-[54px] duration-450 max-lg:h-[48px] bg-[#1467E1] text-[15px] leading-[20px] tracking-[-0.15px]"
                 >
                   Получить консультацию
                 </Button>
-              </div>
-
-              <Button
-                motionProps={{
-                  stiffness: 142.2,
-                  damping: 26.67,
-                  mass: 1,
-                }}
-                variant={"secondary"}
-                className="h-[48px] max-lg:hidden duration-450"
-              >
-                Получить консультацию
-              </Button>
+              </DialogForm>
             </div>
 
             <div className="rounded-[8px] overflow-hidden w-full">
