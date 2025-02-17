@@ -35,7 +35,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       <section className="section ">
         <div className="container mx-auto max-w-[1364px] px-[20px]">
           <div className="mb-[60px] md:mb-[78px] lg:mb-[110px]">
-            {doctor && <DoctorDetailInfo doctors={doctor} />}
+            {doctor && <DoctorDetailInfo btnDetail={false} doctors={doctor} />}
           </div>
 
           {doctor?.sevices?.length > 0 && (

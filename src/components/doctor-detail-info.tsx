@@ -9,8 +9,10 @@ import { useRouter } from "next/navigation";
 
 const DoctorDetailInfo = ({
   doctors,
+  btnDetail = true,
 }: {
   doctors: GetAllDoctorsQuery["doctors"][0];
+  btnDetail?: boolean;
 }) => {
   const router = useRouter();
   return (
@@ -38,20 +40,22 @@ const DoctorDetailInfo = ({
                 Записаться на прием
               </Button>
             </DialogForm>
-            <Button
-              motionProps={{
-                stiffness: 142.2,
-                damping: 26.67,
-                mass: 1,
-              }}
-              className="w-full h-[48px] duration-450 border-[1px] border-[#DEE3EA] text-[15px] font-semibold tracking-[-0.3px] leading-[20px] bg-[#EBEFF3] hover:bg-[#EBEFF3]"
-              variant="white"
-              onClick={() => {
-                router.push(`/doctor/${doctors.id}`);
-              }}
-            >
-              Подробнее
-            </Button>
+            {btnDetail && (
+              <Button
+                motionProps={{
+                  stiffness: 142.2,
+                  damping: 26.67,
+                  mass: 1,
+                }}
+                className="w-full h-[48px] duration-450 border-[1px] border-[#DEE3EA] text-[15px] font-semibold tracking-[-0.3px] leading-[20px] bg-[#EBEFF3] hover:bg-[#EBEFF3]"
+                variant="white"
+                onClick={() => {
+                  router.push(`/doctor/${doctors.id}`);
+                }}
+              >
+                Подробнее
+              </Button>
+            )}
           </div>
           <div className="absolute bottom-0 w-full h-[112px] z-10 backdrop-blur-md bg-white/5"></div>
         </div>

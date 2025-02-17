@@ -92,15 +92,16 @@ const Footer = () => {
                 </Link>
                 <Link
                   className="font-[600] text-[#B3B3B3] leading-[22px]"
+                  href="/uslugi"
+                >
+                  Услуги
+                </Link>
+
+                <Link
+                  className="font-[600] text-[#B3B3B3] leading-[22px]"
                   href="/oklinike"
                 >
                   О клинике
-                </Link>
-                <Link
-                  className="font-[600] text-[#B3B3B3] leading-[22px]"
-                  href="/doctor"
-                >
-                  Специалисты
                 </Link>
               </div>
             </div>
@@ -137,15 +138,18 @@ const Footer = () => {
                 Контакты
               </h4>
               <div className="flex flex-col gap-2 text-[#B3B3B3]">
-                <a href="#" className="flex items-center space-x-2 text-nowrap">
+                <div className="flex items-center space-x-2 text-nowrap">
                   <MapPin className="h-[20px]" />
                   <span>{contacts.address}</span>
-                </a>
-                <a href="#" className="flex items-center space-x-2 text-nowrap">
+                </div>
+                <div className="flex items-center space-x-2 text-nowrap">
                   <Clock7 className="h-[20px]" />
                   <span>{contacts.schedule}</span>
-                </a>
-                <a href="#" className="flex items-center space-x-2 text-nowrap">
+                </div>
+                <a
+                  href={`tel:${contacts.phone}`}
+                  className="flex items-center space-x-2 text-nowrap"
+                >
                   <Phone className="h-[20px]" />
                   <span>{contacts.phone}</span>
                 </a>

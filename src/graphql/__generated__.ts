@@ -2070,6 +2070,7 @@ export type Problems_Slide = {
   readonly __typename?: 'problems_slide';
   readonly id: Scalars['ID']['output'];
   readonly img: Maybe<Directus_Files>;
+  readonly link: Maybe<Scalars['String']['output']>;
   readonly title: Maybe<Scalars['String']['output']>;
 };
 
@@ -2101,6 +2102,7 @@ export type Problems_Slide_Aggregated_Count = {
   readonly __typename?: 'problems_slide_aggregated_count';
   readonly id: Maybe<Scalars['Int']['output']>;
   readonly img: Maybe<Scalars['Int']['output']>;
+  readonly link: Maybe<Scalars['Int']['output']>;
   readonly title: Maybe<Scalars['Int']['output']>;
 };
 
@@ -2114,6 +2116,7 @@ export type Problems_Slide_Filter = {
   readonly _or: InputMaybe<ReadonlyArray<InputMaybe<Problems_Slide_Filter>>>;
   readonly id: InputMaybe<Number_Filter_Operators>;
   readonly img: InputMaybe<Directus_Files_Filter>;
+  readonly link: InputMaybe<String_Filter_Operators>;
   readonly title: InputMaybe<String_Filter_Operators>;
 };
 
@@ -2789,6 +2792,7 @@ export type Version_Problems_Slide = {
   readonly __typename?: 'version_problems_slide';
   readonly id: Scalars['ID']['output'];
   readonly img: Maybe<Scalars['JSON']['output']>;
+  readonly link: Maybe<Scalars['String']['output']>;
   readonly title: Maybe<Scalars['String']['output']>;
 };
 
@@ -2917,7 +2921,7 @@ export type GetStockPageQuery = { readonly __typename?: 'Query', readonly stock_
 export type GetProblemsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetProblemsQuery = { readonly __typename?: 'Query', readonly problems: { readonly __typename?: 'problems', readonly slider: ReadonlyArray<{ readonly __typename?: 'problems_problems_slide', readonly problems_slide_id: { readonly __typename?: 'problems_slide', readonly id: string, readonly title: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } } }>, readonly blocks: ReadonlyArray<{ readonly __typename?: 'problems_problems_block', readonly id: string, readonly problems_block_id: { readonly __typename?: 'problems_block', readonly id: string, readonly title: string, readonly subtitle: string, readonly services: ReadonlyArray<{ readonly __typename?: 'problems_block_services', readonly id: string, readonly services_id: { readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number, readonly baner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } } }> } }> } };
+export type GetProblemsQuery = { readonly __typename?: 'Query', readonly problems: { readonly __typename?: 'problems', readonly slider: ReadonlyArray<{ readonly __typename?: 'problems_problems_slide', readonly problems_slide_id: { readonly __typename?: 'problems_slide', readonly id: string, readonly title: string, readonly link: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } } }>, readonly blocks: ReadonlyArray<{ readonly __typename?: 'problems_problems_block', readonly id: string, readonly problems_block_id: { readonly __typename?: 'problems_block', readonly id: string, readonly title: string, readonly subtitle: string, readonly services: ReadonlyArray<{ readonly __typename?: 'problems_block_services', readonly id: string, readonly services_id: { readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number, readonly baner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } } }> } }> } };
 
 export type GetServiceByIdQueryVariables = Exact<{
   id: Scalars['ID']['input'];
@@ -3140,6 +3144,7 @@ export const GetProblemsDocument = gql`
       problems_slide_id {
         id
         title
+        link
         img {
           ...MediaFragment
         }
