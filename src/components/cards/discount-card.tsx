@@ -11,7 +11,7 @@ export interface discountCardProps {
 
 const DiscountCard = ({ card, className }: discountCardProps) => {
   const newPrice =
-    card.services_id.price -
+    card.services_id.price +
     (card.services_id.price * card.services_id.sale) / 100;
 
   const formatPrice = React.useCallback((item: any) => {
@@ -41,12 +41,12 @@ const DiscountCard = ({ card, className }: discountCardProps) => {
           >
             <div className="flex gap-[6px] items-center">
               <p className=" relative text-[#353535] text-[20px] leading-[25px] tracking-tight font-semibold ">
-                {formatPrice(newPrice)} <span className="">₽</span>
+                {formatPrice(card.services_id.price)}{" "}
+                <span className="">₽</span>
               </p>
 
               <p className="ms-[8px] relative text-[#7B7B7B] text-[14px] line-through leading-[18px] tracking-tight  ">
-                {formatPrice(card.services_id.price)}{" "}
-                <span className="">₽</span>
+                {formatPrice(newPrice)} <span className="">₽</span>
               </p>
             </div>
             <Badge

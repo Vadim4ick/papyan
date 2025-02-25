@@ -66,9 +66,7 @@ export default function Page({ params }: { params: { slug: string } }) {
                       return (
                         <div className="w-full h-[467px] md:h-[416px] xl:h-[418px] overflow-hidden group">
                           {src && (
-                            <Image
-                              width={380}
-                              height={418}
+                            <img
                               src={src}
                               alt={"altText"}
                               className="h-full w-full object-cover transition-transform duration-300 rounded-[8px]"
