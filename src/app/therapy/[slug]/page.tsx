@@ -7,7 +7,6 @@ import { SliderWrapper } from "@/components/slider/slider-wrapper";
 import { Loader } from "@/components/ui/loader";
 import { useGetServiceById } from "@/shared/hooks/services/useGetServiceById";
 import { useGetServicesBlocksFilterByServices } from "@/shared/hooks/services/useGetServicesBlocksFilterByServices";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 
