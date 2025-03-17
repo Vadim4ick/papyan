@@ -14,9 +14,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Клиника Papyan",
+  title: "Клиника компас здоровья | Краснодар",
 
-  description: "Клиника Papyan, г. Краснодар",
+  description: "Клиника Компас Здоровья, г. Краснодар",
 };
 
 export default function RootLayout({
