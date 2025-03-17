@@ -2,7 +2,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { GetAllDoctorsQuery } from "@/graphql/__generated__";
 import { pathImage } from "@/shared/lib/utils";
-import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { DialogForm } from "./modal/dialog";
 import { useRouter } from "next/navigation";

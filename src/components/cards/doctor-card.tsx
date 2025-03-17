@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { cn, pathImage } from "@/shared/lib/utils";
 import { RoundButton } from "../ui/round-button";
 import { GetAllDoctorsQuery } from "@/graphql/__generated__";
