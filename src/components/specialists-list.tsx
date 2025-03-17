@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { RoundButton } from "./ui/round-button";
 import { Badge } from "./ui/badge";
 import { Separator } from "./ui/separator";

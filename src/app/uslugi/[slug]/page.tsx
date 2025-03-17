@@ -8,7 +8,7 @@ import { Loader } from "@/components/ui/loader";
 import { useGetServicesBlockById } from "@/shared/hooks/services/useGetServicesBlockById";
 import { useGetServicesClinic } from "@/shared/hooks/services/useGetServicesClinic";
 import { pathImage } from "@/shared/lib/utils";
-import Image from "next/image";
+// import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export default function Page({ params }: { params: { slug: string } }) {
