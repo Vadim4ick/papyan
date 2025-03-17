@@ -83,33 +83,33 @@ export default function Page({ params }: { params: { slug: string } }) {
               slideWidth="!w-[298px] md:!w-[311px] lg:!w-[316px]"
               className="h-[434px] md:h-[467px] xl:h-[474px]"
             >
-              {doctor.slider.map(({ directus_files_id }) => {
-                const isVideo = directus_files_id.type?.startsWith("video/");
+              {doctor?.slider?.map(({ directus_files_id }) => {
+                const isVideo = directus_files_id?.type?.startsWith("video/");
 
                 return isVideo ? (
                   <video
-                    key={directus_files_id.id}
-                    src={pathImage(directus_files_id.id)}
+                    key={directus_files_id?.id}
+                    src={pathImage(directus_files_id?.id)}
                     autoPlay
                     muted
                     playsInline
                     loop
-                    width={directus_files_id.width || 289}
-                    height={directus_files_id.height || 434}
+                    width={directus_files_id?.width || 289}
+                    height={directus_files_id?.height || 434}
                     className="h-full w-full object-cover"
                   >
                     <source
-                      src={pathImage(directus_files_id.id)}
-                      type={directus_files_id.type}
+                      src={pathImage(directus_files_id?.id)}
+                      type={directus_files_id?.type}
                     />
                   </video>
                 ) : (
                   <img
-                    key={directus_files_id.id}
-                    width={directus_files_id.width || 289}
-                    height={directus_files_id.height || 434}
-                    src={pathImage(directus_files_id.id)}
-                    alt={directus_files_id.title}
+                    key={directus_files_id?.id}
+                    width={directus_files_id?.width || 289}
+                    height={directus_files_id?.height || 434}
+                    src={pathImage(directus_files_id?.id)}
+                    alt={directus_files_id?.title}
                     className="h-full w-full object-cover"
                   />
                 );

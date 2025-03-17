@@ -28,10 +28,10 @@ export function countFileTypes<T extends FileType>(
   if (!files) return { imageCount, videoCount };
 
   for (const file of files) {
-    const type = file.directus_files_id.type;
-    if (type.startsWith("image")) {
+    const type = file?.directus_files_id?.type;
+    if (type?.startsWith("image")) {
       imageCount++;
-    } else if (type.startsWith("video")) {
+    } else if (type?.startsWith("video")) {
       videoCount++;
     }
   }
@@ -78,5 +78,5 @@ export function formattedPhoneNumber<T extends number | string>(
     return `+7 (${str.slice(1, 4)}) ${str.slice(4, 7)}-${str.slice(7, 9)}-${str.slice(9, 11)}`;
   }
 
-  return str
+  return str;
 }
