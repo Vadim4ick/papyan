@@ -28,9 +28,10 @@ const DoctorCard: React.FC<DoctorCardProps> = ({
     <Link href={`/doctor/${doctor.id}`}>
       <div className={cn(" group", className)}>
         <div className="w-[289px] h-[350px] md:w-[311px] md:h-[377px] xl:w-[316px] xl:h-[383px] relative overflow-hidden mb-3 rounded-lg">
-          <Image
-            width={380}
-            height={418}
+          {/* TODO */}
+          <img
+            // width={380}
+            // height={418}
             src={pathImage(doctor.img.id)}
             alt={doctor.name}
             className="h-full w-full object-cover transition-transform group-hover:scale-105 duration-450"

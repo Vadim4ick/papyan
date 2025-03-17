@@ -55,9 +55,10 @@ const SpecialistsList = ({
               className="w-full flex justify-center"
             >
               <div className="items-center relative w-full h-[467px] md:w-[357px] md:h-[482px] xl:w-[316px] xl:h-[383px] rounded-lg overflow-hidden  group">
-                <Image
-                  width={380}
-                  height={418}
+                {/* TODO */}
+                <img
+                  // width={380}
+                  // height={418}
                   src={pathImage(doctor.img.id)}
                   alt={"altText"}
                   className="h-full w-full object-cover transition-transform duration-450 group-hover:scale-105 rounded-lg"
