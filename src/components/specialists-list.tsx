@@ -19,7 +19,11 @@ const SpecialistsList = ({
   const router = useRouter();
   return (
     <div className="container mx-auto max-w-[1364px] px-[20px]">
-      <div className="flex flex-col xl:flex-row gap-y-[48px] gap-x-[20px] xl:flex-wrap ">
+      <div
+        className={
+          "flex flex-col xl:grid xl:grid-cols-[316px_316px_316px] xl:justify-items-start xl:items-start xl:max-w-[1200px] gap-y-[48px] gap-x-[20px] xl:flex-wrap "
+        }
+      >
         {doctors.map((doctor, index) => (
           <div
             key={doctor.id}
@@ -49,10 +53,7 @@ const SpecialistsList = ({
                 )}
               </div>
             </div>
-            <Link
-              href={`/doctor/${doctor.id}`}
-              className="w-full flex justify-center"
-            >
+            <Link href={`/doctor/${doctor.id}`} className="w-full flex">
               <div className="items-center relative w-full h-[467px] md:w-[357px] md:h-[482px] xl:w-[316px] xl:h-[383px] rounded-lg overflow-hidden  group">
                 {/* TODO */}
                 <img
