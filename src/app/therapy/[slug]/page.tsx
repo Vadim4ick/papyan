@@ -93,6 +93,7 @@ export default function Page({ params }: { params: { slug: string } }) {
                 <GetConsultCard
                   title={service.services_by_id.title}
                   regularPrice={service.services_by_id.price}
+                  sale={service.services_by_id.sale}
                   newPrice={
                     service.services_by_id.sale
                       ? service.services_by_id.price +
