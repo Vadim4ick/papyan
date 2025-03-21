@@ -15,11 +15,13 @@ interface ServiceCardItemProps {
   title: string;
   regularPrice: number;
   newPrice?: number;
+  sale?: number;
 }
 
 function GetConsultCard({
   title,
   regularPrice,
+  sale,
   newPrice,
 }: ServiceCardItemProps) {
   const formatPrice = React.useCallback((item: any) => {
@@ -36,9 +38,11 @@ function GetConsultCard({
         </CardTitle>
       </CardHeader>
       <CardContent className="relative h-[174px] flex flex-col rounded-lg bg-[#EFF3F7] p-[20px]">
-        <div className="absolute top-0 right-[20px] w-[70px] h-[24px] flex justify-center items-center bg-[#E7402A] rounded-b-md text-white text-[14px] font-semibold leading-[19.12px]">
-          -15%
-        </div>
+        {Boolean(sale) && sale !== undefined && sale > 0 && (
+          <div className="absolute top-0 right-[20px] w-[70px] h-[24px] flex justify-center items-center bg-[#E7402A] rounded-b-md text-white text-[14px] font-semibold leading-[19.12px]">
+            {`${sale}%`}
+          </div>
+        )}
         <CardDescription className="flex-1">
           <p className="mb-[8px] text-[16px] text-[#7B7B7B] leading-[20px] tracking-tight font-semibold">
             Стоимость:
