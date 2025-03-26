@@ -33,8 +33,8 @@ import {
   //   TypeSelector,
   Placemark,
 } from "@r3flector/react-yandex-maps";
-import { Input } from "@/components/ui/input";
-import InputMask from "react-input-mask";
+// import { Input } from "@/components/ui/input";
+// import InputMask from "react-input-mask";
 import { Separator } from "@/components/ui/separator";
 import { ImageSliderWrapper } from "@/components/slider/image-slider";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -578,7 +578,7 @@ export default function Home() {
 
               <div className="flex flex-col gap-[31px] max-md:gap-4">
                 <div className="flex gap-[20px] md:h-[54px] max-md:flex-col max-md:gap-3">
-                  <InputMask mask="+7 (999) 999-99-99">
+                  {/* <InputMask mask="+7 (999) 999-99-99">
                     {(inputProps: any) => (
                       <Input
                         {...inputProps}
@@ -586,20 +586,25 @@ export default function Home() {
                         placeholder={"+7(000)000-00-00"}
                       />
                     )}
-                  </InputMask>
+                  </InputMask> */}
 
-                  <DialogForm>
-                    <Button
-                      motionProps={{
-                        stiffness: 142.2,
-                        damping: 26.67,
-                        mass: 1,
-                      }}
-                      className="bg-[#1467E1] duration-450 w-full max-w-[267px] h-[54px] text-[15px] leading-[20px] tracking-[-0.3px] max-md:max-w-full"
+                  <Button
+                    motionProps={{
+                      stiffness: 142.2,
+                      damping: 26.67,
+                      mass: 1,
+                    }}
+                    className="bg-[#1467E1] duration-450 w-full max-w-[267px] h-[54px] text-[15px] leading-[20px] tracking-[-0.3px] max-md:max-w-full"
+                  >
+                    <Link
+                      target="_blank"
+                      href={
+                        "https://n893598.yclients.com/company/833014/personal/menu?o="
+                      }
                     >
-                      Как записаться онлайн
-                    </Button>
-                  </DialogForm>
+                      Записаться онлайн
+                    </Link>
+                  </Button>
                 </div>
 
                 <p className="max-w-[540px] text-[12px] leading-[16.8px] font-medium text-[#353535] tracking-[-0.24px]">
