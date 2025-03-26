@@ -8,7 +8,7 @@ import { Clock7, MapPin, Phone } from "lucide-react";
 import { ContactData } from "@/shared/const/moc-data";
 import { Separator } from "./ui/separator";
 import { CretinLogo } from "@/shared/icons/Creatin";
-import { DialogForm } from "./modal/dialog";
+// import { DialogForm } from "./modal/dialog";
 import { motion, Variants } from "framer-motion";
 
 const contacts = ContactData;
@@ -67,14 +67,19 @@ const Footer = () => {
           <div className="w-full lg:max-w-fit flex md:flex-row lg:flex-col gap-4 lg:gap-y-[58px] justify-between max-md:justify-center">
             <LogoFooter className="max-md:h-[62px] max-md:w-[310px]" />
 
-            <DialogForm>
+            <Link
+              target="_blank"
+              href={
+                "https://n893598.yclients.com/company/833014/personal/menu?o="
+              }
+            >
               <Button
                 variant="white"
                 className="hidden md:block duration-350 ease-out"
               >
                 Записаться онлайн
               </Button>
-            </DialogForm>
+            </Link>
           </div>
 
           <div className="w-full flex justify-between gap-[56px] xl:gap-[128px] flex-wrap lg:flex-nowrap lg:max-w-[701px]">
@@ -157,14 +162,19 @@ const Footer = () => {
             </div>
           </div>
 
-          <DialogForm>
+          <Link
+            target="_blank"
+            href={
+              "https://n893598.yclients.com/company/833014/personal/menu?o="
+            }
+          >
             <Button
               variant="white"
               className="md:hidden ease-out w-full h-[48px] duration-350"
             >
               Записаться онлайн
             </Button>
-          </DialogForm>
+          </Link>
         </div>
       </Container>
 
