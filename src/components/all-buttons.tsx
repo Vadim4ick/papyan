@@ -1,17 +1,23 @@
 import { ChevronRight } from "lucide-react";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 function AllButtons() {
   return (
     <div className="h-full flex flex-wrap gap-5 p-20 bg-[#EBEFF3]">
       <div className="flex flex-col bg-[#1E1E1E] items-center p-8 gap-5 w-[350px] shadow-lg">
         <h1 className="text-white py-5">Secondary button</h1>
-        <Button className="duration-350 ease-out" variant="default">
-          Записаться онлайн
-        </Button>
-        <Button className="duration-350 ease-out" variant="default" disabled>
-          Записаться онлайн
-        </Button>
+        <Link href={"https://ya.ru/"}>
+          <Button className="duration-350 ease-out" variant="default">
+            Записаться онлайн
+          </Button>
+        </Link>
+
+        <Link href={"https://ya.ru/"}>
+          <Button className="duration-350 ease-out" variant="default" disabled>
+            Записаться онлайн
+          </Button>
+        </Link>
       </div>
 
       <div className="flex flex-col bg-[#1E1E1E] items-center p-8 gap-5 w-[350px] shadow-lg">

@@ -10,7 +10,7 @@ import { Navbar } from "./Navbar";
 import "./header.css";
 import { ContactCard } from "../cards/contact-card";
 import { ContactData } from "@/shared/const/moc-data";
-import { DialogForm } from "../modal/dialog";
+// import { DialogForm } from "../modal/dialog";
 import LogoMobile from "@/shared/icons/Logo-mobile";
 
 const contacts = ContactData;
@@ -48,11 +48,16 @@ const Header = () => {
 
           {/* Кнопка "Записаться онлайн" для десктопа */}
           <div className="hidden lg:flex z-50">
-            <DialogForm>
+            <Link
+              target="_blank"
+              href={
+                "https://n893598.yclients.com/company/833014/personal/menu?o="
+              }
+            >
               <Button className="duration-350 ease-out" variant="default">
                 Записаться онлайн
               </Button>
-            </DialogForm>
+            </Link>
           </div>
 
           {/* Кнопка бургер для мобильного меню */}
@@ -111,14 +116,19 @@ const Header = () => {
             schedule={contacts.schedule}
             phone={contacts.phone}
           />
-          <DialogForm>
+          <Link
+            target="_blank"
+            href={
+              "https://n893598.yclients.com/company/833014/personal/menu?o="
+            }
+          >
             <Button
               variant="default"
               className="w-full h-[48px] md:h-[54px] max-md:text-[15px] max-md:leading-[18px] max-md:tracking-[-0.3px]"
             >
               Записаться онлайн
             </Button>
-          </DialogForm>
+          </Link>
         </div>
       </div>
     </>
