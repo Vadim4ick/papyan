@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/header/Header";
 import { Footer } from "@/components/Footer";
 import { Providers } from "@/shared/providers/providers";
+import { Toaster } from "sonner";
 
 const manrope = Manrope({
   weight: ["400", "500", "600", "700", "800"],
@@ -36,6 +37,8 @@ export default function RootLayout({
             <Footer />
           </div>
         </Providers>
+
+        <Toaster richColors />
       </body>
     </html>
   );
