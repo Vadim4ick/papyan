@@ -183,18 +183,13 @@ const Footer = () => {
 
         <Container className="flex items-center justify-between w-full max-md:flex-col max-md:pb-[36px] max-md:pt-[32px] max-md:gap-[48px]">
           <div className="flex items-center gap-4 max-md:flex-col h-full px-[20px] lg:px-0 max-md:w-full max-md:gap-3">
-            <Link
-              className="text-[#979797] font-medium text-[14px] leading-[18px] tracking-tight"
-              href="/"
-            >
-              Публичная аферта
-            </Link>
-            <Link
+            <a
+              download
               className=" text-[#979797] font-medium text-[14px] leading-[18px] tracking-tight"
-              href="/"
+              href="/обработка_персональных_данных.pdf"
             >
-              Пользовательское соглашение
-            </Link>
+              Обработка персональных данных
+            </a>
           </div>
 
           <div className="md:hidden flex flex-col gap-2 items-center">

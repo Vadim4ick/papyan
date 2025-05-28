@@ -4,7 +4,7 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/shared/lib/utils";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Loader2 } from "lucide-react";
 
 import { motion } from "framer-motion";
 
@@ -101,6 +101,7 @@ export interface ButtonProps
     damping?: number;
     mass?: number;
   };
+  isLoading?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -112,6 +113,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       asChild = false,
       classArrow,
       motionProps,
+      isLoading = false,
       ...props
     },
     ref
@@ -128,7 +130,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       // @ts-ignore
       <Comp
-        className={cn(buttonVariants({ variant, className }))}
+        className={cn(
+          buttonVariants({ variant, className }),
+          isLoading && "relative pointer-events-none"
+        )}
         ref={ref}
         whileHover={
           motionProps
@@ -142,23 +147,33 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         }
         {...props}
       >
-        {variant === "tretiary" ? (
-          <div className="relative flex items-center">
-            <span className="transition-transform duration-300 ease-out hover:-translate-x-1">
-              {children}
-            </span>
-            <span className="ml-[5px] mt-[3px]">
-              <ChevronRight width={17} />
-            </span>
-          </div>
-        ) : variant === "arrow" ? (
-          <span
-            className={`ms-[2px] mt-[0px] chevron transition-transform duration-300 ease-out active:scale-[0.9] ${classArrow}`}
-          >
-            {children}
+        {isLoading && (
+          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex">
+            <Loader2 className="animate-spin w-5 h-5 text-current" />
           </span>
-        ) : (
-          children
+        )}
+
+        {!isLoading && (
+          <>
+            {variant === "tretiary" ? (
+              <div className="relative flex items-center">
+                <span className="transition-transform duration-300 ease-out hover:-translate-x-1">
+                  {children}
+                </span>
+                <span className="ml-[5px] mt-[3px]">
+                  <ChevronRight width={17} />
+                </span>
+              </div>
+            ) : variant === "arrow" ? (
+              <span
+                className={`ms-[2px] mt-[0px] chevron transition-transform duration-300 ease-out active:scale-[0.9] ${classArrow}`}
+              >
+                {children}
+              </span>
+            ) : (
+              children
+            )}
+          </>
         )}
       </Comp>
     );

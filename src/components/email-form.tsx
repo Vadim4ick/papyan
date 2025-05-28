@@ -8,6 +8,8 @@ import { Button } from "./ui/button";
 import InputMask from "react-input-mask";
 import React from "react";
 import { toast } from "sonner";
+import { Checkbox } from "./ui/checkbox";
+import { Label } from "./ui/label";
 
 const phoneValidation = /^(?:\+7|8)?\s?\(?[1-9]\d{2}\)?\s?\d{3}-?\d{2}-?\d{2}$/;
 
@@ -24,6 +26,7 @@ const formSchema = z
       .regex(phoneValidation, { message: "Введите корректный номер телефона" })
       .optional()
       .or(z.literal("")),
+    agreement: z.boolean().default(false),
   })
   .refine((data) => data.email || data.phone, {
     message: "Одно из полей [email, phone] обязательно",
@@ -54,6 +57,7 @@ export function EmailForm() {
       name: "",
       email: "",
       phone: "",
+      agreement: false,
     },
   });
 
@@ -100,68 +104,106 @@ export function EmailForm() {
               </FormItem>
             )}
           />
-          <div className="flex flex-col xl:flex-row gap-2 mb-[24px]">
+          <div className="mb-1">
+            <div className="flex flex-col xl:flex-row gap-2 mb-4">
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        className={`w-full xl:w-[194px] h-[52px] bg-[#F0F3F8] border-[#E3E6EB] text-center text-[15px] leading-[20px] tracking-tight ${
+                          form.formState.errors.email
+                            ? "text-[#F52222] placeholder:text-[#F52222] border-[#F52222]"
+                            : ""
+                        }`}
+                        placeholder={
+                          form.formState.errors.email?.message || "E-mail"
+                        }
+                        // type="email"
+                        autoComplete="email"
+                        {...field}
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+              <div className="flex w-full items-center justify-center xl:w-fit">
+                <span className="">или</span>
+              </div>
+              <FormField
+                control={form.control}
+                name="phone"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <InputMask
+                        mask="+7 (999) 999-99-99"
+                        value={field.value}
+                        onChange={field.onChange}
+                      >
+                        {(inputProps: any) => (
+                          <Input
+                            {...inputProps}
+                            className={`xl:w-[194px] h-[52px] bg-[#F0F3F8] border-[#E3E6EB] text-center text-[15px] leading-[20px] tracking-tight ${
+                              form.formState.errors.phone
+                                ? "text-[#F52222] placeholder:text-[#F52222] border-[#F52222]"
+                                : ""
+                            }`}
+                            placeholder={
+                              form.formState.errors.phone?.message ||
+                              "+7(000)000-00-00"
+                            }
+                          />
+                        )}
+                      </InputMask>
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+            </div>
+
             <FormField
               control={form.control}
-              name="email"
+              name="agreement"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="flex items-center gap-2">
                   <FormControl>
-                    <Input
-                      className={`w-full xl:w-[194px] h-[52px] bg-[#F0F3F8] border-[#E3E6EB] text-center text-[15px] leading-[20px] tracking-tight ${
-                        form.formState.errors.email
-                          ? "text-[#F52222] placeholder:text-[#F52222] border-[#F52222]"
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                      id="agreement"
+                      className={
+                        form.formState.errors.agreement
+                          ? "border-[#F52222]"
                           : ""
-                      }`}
-                      placeholder={
-                        form.formState.errors.email?.message || "E-mail"
                       }
-                      // type="email"
-                      autoComplete="email"
-                      {...field}
                     />
                   </FormControl>
-                </FormItem>
-              )}
-            />
-            <div className="flex w-full items-center justify-center xl:w-fit">
-              <span className="">или</span>
-            </div>
-            <FormField
-              control={form.control}
-              name="phone"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <InputMask
-                      mask="+7 (999) 999-99-99"
-                      value={field.value}
-                      onChange={field.onChange}
+                  <Label
+                    htmlFor="agreement"
+                    className={`text-xs leading-tight select-none cursor-pointer mt-[0!important]`}
+                  >
+                    Я подтверждаю согласие на обработку{" "}
+                    <a
+                      href="/policy.docx"
+                      className="text-[#7B4EFF] underline font-medium transition-colors hover:text-[#592ac2]"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      {(inputProps: any) => (
-                        <Input
-                          {...inputProps}
-                          className={`xl:w-[194px] h-[52px] bg-[#F0F3F8] border-[#E3E6EB] text-center text-[15px] leading-[20px] tracking-tight ${
-                            form.formState.errors.phone
-                              ? "text-[#F52222] placeholder:text-[#F52222] border-[#F52222]"
-                              : ""
-                          }`}
-                          placeholder={
-                            form.formState.errors.phone?.message ||
-                            "+7(000)000-00-00"
-                          }
-                        />
-                      )}
-                    </InputMask>
-                  </FormControl>
+                      персональных данных
+                    </a>
+                  </Label>
                 </FormItem>
               )}
             />
           </div>
 
           <Button
+            isLoading={loading}
             type="submit"
-            disabled={!form.formState.isValid || loading}
+            disabled={!form.formState.isValid || !form.watch("agreement")}
             className="h-[52px] w-full"
           >
             Отправить

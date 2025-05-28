@@ -28,6 +28,7 @@ export function DialogForm({ children }: DialogFormProps) {
             </p>
           </DialogDescription>
         </DialogHeader>
+
         <EmailForm />
       </DialogContent>
     </Dialog>
