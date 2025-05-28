@@ -48,7 +48,7 @@ export async function POST(req: Request) {
   try {
     await transporter.sendMail({
       from: `"Компас Здоровья" <${process.env.SMTP_MAIL}>`,
-      to: "firulvv@mail.ru", // Получатель
+      to: "kompas_zdorovya23@mail.ru", // Получатель
       subject: "Заявка на консультацию",
       html: htmlMessage,
     });
