@@ -187,7 +187,8 @@ export function EmailForm() {
                   >
                     Я подтверждаю согласие на обработку{" "}
                     <a
-                      href="/policy.docx"
+                      download
+                      href="/обработка_персональных_данных.pdf"
                       className="text-[#7B4EFF] underline font-medium transition-colors hover:text-[#592ac2]"
                       target="_blank"
                       rel="noopener noreferrer"
