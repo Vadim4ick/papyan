@@ -45,6 +45,16 @@ export async function POST(req: Request) {
     ${phone ? `<p><b>Телефон:</b> ${phone}</p>` : ""}
   `;
 
+  // Telegram отправка
+  const tgMessage = `
+<b>Заявка на консультацию</b>
+<b>Имя:</b> ${name}
+${email ? `<b>Email:</b> ${email}` : ""}
+${phone ? `<b>Телефон:</b> ${phone}` : ""}
+  `.trim();
+
+  const tgUrl = `https://api.telegram.org/bot${process.env.TG_TOKEN}/sendMessage`;
+
   try {
     await transporter.sendMail({
       from: `"Компас Здоровья" <${process.env.SMTP_MAIL}>`,
@@ -52,6 +62,23 @@ export async function POST(req: Request) {
       subject: "Заявка на консультацию",
       html: htmlMessage,
     });
+
+    const tgRes = await fetch(tgUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: process.env.TG_CHAT_ID,
+        text: tgMessage,
+        parse_mode: "HTML",
+      }),
+    });
+
+    if (!tgRes.ok) {
+      const err = await tgRes.text();
+      console.error("TG API error:", err);
+      throw new Error("Ошибка при отправке в Telegram");
+    }
+
     return NextResponse.json({ message: "Заявка успешно отправлена!" });
   } catch (error) {
     console.error(error);
