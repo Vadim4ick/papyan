@@ -27,6 +27,21 @@ const Header = () => {
     }
   }, [menuOpen]);
 
+  // Вставляем скрипт Medflex один раз при монтировании
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src =
+      "https://booking.medflex.ru/components/round/round_widget_button.js";
+    script.async = true;
+    script.defer = true;
+    script.charset = "utf-8";
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <>
       <header className="sticky top-0 bg-white h-[52px] lg:h-[64px] z-50 border-b-[1px] border-[#E8E8E8]">
@@ -47,7 +62,7 @@ const Header = () => {
           </Link>
 
           {/* Кнопка "Записаться онлайн" для десктопа */}
-          <div className="hidden lg:flex z-50">
+          {/* <div className="hidden lg:flex z-50">
             <Link
               target="_blank"
               href={
@@ -58,6 +73,13 @@ const Header = () => {
                 Записаться онлайн
               </Button>
             </Link>
+          </div> */}
+
+          <div className="hidden lg:flex z-50">
+            <div
+              id="medflexRoundWidgetData"
+              data-src="https://booking.medflex.ru?user=f30838ef8e59df310c6ad309493205ba&isRoundWidget=true"
+            ></div>
           </div>
 
           {/* Кнопка бургер для мобильного меню */}
@@ -116,7 +138,7 @@ const Header = () => {
             schedule={contacts.schedule}
             phone={contacts.phone}
           />
-          <Link
+          {/* <Link
             target="_blank"
             href={
               "https://n893598.yclients.com/company/833014/personal/menu?o="
@@ -128,7 +150,7 @@ const Header = () => {
             >
               Записаться онлайн
             </Button>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </>
