@@ -69,9 +69,7 @@ const Footer = () => {
 
             <Link
               target="_blank"
-              href={
-                "https://n893598.yclients.com/company/833014/personal/menu?o="
-              }
+              href="https://booking.medflex.ru?user=f30838ef8e59df310c6ad309493205ba"
             >
               <Button
                 variant="white"
@@ -164,9 +162,7 @@ const Footer = () => {
 
           <Link
             target="_blank"
-            href={
-              "https://n893598.yclients.com/company/833014/personal/menu?o="
-            }
+            href="https://booking.medflex.ru?user=f30838ef8e59df310c6ad309493205ba"
           >
             <Button
               variant="white"

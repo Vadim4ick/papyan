@@ -28,19 +28,19 @@ const Header = () => {
   }, [menuOpen]);
 
   // Вставляем скрипт Medflex один раз при монтировании
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src =
-      "https://booking.medflex.ru/components/round/round_widget_button.js";
-    script.async = true;
-    script.defer = true;
-    script.charset = "utf-8";
-    document.body.appendChild(script);
+  // useEffect(() => {
+  //   const script = document.createElement("script");
+  //   script.src =
+  //     "https://booking.medflex.ru/components/round/round_widget_button.js";
+  //   script.async = true;
+  //   script.defer = true;
+  //   script.charset = "utf-8";
+  //   document.body.appendChild(script);
 
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+  //   return () => {
+  //     document.body.removeChild(script);
+  //   };
+  // }, []);
 
   return (
     <>
@@ -62,25 +62,23 @@ const Header = () => {
           </Link>
 
           {/* Кнопка "Записаться онлайн" для десктопа */}
-          {/* <div className="hidden lg:flex z-50">
+          <div className="hidden lg:flex z-50">
             <Link
               target="_blank"
-              href={
-                "https://n893598.yclients.com/company/833014/personal/menu?o="
-              }
+              href="https://booking.medflex.ru?user=f30838ef8e59df310c6ad309493205ba"
             >
               <Button className="duration-350 ease-out" variant="default">
                 Записаться онлайн
               </Button>
             </Link>
-          </div> */}
+          </div>
 
-          <div className="hidden lg:flex z-50">
+          {/* <div className="hidden lg:flex z-50">
             <div
               id="medflexRoundWidgetData"
               data-src="https://booking.medflex.ru?user=f30838ef8e59df310c6ad309493205ba&isRoundWidget=true"
             ></div>
-          </div>
+          </div> */}
 
           {/* Кнопка бургер для мобильного меню */}
           <Button
@@ -138,11 +136,9 @@ const Header = () => {
             schedule={contacts.schedule}
             phone={contacts.phone}
           />
-          {/* <Link
+          <Link
             target="_blank"
-            href={
-              "https://n893598.yclients.com/company/833014/personal/menu?o="
-            }
+            href="https://booking.medflex.ru?user=f30838ef8e59df310c6ad309493205ba"
           >
             <Button
               variant="default"
@@ -150,7 +146,7 @@ const Header = () => {
             >
               Записаться онлайн
             </Button>
-          </Link> */}
+          </Link>
         </div>
       </div>
     </>
