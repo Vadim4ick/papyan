@@ -42,7 +42,6 @@ const Navbar: React.FC<NavbarProps> = ({ onLinkClick }) => {
               </span>
               <ChevronRight className="h-[22px] md:h-[24px] lg:hidden" />
             </Link>
-
             {navbar.indexOf(item) < navbar.length - 1 && (
               <Separator
                 orientation="vertical"
