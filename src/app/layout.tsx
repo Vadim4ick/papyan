@@ -6,7 +6,7 @@ import { Header } from "@/components/header/Header";
 import { Footer } from "@/components/Footer";
 import { Providers } from "@/shared/providers/providers";
 import { Toaster } from "sonner";
-import YandexMetrika from "@/components/ui/YandexMetrika";
+import YandexMetrika from "@/components/ui/yandexMetrika";
 
 const manrope = Manrope({
   weight: ["400", "500", "600", "700", "800"],
