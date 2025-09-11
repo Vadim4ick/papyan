@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
@@ -5,6 +6,7 @@ import { Header } from "@/components/header/Header";
 import { Footer } from "@/components/Footer";
 import { Providers } from "@/shared/providers/providers";
 import { Toaster } from "sonner";
+import YandexMetrika from "@/components/ui/YandexMetrika";
 
 const manrope = Manrope({
   weight: ["400", "500", "600", "700", "800"],
@@ -44,6 +46,20 @@ export default function RootLayout({
             <Footer />
           </div>
         </Providers>
+
+        {/* Yandex.Metrika */}
+        <YandexMetrika />
+
+        <noscript>
+          <div>
+            <img
+              src="https://mc.yandex.ru/watch/104053645"
+              style={{ position: "absolute", left: "-9999px" }}
+              alt=""
+            />
+          </div>
+        </noscript>
+        {/* /Yandex.Metrika */}
 
         <Toaster richColors />
       </body>
