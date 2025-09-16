@@ -11,7 +11,6 @@ import "./header.css";
 import { ContactCard } from "../cards/contact-card";
 import { ContactData } from "@/shared/const/moc-data";
 // import { DialogForm } from "../modal/dialog";
-import LogoMobile from "@/shared/icons/Logo-mobile";
 
 const contacts = ContactData;
 
@@ -57,7 +56,7 @@ const Header = () => {
               <Logo />
             </span>
             <span className="md:hidden">
-              <LogoMobile />
+              <Logo className="max-h-[40px] max-w-[56.6px]" />
             </span>
           </Link>
 
