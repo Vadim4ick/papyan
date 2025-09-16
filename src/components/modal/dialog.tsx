@@ -20,7 +20,7 @@ export function DialogForm({ children }: DialogFormProps) {
       <DialogContent className="w-[360px] md:w-[486px] rounded-lg p-7">
         <DialogHeader>
           <DialogTitle className="flex justify-center mb-6">
-            <Logo />
+            <Logo className="max-h-[50px] max-w-[157px]" />
           </DialogTitle>
           <DialogDescription className="mb-6">
             <p className="text-center text-2xl leading-[30px] tracking-tight font-semibold">
