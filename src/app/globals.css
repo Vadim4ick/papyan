@@ -165,3 +165,10 @@ body {
   animation-duration: 450ms !important;
   transition-duration: 450ms !important;
 }
+
+.markdown-text p,
+.markdown-text li,
+.markdown-text h3,
+.markdown-text h4 {
+  @apply text-[#595959] tracking-[-0.32px];
+}

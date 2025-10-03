@@ -2175,8 +2175,8 @@ export type ServicesBlock = {
   readonly __typename?: 'servicesBlock';
   readonly allServices: Maybe<ReadonlyArray<Maybe<Services>>>;
   readonly allServices_func: Maybe<Count_Functions>;
+  readonly desc: Maybe<Scalars['String']['output']>;
   readonly description: Maybe<Scalars['String']['output']>;
-  readonly descriptionBlock: Maybe<Scalars['String']['output']>;
   readonly id: Scalars['ID']['output'];
   readonly img: Maybe<Directus_Files>;
   readonly title: Maybe<Scalars['String']['output']>;
@@ -2219,8 +2219,8 @@ export type ServicesBlock_Aggregated = {
 export type ServicesBlock_Aggregated_Count = {
   readonly __typename?: 'servicesBlock_aggregated_count';
   readonly allServices: Maybe<Scalars['Int']['output']>;
+  readonly desc: Maybe<Scalars['Int']['output']>;
   readonly description: Maybe<Scalars['Int']['output']>;
-  readonly descriptionBlock: Maybe<Scalars['Int']['output']>;
   readonly id: Maybe<Scalars['Int']['output']>;
   readonly img: Maybe<Scalars['Int']['output']>;
   readonly title: Maybe<Scalars['Int']['output']>;
@@ -2236,8 +2236,8 @@ export type ServicesBlock_Filter = {
   readonly _or: InputMaybe<ReadonlyArray<InputMaybe<ServicesBlock_Filter>>>;
   readonly allServices: InputMaybe<Services_Filter>;
   readonly allServices_func: InputMaybe<Count_Function_Filter_Operators>;
+  readonly desc: InputMaybe<String_Filter_Operators>;
   readonly description: InputMaybe<String_Filter_Operators>;
-  readonly descriptionBlock: InputMaybe<String_Filter_Operators>;
   readonly id: InputMaybe<Number_Filter_Operators>;
   readonly img: InputMaybe<Directus_Files_Filter>;
   readonly title: InputMaybe<String_Filter_Operators>;
@@ -2814,8 +2814,8 @@ export type Version_ServicesBlock = {
   readonly __typename?: 'version_servicesBlock';
   readonly allServices: Maybe<Scalars['JSON']['output']>;
   readonly allServices_func: Maybe<Count_Functions>;
+  readonly desc: Maybe<Scalars['String']['output']>;
   readonly description: Maybe<Scalars['String']['output']>;
-  readonly descriptionBlock: Maybe<Scalars['String']['output']>;
   readonly id: Scalars['ID']['output'];
   readonly img: Maybe<Scalars['JSON']['output']>;
   readonly title: Maybe<Scalars['String']['output']>;
@@ -2957,7 +2957,7 @@ export type GetServiceBlockByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetServiceBlockByIdQuery = { readonly __typename?: 'Query', readonly servicesBlock_by_id: { readonly __typename?: 'servicesBlock', readonly id: string, readonly title: string, readonly description: string, readonly descriptionBlock: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number, readonly baner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } }> } };
+export type GetServiceBlockByIdQuery = { readonly __typename?: 'Query', readonly servicesBlock_by_id: { readonly __typename?: 'servicesBlock', readonly id: string, readonly title: string, readonly description: string, readonly desc: string, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number }, readonly allServices: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly price: number, readonly description: string, readonly sale: number, readonly baner: { readonly __typename?: 'directus_files', readonly id: string, readonly title: string, readonly width: number, readonly type: string, readonly height: number } }> } };
 
 export const MediaFragmentFragmentDoc = gql`
     fragment MediaFragment on directus_files {
@@ -3236,7 +3236,7 @@ export const GetServiceBlockByIdDocument = gql`
     id
     title
     description
-    descriptionBlock
+    desc
     img {
       ...MediaFragment
     }

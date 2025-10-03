@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 "use client";
 
@@ -41,7 +42,6 @@ export default function Page({ params }: { params: { slug: string } }) {
           <div className="flex flex-col md:flex-row  justify-between md:gap-[40px] xl:gap-[130px]">
             <div className="min-w-[350px] md:w-[357px] xl:w-[380px] mb-[60px] md:mb-[0px]">
               <div className=" h-[262px] ] md:h-[394px]  xl:h-[418px] mb-[36px] md:mb-[48px] overflow-hidden rounded-md group">
-                {/* TODO */}
                 <img
                   // width={380}
                   // height={418}
@@ -51,12 +51,12 @@ export default function Page({ params }: { params: { slug: string } }) {
                 />
               </div>
 
-              {data.servicesBlock_by_id.descriptionBlock && (
-                <p className="text-[#595959] text-[16px] leading-[22px] tracking-[-0.32px]">
-                  {" "}
-                  {data.servicesBlock_by_id.descriptionBlock}
-                </p>
-              )}
+              <div
+                className={"markdown-text"}
+                dangerouslySetInnerHTML={{
+                  __html: data.servicesBlock_by_id.desc || "",
+                }}
+              />
             </div>
 
             <ServiceCardsWrapper

@@ -3,7 +3,8 @@ query GetServiceBlockById($id: ID!) {
     id
     title
     description
-    descriptionBlock
+
+    desc
 
     img {
       ...MediaFragment
