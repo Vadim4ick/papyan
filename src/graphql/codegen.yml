@@ -1,5 +1,6 @@
 overwrite: true
-schema: http://147.45.246.176:8055/graphql
+# schema: http://147.45.246.176:8055/graphql
+schema: http://localhost:8055/graphql
 documents: "./src/graphql/documents/**/*.gql"
 generates:
   ./src/graphql/__generated__.ts:
