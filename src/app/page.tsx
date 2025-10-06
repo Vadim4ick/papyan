@@ -88,7 +88,8 @@ export default function Home() {
       <section className="bg-[#EBEFF3] lg:pt-[36px] lg:pb-[100px]">
         <Container className="overflow-hidden max-lg:px-0">
           {data?.home_page?.mainSlider && (
-            <div className="h-[725px] max-lg:h-screen">
+            <div className="tablet:h-[725px]">
+              {/* <div className="tablet:h-[725px] max-lg:h-screen"> */}
               <Swiper
                 slidesPerView={1}
                 spaceBetween={20}
