@@ -61,10 +61,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 
             <ServiceCardsWrapper
               //@ts-ignore
-              cardsList={
-                services?.servicesClinic.servicesClinic[0].servicesBlock_id
-                  .allServices
-              }
+              cardsList={data?.servicesBlock_by_id.allServices}
               showFullList={true}
             />
           </div>
