@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { cn, pathImage } from "@/shared/lib/utils";
 import { RoundButton } from "./round-button";
@@ -6,12 +7,14 @@ import { Badge } from "./badge";
 import { useRouter } from "next/navigation";
 import { ArrowUpRight } from "@/shared/icons/ArrowUpRight";
 import Link from "next/link";
+import clsx from "clsx";
 
 interface ImageCardProps {
   imageData: MediaFragmentFragment;
   className?: string;
   bages?: string[];
   catigoryId?: string;
+  imageClass?: string;
 }
 
 const ImageCard: React.FC<ImageCardProps> = ({
@@ -19,6 +22,7 @@ const ImageCard: React.FC<ImageCardProps> = ({
   bages,
   className,
   catigoryId,
+  imageClass = "",
 }) => {
   const router = useRouter();
   return (
@@ -35,7 +39,10 @@ const ImageCard: React.FC<ImageCardProps> = ({
           height={418}
           src={pathImage(imageData.id)}
           alt={imageData.title}
-          className="h-full w-full object-cover transition-transform group-hover:scale-105"
+          className={clsx(
+            "h-full w-full object-cover transition-transform group-hover:scale-105",
+            imageClass
+          )}
         />
 
         <div className="absolute -top-[24px] right-[14px]">
