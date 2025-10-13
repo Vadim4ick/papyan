@@ -41,7 +41,7 @@ const CatigoryWrapper: React.FC<CategotyWrapperProps> = ({
           catigoryId={category.id}
           imageData={category.img}
           className="max-md:w-full"
-          imageClass="max-md:object-[center_bottom]"
+          imageClass="max-md:object-[center 80%]"
           // className="mb-[36px] md:mb-0 max-md:w-full"
           bages={category.allServices.map((service) => service.title)}
         />
