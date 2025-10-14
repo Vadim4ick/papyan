@@ -344,7 +344,7 @@ export default function Home() {
         {data?.home_page.infoBaner && (
           <Banner
             imageUrl={data.home_page.infoBaner}
-            hight={"h-[494px] md:h-[520px] lg:h-[470px]"}
+            hight={"h-[650px] max-md:max-h-[250px]"}
           />
         )}
       </section>
