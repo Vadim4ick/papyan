@@ -76,15 +76,6 @@ export default function Home() {
 
   return (
     <>
-      {/* <section className="bg-[#EBEFF3] lg:pt-[36px] lg:pb-[100px]">
-        {data?.home_page.mainBaner && (
-          <Banner
-            imageUrl={data.home_page.mainBaner}
-            hight={"h-screen lg:max-h-[727px]"}
-          />
-        )}
-      </section> */}
-
       <section className="bg-[#EBEFF3] lg:pt-[36px] lg:pb-[100px]">
         <Container className="overflow-hidden max-lg:px-0">
           {data?.home_page?.mainSlider && (
@@ -591,16 +582,6 @@ export default function Home() {
 
               <div className="flex flex-col gap-[31px] max-md:gap-4">
                 <div className="flex gap-[20px] md:h-[54px] max-md:flex-col max-md:gap-3">
-                  {/* <InputMask mask="+7 (999) 999-99-99">
-                    {(inputProps: any) => (
-                      <Input
-                        {...inputProps}
-                        className="bg-white max-w-[336px] h-[54px] max-md:max-w-full max-md:text-center"
-                        placeholder={"+7(000)000-00-00"}
-                      />
-                    )}
-                  </InputMask> */}
-
                   <Button
                     motionProps={{
                       stiffness: 142.2,
