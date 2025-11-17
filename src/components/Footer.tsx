@@ -4,7 +4,7 @@ import Link from "next/link";
 import { LogoFooter } from "@/shared/icons/LogoFooter";
 import { Button } from "./ui/button";
 import { Container } from "./ui/container";
-import { Clock7, MapPin, Phone } from "lucide-react";
+import { Clock7, Mail, MapPin, Phone } from "lucide-react";
 import { ContactData } from "@/shared/const/moc-data";
 import { Separator } from "./ui/separator";
 import { CretinLogo } from "@/shared/icons/Creatin";
@@ -157,6 +157,13 @@ const Footer = () => {
                 >
                   <Phone className="h-[20px]" />
                   <span>{contacts.phone}</span>
+                </a>
+                <a
+                  href={`mailto:kompas_zdorovya23@mail.ru`}
+                  className="flex items-center space-x-2 text-nowrap"
+                >
+                  <Mail className="h-[20px]" />
+                  <span>kompas_zdorovya23@mail.ru</span>
                 </a>
               </div>
             </div>
