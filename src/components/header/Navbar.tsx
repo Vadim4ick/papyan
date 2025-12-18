@@ -21,13 +21,13 @@ const Navbar: React.FC<NavbarProps> = ({ onLinkClick }) => {
         return (
           <div
             key={item.id}
-            className="h-full w-full lg:w-[132px] lg:flex lg:justify-between "
+            className="h-full w-full lg:w-[102px] lg:flex lg:justify-between "
           >
             <Link
               onClick={onLinkClick}
               className={clsx(
                 `flex items-center justify-center py-[11px] mx-auto lg:w-full text-center 
-                text-[24px] tracking-tight md:text-[32px] md:leading-[42px] lg:text-[14px] lg:leading-[19px] transition-all
+                text-[20px] tracking-tight md:text-[20px] md:leading-[42px] lg:text-[13px] lg:leading-[19px] transition-all
                 group-hover:text-[#929292] hover:!text-[#454545] max-md:pb-[16px] max-md:pt-[0]
               `,
                 {

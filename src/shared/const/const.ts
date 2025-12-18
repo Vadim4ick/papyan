@@ -19,4 +19,9 @@ export const navbar = [
     title: "О клинике",
     path: "/oklinike",
   },
+  {
+    id: 5,
+    title: "Контакты",
+    path: "/contacts",
+  },
 ];
