@@ -195,6 +195,12 @@ const Footer = () => {
             >
               Обработка персональных данных
             </a>
+            <Link
+              href={"/policy"}
+              className=" text-[#979797] font-medium text-[14px] leading-[18px] tracking-tight"
+            >
+              Политика конфиденциальности
+            </Link>
           </div>
 
           <div className="md:hidden flex flex-col gap-2 items-center">

@@ -8,6 +8,7 @@ import { Providers } from "@/shared/providers/providers";
 import { Toaster } from "sonner";
 import YandexMetrika from "@/components/ui/yandexMetrika";
 import Script from "next/script";
+import { CookieConsent } from "@/components/CookieConsent";
 
 const manrope = Manrope({
   weight: ["400", "500", "600", "700", "800"],
@@ -79,6 +80,8 @@ export default function RootLayout({
             <Footer />
           </div>
         </Providers>
+
+        <CookieConsent />
 
         {/* Yandex.Metrika */}
         <YandexMetrika />
