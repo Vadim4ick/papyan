@@ -10,6 +10,9 @@ import { Separator } from "./ui/separator";
 import { CretinLogo } from "@/shared/icons/Creatin";
 // import { DialogForm } from "./modal/dialog";
 import { motion, Variants } from "framer-motion";
+import { VkIcon } from "@/shared/icons/VkIcon";
+import { TgIcon } from "@/shared/icons/TgIcon";
+import { WhatSapp } from "@/shared/icons/WhatSapp";
 
 const contacts = ContactData;
 
@@ -165,6 +168,21 @@ const Footer = () => {
                   <Mail className="h-[20px]" />
                   <span>kompas_zdorovya23@mail.ru</span>
                 </a>
+
+                <div className="flex items-center gap-2 mt-2">
+                  <a
+                    href={`https://vk.com/kompaskrd?ysclid=mi960qadg3753683184`}
+                    target="_blank"
+                  >
+                    <VkIcon className="size-[25px]" />
+                  </a>
+                  <a href={`https://t.me/kompas_zdorovya_krd`} target="_blank">
+                    <TgIcon className="size-[20px]" />
+                  </a>
+                  <a href={`https://wa.me/79182321313`} target="_blank">
+                    <WhatSapp className="size-[20px]" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -175,7 +193,7 @@ const Footer = () => {
           >
             <Button
               variant="white"
-              className="md:hidden ease-out w-full h-[48px] duration-350"
+              className="md:hidden ease-out w-full h-[48px] duration-350 px-4"
             >
               Записаться онлайн
             </Button>

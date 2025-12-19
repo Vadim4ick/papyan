@@ -16,11 +16,16 @@ export const navbar = [
   },
   {
     id: 4,
+    title: "Врачи",
+    path: "/test",
+  },
+  {
+    id: 5,
     title: "О клинике",
     path: "/oklinike",
   },
   {
-    id: 5,
+    id: 6,
     title: "Контакты",
     path: "/contacts",
   },

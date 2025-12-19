@@ -2,6 +2,9 @@ import { DialogForm } from "@/components/modal/dialog";
 import { ContactsMap } from "./ContactsMap";
 
 import { Button } from "@/components/ui/button";
+import { VkIcon } from "@/shared/icons/VkIcon";
+import { TgIcon } from "@/shared/icons/TgIcon";
+import { WhatSapp } from "@/shared/icons/WhatSapp";
 
 const Conacts = ({ mapHeight }: { mapHeight: string }) => {
   return (
@@ -38,6 +41,34 @@ const Conacts = ({ mapHeight }: { mapHeight: string }) => {
                 <div className="font-semibold text-[18px] leading-[23px] tracking-[-0.36px] text-[#353535]">
                   +7 (918) 232-13-13
                 </div>
+              </div>
+
+              {/* Иконки соцсетей */}
+              <div className="flex items-center gap-4">
+                <a
+                  href="https://vk.com/kompaskrd?ysclid=mi960qadg3753683184"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-80 transition"
+                >
+                  <VkIcon className="size-[30px] text-blue-600" />
+                </a>
+                <a
+                  href="https://t.me/kompas_zdorovya_krd"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-80 transition"
+                >
+                  <TgIcon className="size-[25px] text-blue-500" />
+                </a>
+                <a
+                  href="https://wa.me/79182321313"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-80 transition"
+                >
+                  <WhatSapp className="size-[25px] text-green-500" />
+                </a>
               </div>
 
               <DialogForm>
