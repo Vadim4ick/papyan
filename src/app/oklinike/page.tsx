@@ -3,6 +3,7 @@ import { BadgeWithIcon } from "@/components/badge-with-icon";
 import { Banner } from "@/components/banner";
 import { CategoriesGalery } from "@/components/cards/categories-galery";
 import { ContactCardV2 } from "@/components/cards/contact-card-v2";
+import { ClinicFeedbackForm } from "@/components/ClinicFeedbackForm";
 import { DoctorDetailInfo } from "@/components/doctor-detail-info";
 import { DialogForm } from "@/components/modal/dialog";
 import { SectionHeader } from "@/components/section-header";
@@ -228,6 +229,8 @@ export default function About() {
           </Button>
         </div>
       </section>
+
+      <ClinicFeedbackForm />
 
       <section className="bg-[#EBEFF3] lg:py-[100px]">
         {data?.about_page.baner && (

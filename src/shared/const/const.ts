@@ -14,11 +14,11 @@ export const navbar = [
     title: "Цены",
     path: "/ceny",
   },
-  {
-    id: 4,
-    title: "Врачи",
-    path: "/test",
-  },
+  // {
+  //   id: 4,
+  //   title: "Врачи",
+  //   path: "/test",
+  // },
   {
     id: 5,
     title: "О клинике",
