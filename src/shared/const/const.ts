@@ -8,6 +8,7 @@ export const navbar = [
     id: 2,
     title: "Услуги",
     path: "/uslugi",
+    children: true,
   },
   {
     id: 3,

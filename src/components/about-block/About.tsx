@@ -14,6 +14,7 @@ import { FileText } from "lucide-react";
 import { useGetServicesBloks } from "@/shared/hooks/services/useGetServicesBlocks";
 import { Container } from "../ui/container";
 import { SectionHeader } from "../section-header";
+import Link from "next/link";
 
 const AboutBlock = () => {
   const { data: services } = useGetServicesBloks();
@@ -110,7 +111,12 @@ const AboutBlock = () => {
                         {block.allServices.map((service) => (
                           <li key={service.id} className="flex gap-[6px]">
                             <span className="text-primary">•</span>
-                            {service.title}
+                            <Link
+                              href={`/therapy/${service.id}`}
+                              className="hover:underline transition-all duration-300"
+                            >
+                              {service.title}
+                            </Link>
                           </li>
                         ))}
                       </ul>

@@ -141,7 +141,7 @@ const Header = () => {
           >
             <Button
               variant="default"
-              className="w-full h-[48px] md:h-[54px] max-md:text-[15px] max-md:leading-[18px] max-md:tracking-[-0.3px]"
+              className="w-full h-[48px] md:h-[54px] max-md:text-[15px] max-md:leading-[18px] max-md:tracking-[-0.3px] px-[10px]"
             >
               Записаться онлайн
             </Button>
