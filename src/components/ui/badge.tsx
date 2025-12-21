@@ -5,7 +5,7 @@ import { cn } from "@/shared/lib/utils";
 import { VariantBageBg } from "../cards/categories-galery";
 
 const badgeVariants = cva(
-  " flex items-center justify-center border-none rounded-[100px] px-[10px] py-[2px] text-[12px] font-bold min-w-[29px] tracking-tight",
+  " flex items-center justify-center border-none rounded-[10px] px-[10px] py-[2px] text-[12px] font-bold min-w-[29px] tracking-tight",
   {
     variants: {
       variant: {

@@ -1,4 +1,5 @@
 "use client";
+import { AboutBlock } from "@/components/about-block/About";
 import { BadgeWithIcon } from "@/components/badge-with-icon";
 import { Banner } from "@/components/banner";
 import { CategoriesGalery } from "@/components/cards/categories-galery";
@@ -163,6 +164,8 @@ export default function About() {
           )}
         </div>
       </section>
+
+      <AboutBlock />
 
       <section className="section">
         <div className="container mx-auto max-w-[1364px] px-[20px] mb-[60px] md:mb-[78px] lg:mb-[100px]">
