@@ -75,7 +75,8 @@ const AboutBlock = () => {
 
                 <Button className="w-fit gap-[8px]">
                   <a
-                    href="#!"
+                    href="/Л041-01126-23_01430991.pdf"
+                    download
                     className="flex items-center gap-2 px-2"
                     rel="noopener noreferrer"
                   >

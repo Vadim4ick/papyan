@@ -132,12 +132,13 @@ const Footer = () => {
                 >
                   Услуги
                 </Link>
-                <Link
+                <a
                   className="font-[600] text-[#B3B3B3] leading-[22px]"
-                  href="/ceny"
+                  href="/Прайс.pdf"
+                  download
                 >
                   Цены
-                </Link>
+                </a>
               </div>
             </div>
 

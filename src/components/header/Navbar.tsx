@@ -109,25 +109,48 @@ const Navbar: React.FC<NavbarProps> = ({ onLinkClick }) => {
             key={item.id}
             className="h-full w-full lg:w-[102px] lg:flex lg:justify-between "
           >
-            <Link
-              onClick={onLinkClick}
-              className={clsx(
-                `flex items-center justify-center py-[11px] mx-auto lg:w-full text-center 
+            {item.download ? (
+              <a
+                download
+                className={clsx(
+                  `flex items-center justify-center py-[11px] mx-auto lg:w-full text-center 
                 text-[20px] tracking-tight md:text-[20px] md:leading-[42px] lg:text-[13px] lg:leading-[19px] transition-all
                 group-hover/nav:text-[#929292] hover:!text-[#454545] max-md:pb-[16px] max-md:pt-[0]
               `,
-                {
-                  "md:text-[#0084FF]": isActive,
-                  "md:text-[#454545]": !isActive,
-                }
-              )}
-              href={item.path}
-            >
-              <span className="flex-1 max-lg:text-start max-md:text-[#353535]">
-                {item.title}
-              </span>
-              <ChevronRight className="h-[22px] md:h-[24px] lg:hidden" />
-            </Link>
+                  {
+                    "md:text-[#0084FF]": isActive,
+                    "md:text-[#454545]": !isActive,
+                  }
+                )}
+                href={item.path}
+              >
+                <span className="flex-1 max-lg:text-start max-md:text-[#353535]">
+                  {item.title}
+                </span>
+                <ChevronRight className="h-[22px] md:h-[24px] lg:hidden" />
+              </a>
+            ) : (
+              <Link
+                onClick={onLinkClick}
+                className={clsx(
+                  `flex items-center justify-center py-[11px] mx-auto lg:w-full text-center 
+                text-[20px] tracking-tight md:text-[20px] md:leading-[42px] lg:text-[13px] lg:leading-[19px] transition-all
+                group-hover/nav:text-[#929292] hover:!text-[#454545] max-md:pb-[16px] max-md:pt-[0]
+              `,
+                  {
+                    "md:text-[#0084FF]": isActive,
+                    "md:text-[#454545]": !isActive,
+                  }
+                )}
+                href={item.path}
+              >
+                <span className="flex-1 max-lg:text-start max-md:text-[#353535]">
+                  {item.title}
+                </span>
+                <ChevronRight className="h-[22px] md:h-[24px] lg:hidden" />
+              </Link>
+            )}
+
             {navbar.indexOf(item) < navbar.length - 1 && (
               <Separator
                 orientation="vertical"
