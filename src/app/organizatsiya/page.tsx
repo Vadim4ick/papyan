@@ -39,11 +39,8 @@ export default function Orgs() {
       <section className="py-8 md:py-12">
         <div className="mb-6">
           <h1 className="text-2xl font-semibold tracking-tight md:text-3xl">
-            Документы для скачивания
+            Об организации
           </h1>
-          <p className="mt-2 text-sm text-muted-foreground md:text-base">
-            Выберите нужный приказ и скачайте файл в формате .doc
-          </p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
