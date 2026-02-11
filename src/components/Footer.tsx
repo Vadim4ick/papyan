@@ -111,6 +111,13 @@ const Footer = () => {
                 >
                   О клинике
                 </Link>
+
+                <Link
+                  className="font-[600] text-[#B3B3B3] leading-[22px]"
+                  href="/organizatsiya"
+                >
+                  Об организации
+                </Link>
               </div>
             </div>
 
