@@ -85,7 +85,7 @@ const Footer = () => {
             </Link>
           </div>
 
-          <div className="w-full flex justify-between gap-[56px] xl:gap-[128px] flex-wrap lg:flex-nowrap lg:max-w-[701px]">
+          <div className="w-full flex justify-between gap-[56px] xl:gap-[100px] flex-wrap lg:flex-nowrap lg:max-w-[701px]">
             <div className="flex flex-col gap-[32px]">
               <h4 className="font-[600] text-white text-[20px] leading-[25px]">
                 Навигация
